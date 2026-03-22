@@ -1,7 +1,7 @@
 ---
 title: "Siber Güvenlik Destek ve Danışmanlığı"
 description: "Kurumların dijital altyapılarını korumaya yönelik uçtan uca danışmanlık ve altyapı kurulumu."
-icon: "security"
+icon: "shield"
 lang: "tr"
 order: 2
 ---

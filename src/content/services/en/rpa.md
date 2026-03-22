@@ -1,7 +1,7 @@
 ---
 title: "Robotic Process Automation (RPA)"
 description: "Increase efficiency by delegating repetitive tasks to software robots."
-icon: "ai"
+icon: "bot"
 lang: "en"
 order: 5
 ---

@@ -1,7 +1,7 @@
 ---
 title: "Mobil Cihaz Yönetimi (MDM) Hizmetleri"
 description: "Kurumsal mobil cihazların güvenli yönetimi, izlenmesi ve politika denetimi."
-icon: "cloud"
+icon: "mobile"
 lang: "tr"
 order: 4
 ---

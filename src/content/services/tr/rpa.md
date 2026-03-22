@@ -1,7 +1,7 @@
 ---
 title: "Robotik Süreç Otomasyonu (RPA)"
 description: "Tekrarlayan işleri yazılım robotlarına devrederek verimliliğinizi artırın."
-icon: "ai"
+icon: "bot"
 lang: "tr"
 order: 5
 ---

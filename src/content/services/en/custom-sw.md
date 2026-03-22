@@ -1,7 +1,7 @@
 ---
 title: "Custom Software Development"
 description: "Institution-specific, cloud-based software architectures with modern technologies."
-icon: "data"
+icon: "code"
 lang: "en"
 order: 6
 ---
