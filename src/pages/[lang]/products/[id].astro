@@ -1,0 +1,22 @@
+---
+import { getCollection, render } from 'astro:content';
+import ContentDetailLayout from '../../../layouts/ContentDetailLayout.astro';
+
+export async function getStaticPaths() {
+  const allProducts = await getCollection('products');
+  return allProducts.map((entry) => ({
+    params: { 
+      lang: entry.data.lang, 
+      id: entry.id.split('/').pop()?.replace('.md', '') 
+    },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<ContentDetailLayout frontmatter={entry.data}>
+  <Content />
+</ContentDetailLayout>
