@@ -1,0 +1,199 @@
+{
+  "main": {
+    "id": "d65f40575ecb213f",
+    "type": "split",
+    "children": [
+      {
+        "id": "3e0f2cb077fbf99b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "df908772b105994c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "corporate/tr.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "tr"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "c5e0f5706f5b133e",
+    "type": "split",
+    "children": [
+      {
+        "id": "6453cdc68b9d8124",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "fac153767f8cc4c5",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Dosya Gezgini"
+            }
+          },
+          {
+            "id": "bad394b6b48f80d8",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Ara"
+            }
+          },
+          {
+            "id": "6a17b634a569a18e",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Yer İmleri"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "ab2693f34fb5962c",
+    "type": "split",
+    "children": [
+      {
+        "id": "04b2d4229fbbce94",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "53015e59ad2f46d2",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "corporate/tr.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "tr için geri bağlantılar"
+            }
+          },
+          {
+            "id": "27a58da4a900c3e7",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "corporate/tr.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "tr'dan giden bağlantılar"
+            }
+          },
+          {
+            "id": "d5d7a8cd037fd58f",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Etiketler"
+            }
+          },
+          {
+            "id": "ca0c7c28c6f16f96",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "Tüm özellikler"
+            }
+          },
+          {
+            "id": "754f8079effe97eb",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "corporate/tr.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "tr ana hatları"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Hızlı geçişi aç": false,
+      "graph:Grafik görünümünü aç": false,
+      "canvas:Yeni tuval oluşturun": false,
+      "daily-notes:Bugünün Notunu Aç": false,
+      "templates:Şablon ekle": false,
+      "command-palette:Komut paletini aç": false,
+      "bases:Yeni taban oluştur": false
+    }
+  },
+  "active": "df908772b105994c",
+  "lastOpenFiles": [
+    "corporate/en.md",
+    "blog/en/blog-1.md",
+    "services/tr/phishing.md",
+    "services/tr/mdm.md",
+    "services/tr/cyber-sec.md",
+    "services/tr/bosluk-analizi.md",
+    "services/tr/custom-sw.md",
+    "services/tr/bosluk-analiz.md",
+    "services/tr/iso-27001.md",
+    "Başlıksız.canvas"
+  ]
+}
