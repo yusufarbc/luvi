@@ -21,10 +21,16 @@ const currentYear = new Date().getFullYear();
       <!-- Quick Links (Simplified) -->
       <div class="flex flex-col gap-6">
         <h4 class="text-[#c9a84c] font-sans font-bold uppercase tracking-widest text-sm">{t('footer.contact')}</h4>
-        <div class="flex flex-col gap-4">
+        <div class="flex flex-col gap-6">
           <div class="flex flex-col">
             <span class="text-white/40 text-xs uppercase tracking-tighter mb-1">{t('footer.email')}</span>
             <a href={`mailto:${t('footer.contact_email')}`} class="text-white hover:text-[#c9a84c] transition-colors font-sans decoration-[#c9a84c]/30 underline underline-offset-4">{t('footer.contact_email')}</a>
+          </div>
+          <div class="flex flex-col">
+            <span class="text-white/40 text-xs uppercase tracking-tighter mb-1">{t('footer.address')}</span>
+            <p class="text-white/80 text-sm font-sans leading-relaxed">
+              {t('footer.address_val')}
+            </p>
           </div>
         </div>
       </div>

@@ -7,11 +7,11 @@ const t = useTranslations(lang);
 
 const navItems = [
   { label: t('nav.home'), href: `${import.meta.env.BASE_URL}${lang}/` },
-  { label: t('nav.corporate'), href: '#' },
-  { label: t('nav.services'), href: '#' },
-  { label: t('nav.projects'), href: '#' },
+  { label: t('nav.about'), href: '#about' },
+  { label: t('nav.services'), href: '#services' },
+  { label: t('nav.products'), href: '#products' },
+  { label: t('nav.projects'), href: '#projects' },
   { label: t('nav.contact'), href: '#contact' },
-  { label: t('nav.blog'), href: '#' },
 ];
 ---
 
@@ -53,12 +53,67 @@ const navItems = [
         ))}
       </div>
       
-      <!-- Mobile Toggle (Simplified for now) -->
-      <button class="lg:hidden text-[#c9a84c]">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <!-- Mobile Toggle -->
+      <button id="menu-toggle" class="lg:hidden text-[#c9a84c] p-2 hover:bg-[#c9a84c]/10 rounded-lg transition-colors" aria-label="Toggle Menu">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" id="menu-icon">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
         </svg>
       </button>
     </div>
   </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu" class="fixed inset-0 bg-[#0a1628] z-[60] flex flex-col items-center justify-center gap-8 translate-x-full transition-transform duration-500 lg:hidden">
+    <button id="menu-close" class="absolute top-6 right-6 text-[#c9a84c] p-2" aria-label="Close Menu">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+    
+    {navItems.map((item) => (
+      <a 
+        href={item.href} 
+        class="text-2xl text-[#c9a84c] font-sans tracking-[0.2em] uppercase hover:text-white transition-colors mobile-link"
+      >
+        {item.label}
+      </a>
+    ))}
+
+    <div class="mt-8 flex items-center bg-[#0a1628] border border-[#c9a84c]/30 rounded-full px-2 py-2">
+      {Object.entries(languages).map(([l, _]) => (
+        <a
+          href={`${import.meta.env.BASE_URL}${l}/`}
+          class={`px-6 py-2 rounded-full text-sm font-bold uppercase transition-all ${
+            lang === l 
+              ? 'bg-[#c9a84c] text-[#0a1628]' 
+              : 'text-[#c9a84c]'
+          }`}
+        >
+          {l}
+        </a>
+      ))}
+    </div>
+  </div>
 </header>
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const menuClose = document.getElementById('menu-close');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  function toggleMenu() {
+    mobileMenu?.classList.toggle('translate-x-full');
+    document.body.classList.toggle('overflow-hidden');
+  }
+
+  menuToggle?.addEventListener('click', toggleMenu);
+  menuClose?.addEventListener('click', toggleMenu);
+  
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('translate-x-full');
+      document.body.classList.remove('overflow-hidden');
+    });
+  });
+</script>

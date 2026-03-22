@@ -1,0 +1,54 @@
+---
+import { getCollection } from 'astro:content';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const allProjects = await getCollection('projects', ({ data }) => {
+  return data.lang === lang;
+});
+
+// Sort by date or just take the latest 3
+const projects = allProjects.slice(0, 3);
+---
+
+<section id="projects" class="py-32 bg-[#050b14] relative">
+  <div class="container mx-auto px-4 md:px-8">
+    <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+      <div class="max-w-2xl">
+        <h2 class="text-[#c9a84c] font-sans font-bold tracking-[0.4em] uppercase text-xs mb-4">
+          {t('nav.projects')}
+        </h2>
+        <p class="text-3xl md:text-5xl font-serif text-white tracking-tight leading-tight">
+          Sektörel <span class="text-[#c9a84c]">Başarı Hikayeleri</span> ve Etkinlikler
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {projects.map((p) => (
+        <div class="group bg-[#0a1628]/50 border border-[#c9a84c]/10 rounded-2xl overflow-hidden transition-all duration-500 hover:border-[#c9a84c]/40 hover:-translate-y-2">
+          <div class="h-48 bg-[#1a2533] flex items-center justify-center relative">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#0a1628] to-transparent opacity-60"></div>
+            <span class="text-[#c9a84c]/30 text-5xl font-serif">{p.data.title.charAt(0)}</span>
+          </div>
+          <div class="p-8">
+            <h3 class="text-white font-serif text-xl mb-4 group-hover:text-[#c9a84c] transition-colors line-clamp-2">
+              {p.data.title}
+            </h3>
+            <p class="text-white/60 text-sm font-sans line-clamp-3 mb-6">
+              {p.data.description}
+            </p>
+            <div class="flex items-center gap-2 text-[#c9a84c] text-xs font-bold uppercase tracking-widest group/link">
+              Detayı Görüntüle 
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover/link:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

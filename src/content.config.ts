@@ -11,6 +11,29 @@ const services = defineCollection({
   }),
 });
 
+const blog = defineCollection({
+  loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/blog" }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    pubDate: z.date(),
+    image: z.string().optional(),
+    lang: z.string(),
+  }),
+});
+
+const projects = defineCollection({
+  loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/projects" }),
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    image: z.string().optional(),
+    lang: z.string(),
+  }),
+});
+
 export const collections = {
   'services': services,
+  'blog': blog,
+  'projects': projects,
 };

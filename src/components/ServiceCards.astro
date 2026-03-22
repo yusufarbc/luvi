@@ -18,7 +18,8 @@ const iconMap: Record<string, string> = {
 };
 ---
 
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-6xl mx-auto px-4 mt-16">
+<section id="services" class="py-24 bg-[#050b14]">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 w-full max-w-7xl mx-auto px-4 mt-16">
   {allServices.map((s) => (
     <div class="group relative bg-[#0a1628]/40 backdrop-blur-xl border border-[#c9a84c]/30 p-8 rounded-2xl transition-all duration-500 hover:-translate-y-2 hover:border-[#c9a84c] hover:shadow-[0_0_30px_rgba(201,168,76,0.2)] flex flex-col items-center text-center overflow-hidden">
       <!-- Glow Effect -->
@@ -35,4 +36,18 @@ const iconMap: Record<string, string> = {
       </h3>
     </div>
   ))}
-</div>
+
+  <!-- Digital Maturity Placeholder Card -->
+  <div class="group relative bg-[#c9a84c]/5 backdrop-blur-xl border border-[#c9a84c]/20 p-8 rounded-2xl transition-all duration-500 hover:border-[#c9a84c] flex flex-col items-center text-center overflow-hidden border-dashed">
+    <div class="mb-6 text-[#c9a84c]/50">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+      </svg>
+    </div>
+    <h3 class="text-white/50 font-serif text-lg tracking-wide uppercase">
+      {t('nav.maturity')} <br/>
+      <span class="text-xs text-[#c9a84c] tracking-[0.2em]">{t('nav.blog') === 'Blog' ? '(Yakında)' : '(Coming Soon)'}</span>
+    </h3>
+  </div>
+  </div>
+</section>

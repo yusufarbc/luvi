@@ -1,0 +1,40 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const products = [
+  "LIBRAESVA",
+  "ZECURION",
+  "KASPERSKY",
+  "APPTEC360",
+  "HALO SECURITY"
+];
+---
+
+<section id="products" class="py-24 bg-[#0a1628] border-t border-[#c9a84c]/10">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-[#c9a84c] font-sans font-bold tracking-[0.4em] uppercase text-xs mb-4">
+        {t('products.title')}
+      </h2>
+      <p class="text-3xl md:text-4xl font-serif text-white uppercase tracking-wider">
+        {t('products.subtitle')}
+      </p>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60">
+      {products.map((p) => (
+        <div class="group relative py-4 px-8 border border-[#c9a84c]/5 rounded-xl transition-all duration-500 hover:border-[#c9a84c]/40 hover:bg-[#c9a84c]/5 hover:opacity-100">
+          <span class="text-white font-sans font-black text-xl md:text-2xl tracking-[0.2em] group-hover:text-[#c9a84c] transition-colors">
+            {p}
+          </span>
+          <!-- Glow -->
+          <div class="absolute inset-0 bg-[#c9a84c] blur-2xl opacity-0 group-hover:opacity-10 transition-opacity"></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
