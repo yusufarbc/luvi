@@ -48,12 +48,19 @@ const t = useTranslations(lang);
       {t('hero.h2')}
     </h2>
 
-    <!-- Service Cards Integration -->
     <ServiceCards />
 
+    <!-- Scroll Indicator -->
+    <div class="mt-16 animate-bounce opacity-50 flex flex-col items-center gap-2">
+      <span class="text-[#c9a84c] text-[10px] tracking-widest uppercase">{t('hero.scroll')}</span>
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[#c9a84c]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+      </svg>
+    </div>
+
     <!-- Bottom Slogan -->
-    <div class="mt-24 pb-12">
-      <p class="text-[#c9a84c] font-sans text-sm tracking-[0.2em] uppercase opacity-70">
+    <div class="mt-12 pb-12">
+      <p class="text-[#c9a84c] font-sans text-[10px] tracking-[0.4em] uppercase opacity-70">
         {t('slogan')}
       </p>
     </div>

@@ -6,7 +6,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const navItems = [
-  { label: t('nav.home'), href: `/${lang}` },
+  { label: t('nav.home'), href: `${import.meta.env.BASE_URL}${lang}/` },
   { label: t('nav.corporate'), href: '#' },
   { label: t('nav.services'), href: '#' },
   { label: t('nav.projects'), href: '#' },
@@ -18,8 +18,9 @@ const navItems = [
 <header class="fixed w-full z-50 bg-[#0a1628]/80 backdrop-blur-md border-b border-[#c9a84c]/20">
   <div class="container mx-auto px-4 md:px-8 h-20 flex items-center justify-between">
     <!-- Logo -->
-    <a href={`/${lang}`} class="flex items-center gap-3 group">
-      <img src="/logo.png" alt="Luvi Bilişim" class="h-12 w-auto object-contain brightness-110 drop-shadow-lg transition-transform group-hover:scale-105" />
+    <a href={`${import.meta.env.BASE_URL}${lang}/`} class="flex items-center gap-3 group relative">
+      <div class="absolute inset-0 bg-[#c9a84c] blur-xl opacity-0 group-hover:opacity-20 transition-opacity duration-700"></div>
+      <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Luvi Bilişim" class="h-12 w-auto object-contain brightness-110 drop-shadow-lg transition-all duration-500 group-hover:scale-110" />
     </a>
 
     <!-- Desktop Nav -->
@@ -27,10 +28,10 @@ const navItems = [
       {navItems.map((item) => (
         <a 
           href={item.href} 
-          class="text-[#c9a84c] font-sans text-sm tracking-widest uppercase hover:text-white transition-colors duration-300 relative group"
+          class="text-[#c9a84c] font-sans text-xs tracking-[0.2em] uppercase hover:text-white transition-all duration-300 relative group"
         >
           {item.label}
-          <span class="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full"></span>
+          <span class="absolute -bottom-2 left-0 w-0 h-px bg-gradient-to-r from-transparent via-[#c9a84c] to-transparent transition-all duration-500 group-hover:w-full"></span>
         </a>
       ))}
     </nav>
@@ -40,7 +41,7 @@ const navItems = [
       <div class="flex items-center bg-[#0a1628] border border-[#c9a84c]/30 rounded-full px-1 py-1">
         {Object.entries(languages).map(([l, label]) => (
           <a
-            href={`/${l}`}
+            href={`${import.meta.env.BASE_URL}${l}/`}
             class={`px-3 py-1 rounded-full text-xs font-bold uppercase transition-all ${
               lang === l 
                 ? 'bg-[#c9a84c] text-[#0a1628]' 

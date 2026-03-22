@@ -12,7 +12,7 @@ const currentYear = new Date().getFullYear();
     <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
       <!-- Brand Section -->
       <div class="flex flex-col gap-6">
-        <img src="/logo.png" alt="Luvi Bilişim" class="h-10 w-auto object-contain self-start" />
+        <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Luvi Bilişim" class="h-10 w-auto object-contain self-start" />
         <p class="text-white/60 font-sans text-sm leading-relaxed max-w-xs">
           {t('hero.h1')}
         </p>

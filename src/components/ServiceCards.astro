@@ -31,12 +31,12 @@ const services = [
       <div class="absolute inset-0 bg-gradient-to-br from-[#c9a84c]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
       
       <!-- Icon Wrapper -->
-      <div class="mb-6 text-[#c9a84c] group-hover:text-white transition-colors duration-300 transform group-hover:scale-110">
+      <div class="mb-6 text-[#c9a84c] group-hover:text-white transition-all duration-500 transform group-hover:scale-110 group-hover:drop-shadow-[0_0_10px_rgba(201,168,76,0.5)]">
         <Fragment set:html={service.icon} />
       </div>
 
       <!-- Title -->
-      <h3 class="text-white font-sans font-medium tracking-wide text-lg group-hover:text-[#c9a84c] transition-colors">
+      <h3 class="text-white font-serif text-lg tracking-wide group-hover:text-[#c9a84c] transition-colors duration-300">
         {service.title}
       </h3>
     </div>
