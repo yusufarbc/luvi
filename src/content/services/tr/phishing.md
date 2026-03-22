@@ -1,7 +1,7 @@
 ---
 title: "Phishing Simülasyonu ve Sosyal Mühendislik"
 description: "İnsan faktörünü en güçlü savunma hattına dönüştüren uygulamalı siber güvenlik eğitimleri."
-icon: "security"
+icon: "hook"
 lang: "tr"
 order: 7
 ---

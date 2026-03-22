@@ -1,7 +1,7 @@
 ---
 title: "Phishing Simulation & Social Engineering"
 description: "Hands-on cybersecurity training that turns the human factor into the strongest line of defense."
-icon: "security"
+icon: "hook"
 lang: "en"
 order: 7
 ---

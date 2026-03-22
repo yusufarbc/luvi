@@ -1,7 +1,7 @@
 ---
 title: "Cyber Security Support & Consulting"
 description: "End-to-end consulting and infrastructure setup for protecting corporate digital assets."
-icon: "security"
+icon: "shield"
 lang: "en"
 order: 2
 ---

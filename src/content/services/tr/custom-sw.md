@@ -1,7 +1,7 @@
 ---
 title: "Özel Yazılım Geliştirme"
 description: "Modern teknolojiler ile kuruma özel, bulut tabanlı yazılım mimarileri."
-icon: "data"
+icon: "code"
 lang: "tr"
 order: 6
 ---

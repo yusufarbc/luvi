@@ -1,7 +1,7 @@
 ---
 title: "Mobile Device Management (MDM) Services"
 description: "Secure management, monitoring, and policy auditing of corporate mobile devices."
-icon: "cloud"
+icon: "mobile"
 lang: "en"
 order: 4
 ---
