@@ -1,12 +1,12 @@
 ---
-title: "Sızma Testleri (Penetration Testing)"
-description: "Sistemlerinizin dayanıklılığını ölçmek için kapsamlı, tekrarlanabilir ve güvenilir test hizmetleri."
-icon: "security"
-lang: "tr"
+title: Sızma Testi(Penetration Testing)
+description: Sistemlerinizin dayanıklılığını ölçmek için kapsamlı, tekrarlanabilir ve güvenilir test hizmetleri.
+icon: security
+lang: tr
 order: 1
 ---
 
-# Sızma Testleri (Penetration Testing)
+# Sızma Testi(Penetration Testing)
 
 Kurumların dijital varlıklarını saldırgan gözüyle analiz ederek, olası güvenlik açıklarını tespit ediyor ve raporluyoruz.
 

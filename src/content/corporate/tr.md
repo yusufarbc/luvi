@@ -11,7 +11,7 @@ Bugün, dijital çağın karmaşık, hızlı ve zaman zaman belirsizliklerle dol
 
 Uluslararası standartlarda sunduğumuz hizmet yetkinliklerimiz:
 
-- **Siber Güvenlik ve Operasyonları:** Kurumunuzu dijital tehditlere karşı görünmez zırhlarla kaplıyoruz. Sızma testleri (Penetration Testing), API güvenliği, zafiyet yönetimi, sosyal mühendislik simülasyonları ve yeni nesil SOC (Güvenlik Operasyon Merkezi) mimarileri ile sistemlerinizi 7/24 koruyoruz.
+- **Siber Güvenlik ve Operasyonları:** Kurumunuzu dijital tehditlere karşı görünmez zırhlarla kaplıyoruz. Sızma testleri(Penetration Testing), API güvenliği, zafiyet yönetimi, sosyal mühendislik simülasyonları ve yeni nesil SOC (Güvenlik Operasyon Merkezi) mimarileri ile sistemlerinizi 7/24 koruyoruz.
 - **Sistem, Ağ ve Altyapı Tasarımı:** İşletmenizin omurgasını oluşturuyoruz. Karmaşık ağ projelerinin tasarımı, sunucu ve veri depolama çözümleri ile kesintisiz IT Helpdesk destek hizmetlerimiz sayesinde operasyonel sürekliliğinizi garanti altına alıyoruz.
 - **Bilgi Güvenliği ve Dijital Dönüşüm:** Geleneksel iş modellerinizi geleceğe taşıyoruz. ISO 27001 Danışmanlığı ile süreçlerinizi dünya standartlarına entegre ediyor, dijital dönüşümünüzü güvenli ve sağlam bir zemine oturtuyoruz.
 - **Yazılım Geliştirme ve Web Tasarım:** Markanızın dijital yüzünü inşa ediyoruz. Kurumsal kimliğinizi yansıtan modern web tasarımları yapıyor, iş süreçlerinizi hızlandıracak, çok kiracılı (multi-tenant) bulut platformları ve size özel yazılım çözümleri geliştiriyoruz.
