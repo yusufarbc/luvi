@@ -6,63 +6,73 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<section class="relative min-h-screen w-full flex flex-col items-center justify-center pt-24 overflow-hidden bg-[#0a1628]">
-  <!-- Animated Background Layer -->
-  <div class="absolute inset-0 z-0">
-    <!-- SVG Network Lines -->
-    <svg class="absolute inset-0 w-full h-full opacity-30" preserveAspectRatio="none">
-      <defs>
-        <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#c9a84c" stop-opacity="0" />
-          <stop offset="50%" stop-color="#f0d78c" stop-opacity="0.8" />
-          <stop offset="100%" stop-color="#c9a84c" stop-opacity="0" />
-        </linearGradient>
-      </defs>
-      
-      <!-- Abstract Lines -->
-      <path class="animate-network-flow" d="M-100,200 Q400,100 800,400 T1800,200" stroke="url(#gold-grad)" stroke-width="1" fill="none" />
-      <path class="animate-network-flow" d="M-50,600 Q600,800 1200,400 T2000,700" stroke="url(#gold-grad)" stroke-width="0.5" fill="none" style="animation-duration: 15s; animation-delay: -2s;" />
-      <path class="animate-network-flow" d="M100,-100 Q800,400 400,1200" stroke="url(#gold-grad)" stroke-width="1.5" fill="none" style="animation-duration: 12s; animation-delay: -5s;" />
-    </svg>
-
-    <!-- Turkey Map Silhouette (Simplified/Abstract) -->
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl opacity-[0.03] pointer-events-none">
-       <!-- This would normally be a complex path, using a placeholder text/shape for "Anatolian Spirit" -->
-       <div class="text-[30vw] font-serif text-[#c9a84c] select-none text-center">LUVI</div>
-    </div>
+<section class="relative min-h-screen w-full flex flex-col items-center justify-center pt-32 pb-24 overflow-hidden bg-[#050b14]">
+  <!-- Background Layers -->
+  <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+    <!-- Mesh Gradients -->
+    <div class="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] bg-[#c9a84c]/10 blur-[120px] rounded-full animate-float opacity-50"></div>
+    <div class="absolute -bottom-[20%] -right-[10%] w-[60%] h-[60%] bg-[#0a1628] blur-[100px] rounded-full opacity-80"></div>
     
-    <!-- Castle Silhouettes (Bottom left/right) -->
-    <div class="absolute bottom-0 left-0 w-64 h-32 bg-[#c9a84c] opacity-[0.05] [clip-path:polygon(0%_100%,20%_60%,30%_100%,50%_40%,70%_100%,100%_70%,100%_100%)]"></div>
-    <div class="absolute bottom-0 right-0 w-80 h-40 bg-[#c9a84c] opacity-[0.05] [clip-path:polygon(100%_100%,80%_50%,70%_100%,50%_70%,30%_100%,0%_60%,0%_100%)]"></div>
+    <!-- Luvi Symbol Watermark -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl aspect-square flex items-center justify-center opacity-[0.05]">
+      <img 
+        src={`${import.meta.env.BASE_URL}images/luvi-symbol.png`} 
+        alt="Luvi Symbol" 
+        class="w-[60vw] max-w-none animate-slow-spin"
+      />
+    </div>
+
+    <!-- Geometric Grid Pattern (CSS) -->
+    <div class="absolute inset-0 bg-[linear-gradient(rgba(201,168,76,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(201,168,76,0.03)_1px,transparent_1px)] bg-[size:100px_100px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
   </div>
 
   <!-- Content Layer -->
   <div class="relative z-10 w-full max-w-7xl mx-auto px-4 text-center">
-    <!-- H1 Headline -->
-    <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif text-gold-gradient mb-6 leading-tight max-w-5xl mx-auto drop-shadow-[0_0_20px_rgba(201,168,76,0.4)] transition-all duration-1000 animate-float">
-      {t('hero.h1')}
-    </h1>
-    
-    <!-- H2 Subheadline -->
-    <h2 class="text-lg md:text-xl font-sans text-white/80 tracking-[0.3em] uppercase mb-12 animate-pulse-glow">
-      {t('hero.h2')}
-    </h2>
-
-    <ServiceCards />
-
-    <!-- Scroll Indicator -->
-    <div class="mt-16 animate-bounce opacity-50 flex flex-col items-center gap-2">
-      <span class="text-[#c9a84c] text-[10px] tracking-widest uppercase">{t('hero.scroll')}</span>
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[#c9a84c]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-      </svg>
+    <!-- Premium Badge -->
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#c9a84c]/10 border border-[#c9a84c]/20 mb-10 backdrop-blur-md animate-fade-in">
+      <span class="w-1.5 h-1.5 bg-[#c9a84c] rounded-full shadow-[0_0_8px_#c9a84c]"></span>
+      <span class="text-[#c9a84c] text-[10px] font-sans font-bold uppercase tracking-[0.3em]">{t('hero.h2')}</span>
     </div>
 
-    <!-- Bottom Slogan -->
-    <div class="mt-12 pb-12">
-      <p class="text-[#c9a84c] font-sans text-[10px] tracking-[0.4em] uppercase opacity-70">
-        {t('slogan')}
-      </p>
+    <!-- H1 Headline -->
+    <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-8 leading-[1.1] max-w-5xl mx-auto tracking-tight">
+      <span class="block text-gold-gradient drop-shadow-sm">{t('hero.h1').split(' ').slice(0, 3).join(' ')}</span>
+      <span class="block opacity-90">{t('hero.h1').split(' ').slice(3).join(' ')}</span>
+    </h1>
+
+    <!-- Action Area -->
+    <div class="mt-8 transition-all duration-1000 animate-slide-up">
+      <ServiceCards />
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="mt-20 animate-bounce opacity-40 flex flex-col items-center gap-3">
+      <span class="text-[#c9a84c] text-[8px] font-sans font-bold tracking-[0.5em] uppercase">{t('hero.scroll')}</span>
+      <div class="w-px h-12 bg-gradient-to-b from-[#c9a84c] to-transparent"></div>
     </div>
   </div>
 </section>
+
+<style>
+  .animate-slow-spin {
+    animation: slow-spin 60s linear infinite;
+  }
+  @keyframes slow-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+  }
+  .animate-slide-up {
+    animation: slideUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
