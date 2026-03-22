@@ -3,7 +3,6 @@ title: "Kadim Bilgelikten Dijital Geleceğe: Luvi Bilişim"
 lang: "tr"
 ---
 
-fsadfasf
 Bugün, dijital çağın karmaşık, hızlı ve zaman zaman belirsizliklerle dolu dünyasında, biz de ilhamımızı bu topraklardan, Işık İnsanları'ndan alıyoruz. Luvi Bilişim olarak amacımız; tıpkı adımızı aldığımız medeniyet gibi, kurumların dijital yolculuklarına ışık tutmak, siber dünyada karanlıkta kalan zafiyetleri aydınlatmak ve geleceği sağlam altyapılarla inşa etmektir. 
 
 ## Bütüncül Bilişim ve Teknoloji Yaklaşımımız
