@@ -3,8 +3,7 @@ title: "Kadim Bilgelikten Dijital Geleceğe: Luvi Bilişim"
 lang: "tr"
 ---
 
-Binlerce yıl önce Anadolu topraklarında var olmuş, medeniyetin temel taşlarını döşemiş kadim bir halk yaşardı: Luviler. Kendi dillerinde isimlerinin kökeni "Işık" anlamına gelen bu köklü medeniyet, tarihte "Işık İnsanları" olarak anılır. Onlar, bulundukları coğrafyaya bilgiyi, aydınlığı ve gelişimi taşıdılar.
-
+fsadfasf
 Bugün, dijital çağın karmaşık, hızlı ve zaman zaman belirsizliklerle dolu dünyasında, biz de ilhamımızı bu topraklardan, Işık İnsanları'ndan alıyoruz. Luvi Bilişim olarak amacımız; tıpkı adımızı aldığımız medeniyet gibi, kurumların dijital yolculuklarına ışık tutmak, siber dünyada karanlıkta kalan zafiyetleri aydınlatmak ve geleceği sağlam altyapılarla inşa etmektir. 
 
 ## Bütüncül Bilişim ve Teknoloji Yaklaşımımız
