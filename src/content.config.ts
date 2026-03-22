@@ -32,8 +32,17 @@ const projects = defineCollection({
   }),
 });
 
+const corporate = defineCollection({
+  loader: glob({ pattern: '**/[^_]*.md', base: "./src/content/corporate" }),
+  schema: z.object({
+    title: z.string(),
+    lang: z.string(),
+  }),
+});
+
 export const collections = {
   'services': services,
   'blog': blog,
   'projects': projects,
+  'corporate': corporate,
 };
