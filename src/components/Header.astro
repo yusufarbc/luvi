@@ -1,0 +1,63 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { languages } from '../i18n/ui';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const navItems = [
+  { label: t('nav.home'), href: `/${lang}` },
+  { label: t('nav.corporate'), href: '#' },
+  { label: t('nav.services'), href: '#' },
+  { label: t('nav.projects'), href: '#' },
+  { label: t('nav.contact'), href: '#contact' },
+  { label: t('nav.blog'), href: '#' },
+];
+---
+
+<header class="fixed w-full z-50 bg-[#0a1628]/80 backdrop-blur-md border-b border-[#c9a84c]/20">
+  <div class="container mx-auto px-4 md:px-8 h-20 flex items-center justify-between">
+    <!-- Logo -->
+    <a href={`/${lang}`} class="flex items-center gap-3 group">
+      <img src="/logo.png" alt="Luvi Bilişim" class="h-12 w-auto object-contain brightness-110 drop-shadow-lg transition-transform group-hover:scale-105" />
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden lg:flex items-center gap-8">
+      {navItems.map((item) => (
+        <a 
+          href={item.href} 
+          class="text-[#c9a84c] font-sans text-sm tracking-widest uppercase hover:text-white transition-colors duration-300 relative group"
+        >
+          {item.label}
+          <span class="absolute -bottom-1 left-0 w-0 h-px bg-white transition-all duration-300 group-hover:w-full"></span>
+        </a>
+      ))}
+    </nav>
+
+    <!-- Language Switcher -->
+    <div class="flex items-center gap-4">
+      <div class="flex items-center bg-[#0a1628] border border-[#c9a84c]/30 rounded-full px-1 py-1">
+        {Object.entries(languages).map(([l, label]) => (
+          <a
+            href={`/${l}`}
+            class={`px-3 py-1 rounded-full text-xs font-bold uppercase transition-all ${
+              lang === l 
+                ? 'bg-[#c9a84c] text-[#0a1628]' 
+                : 'text-[#c9a84c] hover:text-white'
+            }`}
+          >
+            {l}
+          </a>
+        ))}
+      </div>
+      
+      <!-- Mobile Toggle (Simplified for now) -->
+      <button class="lg:hidden text-[#c9a84c]">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>

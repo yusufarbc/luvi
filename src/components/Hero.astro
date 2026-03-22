@@ -1,0 +1,61 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import ServiceCards from './ServiceCards.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section class="relative min-h-screen w-full flex flex-col items-center justify-center pt-24 overflow-hidden bg-[#0a1628]">
+  <!-- Animated Background Layer -->
+  <div class="absolute inset-0 z-0">
+    <!-- SVG Network Lines -->
+    <svg class="absolute inset-0 w-full h-full opacity-30" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#c9a84c" stop-opacity="0" />
+          <stop offset="50%" stop-color="#f0d78c" stop-opacity="0.8" />
+          <stop offset="100%" stop-color="#c9a84c" stop-opacity="0" />
+        </linearGradient>
+      </defs>
+      
+      <!-- Abstract Lines -->
+      <path class="animate-network-flow" d="M-100,200 Q400,100 800,400 T1800,200" stroke="url(#gold-grad)" stroke-width="1" fill="none" />
+      <path class="animate-network-flow" d="M-50,600 Q600,800 1200,400 T2000,700" stroke="url(#gold-grad)" stroke-width="0.5" fill="none" style="animation-duration: 15s; animation-delay: -2s;" />
+      <path class="animate-network-flow" d="M100,-100 Q800,400 400,1200" stroke="url(#gold-grad)" stroke-width="1.5" fill="none" style="animation-duration: 12s; animation-delay: -5s;" />
+    </svg>
+
+    <!-- Turkey Map Silhouette (Simplified/Abstract) -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-5xl opacity-[0.03] pointer-events-none">
+       <!-- This would normally be a complex path, using a placeholder text/shape for "Anatolian Spirit" -->
+       <div class="text-[30vw] font-serif text-[#c9a84c] select-none text-center">LUVI</div>
+    </div>
+    
+    <!-- Castle Silhouettes (Bottom left/right) -->
+    <div class="absolute bottom-0 left-0 w-64 h-32 bg-[#c9a84c] opacity-[0.05] [clip-path:polygon(0%_100%,20%_60%,30%_100%,50%_40%,70%_100%,100%_70%,100%_100%)]"></div>
+    <div class="absolute bottom-0 right-0 w-80 h-40 bg-[#c9a84c] opacity-[0.05] [clip-path:polygon(100%_100%,80%_50%,70%_100%,50%_70%,30%_100%,0%_60%,0%_100%)]"></div>
+  </div>
+
+  <!-- Content Layer -->
+  <div class="relative z-10 w-full max-w-7xl mx-auto px-4 text-center">
+    <!-- H1 Headline -->
+    <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif text-gold-gradient mb-6 leading-tight max-w-5xl mx-auto drop-shadow-[0_0_20px_rgba(201,168,76,0.4)] transition-all duration-1000 animate-float">
+      {t('hero.h1')}
+    </h1>
+    
+    <!-- H2 Subheadline -->
+    <h2 class="text-lg md:text-xl font-sans text-white/80 tracking-[0.3em] uppercase mb-12 animate-pulse-glow">
+      {t('hero.h2')}
+    </h2>
+
+    <!-- Service Cards Integration -->
+    <ServiceCards />
+
+    <!-- Bottom Slogan -->
+    <div class="mt-24 pb-12">
+      <p class="text-[#c9a84c] font-sans text-sm tracking-[0.2em] uppercase opacity-70">
+        {t('slogan')}
+      </p>
+    </div>
+  </div>
+</section>

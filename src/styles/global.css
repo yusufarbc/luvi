@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-navy: #0a1628;
+    --color-gold: #c9a84c;
+    --color-gold-bright: #f0d78c;
+  }
+
+  body {
+    @apply bg-[#0a1628] text-white font-sans selection:bg-[#c9a84c] selection:text-[#0a1628];
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  .text-gold-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#c9a84c] via-[#f0d78c] to-[#c9a84c];
+  }
+
+  .border-gold {
+    @apply border-[#c9a84c]/30;
+  }
+
+  .glow-gold {
+    box-shadow: 0 0 15px rgba(201, 168, 76, 0.3);
+  }
+
+  .animate-network-flow {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: network-flow 10s linear infinite;
+  }
+}
+
+@keyframes network-flow {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.3; filter: blur(2px); }
+  50% { opacity: 0.6; filter: blur(4px); }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
