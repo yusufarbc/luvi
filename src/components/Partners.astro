@@ -12,11 +12,11 @@ const partners = [
 ];
 
 const references = [
-  { name: 'İçtaş Holding', url: 'https://www.ictas.com.tr/' },
-  { name: 'Kalyon Holding', url: 'https://www.kalyonholding.com/' },
-  { name: 'Metyx Global', url: 'https://www.metyx.com/' },
-  { name: 'Kraken Marin', url: 'http://krakenmarin.com/' },
-  { name: 'Adalya Hotels', url: 'https://www.adalyahotels.com/' },
+  { name: 'İçtaş Holding', url: 'https://www.ictas.com.tr/', logo: '/references/ictas.webp' },
+  { name: 'Kalyon Holding', url: 'https://www.kalyonholding.com/', logo: '/references/kalyon-logo-beyaz.webp' },
+  { name: 'Metyx Global', url: 'https://www.metyx.com/', logo: '/references/metyx.webp' },
+  { name: 'Kraken Marin', url: 'http://krakenmarin.com/', logo: '/references/krakenmarin.webp' },
+  { name: 'Adalya Hotels', url: 'https://www.adalyahotels.com/', logo: '/references/adalya-hotels-colored-logo.svg' },
 ];
 
 const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
@@ -76,11 +76,19 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
             href={r.url}
             target="_blank"
             rel="noopener noreferrer"
-            class="group flex flex-col items-center justify-center p-8 bg-slate-50/50 border border-transparent rounded-[32px] transition-all duration-500 hover:bg-white hover:border-[#154360]/5 hover:shadow-md opacity-50 hover:opacity-100"
+            class="group flex flex-col items-center justify-center p-8 bg-white border border-slate-50 rounded-[32px] transition-all duration-500 hover:border-[#154360]/5 hover:shadow-md opacity-50 hover:opacity-100 h-[100px] w-full"
           >
-             <span class="text-slate-400 group-hover:text-[#154360] font-heading font-black text-sm md:text-base tracking-tighter text-center uppercase transition-colors">
-              {r.name}
-            </span>
+             {r.logo ? (
+              <img 
+                src={`${base}${r.logo}`} 
+                alt={r.name} 
+                class="max-h-8 w-auto object-contain transition-transform duration-500 group-hover:scale-110 grayscale hover:grayscale-0"
+              />
+            ) : (
+              <span class="text-slate-400 group-hover:text-[#154360] font-heading font-black text-sm md:text-base tracking-tighter text-center uppercase transition-colors">
+                {r.name}
+              </span>
+            )}
           </a>
         ))}
       </div>
