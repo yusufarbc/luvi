@@ -1,0 +1,14 @@
+# Luvi Bilişim
+
+Geleceğin olasılık spektrumlarını bugünün zihnine ve kararlarına sığdıran Luvi Bilişim; dijital ataleti kırarak kurumsal zekayı genetik reflekse kodlar.
+
+Luvi Bilişim, İzmir Teknopark ekosisteminde faliyet gösteren, yapay zeka ve siber güvenlik odaklı bir bilişim teknoloji inovasyon firmasıdır.
+
+## Ana Bölümler
+- Kurumsal: /tr/#about
+- Ürünler & Çözümler: /tr/#products
+- Hizmetler: /tr/#services (Bulut, Veri Analizi, Siber Güvenlik, AI)
+- Başarı Hikayeleri & Blog: /tr/#projects
+
+## İletişim
+- /tr/#contact
