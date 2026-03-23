@@ -24,3 +24,20 @@ order: 30
 icon: "shield"
 lang: "en"
 ---
+
+---
+title: "Risk Analysis & Vulnerability Management"
+description: "Identifying security gaps in your infrastructure, calculating risk scores for your assets, and managing vulnerability remediation processes end-to-end. Stay one step ahead of cyber attackers with early detection and in-depth scanning."
+category: "security"
+order: 2
+icon: "shield"
+lang: "en"
+---
+
+A good cyber defense starts with knowing your own weaknesses before your competitors (and attackers) do.
+
+### Our Service Areas:
+- **Vulnerability Scanning**: Periodic identification of network and server gaps.
+- **Risk Assessment**: Analysis of technological risks on business processes.
+- **Remediation Guidance**: Technical planning to patch vulnerabilities.
+- **Patch Management**: Secure application of critical updates.
