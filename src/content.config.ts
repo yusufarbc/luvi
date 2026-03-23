@@ -22,6 +22,18 @@ const maturity = defineCollection({
   }),
 });
 
+const sections = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/sections" }),
+  schema: z.object({
+    id: z.string(),
+    title: z.string().optional(),
+    subtitle: z.string().optional(),
+    ref_title: z.string().optional(),
+    ref_subtitle: z.string().optional(),
+    lang: z.string(),
+  }),
+});
+
 const features = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/features" }),
   schema: z.object({
@@ -116,6 +128,7 @@ export const collections = {
   'hero': hero,
   'maturity': maturity,
   'features': features,
+  'sections': sections,
   'blog': blog,
   'projects': projects,
   'corporate': corporate,
