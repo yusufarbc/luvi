@@ -1,6 +1,5 @@
 ---
 import '../styles/global.css';
-import '@fontsource/inter';
 
 interface Props {
 	title: string;
@@ -21,7 +20,7 @@ const { title, lang, description = "Yarının olasılıkları, bugünün dijital
 		<meta name="generator" content={Astro.generator} />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 		<title>{title}</title>
 	</head>
 	<body>
@@ -31,8 +30,8 @@ const { title, lang, description = "Yarının olasılıkları, bugünün dijital
 
 <style is:global>
 	:root {
-		--font-heading: 'Plus Jakarta Sans', sans-serif;
-		--font-body: 'Inter', sans-serif;
+		--font-heading: 'Poppins', sans-serif;
+		--font-body: 'Poppins', sans-serif;
 	}
 	
 	h1, h2, h3, h4, h5, h6 {
