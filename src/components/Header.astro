@@ -7,11 +7,11 @@ const t = useTranslations(lang);
 
 const navItems = [
   { label: t('nav.home'), href: `${import.meta.env.BASE_URL}${lang}/` },
-  { label: t('nav.about'), href: '#about' },
-  { label: t('nav.services'), href: '#services' },
-  { label: t('nav.products'), href: '#products' },
-  { label: t('nav.projects'), href: '#projects' },
-  { label: t('nav.contact'), href: '#contact' },
+  { label: t('nav.about'), href: `${import.meta.env.BASE_URL}${lang}/#about` },
+  { label: t('nav.services'), href: `${import.meta.env.BASE_URL}${lang}/#services` },
+  { label: t('nav.products'), href: `${import.meta.env.BASE_URL}${lang}/#products` },
+  { label: t('nav.projects'), href: `${import.meta.env.BASE_URL}${lang}/#projects` },
+  { label: t('nav.contact'), href: `${import.meta.env.BASE_URL}${lang}/#contact` },
 ];
 ---
 
