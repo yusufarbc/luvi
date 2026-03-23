@@ -1,9 +1,11 @@
----
-import { getCollection } from 'astro:content';
+import { getCollection, getEntry } from 'astro:content';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+const sectionEntry = await getEntry('sections', `partners-${lang}`);
+const { title, subtitle, ref_title, ref_subtitle } = sectionEntry.data;
 
 const allPartners = await getCollection('partners', ({ data }) => {
   return data.lang === lang;
@@ -26,10 +28,10 @@ const base = import.meta.env.BASE_URL.endsWith('/')
     <div class="mb-32">
       <div class="text-center mb-16">
         <h2 class="text-[#5dade2] font-sans font-black tracking-[0.4em] uppercase text-[9px] mb-4">
-          {lang === 'tr' ? 'ÇÖZÜM ORTAKLARIMIZ' : 'SOLUTION PARTNERS'}
+          {title}
         </h2>
         <p class="text-3xl md:text-5xl font-heading font-black text-[#154360] uppercase tracking-tighter">
-          {lang === 'tr' ? 'Güçlü İş Birliklerimiz' : 'Our Strategic Collaborations'}
+          {subtitle}
         </p>
       </div>
 
@@ -61,10 +63,10 @@ const base = import.meta.env.BASE_URL.endsWith('/')
     <div>
       <div class="text-center mb-16">
         <h2 class="text-[#5dade2] font-sans font-black tracking-[0.4em] uppercase text-[9px] mb-4">
-          {lang === 'tr' ? 'REFERANSLARIMIZ' : 'OUR REFERENCES'}
+          {ref_title}
         </h2>
         <p class="text-3xl md:text-5xl font-heading font-black text-[#154360] uppercase tracking-tighter">
-          {lang === 'tr' ? 'Bize Güvenen Kuruluşlar' : 'Trusted by Leading Institutions'}
+          {ref_subtitle}
         </p>
       </div>
 

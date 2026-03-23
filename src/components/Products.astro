@@ -1,9 +1,11 @@
----
-import { getCollection } from 'astro:content';
+import { getCollection, getEntry } from 'astro:content';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+const sectionEntry = await getEntry('sections', `products-${lang}`);
+const { title, subtitle } = sectionEntry.data;
 
 const allProducts = await getCollection('products', ({ data }) => {
   return data.lang === lang;
@@ -18,10 +20,10 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
   <div class="container mx-auto px-4">
     <div class="text-center mb-16">
       <h2 class="text-[#5dade2] font-sans font-black tracking-[0.4em] uppercase text-[9px] mb-4">
-        {t('products.title')}
+        {title}
       </h2>
       <p class="text-4xl md:text-6xl font-heading font-black text-[#154360] uppercase tracking-tighter">
-        {t('products.subtitle')}
+        {subtitle}
       </p>
     </div>
 
