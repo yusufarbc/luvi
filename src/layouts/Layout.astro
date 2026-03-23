@@ -18,9 +18,6 @@ const { title, lang, description = "Yarının olasılıkları, bugünün dijital
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/x-icon" href={`${import.meta.env.BASE_URL}favicon.ico`} />
 		<meta name="generator" content={Astro.generator} />
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 		<title>{title}</title>
 	</head>
 	<body>
@@ -30,8 +27,8 @@ const { title, lang, description = "Yarının olasılıkları, bugünün dijital
 
 <style is:global>
 	:root {
-		--font-heading: 'Poppins', sans-serif;
-		--font-body: 'Poppins', sans-serif;
+		--font-heading: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+		--font-body: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 	}
 	
 	h1, h2, h3, h4, h5, h6 {
