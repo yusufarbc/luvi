@@ -44,16 +44,16 @@ const base = import.meta.env.BASE_URL.endsWith('/')
               href={p.data.url}
               target="_blank"
               rel="noopener noreferrer"
-              class="group flex flex-col items-center justify-center p-6 bg-white border border-slate-50 rounded-[32px] transition-all duration-500 hover:border-[#154360]/10 hover:shadow-xl opacity-60 hover:opacity-100 grayscale hover:grayscale-0 h-[140px] min-w-[240px]"
+              class="group flex flex-col items-center justify-center px-16 py-6 bg-white border border-slate-50 rounded-[32px] transition-all duration-500 hover:border-[#154360]/10 hover:shadow-xl opacity-60 hover:opacity-100 grayscale hover:grayscale-0 h-[140px] w-auto"
             >
               {p.data.logo ? (
                 <img 
                   src={`${base}${p.data.logo}`} 
                   alt={p.data.name} 
-                  class="max-h-16 w-auto max-w-[80%] object-contain transition-transform duration-500 group-hover:scale-110"
+                  class="max-h-16 w-auto max-w-none object-contain transition-transform duration-500 group-hover:scale-110"
                 />
               ) : (
-                <span class="text-[#154360] font-heading font-black text-lg md:text-xl tracking-tighter text-center uppercase group-hover:scale-110 transition-transform">
+                <span class="text-[#154360] font-heading font-black text-lg md:text-xl tracking-tighter text-center uppercase group-hover:scale-110 transition-transform whitespace-nowrap">
                   {p.data.name}
                 </span>
               )}
@@ -82,16 +82,16 @@ const base = import.meta.env.BASE_URL.endsWith('/')
               href={r.data.url}
               target="_blank"
               rel="noopener noreferrer"
-              class="group flex items-center justify-center px-12 py-10 bg-slate-50/50 border border-slate-100 rounded-[28px] transition-all duration-500 hover:border-[#154360]/5 hover:shadow-md opacity-70 hover:opacity-100 min-w-[220px] h-[120px]"
+              class="group flex items-center justify-center px-12 py-10 bg-slate-50/50 border border-slate-100 rounded-[28px] transition-all duration-500 hover:border-[#154360]/5 hover:shadow-md opacity-70 hover:opacity-100 w-auto h-[120px]"
             >
                {r.data.logo ? (
                 <img 
                   src={`${base}${r.data.logo}`} 
                   alt={r.data.name} 
-                  class="max-h-16 w-auto max-w-[85%] object-contain transition-transform duration-500 group-hover:scale-110 grayscale hover:grayscale-0 drop-shadow-[0_2px_4px_rgba(0,0,0,0.05)]"
+                  class="max-h-16 w-auto max-w-none object-contain transition-transform duration-500 group-hover:scale-110 grayscale hover:grayscale-0 drop-shadow-[0_2px_4px_rgba(0,0,0,0.05)]"
                 />
               ) : (
-                <span class="text-slate-400 group-hover:text-[#154360] font-heading font-black text-sm md:text-base tracking-tighter text-center uppercase transition-colors">
+                <span class="text-slate-400 group-hover:text-[#154360] font-heading font-black text-sm md:text-base tracking-tighter text-center uppercase transition-colors whitespace-nowrap">
                   {r.data.name}
                 </span>
               )}
