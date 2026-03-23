@@ -1,45 +1,46 @@
 import os
+import sys
+
+# Luvi Bilişim - Video Sıkıştırma Scripti (Optimized)
 try:
-    # MoviePy v2.x import
-    from moviepy import VideoFileClip
+    from moviepy.editor import VideoFileClip
 except ImportError:
     try:
-        # MoviePy v1.x fallback
-        from moviepy.editor import VideoFileClip
+        from moviepy import VideoFileClip
     except ImportError:
-        import traceback
-        print("HATA: 'moviepy' kütüphanesi yüklü değil veya hatalı.")
-        print("Lütfen şu komutu çalıştırın: python -m pip install moviepy")
-        traceback.print_exc()
-        exit(1)
+        print("HATA: 'moviepy' kütüphanesi yüklü değil.")
+        print("Çözüm: pip install moviepy")
+        sys.exit(1)
 
-# Dosya yolları (public klasörü içinde)
 base_path = "public"
 files = [
+    "bg.mp4",
     "Futuristic_Digital_Network_Animation.mp4",
     "Cinematic_Tech_Loop_Generation.mp4"
 ]
 
-def convert():
+def compress_videos():
     for filename in files:
         input_file = os.path.join(base_path, filename)
         output_file = os.path.join(base_path, filename.replace(".mp4", ".webm"))
         
         if os.path.exists(input_file):
-            print(f"---> Dönüştürülüyor: {input_file}")
+            print(f"---> Sıkıştırılıyor: {input_file}")
             try:
+                # Arka plan videoları için 1000k-800k bitrate ve 24 fps idealdir.
                 clip = VideoFileClip(input_file)
-                # WebM formatına çevir (2000k bitrate sıkıştırma sağlar)
-                clip.write_videofile(output_file, codec="libvpx", bitrate="2000k")
-                print(f"BAŞARILI: {output_file} oluşturuldu.")
+                # Sesi kapat (audio=False) çünkü arka planda gerek yok, boyutu düşürür.
+                # '800k' bitrate ile 3.9MB'lık bir MP4'ü ~1MB civarına indirebiliriz.
+                clip = clip.without_audio()
+                clip.write_videofile(output_file, codec="libvpx", bitrate="800k", fps=24)
+                clip.close()
+                print(f"BAŞARILI: {output_file} optimize edildi.")
             except Exception as e:
                 print(f"HATA oluştu ({filename}): {e}")
         else:
             print(f"UYARI: {input_file} bulunamadı.")
 
 if __name__ == "__main__":
-    print("Luvi Bilişim - Video Sıkıştırma Scripti")
-    print("---------------------------------------")
-    convert()
-    print("---------------------------------------")
+    print("Video sıkıştırma işlemi başlatılıyor...")
+    compress_videos()
     print("İşlem tamamlandı.")
