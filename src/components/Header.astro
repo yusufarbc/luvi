@@ -23,14 +23,14 @@ const navItems = [
     </a>
 
     <!-- Desktop Nav -->
-    <nav class="hidden lg:flex items-center gap-8">
+    <nav class="hidden lg:flex items-center gap-12">
       {navItems.map((item) => (
         <a 
           href={item.href} 
-          class="text-[#2c3e50]/80 font-sans text-[11px] font-bold tracking-[0.2em] uppercase hover:text-[#154360] transition-all duration-300 relative group"
+          class="text-[#2c3e50]/80 font-sans text-[13px] font-black tracking-[0.3em] uppercase hover:text-[#154360] transition-all duration-300 relative group"
         >
           {item.label}
-          <span class="absolute -bottom-2 left-0 w-0 h-px bg-[#154360] transition-all duration-300 group-hover:w-full"></span>
+          <span class="absolute -bottom-3 left-0 w-0 h-[2px] bg-[#154360] transition-all duration-300 group-hover:w-full"></span>
         </a>
       ))}
     </nav>
