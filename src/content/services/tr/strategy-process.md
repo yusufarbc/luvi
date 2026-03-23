@@ -2,31 +2,24 @@
 title: "BT Stratejik Danışmanlık ve Süreç Yönetimi"
 description: "Teknolojiyi iş hedeflerinizle hizalıyor, kurumsal süreçlerinizi verimlilik odaklı yeniden kurguluyoruz. BT yönetişimi ve süreç optimizasyonu ile dijital dönüşümü kurum kültürünüze entegre ediyoruz."
 category: "strategy"
-order: 3
+order: 1
 icon: "ai"
 lang: "tr"
 ---
 
-Dijital dönüşüm sadece araçları değiştirmek değil, iş yapış biçimini mükemmelleştirmektir.
+Bilgi Teknolojileri artık sadece bir destek birimi değil, iş stratejinizin en önemli taşıyıcısıdır. Luvi Bilişim olarak, bu dönüşümü 360 derece yönetiyoruz.
 
-### Danışmanlık Kapsamımız:
-- **BT Strateji Tasarımı**: 3 ve 5 yıllık teknoloji yol haritaları.
-- **Süreç Optimizasyonu (ITIL/ITSM)**: Operasyonel mükemmellik için iş akışlarını tasarlama.
-- **Bütçe ve Kaynak Yönetimi**: Teknolojik yatırımların ROI (Geri Dönüş) odaklı planlanması.
-- **Değişim Yönetimi**: Dijital dönüşümün insan ve süreç boyutunda yönetilmesi.
-Sunucu sanallaştırması ve veri yedeklemesi, modern IT altyapısının ayrılmaz iki parçasıdır. 
+### BT Strateji ve Yol Haritası
+İş hedeflerinizle uyumlu, 3 ve 5 yıllık teknoloji stratejileri oluşturuyoruz. Bütçe planlamasından kaynak yönetimine kadar dijital dönüşümü kurum kültürünüze entegre ediyoruz.
 
-### Sunulan Avantajlar:
-- **Kaynak Optimizasyonu**: Fiziksel sunucu sayısını azaltarak operasyonel maliyetleri düşürme.
-- **Sıfır Veri Kaybı**: Otomatik ve yedekli veri depolama sistemleri.
-- **Hızlı Kurtarma**: Herhangi bir arıza durumunda sistemlerin dakikalar içinde geri yüklenmesi.
-- **Esneklik**: Bulut ve yerel altyapıların hibrit yönetimi.
+### Sanallaştırma ve İş Sürekliliği (Yedekleme)
+Sunucu ve masaüstü sanallaştırma teknolojileriyle operasyonel maliyetlerinizi düşürürken, otomatik yedekleme ve felaket kurtarma (DR) stratejileriyle verinizi güvence altına alıyoruz.
 
----
-title: "Dijital Olgunluk Analizi"
-description: "Dönüşüm yolculuğunuza başlamadan önce dijital olgunluk seviyenizi doğru bir şekilde belirlemeniz, ileride karşılaşabileceğiniz zorlukları öngörmenizi ve başarıya giden yolda daha sağlam adımlar atmanızı sağlar. Dijital Olgunluk Analizi, kuruluşunuzun mevcut altyapısını, süreçlerini ve stratejilerini bütüncül bir çerçevede değerlendirir."
-category: "strategy"
-order: 15
-icon: "data"
-lang: "tr"
----
+### Dijital Olgunluk Analizi
+Kuruluşunuzun mevcut teknolojik altyapısını, süreçlerini ve stratejilerini ölçümlüyor, gelişim alanlarını belirleyerek somut bir iyileştirme yol haritası sunuyoruz.
+
+### Altyapı ve Network Tasarımı
+Güçlü ve ölçeklenebilir bir temel için kablolu/kablosuz ağ yapılarını, veri merkezi mimarilerini ve sunucu sistemlerini uçtan uca tasarlayıp devreye alıyoruz.
+
+### 7/24 Teknik Destek ve Helpdesk
+Kritik IT altyapınızın sürekliliği için uzaktan ve yerinde teknik destek sunuyoruz. L1'den L2'ye kadar olan destek seviyelerimizle her türlü soruna anında müdahale ediyoruz.
