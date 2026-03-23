@@ -6,16 +6,17 @@ import '@fontsource/inter';
 interface Props {
 	title: string;
 	lang: string;
+	description?: string;
 }
 
-const { title, lang } = Astro.props;
+const { title, lang, description = "Yarının olasılıkları, bugünün dijital refleksi" } = Astro.props;
 ---
 
 <!doctype html>
 <html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Geleceğin olasılık spektrumlarını bugünün zihnine ve kararlarına sığdıran Luvi Bilişim; dijital ataleti kırarak kurumsal zekayı genetik reflekse kodlar." />
+		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/x-icon" href={`${import.meta.env.BASE_URL}favicon.ico`} />
 		<meta name="generator" content={Astro.generator} />
