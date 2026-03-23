@@ -1,25 +1,23 @@
 ---
+import { getCollection } from 'astro:content';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const partners = [
-  { name: 'IFC Global', url: 'https://ifcglobal.com.tr/', logo: '/partners/IFC_global.webp' },
-  { name: 'Secude Bilişim', url: 'https://secude.com/', logo: '/partners/secude.webp' },
-  { name: 'Redington', url: 'https://redingtongroup.com/', logo: '/partners/redington.webp' },
-  { name: 'Exclusive Networks', url: 'https://www.exclusive-networks.com/', logo: '/partners/exclusive.webp' },
-];
+const allPartners = await getCollection('partners', ({ data }) => {
+  return data.lang === lang;
+});
+const partners = allPartners.sort((a, b) => (a.data.order || 99) - (b.data.order || 99));
 
-const references = [
-  { name: 'İçtaş Holding', url: 'https://www.ictas.com.tr/', logo: '/references/ictas.webp' },
-  { name: 'Kalyon Holding', url: 'https://www.kalyonholding.com/', logo: '/references/kalyon-logo-beyaz.webp' },
-  { name: 'Metyx Global', url: 'https://www.metyx.com/', logo: '/references/metyx.webp' },
-  { name: 'Kraken Marin', url: 'http://krakenmarin.com/', logo: '/references/krakenmarin.webp' },
-  { name: 'Adalya Hotels', url: 'https://www.adalyahotels.com/', logo: '/references/adalya-hotels-colored-logo.webp' },
-];
+const allReferences = await getCollection('references', ({ data }) => {
+  return data.lang === lang;
+});
+const references = allReferences.sort((a, b) => (a.data.order || 99) - (b.data.order || 99));
 
-const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.endsWith('/') 
+  ? import.meta.env.BASE_URL.slice(0, -1) 
+  : import.meta.env.BASE_URL;
 ---
 
 <section class="py-24 bg-white border-t border-slate-100">
