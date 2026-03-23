@@ -1,11 +1,11 @@
 ---
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
-import { getEntry, render } from 'astro:content';
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import { getEntry, render } from "astro:content";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const aboutEntry = await getEntry('corporate', lang);
+const aboutEntry = await getEntry("corporate", lang);
 const { Content } = await render(aboutEntry);
 ---
 
@@ -14,38 +14,36 @@ const { Content } = await render(aboutEntry);
     <div class="flex flex-col lg:flex-row items-start gap-16 lg:gap-24">
       <!-- Visual Side (Stays Sticky on Desktop) -->
       <div class="w-full lg:w-5/12 lg:sticky lg:top-32">
-        <div class="aspect-[4/5] rounded-[48px] overflow-hidden border border-slate-100 relative group bg-white shadow-sm hover:shadow-xl transition-shadow duration-700">
-          <div class="w-full h-full flex flex-col items-center justify-center p-12 text-center">
-             <span class="text-[#154360] text-[180px] font-heading font-black opacity-[0.02] group-hover:opacity-[0.04] transition-all duration-1000 transform group-hover:scale-110 select-none">L</span>
-             <div class="relative z-20">
-                <h4 class="text-[#154360] font-heading font-black text-4xl mb-2 tracking-tighter">Luvi Bilişim</h4>
-                <p class="text-[#5dade2] text-[10px] font-sans font-black uppercase tracking-[0.4em] opacity-80">Işık İnsanları</p>
-             </div>
+        <div
+          class="aspect-[4/5] rounded-[48px] overflow-hidden border border-slate-100 relative group bg-[#154360] shadow-sm hover:shadow-2xl transition-all duration-700"
+        >
+          <div class="absolute inset-0 z-0">
+            <img
+              src={`${import.meta.env.BASE_URL}building.webp`}
+              alt="Luvi Bilişim Visual"
+              class="w-full h-full object-cover opacity-40 group-hover:opacity-60 transition-opacity duration-1000 group-hover:scale-110 transition-transform duration-[2000ms]"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-[#154360] via-transparent to-transparent"
+            >
+            </div>
           </div>
           <!-- Corner Accents -->
-          <div class="absolute top-10 left-10 w-12 h-px bg-[#154360]/10"></div>
-          <div class="absolute top-10 left-10 h-12 w-px bg-[#154360]/10"></div>
-          <div class="absolute bottom-10 right-10 w-12 h-px bg-[#5dade2]/20"></div>
-          <div class="absolute bottom-10 right-10 h-12 w-px bg-[#5dade2]/20"></div>
-        </div>
-        
-        <!-- Stats Row -->
-        <div class="grid grid-cols-2 gap-4 mt-8">
-          <div class="p-10 rounded-[32px] bg-white border border-slate-100 shadow-sm transition-all hover:shadow-md hover:border-[#154360]/10">
-            <p class="text-[#154360] font-heading font-black text-4xl mb-1 tracking-tighter">İzmir</p>
-            <p class="text-slate-400 text-[9px] uppercase tracking-[0.3em] font-sans font-black">Teknopark Merkezi</p>
+          <div class="absolute top-10 left-10 w-12 h-px bg-white/20"></div>
+          <div class="absolute top-10 left-10 h-12 w-px bg-white/20"></div>
+          <div class="absolute bottom-10 right-10 w-12 h-px bg-[#5dade2]/30">
           </div>
-          <div class="p-10 rounded-[32px] bg-white border border-slate-100 shadow-sm transition-all hover:shadow-md hover:border-[#154360]/10">
-            <p class="text-[#5dade2] font-heading font-black text-4xl mb-1 tracking-tighter">100%</p>
-            <p class="text-slate-400 text-[9px] uppercase tracking-[0.3em] font-sans font-black">Yerli İnovasyon</p>
+          <div class="absolute bottom-10 right-10 h-12 w-px bg-[#5dade2]/30">
           </div>
         </div>
       </div>
 
       <!-- Text Side (Long Content) -->
       <div class="w-full lg:w-7/12 prose prose-slate prose-lg max-w-none">
-        <h2 class="text-[#5dade2] font-sans font-black tracking-[0.4em] uppercase text-[10px] mb-8">
-          {t('about.title')}
+        <h2
+          class="text-4xl md:text-6xl lg:text-7xl font-heading font-black text-[#154360] mb-12 leading-[1.1] tracking-tighter"
+        >
+          {t("about.title")}
         </h2>
         <div class="about-content">
           <Content />
@@ -54,36 +52,15 @@ const { Content } = await render(aboutEntry);
     </div>
   </div>
 </section>
-
-<style is:global>
-  @reference "../styles/global.css";
-  .about-content h1 {
-    @apply text-4xl md:text-5xl lg:text-7xl font-heading font-black text-[#154360] mb-12 leading-[1.1] tracking-tighter;
-  }
-  .about-content h2 {
-    @apply text-2xl md:text-4xl font-heading font-black text-[#154360] mt-16 mb-8 tracking-tighter;
-  }
-  .about-content p {
-    @apply text-slate-500 font-sans text-lg md:text-xl leading-[1.8] mb-8 text-justify;
-  }
-  .about-content ul {
-    @apply space-y-6 my-12;
-  }
-  .about-content li {
-    @apply text-slate-500 font-sans text-lg pl-8 border-l-2 border-[#5dade2]/20 hover:border-[#5dade2] transition-colors;
-  }
-  .about-content li strong {
-    @apply text-[#154360] font-black block mb-1;
-  }
-  .about-content hr {
-    @apply border-slate-100 my-16;
-  }
-</style>
-
 <style>
   @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
   }
   .animate-float {
     animation: float 4s ease-in-out infinite;

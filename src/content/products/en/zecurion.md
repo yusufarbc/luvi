@@ -3,6 +3,7 @@ title: "Zecurion DLP"
 description: "Data loss prevention and content inspection solutions."
 lang: "en"
 order: 6
+logo: "/products/zecurion.webp"
 ---
 
 # Zecurion Data Loss Prevention (DLP)

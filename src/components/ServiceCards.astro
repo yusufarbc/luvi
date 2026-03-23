@@ -31,51 +31,34 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
 ---
 
 <section id="services" class="w-full">
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full max-w-7xl mx-auto px-4 mt-8">
-  {allServices.map((s) => (
-    <a 
-      href={`${base}/${lang}/services/${s.id.split('/').pop()?.replace('.md', '')}`}
-      class={`group relative p-10 rounded-[32px] transition-all duration-700 hover:-translate-y-3 flex flex-col items-center text-center overflow-hidden border ${
-        isHero 
-          ? 'bg-white/5 backdrop-blur-md border-white/10 hover:border-[#5dade2]/30 hover:shadow-[0_40px_80px_-20px_rgba(93,173,226,0.1)]' 
-          : 'bg-white border-slate-100 hover:border-[#154360]/20 hover:shadow-[0_40px_80px_-20px_rgba(21,67,96,0.1)]'
-      }`}
-    >
-      <!-- Icon Wrapper -->
-      <div class={`relative z-10 mb-8 transition-all duration-700 transform group-hover:scale-110 ${
-        isHero ? 'text-[#5dade2] group-hover:text-white' : 'text-[#154360] group-hover:text-[#5dade2]'
-      }`}>
-        <Fragment set:html={iconMap[s.data.icon]} />
+    {allServices.length > 0 ? (
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full max-w-7xl mx-auto px-4">
+        {allServices
+          .sort((a, b) => (a.data.order || 99) - (b.data.order || 99))
+          .map((s) => (
+          <a 
+            href={`${base}/${lang}/services/${s.id.split('/').pop()?.replace('.md', '')}`}
+            class={`group relative p-10 rounded-[32px] transition-all duration-700 hover:-translate-y-3 flex flex-col items-center text-center overflow-hidden border ${
+              isHero 
+                ? 'bg-white/5 backdrop-blur-md border-white/10 hover:border-[#5dade2]/30 hover:shadow-[0_40px_80px_-20px_rgba(93,173,226,0.1)]' 
+                : 'bg-white border-slate-100 hover:border-[#154360]/20 hover:shadow-[0_40px_80px_-20px_rgba(21,67,96,0.1)]'
+            }`}
+          >
+            <!-- Icon Wrapper -->
+            <div class={`relative z-10 mb-8 transition-all duration-700 transform group-hover:scale-110 ${
+              isHero ? 'text-[#5dade2] group-hover:text-white' : 'text-[#154360] group-hover:text-[#5dade2]'
+            }`}>
+              <Fragment set:html={iconMap[s.data.icon]} />
+            </div>
+
+            <!-- Title -->
+            <h3 class={`relative z-10 px-4 font-heading font-black text-xl leading-snug tracking-tight transition-colors duration-500 ${
+              isHero ? 'text-white group-hover:text-[#5dade2]' : 'text-[#154360] group-hover:text-[#2c3e50]'
+            }`}>
+              {s.data.title}
+            </h3>
+          </a>
+        ))}
       </div>
-
-      <!-- Title -->
-      <h3 class={`relative z-10 px-4 font-heading font-black text-xl leading-snug tracking-tight transition-colors duration-500 ${
-        isHero ? 'text-white group-hover:text-[#5dade2]' : 'text-[#154360] group-hover:text-[#2c3e50]'
-      }`}>
-        {s.data.title}
-      </h3>
-    </a>
-  ))}
-
-  <!-- Digital Maturity Placeholder Card -->
-  <div class={`group relative p-10 rounded-[32px] transition-all duration-700 flex flex-col items-center text-center overflow-hidden border border-dashed ${
-    isHero 
-      ? 'bg-white/5 backdrop-blur-md border-white/10 hover:border-[#5dade2]/20' 
-      : 'bg-white border-slate-100 hover:border-[#5dade2]/30'
-  }`}>
-    <div class={`mb-8 transition-colors duration-700 ${
-      isHero ? 'text-white/20 group-hover:text-[#5dade2]' : 'text-slate-200 group-hover:text-[#5dade2]'
-    }`}>
-      <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-      </svg>
-    </div>
-    <h3 class={`font-heading font-black text-xl tracking-tight transition-colors duration-700 ${
-      isHero ? 'text-white/30 group-hover:text-white' : 'text-slate-300 group-hover:text-[#154360]'
-    }`}>
-      {t('nav.maturity')} <br/>
-      <span class="text-[9px] text-[#5dade2] tracking-[0.3em] font-sans font-black uppercase opacity-60">{t('maturity.soon')}</span>
-    </h3>
-  </div>
-  </div>
+    ) : null}
 </section>

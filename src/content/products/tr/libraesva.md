@@ -3,6 +3,7 @@ title: "Libraesva Email Security"
 description: "Gelişmiş e-posta güvenliği ve oltalama koruması gateway'i."
 lang: "tr"
 order: 5
+logo: "/products/libraesva.webp"
 ---
 
 # Libraesva Link ve E-posta Güvenliği

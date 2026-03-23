@@ -3,6 +3,7 @@ title: "SentinelOne Singularity"
 description: "AI-powered autonomous cybersecurity platform."
 lang: "en"
 order: 2
+logo: "/products/sentinelone.webp"
 ---
 
 # SentinelOne Singularity Platform

@@ -3,6 +3,7 @@ title: "Fortinet Security Fabric"
 description: "Broad, integrated, and automated cybersecurity portfolio."
 lang: "en"
 order: 4
+logo: "/products/fortinet.webp"
 ---
 
 # Fortinet Security Fabric

@@ -3,6 +3,7 @@ title: "Libraesva Email Security"
 description: "Advanced email security and phishing protection gateway."
 lang: "en"
 order: 5
+logo: "/products/libraesva.webp"
 ---
 
 # Libraesva Link and Email Security

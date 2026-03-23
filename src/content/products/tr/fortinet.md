@@ -3,6 +3,7 @@ title: "Fortinet Security Fabric"
 description: "Geniş, entegre ve otomatik siber güvenlik portföyü."
 lang: "tr"
 order: 4
+logo: "/products/fortinet.webp"
 ---
 
 # Fortinet Security Fabric

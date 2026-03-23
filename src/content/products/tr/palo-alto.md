@@ -3,6 +3,7 @@ title: "Palo Alto Networks"
 description: "Yeni nesil güvenlik duvarı ve bulut güvenlik çözümleri."
 lang: "tr"
 order: 3
+logo: "/products/palo-alto.webp"
 ---
 
 # Palo Alto Networks Güvenlik Çözümleri
