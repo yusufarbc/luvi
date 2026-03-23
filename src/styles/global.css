@@ -1,19 +1,28 @@
 @import "tailwindcss";
 
-@layer base {
-  :root {
-    --color-navy: #0f345a;
-    --color-gold: #ac853c;
-    --color-gold-light: #e6c886;
-    --color-bg-light: #ffffff;
-    --color-bg-alt: #f8fafc;
-    --color-text: #0f172a;
-    --color-text-muted: #475569;
-  }
+@theme {
+  --color-navy: #154360;
+  --color-sky: #5dade2;
+  --color-slate: #2c3e50;
+  --color-bg-white: #ffffff;
+  --color-text: #2c3e50;
+  --color-text-muted: #5d6d7e;
+  
+  --font-heading: "Montserrat", sans-serif;
+  --font-sans: "Inter", sans-serif;
+}
 
+@layer base {
   body {
-    @apply bg-white text-[#0f172a] font-sans selection:bg-[#ac853c] selection:text-white;
+    background-color: var(--color-bg-white);
+    color: var(--color-text);
+    font-family: var(--font-sans);
     overflow-x: hidden;
+  }
+  
+  ::selection {
+    background-color: var(--color-navy);
+    color: white;
   }
 }
 

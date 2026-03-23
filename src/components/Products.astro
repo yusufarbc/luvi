@@ -14,29 +14,27 @@ const sortedProducts = allProducts.sort((a, b) => (a.data.order || 99) - (b.data
 const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
 ---
 
-<section id="products" class="py-24 bg-slate-50 border-t border-slate-100">
+<section id="products" class="py-24 bg-white border-t border-slate-100">
   <div class="container mx-auto px-4">
     <div class="text-center mb-16">
-      <h2 class="text-blue-600 font-sans font-bold tracking-[0.4em] uppercase text-[10px] mb-4">
+      <h2 class="text-[#5dade2] font-sans font-black tracking-[0.4em] uppercase text-[9px] mb-4">
         {t('products.title')}
       </h2>
-      <p class="text-3xl md:text-5xl font-sans font-black text-[#0f345a] uppercase tracking-tight">
+      <p class="text-4xl md:text-6xl font-heading font-black text-[#154360] uppercase tracking-tighter">
         {t('products.subtitle')}
       </p>
     </div>
 
     <!-- Product Grid -->
-    <div class="flex flex-wrap justify-center items-center gap-6 md:gap-10">
+    <div class="flex flex-wrap justify-center items-center gap-6 md:gap-12">
       {sortedProducts.map((p) => (
         <a 
           href={`${base}/${lang}/products/${p.id.split('/').pop()?.replace('.md', '')}`}
-          class="group relative py-6 px-12 bg-white border border-slate-200 rounded-2xl transition-all duration-500 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-900/10 opacity-70 hover:opacity-100 transform hover:-translate-y-1"
+          class="group relative py-8 px-14 bg-white border border-slate-100 rounded-2xl transition-all duration-500 hover:border-[#154360]/30 hover:shadow-[0_20px_40px_-10px_rgba(21,67,96,0.05)] opacity-60 hover:opacity-100 transform hover:-translate-y-1"
         >
-          <span class="text-[#0f345a] font-sans font-extrabold text-xl md:text-3xl tracking-tight group-hover:text-blue-700 transition-colors uppercase">
+          <span class="text-[#154360] font-heading font-black text-xl md:text-4xl tracking-tighter transition-colors uppercase">
             {p.data.title.split(' ')[0]}
           </span>
-          <!-- Glow -->
-          <div class="absolute inset-0 bg-blue-500 blur-3xl opacity-0 group-hover:opacity-10 transition-opacity rounded-2xl"></div>
         </a>
       ))}
     </div>

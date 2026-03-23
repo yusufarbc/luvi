@@ -5,35 +5,33 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<section id="maturity" class="py-32 relative overflow-hidden bg-slate-50">
+<section id="maturity" class="py-32 relative overflow-hidden bg-white">
   <!-- Subtle Background Pattern -->
-  <div class="absolute inset-0 bg-blue-500/5 opacity-50"></div>
-  <div class="absolute -top-24 -left-24 w-96 h-96 bg-blue-500/10 blur-[120px] rounded-full"></div>
-  <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-[#ac853c]/5 blur-[120px] rounded-full"></div>
+  <div class="absolute inset-0 bg-slate-50/50 opacity-30"></div>
 
   <div class="container mx-auto px-4 md:px-8 relative z-10">
-    <div class="max-w-4xl mx-auto bg-white border border-slate-100 p-8 md:p-16 rounded-[40px] text-center shadow-[0_50px_100px_-20px_rgba(15,52,90,0.1)]">
-      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 mb-8">
-        <span class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
-        <span class="text-blue-700 text-xs font-bold uppercase tracking-widest">{t('nav.maturity')}</span>
+    <div class="max-w-4xl mx-auto bg-white border border-slate-100 p-8 md:p-20 rounded-[48px] text-center shadow-sm hover:shadow-xl transition-shadow duration-700">
+      <div class="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-slate-50 border border-slate-100 mb-10">
+        <span class="w-1.5 h-1.5 bg-[#5dade2] rounded-full"></span>
+        <span class="text-[#154360] text-[10px] font-sans font-black uppercase tracking-[0.4em]">{t('nav.maturity')}</span>
       </div>
       
-      <h2 class="text-4xl md:text-6xl font-sans font-black text-[#0f345a] mb-8 leading-tight tracking-tight">
+      <h2 class="text-4xl md:text-7xl font-heading font-black text-[#154360] mb-10 leading-tight tracking-tighter">
         {t('maturity.subtitle')}
       </h2>
       
-      <p class="text-slate-600 text-lg md:text-xl font-sans leading-relaxed mb-12 max-w-2xl mx-auto">
+      <p class="text-slate-500 text-xl md:text-2xl font-sans leading-relaxed mb-14 max-w-2xl mx-auto">
         {t('maturity.desc')}
       </p>
 
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-8">
         <a 
           href="#contact" 
-          class="px-10 py-5 bg-[#0f345a] text-white rounded-2xl font-sans font-black uppercase tracking-widest hover:bg-blue-600 hover:scale-105 hover:shadow-xl transition-all duration-300 shadow-lg shadow-blue-900/10"
+          class="px-14 py-6 bg-[#154360] text-white rounded-2xl font-heading font-black uppercase tracking-widest hover:bg-[#5dade2] transition-all duration-300 shadow-xl shadow-blue-900/10"
         >
           {t('maturity.cta')}
         </a>
-        <span class="text-slate-400 text-sm font-sans font-bold tracking-widest uppercase">{t('maturity.soon')}</span>
+        <span class="text-slate-400 text-xs font-sans font-black tracking-[0.3em] uppercase opacity-60">{t('maturity.soon')}</span>
       </div>
     </div>
   </div>

@@ -30,33 +30,30 @@ const iconMap: Record<string, string> = {
   {allServices.map((s) => (
     <a 
       href={`${base}/${lang}/services/${s.id.split('/').pop()?.replace('.md', '')}`}
-      class="group relative bg-white border border-slate-100 p-8 rounded-[32px] transition-all duration-700 hover:-translate-y-3 hover:border-blue-500/30 hover:shadow-[0_40px_80px_-20px_rgba(15,52,90,0.15)] flex flex-col items-center text-center overflow-hidden"
+      class="group relative bg-white border border-slate-100 p-10 rounded-[32px] transition-all duration-700 hover:-translate-y-3 hover:border-[#154360]/20 hover:shadow-[0_40px_80px_-20px_rgba(21,67,96,0.1)] flex flex-col items-center text-center overflow-hidden"
     >
-      <!-- Animated Inner Glow -->
-      <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-      
       <!-- Icon Wrapper -->
-      <div class="relative z-10 mb-6 text-blue-600 group-hover:text-[#0f345a] transition-all duration-700 transform group-hover:scale-110">
+      <div class="relative z-10 mb-8 text-[#154360] group-hover:text-[#5dade2] transition-all duration-700 transform group-hover:scale-110">
         <Fragment set:html={iconMap[s.data.icon]} />
       </div>
 
       <!-- Title -->
-      <h3 class="relative z-10 text-[#0f345a] font-sans font-bold text-lg leading-snug tracking-tight group-hover:text-blue-700 transition-colors duration-500">
+      <h3 class="relative z-10 text-[#154360] font-heading font-black text-xl leading-snug tracking-tight group-hover:text-[#2c3e50] transition-colors duration-500">
         {s.data.title}
       </h3>
     </a>
   ))}
 
   <!-- Digital Maturity Placeholder Card -->
-  <div class="group relative bg-slate-50 border border-slate-100 border-dashed p-8 rounded-[32px] transition-all duration-700 hover:border-blue-200 flex flex-col items-center text-center overflow-hidden">
-    <div class="mb-6 text-slate-300 group-hover:text-blue-400 transition-colors duration-700">
+  <div class="group relative bg-white border border-slate-100 border-dashed p-10 rounded-[32px] transition-all duration-700 hover:border-[#5dade2]/30 flex flex-col items-center text-center overflow-hidden">
+    <div class="mb-8 text-slate-200 group-hover:text-[#5dade2] transition-colors duration-700">
       <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
       </svg>
     </div>
-    <h3 class="text-slate-400 font-sans font-bold text-lg tracking-tight group-hover:text-[#0f345a] transition-colors duration-700">
+    <h3 class="text-slate-300 font-heading font-black text-xl tracking-tight group-hover:text-[#154360] transition-colors duration-700">
       {t('nav.maturity')} <br/>
-      <span class="text-[10px] text-blue-600/50 tracking-[0.2em] font-sans font-bold uppercase">{t('maturity.soon')}</span>
+      <span class="text-[9px] text-[#5dade2] tracking-[0.3em] font-sans font-black uppercase opacity-60">{t('maturity.soon')}</span>
     </h3>
   </div>
   </div>
