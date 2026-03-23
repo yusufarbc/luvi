@@ -1,0 +1,79 @@
+---
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const partners = [
+  { name: 'IFC Global', url: 'https://ifcglobal.com.tr/' },
+  { name: 'Secude Bilişim', url: 'https://secude.com/' },
+  { name: 'Redington', url: 'https://redingtongroup.com/' },
+  { name: 'Exclusive Networks', url: 'https://www.exclusive-networks.com/' },
+];
+
+const references = [
+  { name: 'İçtaş Holding', url: 'https://www.ictas.com.tr/' },
+  { name: 'Kalyon Holding', url: 'https://www.kalyonholding.com/' },
+  { name: 'Metyx Global', url: 'https://www.metyx.com/' },
+  { name: 'Kraken Marin', url: 'http://krakenmarin.com/' },
+  { name: 'Adalya Hotels', url: 'https://www.adalyahotels.com/' },
+];
+---
+
+<section class="py-24 bg-white border-t border-slate-100">
+  <div class="container mx-auto px-4 md:px-8">
+    <!-- Solution Partners -->
+    <div class="mb-32">
+      <div class="text-center mb-16">
+        <h2 class="text-[#5dade2] font-sans font-black tracking-[0.4em] uppercase text-[9px] mb-4">
+          {lang === 'tr' ? 'ÇÖZÜM ORTAKLARIMIZ' : 'SOLUTION PARTNERS'}
+        </h2>
+        <p class="text-3xl md:text-5xl font-heading font-black text-[#154360] uppercase tracking-tighter">
+          {lang === 'tr' ? 'Güçlü İş Birliklerimiz' : 'Our Strategic Collaborations'}
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+        {partners.map((p) => (
+          <a 
+            href={p.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex flex-col items-center justify-center p-8 bg-white border border-slate-50 rounded-[32px] transition-all duration-500 hover:border-[#154360]/10 hover:shadow-xl opacity-60 hover:opacity-100 grayscale hover:grayscale-0"
+          >
+            <span class="text-[#154360] font-heading font-black text-xl md:text-2xl tracking-tighter text-center uppercase group-hover:scale-110 transition-transform">
+              {p.name}
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <!-- References -->
+    <div>
+      <div class="text-center mb-16">
+        <h2 class="text-[#5dade2] font-sans font-black tracking-[0.4em] uppercase text-[9px] mb-4">
+          {lang === 'tr' ? 'REFERANSLARIMIZ' : 'OUR REFERENCES'}
+        </h2>
+        <p class="text-3xl md:text-5xl font-heading font-black text-[#154360] uppercase tracking-tighter">
+          {lang === 'tr' ? 'Bize Güvenen Kuruluşlar' : 'Trusted by Leading Institutions'}
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8">
+        {references.map((r) => (
+          <a 
+            href={r.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group flex flex-col items-center justify-center p-8 bg-slate-50/50 border border-transparent rounded-[32px] transition-all duration-500 hover:bg-white hover:border-[#154360]/5 hover:shadow-md opacity-50 hover:opacity-100"
+          >
+             <span class="text-slate-400 group-hover:text-[#154360] font-heading font-black text-sm md:text-base tracking-tighter text-center uppercase transition-colors">
+              {r.name}
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

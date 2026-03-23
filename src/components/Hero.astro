@@ -6,37 +6,46 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<section class="relative min-h-[80vh] w-full flex flex-col items-center justify-center pt-32 pb-24 overflow-hidden bg-white">
-  <!-- Background Layers -->
+<section class="relative min-h-[90vh] w-full flex flex-col items-center justify-center pt-32 pb-24 overflow-hidden bg-[#050a10]">
+  <!-- Background Layers (Video) -->
   <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-    <!-- Subtle Grid Pattern -->
-    <div class="absolute inset-0 bg-[linear-gradient(rgba(21,67,96,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(21,67,96,0.03)_1px,transparent_1px)] bg-[size:60px_60px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
+    <video 
+      autoplay 
+      muted 
+      loop 
+      playsinline 
+      class="absolute inset-0 w-full h-full object-cover opacity-60"
+    >
+      <source src={`${import.meta.env.BASE_URL}hero-bg.mp4`} type="video/mp4" />
+    </video>
+    <!-- Overlay for Readability -->
+    <div class="absolute inset-0 bg-gradient-to-b from-[#050a10]/80 via-[#050a10]/40 to-[#050a10]"></div>
   </div>
 
   <!-- Content Layer -->
   <div class="relative z-10 w-full max-w-7xl mx-auto px-4 text-center">
     <!-- Corporate Badge -->
-    <div class="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-slate-50 border border-slate-100 mb-10 shadow-sm animate-fade-in">
-      <span class="w-1.5 h-1.5 bg-[#154360] rounded-full"></span>
-      <span class="text-[#154360] text-[10px] font-sans font-bold uppercase tracking-[0.4em]">{t('hero.h2')}</span>
+    <div class="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-white/5 border border-white/10 mb-10 shadow-sm animate-fade-in backdrop-blur-sm">
+      <span class="w-1.5 h-1.5 bg-[#5dade2] rounded-full animate-pulse"></span>
+      <span class="text-white/80 text-[10px] font-sans font-bold uppercase tracking-[0.4em]">{t('hero.h2')}</span>
     </div>
 
     <!-- H1 Headline -->
     <div class="max-w-5xl mx-auto">
-      <h1 class="text-5xl md:text-7xl lg:text-8xl font-heading font-black text-[#154360] mb-8 leading-[1.1] tracking-tighter">
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-heading font-black text-white mb-10 leading-[1.1] tracking-tighter drop-shadow-2xl">
         {t('hero.h1')}
       </h1>
-      <div class="w-24 h-1 bg-[#154360] mx-auto rounded-full mb-12"></div>
+      <div class="w-24 h-1 bg-[#5dade2] mx-auto rounded-full mb-16 shadow-[0_0_20px_rgba(93,173,226,0.5)]"></div>
     </div>
 
     <!-- Action Area -->
     <div class="mt-8 transition-all duration-1000 animate-slide-up">
-      <ServiceCards />
+      <ServiceCards isHero={true} />
     </div>
 
     <!-- Scroll Indicator -->
-    <div class="mt-20 animate-bounce opacity-20 flex flex-col items-center gap-3">
-      <div class="w-px h-16 bg-gradient-to-b from-[#154360] to-transparent"></div>
+    <div class="mt-20 animate-bounce opacity-40 flex flex-col items-center gap-3">
+      <div class="w-px h-16 bg-gradient-to-b from-white/40 to-transparent"></div>
     </div>
   </div>
 </section>
