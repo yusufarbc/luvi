@@ -11,83 +11,110 @@ const navItems = [
   { label: t('nav.services'), href: `${import.meta.env.BASE_URL}${lang}/#services` },
   { label: t('nav.products'), href: `${import.meta.env.BASE_URL}${lang}/#products` },
   { label: t('nav.projects'), href: `${import.meta.env.BASE_URL}${lang}/#projects` },
-  { label: t('nav.contact'), href: `${import.meta.env.BASE_URL}${lang}/#contact` },
 ];
+
+const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
 ---
 
-<header class="fixed w-full z-50 bg-white/90 backdrop-blur-xl border-b border-slate-100 transition-all duration-300">
-  <div class="container mx-auto px-4 md:px-8 h-28 flex items-center justify-between">
-    <!-- Logo -->
-    <a href={`${import.meta.env.BASE_URL}${lang}/`} class="flex items-center gap-3 group relative">
-      <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Luvi Bilişim" class="h-16 w-auto object-contain transition-all duration-500 group-hover:scale-105" />
-    </a>
+<header id="main-header" class="fixed w-full z-50 transition-all duration-500 py-6">
+  <div class="container mx-auto px-4 md:px-8">
+    <div class="bg-white/70 backdrop-blur-2xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.05)] rounded-[32px] px-8 h-20 md:h-24 flex items-center justify-between transition-all duration-500" id="header-inner">
+      
+      <!-- Logo Section -->
+      <a href={`${base}/${lang}/`} class="flex items-center gap-4 group relative overflow-hidden">
+        <div class="absolute inset-0 bg-[#5dade2]/10 blur-xl rounded-full scale-0 group-hover:scale-150 transition-transform duration-700"></div>
+        <img src={`${base}/logo.png`} alt="Luvi Bilişim" class="h-10 md:h-12 w-auto object-contain relative z-10 transition-transform duration-500 group-hover:scale-105" />
+      </a>
 
-    <!-- Desktop Nav -->
-    <nav class="hidden lg:flex items-center gap-12">
-      {navItems.map((item) => (
-        <a 
-          href={item.href} 
-          class="text-[#2c3e50]/80 font-sans text-[13px] font-black tracking-[0.3em] uppercase hover:text-[#154360] transition-all duration-300 relative group"
-        >
-          {item.label}
-          <span class="absolute -bottom-3 left-0 w-0 h-[2px] bg-[#154360] transition-all duration-300 group-hover:w-full"></span>
-        </a>
-      ))}
-    </nav>
-
-    <!-- Language Switcher -->
-    <div class="flex items-center gap-4">
-      <div class="flex items-center bg-slate-50 border border-slate-100 rounded-full px-1 py-1">
-        {Object.entries(languages).map(([l, label]) => (
-          <a
-            href={`${import.meta.env.BASE_URL}${l}/`}
-            class={`px-3 py-1 rounded-full text-xs font-bold uppercase transition-all ${
-              lang === l 
-                ? 'bg-[#154360] text-white shadow-sm' 
-                : 'text-[#2c3e50]/60 hover:text-[#154360]'
-            }`}
+      <!-- Desktop Navigation -->
+      <nav class="hidden lg:flex items-center gap-8 xl:gap-12">
+        {navItems.map((item) => (
+          <a 
+            href={item.href} 
+            class="text-[#154360]/70 font-sans text-[13px] font-bold tracking-[0.2em] uppercase hover:text-[#154360] transition-all duration-300 relative group py-2"
           >
-            {l}
+            {item.label}
+            <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-[#5dade2] transition-all duration-500 group-hover:w-full rounded-full"></span>
           </a>
         ))}
+      </nav>
+
+      <!-- Action Area -->
+      <div class="flex items-center gap-4 md:gap-8">
+        <!-- Language Switcher (Mini Pill) -->
+        <div class="hidden md:flex items-center bg-white/50 border border-slate-100/50 rounded-2xl p-1 shadow-inner">
+          {Object.entries(languages).map(([l, _]) => (
+            <a
+              href={`${base}/${l}/`}
+              class={`px-3 py-1.5 rounded-xl text-[10px] font-black uppercase transition-all duration-500 ${
+                lang === l 
+                  ? 'bg-[#154360] text-white shadow-lg scale-105' 
+                  : 'text-[#154360]/40 hover:text-[#154360] hover:bg-white/80'
+              }`}
+            >
+              {l}
+            </a>
+          ))}
+        </div>
+
+        <!-- Contact CTA (Professional Button) -->
+        <a 
+          href={`${base}/${lang}/#contact`}
+          class="hidden md:flex px-8 py-3 bg-[#154360] text-white rounded-2xl font-sans text-xs font-black uppercase tracking-widest hover:bg-[#5dade2] hover:shadow-[0_10px_30px_rgba(93,173,226,0.3)] transition-all duration-500 active:scale-95"
+        >
+          {t('nav.contact')}
+        </a>
+
+        <!-- Mobile Toggle -->
+        <button id="menu-toggle" class="lg:hidden p-3 bg-[#154360]/5 rounded-2xl hover:bg-[#154360]/10 transition-colors group" aria-label="Toggle Menu">
+          <div class="w-6 h-5 relative flex flex-col justify-between">
+            <span class="w-full h-0.5 bg-[#154360] rounded-full transition-all group-hover:w-1/2"></span>
+            <span class="w-full h-0.5 bg-[#154360] rounded-full transition-all"></span>
+            <span class="w-full h-0.5 bg-[#154360] rounded-full transition-all group-hover:w-3/4"></span>
+          </div>
+        </button>
       </div>
-      
-      <!-- Mobile Toggle -->
-      <button id="menu-toggle" class="lg:hidden text-[#154360] p-2 hover:bg-slate-50 rounded-lg transition-colors" aria-label="Toggle Menu">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" id="menu-icon">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-        </svg>
-      </button>
     </div>
   </div>
 
-  <!-- Mobile Menu Overlay -->
-  <div id="mobile-menu" class="fixed inset-0 bg-[#154360] z-[9999] flex flex-col items-center justify-center gap-12 translate-x-full transition-transform duration-500 lg:hidden px-6">
-    <button id="menu-close" class="absolute top-8 right-8 text-white p-2 hover:bg-white/10 rounded-2xl transition-colors" aria-label="Close Menu">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-      </svg>
-    </button>
+  <!-- Mobile Menu Overlay (Premium Design) -->
+  <div id="mobile-menu" class="fixed inset-0 bg-[#0b1a2b]/95 backdrop-blur-2xl z-[9999] flex flex-col items-center justify-center translate-y-full opacity-0 transition-all duration-700 lg:hidden px-6">
+    <div class="absolute top-10 right-10 flex flex-col items-end gap-12">
+      <button id="menu-close" class="w-16 h-16 bg-white/5 rounded-full flex items-center justify-center text-white border border-white/10 hover:bg-white/10 transition-colors" aria-label="Close Menu">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
     
-    <div class="flex flex-col items-center gap-10">
-      {navItems.map((item) => (
+    <nav class="flex flex-col items-center gap-8 py-20">
+      {navItems.map((item, index) => (
         <a 
           href={item.href} 
-          class="text-4xl text-white font-heading font-black tracking-widest uppercase hover:text-[#5dade2] transition-colors mobile-link block"
+          class="text-3xl text-white font-heading font-black tracking-tighter uppercase hover:text-[#5dade2] transition-all transform translate-y-8 opacity-0 mobile-link"
+          style={`transition-delay: ${index * 100}ms`}
         >
           {item.label}
         </a>
       ))}
-    </div>
+      <a 
+        href={`${base}/${lang}/#contact`}
+        class="mt-12 px-12 py-5 bg-[#5dade2] text-white rounded-2xl text-xl font-heading font-black tracking-widest uppercase shadow-2xl transition-all mobile-link transform translate-y-8 opacity-0"
+        style={`transition-delay: ${navItems.length * 100}ms`}
+      >
+        {t('nav.contact')}
+      </a>
+    </nav>
 
-    <div class="mt-12 flex items-center bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-2 py-2">
+    <!-- Language Selector for Mobile -->
+    <div class="mt-auto mb-16 flex items-center bg-white/5 border border-white/10 rounded-full px-2 py-2">
       {Object.entries(languages).map(([l, _]) => (
         <a
-          href={`${import.meta.env.BASE_URL}${l}/`}
-          class={`px-8 py-3 rounded-full text-base font-bold uppercase transition-all ${
+          href={`${base}/${l}/`}
+          class={`px-10 py-3 rounded-full text-base font-bold uppercase transition-all ${
             lang === l 
-              ? 'bg-white text-[#154360] shadow-xl' 
-              : 'text-white/60 hover:text-white'
+              ? 'bg-white text-[#154360]' 
+              : 'text-white/40 hover:text-white'
           }`}
         >
           {l}
@@ -97,20 +124,43 @@ const navItems = [
   </div>
 </header>
 
-<script>
+<script is:inline>
+  const header = document.getElementById('main-header');
+  const headerInner = document.getElementById('header-inner');
   const menuToggle = document.getElementById('menu-toggle');
   const menuClose = document.getElementById('menu-close');
   const mobileMenu = document.getElementById('mobile-menu');
   const mobileLinks = document.querySelectorAll('.mobile-link');
 
+  // Handle Scroll Transparency & Shrinking
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      header.classList.remove('py-6');
+      header.classList.add('py-2');
+      headerInner.classList.remove('bg-white/70');
+      headerInner.classList.add('bg-white/95', 'shadow-2xl', 'rounded-[20px]');
+    } else {
+      header.classList.add('py-6');
+      header.classList.remove('py-2');
+      headerInner.classList.add('bg-white/70');
+      headerInner.classList.remove('bg-white/95', 'shadow-2xl', 'rounded-[20px]');
+    }
+  });
+
   function openMenu() {
-    mobileMenu?.classList.remove('translate-x-full');
+    mobileMenu.classList.remove('translate-y-full', 'opacity-0');
     document.body.style.overflow = 'hidden';
+    mobileLinks.forEach(link => {
+      link.classList.remove('translate-y-8', 'opacity-0');
+    });
   }
 
   function closeMenu() {
-    mobileMenu?.classList.add('translate-x-full');
+    mobileMenu.classList.add('translate-y-full', 'opacity-0');
     document.body.style.overflow = '';
+    mobileLinks.forEach(link => {
+      link.classList.add('translate-y-8', 'opacity-0');
+    });
   }
 
   menuToggle?.addEventListener('click', openMenu);
@@ -120,3 +170,9 @@ const navItems = [
     link.addEventListener('click', closeMenu);
   });
 </script>
+
+<style>
+  .mobile-link {
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+</style>
