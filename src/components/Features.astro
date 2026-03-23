@@ -7,12 +7,7 @@ const t = useTranslations(lang);
 
 const featuresEntry = await getEntry('features', lang);
 const { title, subtitle, items } = featuresEntry.data;
-
-const icons = {
-  building: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M8 10h.01"/><path d="M16 10h.01"/><path d="M8 14h.01"/><path d="M16 14h.01"/></svg>`,
-  cpu: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="4" rx="2"/><rect width="6" height="6" x="9" y="9" rx="1"/><path d="M15 2v2"/><path d="M15 20v2"/><path d="M2 15h2"/><path d="M2 9h2"/><path d="M20 15h2"/><path d="M20 9h2"/><path d="M9 2v2"/><path d="M9 20v2"/></svg>`,
-  zap: `<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14.5L12 3v9h8L12 21v-9H4z"/></svg>`
-};
+const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
 ---
 
 <section id="why-luvi" class="py-32 bg-[#0b1a2b] relative overflow-hidden">
@@ -38,16 +33,22 @@ const icons = {
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
       {items.map((f, i) => (
-        <div class="group relative bg-[#154360]/10 border border-white/5 p-12 rounded-[48px] overflow-hidden backdrop-blur-3xl transition-all duration-700 hover:border-[#5dade2]/30 hover:shadow-[0_40px_100px_-20px_rgba(93,173,226,0.15)] hover:-translate-y-4">
+        <div class="group relative bg-[#154360]/10 border border-white/5 rounded-[48px] overflow-hidden backdrop-blur-3xl transition-all duration-700 hover:border-[#5dade2]/30 hover:shadow-[0_40px_100px_-20px_rgba(93,173,226,0.15)] hover:-translate-y-4">
           
-          <!-- Glossy Reflection -->
-          <div class="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-white/5 to-transparent skew-y-[-10deg] -translate-y-1/2 group-hover:translate-y-[-10%] transition-transform duration-1000"></div>
+          <!-- Image Container -->
+          <div class="relative h-64 overflow-hidden">
+             <img 
+               src={`${base}${f.image}`} 
+               alt={f.title} 
+               class="w-full h-full object-cover grayscale opacity-50 transition-all duration-700 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110"
+               loading="lazy"
+               decoding="async"
+             />
+             <!-- Overlay Gradient -->
+             <div class="absolute inset-0 bg-gradient-to-t from-[#0b1a2b] to-transparent opacity-80"></div>
+          </div>
 
-          <div class="relative z-10">
-            <div class="w-16 h-16 rounded-2xl bg-[#5dade2]/10 flex items-center justify-center text-[#5dade2] mb-12 ring-1 ring-[#5dade2]/20 group-hover:bg-[#5dade2] group-hover:text-white group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-2xl shadow-[#5dade2]/20">
-              <Fragment set:html={icons[f.icon] || ""} />
-            </div>
-            
+          <div class="p-10 relative z-10">
             <h4 class="text-white font-heading font-black text-2xl lg:text-3xl mb-6 tracking-tighter group-hover:text-[#5dade2] transition-colors leading-tight">
                {f.title}
             </h4>
@@ -57,7 +58,7 @@ const icons = {
             </p>
           </div>
 
-          <!-- Bottom Accents -->
+          <!-- Glossy Reflection (Bottom) -->
           <div class="absolute bottom-0 right-0 w-32 h-32 bg-[#5dade2]/5 blur-3xl rounded-full group-hover:bg-[#5dade2]/10 transition-colors"></div>
         </div>
       ))}
