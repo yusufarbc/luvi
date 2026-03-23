@@ -1,10 +1,17 @@
 import os
 try:
-    from moviepy.editor import VideoFileClip
+    # MoviePy v2.x import
+    from moviepy import VideoFileClip
 except ImportError:
-    print("HATA: 'moviepy' kütüphanesi yüklü değil.")
-    print("Lütfen şu komutu çalıştırın: pip install moviepy")
-    exit(1)
+    try:
+        # MoviePy v1.x fallback
+        from moviepy.editor import VideoFileClip
+    except ImportError:
+        import traceback
+        print("HATA: 'moviepy' kütüphanesi yüklü değil veya hatalı.")
+        print("Lütfen şu komutu çalıştırın: python -m pip install moviepy")
+        traceback.print_exc()
+        exit(1)
 
 # Dosya yolları (public klasörü içinde)
 base_path = "public"

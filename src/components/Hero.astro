@@ -16,6 +16,7 @@ const t = useTranslations(lang);
       playsinline 
       class="absolute inset-0 w-full h-full object-cover opacity-10 transition-opacity duration-1000"
     >
+      <source src={`${import.meta.env.BASE_URL}Futuristic_Digital_Network_Animation.webm`} type="video/webm" />
       <source src={`${import.meta.env.BASE_URL}Futuristic_Digital_Network_Animation.mp4`} type="video/mp4" />
     </video>
     <!-- Subtle White Overlay -->
@@ -25,8 +26,8 @@ const t = useTranslations(lang);
   <script is:inline define:vars={{ baseUrl: import.meta.env.BASE_URL }}>
     const video = document.getElementById('hero-video');
     const sources = [
-      `${baseUrl}Futuristic_Digital_Network_Animation.mp4`,
-      `${baseUrl}Cinematic_Tech_Loop_Generation.mp4`
+      `${baseUrl}Futuristic_Digital_Network_Animation.webm`,
+      `${baseUrl}Cinematic_Tech_Loop_Generation.webm`
     ];
     let currentIndex = 0;
 
