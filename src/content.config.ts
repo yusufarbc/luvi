@@ -10,6 +10,27 @@ const hero = defineCollection({
   }),
 });
 
+const maturity = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/maturity" }),
+  schema: z.object({
+    title: z.string(),
+    subtitle: z.string(),
+    description: z.string(),
+    cta: z.string(),
+    status: z.string(),
+    lang: z.string(),
+  }),
+});
+
+const features = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/features" }),
+  schema: z.object({
+    title: z.string(),
+    subtitle: z.string(),
+    lang: z.string(),
+  }),
+});
+
 const services = defineCollection({
   loader: glob({ pattern: '**/[^_]*.md', base: "./src/content/services" }),
   schema: z.object({
@@ -87,6 +108,8 @@ const references = defineCollection({
 export const collections = {
   'services': services,
   'hero': hero,
+  'maturity': maturity,
+  'features': features,
   'blog': blog,
   'projects': projects,
   'corporate': corporate,

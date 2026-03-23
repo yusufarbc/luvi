@@ -1,0 +1,17 @@
+---
+title: "WHY LUVI IT?"
+subtitle: "IT, Technology, Innovation"
+lang: "en"
+---
+- id: "1"
+  title: "Izmir Technopark Power"
+  desc: "We produce in the heart of innovation, in one of Turkey's most prestigious technology zones."
+  icon: "🏛️"
+- id: "2"
+  title: "Infrastructure of the Future"
+  desc: "Uninterrupted and secure digital transformation focused on AI and cybersecurity."
+  icon: "🚀"
+- id: "3"
+  title: "IT, Technology, Innovation, Digitalization"
+  desc: "Blending the dynamics of the modern IT world with innovative and corporate solutions."
+  icon: "☀️"
