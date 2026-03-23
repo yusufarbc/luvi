@@ -1,5 +1,5 @@
 ---
-title: "Geleceğin olasılık spektrumlarını bugünün zihnine ve kararlarına sığdıran Luvi Bilişim;"
-subtitle: "dijital ataleti kırarak kurumsal zekayı genetik reflekse kodlar."
+title: "Yarının olasılıkları,"
+subtitle: "bugünün dijital refleksi"
 lang: "tr"
 ---
