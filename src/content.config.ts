@@ -28,6 +28,12 @@ const features = defineCollection({
     title: z.string(),
     subtitle: z.string(),
     lang: z.string(),
+    items: z.array(z.object({
+      id: z.string(),
+      title: z.string(),
+      desc: z.string(),
+      icon: z.string(),
+    })),
   }),
 });
 
