@@ -48,21 +48,7 @@ const t = useTranslations(lang);
 
   <!-- Content Layer -->
   <div class="relative z-10 w-full max-w-7xl mx-auto px-4 text-center">
-    <!-- Corporate Badge -->
-    <div class="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-slate-50 border border-slate-100 mb-10 shadow-sm animate-fade-in">
-      <span class="w-1.5 h-1.5 bg-[#154360] rounded-full animate-pulse"></span>
-      <span class="text-[#154360] text-[10px] font-sans font-bold uppercase tracking-[0.4em]">{t('hero.h2')}</span>
-    </div>
-
-    <!-- H1 Headline -->
-    <div class="max-w-5xl mx-auto">
-      <h1 class="text-4xl md:text-6xl lg:text-7xl font-heading font-black text-[#154360] mb-10 leading-[1.1] tracking-tighter">
-        {t('hero.h1')}
-      </h1>
-      <div class="w-24 h-1 bg-[#154360] mx-auto rounded-full mb-16"></div>
-    </div>
-
-    <!-- Action Area -->
+    <!-- Action Area (Service Cards Only) -->
     <div class="mt-8 transition-all duration-1000 animate-slide-up">
       <ServiceCards isHero={false} />
     </div>
