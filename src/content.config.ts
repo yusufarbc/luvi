@@ -47,6 +47,7 @@ const products = defineCollection({
     description: z.string().optional(),
     lang: z.string(),
     order: z.number().optional(),
+    logo: z.string().optional(),
   }),
 });
 

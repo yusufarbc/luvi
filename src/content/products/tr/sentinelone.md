@@ -3,6 +3,7 @@ title: "SentinelOne Singularity"
 description: "Yapay zeka tabanlı otonom siber güvenlik platformu."
 lang: "tr"
 order: 2
+logo: "/products/sentinelone.webp"
 ---
 
 # SentinelOne Singularity Platformu

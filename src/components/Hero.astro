@@ -48,8 +48,17 @@ const t = useTranslations(lang);
 
   <!-- Content Layer -->
   <div class="relative z-10 w-full max-w-7xl mx-auto px-4 text-center">
+    <div class="max-w-5xl mx-auto mb-16 animate-fade-in translate-y-8 opacity-0 [animation-delay:200ms]">
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-heading font-black text-[#154360] leading-[1.1] tracking-tighter mb-8 bg-clip-text">
+        {t('hero.h1').split(';')[0]}<span class="text-[#5dade2]">;</span>
+      </h1>
+      <p class="text-xl md:text-3xl font-heading font-black text-[#154360]/60 tracking-tight max-w-4xl mx-auto border-t border-slate-100 pt-8 mt-8">
+        {t('hero.h1').split(';')[1]}
+      </p>
+    </div>
+
     <!-- Action Area (Service Cards Only) -->
-    <div class="mt-8 transition-all duration-1000 animate-slide-up">
+    <div class="mt-8 transition-all duration-1000 animate-slide-up opacity-0 [animation-delay:600ms]">
       <ServiceCards isHero={false} />
     </div>
 
@@ -75,11 +84,11 @@ const t = useTranslations(lang);
     animation: slideUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
   @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
+    from { opacity: 0; transform: translateY(40px); }
     to { opacity: 1; transform: translateY(0); }
   }
   @keyframes slideUp {
-    from { opacity: 0; transform: translateY(40px); }
+    from { opacity: 0; transform: translateY(60px); }
     to { opacity: 1; transform: translateY(0); }
   }
 </style>

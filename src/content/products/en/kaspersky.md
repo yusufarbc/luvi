@@ -3,6 +3,7 @@ title: "Kaspersky Enterprise Security"
 description: "World leader in endpoint security and cyber threat protection solutions."
 lang: "en"
 order: 1
+logo: "/products/kaspersky.webp"
 ---
 
 # Kaspersky Enterprise Security Solutions

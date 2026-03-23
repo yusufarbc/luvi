@@ -3,6 +3,7 @@ title: "Kaspersky Kurumsal Güvenlik"
 description: "Dünya lideri uç nokta güvenliği ve siber tehdit koruması çözümleri."
 lang: "tr"
 order: 1
+logo: "/products/kaspersky.webp"
 ---
 
 # Kaspersky Kurumsal Güvenlik Çözümleri

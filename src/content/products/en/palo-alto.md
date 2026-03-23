@@ -3,6 +3,7 @@ title: "Palo Alto Networks"
 description: "Next-generation firewall and cloud security solutions."
 lang: "en"
 order: 3
+logo: "/products/palo-alto.webp"
 ---
 
 # Palo Alto Networks Security Solutions

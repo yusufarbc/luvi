@@ -3,6 +3,7 @@ title: "Zecurion DLP"
 description: "Veri sızıntısı önleme ve içerik denetimi çözümleri."
 lang: "tr"
 order: 6
+logo: "/products/zecurion.webp"
 ---
 
 # Zecurion Veri Sızıntısı Önleme (DLP)
