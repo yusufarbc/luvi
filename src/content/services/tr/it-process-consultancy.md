@@ -1,6 +1,6 @@
 ---
 title: "BT Süreç Danışmanlığı"
-description: "BT süreçlerinizi optimize ederek hizmet kalitesini ve hızını artırıyoruz."
+description: "BT süreçlerinizi doğru analiz ederek verimliliği artırıyor, maliyetleri düşürüyor ve rekabet avantajı sağlıyoruz."
 category: "strategy"
 order: 16
 icon: "data"

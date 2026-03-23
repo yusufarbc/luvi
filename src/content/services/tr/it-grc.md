@@ -1,7 +1,7 @@
 ---
 title: "IT GRC – Yönetişim Risk Uyumluluk"
-description: "BT yönetişimi, risk yönetimi ve uyumluluk süreçlerini tek bir merkezden yönetmenizi sağlıyoruz."
-category: "compliance"
+description: "Dijital dönüşümle değişen iş ihtiyaçlarını yönetilebilir hale getirerek uyum gerekliliklerini minimize ediyoruz."
+category: "strategy"
 order: 21
 icon: "cert"
 lang: "tr"

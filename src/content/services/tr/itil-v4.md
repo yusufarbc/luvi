@@ -1,6 +1,6 @@
 ---
 title: "ITIL V4 Hizalanma"
-description: "Modern hizmet yönetimi için ITIL V4 pratiklerini kurumunuza entegre ediyoruz."
+description: "İş hedefleriyle uyumu ve müşteri odaklı değer yaratmayı merkeze alan modern BT hizmet yönetim çerçevesi."
 category: "strategy"
 order: 20
 icon: "security"

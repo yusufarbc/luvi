@@ -1,7 +1,7 @@
 ---
 title: "SAP Danışmanlığı"
-description: "SAP süreçlerinizi iş hedeflerinize uygun şekilde yapılandırıyor ve destekliyoruz."
-category: "corporate"
+description: "İş süreçlerini entegre ederek verimliliği artıran ve operasyonları optimize eden SAP çözümleriyle yanınızdayız."
+category: "strategy"
 order: 22
 icon: "data"
 lang: "tr"

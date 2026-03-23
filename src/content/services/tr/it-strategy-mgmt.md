@@ -1,6 +1,6 @@
 ---
 title: "Bilgi Teknolojileri Strateji Yönetimi"
-description: "BT departmanınızın iş süreçlerine tam uyumunu ve verimliliğini sağlıyoruz."
+description: "BT stratejisini sadece bir araç değil, iş hedeflerine doğrudan katkı sağlayan yenilikçi bir yaklaşım olarak konumlandırıyoruz."
 category: "strategy"
 order: 14
 icon: "data"

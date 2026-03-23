@@ -1,6 +1,6 @@
 ---
 title: "Dijital Olgunluk Analizi"
-description: "Kurumunuzun dijital dönüşüm seviyesini ölçüyor ve iyileştirme adımlarını belirliyoruz."
+description: "Mevcut dijital altyapınızı, süreçlerinizi ve stratejilerinizi bütünsel bir çerçevede değerlendirerek iyileştirme noktalarını belirliyoruz."
 category: "strategy"
 order: 15
 icon: "data"

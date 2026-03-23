@@ -1,6 +1,6 @@
 ---
 title: "BT Servis Yönetim Danışmanlığı (ITSM)"
-description: "ITIL standartlarında servis yönetimi süreçleri kuruyor ve işletiyoruz."
+description: "BT dünyasının kutsal kitabı ITIL süreçlerini kutup yıldızı alan profesyonel servis yönetim modelleri sunuyoruz."
 category: "strategy"
 order: 17
 icon: "data"

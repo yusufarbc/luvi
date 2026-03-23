@@ -1,6 +1,6 @@
 ---
 title: "COBIT Denetimi"
-description: "Kurumsal BT yönetişimi için COBIT çerçevesinde denetim ve iyileştirme yapıyoruz."
+description: "BT süreçlerini etkin yönetmek ve kurumsal hedeflere uyumlu kılmak için kapsamlı denetim süreçleri gerçekleştiriyoruz."
 category: "strategy"
 order: 19
 icon: "security"

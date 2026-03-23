@@ -1,6 +1,6 @@
 ---
 title: "Bilgi Sistemleri Denetimi"
-description: "BT altyapı ve süreçlerinizin güvenliğini ve standartlara uyumunu denetliyoruz."
+description: "BT altyapınızı, sistemlerinizi, süreçlerinizi ve kontrollerinizi objektif bir şekilde değerlendiriyoruz."
 category: "strategy"
 order: 18
 icon: "security"
