@@ -34,9 +34,11 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
     {allServices.length > 0 ? (
       <div class="flex flex-col gap-20">
         {[
+          { id: 'solutions', title: 'ÇÖZÜMLER' },
           { id: 'security', title: 'SİBER GÜVENLİK' },
           { id: 'strategy', title: 'STRATEJİK YÖNETİM VE YÖNETİŞİM' },
           { id: 'compliance', title: 'YASALARA VE STANDARTLARA UYUM' },
+          { id: 'corporate', title: 'KURUMSAL VE PROFESYONEL HİZMETLER' },
           { id: 'training', title: 'EĞİTİM' }
         ].map(cat => {
           const catServices = allServices
