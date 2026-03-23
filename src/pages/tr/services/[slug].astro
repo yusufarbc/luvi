@@ -4,6 +4,8 @@ import Layout from '../../../layouts/Layout.astro';
 import Header from '../../../components/Header.astro';
 import Footer from '../../../components/Footer.astro';
 
+import { render } from 'astro:content';
+
 export async function getStaticPaths() {
   const services = await getCollection('services', ({ data }) => data.lang === 'tr');
   return services.map(s => ({
@@ -13,6 +15,7 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
+const { Content } = await render(entry);
 ---
 
 <Layout title={`${entry.data.title} | Luvi Bilişim`} lang="tr">
@@ -23,8 +26,11 @@ const { entry } = Astro.props;
         <h1 class="text-4xl md:text-6xl font-heading font-black text-[#154360] mb-8 leading-tight tracking-tighter">
           {entry.data.title}
         </h1>
-        <div class="prose prose-slate prose-xl max-w-none text-slate-600 leading-relaxed text-justify">
-          <p>{entry.data.description}</p>
+        <div class="about-content prose prose-slate prose-xl max-w-none text-slate-600 leading-relaxed text-justify mb-12">
+          <Content />
+        </div>
+        <div class="prose prose-slate prose-xl max-w-none text-slate-600/60 leading-relaxed text-italic border-l-4 border-[#5dade2]/20 pl-8 mb-16">
+          <p class="italic">{entry.data.description}</p>
         </div>
         
         <div class="mt-16 pt-16 border-t border-slate-100 flex flex-col md:flex-row items-center justify-between gap-8">
