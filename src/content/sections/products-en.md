@@ -1,6 +1,6 @@
 ---
 id: "products"
-title: "OUR PRODUCTS"
-subtitle: "Technologies of the Future"
+title: "SOLUTION PARTNERS"
+subtitle: "Our Solution Partnerships"
 lang: "en"
 ---
