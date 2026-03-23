@@ -2,13 +2,17 @@
 
 @layer base {
   :root {
-    --color-navy: #0a1628;
-    --color-gold: #c9a84c;
-    --color-gold-bright: #f0d78c;
+    --color-navy: #0f345a;
+    --color-gold: #ac853c;
+    --color-gold-light: #e6c886;
+    --color-bg-light: #ffffff;
+    --color-bg-alt: #f8fafc;
+    --color-text: #0f172a;
+    --color-text-muted: #475569;
   }
 
   body {
-    @apply bg-[#0a1628] text-white font-sans selection:bg-[#c9a84c] selection:text-[#0a1628];
+    @apply bg-white text-[#0f172a] font-sans selection:bg-[#ac853c] selection:text-white;
     overflow-x: hidden;
   }
 }
