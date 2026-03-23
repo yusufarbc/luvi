@@ -44,7 +44,8 @@ const features = defineCollection({
       id: z.string(),
       title: z.string(),
       desc: z.string(),
-      icon: z.string(),
+      icon: z.string().optional(),
+      image: z.string().optional(),
     })),
   }),
 });
