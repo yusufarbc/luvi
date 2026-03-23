@@ -51,13 +51,13 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
 
   <!-- Content Layer -->
   <div class="relative z-10 w-full max-w-7xl mx-auto px-4 text-center">
-    <div class="max-w-5xl mx-auto mb-16 animate-fade-in translate-y-8 opacity-0 [animation-delay:200ms]">
-      <h1 class="text-4xl md:text-6xl lg:text-7xl font-heading font-black text-white leading-[1.05] tracking-tighter mb-8 drop-shadow-2xl">
+    <div class="max-w-6xl mx-auto mb-16 animate-fade-in translate-y-8 opacity-0 [animation-delay:200ms]">
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-heading font-black text-white leading-[1.1] tracking-tighter drop-shadow-2xl">
         {title}
+        <span class="block mt-6 text-[#5dade2] md:text-6xl lg:text-7xl leading-tight">
+          {subtitle}
+        </span>
       </h1>
-      <p class="text-xl md:text-3xl lg:text-4xl font-heading font-black text-[#5dade2]/90 tracking-tight max-w-4xl mx-auto drop-shadow-xl">
-        {subtitle}
-      </p>
     </div>
 
     <!-- Action Area (Service Cards Only) -->
