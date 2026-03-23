@@ -1,8 +1,8 @@
 ---
 title: "Kurulum ve Entegrasyon"
-description: "Karmaşık sistemlerin uçtan uca kurulumu ve birbirleriyle tam uyumlu entegrasyonu."
+description: "Sistemlerinizin kurulum ve birbirleriyle tam uyumlu entegrasyonu için uçtan uca hizmet sunuyoruz."
 category: "corporate"
-order: 2
-icon: "data"
+order: 23
+icon: "code"
 lang: "tr"
 ---
