@@ -51,10 +51,34 @@ const products = defineCollection({
   }),
 });
 
+const partners = defineCollection({
+  loader: glob({ pattern: '**/[^_]*.md', base: "./src/content/partners" }),
+  schema: z.object({
+    name: z.string(),
+    url: z.string(),
+    logo: z.string().optional(),
+    lang: z.string(),
+    order: z.number().optional(),
+  }),
+});
+
+const references = defineCollection({
+  loader: glob({ pattern: '**/[^_]*.md', base: "./src/content/references" }),
+  schema: z.object({
+    name: z.string(),
+    url: z.string(),
+    logo: z.string().optional(),
+    lang: z.string(),
+    order: z.number().optional(),
+  }),
+});
+
 export const collections = {
   'services': services,
   'blog': blog,
   'projects': projects,
   'corporate': corporate,
   'products': products,
+  'partners': partners,
+  'references': references,
 };

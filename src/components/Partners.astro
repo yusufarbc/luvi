@@ -38,20 +38,20 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
         {partners.map((p) => (
           <a 
-            href={p.url}
+            href={p.data.url}
             target="_blank"
             rel="noopener noreferrer"
-            class="group flex flex-col items-center justify-center p-8 bg-white border border-slate-50 rounded-[32px] transition-all duration-500 hover:border-[#154360]/10 hover:shadow-xl opacity-60 hover:opacity-100 grayscale hover:grayscale-0 h-[140px] w-full"
+            class="group flex flex-col items-center justify-center p-8 bg-slate-50 border border-slate-100 rounded-[32px] transition-all duration-500 hover:border-[#154360]/10 hover:shadow-xl opacity-60 hover:opacity-100 grayscale hover:grayscale-0 h-[140px] w-full"
           >
-            {p.logo ? (
+            {p.data.logo ? (
               <img 
-                src={`${base}${p.logo}`} 
-                alt={p.name} 
+                src={`${base}${p.data.logo}`} 
+                alt={p.data.name} 
                 class="max-h-12 w-auto object-contain transition-transform duration-500 group-hover:scale-110"
               />
             ) : (
               <span class="text-[#154360] font-heading font-black text-xl md:text-2xl tracking-tighter text-center uppercase group-hover:scale-110 transition-transform">
-                {p.name}
+                {p.data.name}
               </span>
             )}
           </a>
@@ -73,20 +73,20 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
       <div class="grid grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8">
         {references.map((r) => (
           <a 
-            href={r.url}
+            href={r.data.url}
             target="_blank"
             rel="noopener noreferrer"
-            class="group flex flex-col items-center justify-center p-8 bg-white border border-slate-50 rounded-[32px] transition-all duration-500 hover:border-[#154360]/5 hover:shadow-md opacity-50 hover:opacity-100 h-[100px] w-full"
+            class="group flex flex-col items-center justify-center p-8 bg-slate-50 border border-slate-100 rounded-[32px] transition-all duration-500 hover:border-[#154360]/5 hover:shadow-md opacity-50 hover:opacity-100 h-[100px] w-full"
           >
-             {r.logo ? (
+             {r.data.logo ? (
               <img 
-                src={`${base}${r.logo}`} 
-                alt={r.name} 
+                src={`${base}${r.data.logo}`} 
+                alt={r.data.name} 
                 class="max-h-8 w-auto object-contain transition-transform duration-500 group-hover:scale-110 grayscale hover:grayscale-0"
               />
             ) : (
               <span class="text-slate-400 group-hover:text-[#154360] font-heading font-black text-sm md:text-base tracking-tighter text-center uppercase transition-colors">
-                {r.name}
+                {r.data.name}
               </span>
             )}
           </a>
