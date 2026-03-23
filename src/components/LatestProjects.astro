@@ -25,16 +25,13 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
   <div class="container mx-auto px-4 md:px-8">
     <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-4">
       <div class="max-w-3xl">
-        <h2 class="text-[#5dade2] font-sans font-black tracking-[0.4em] uppercase text-[10px] mb-6">
-          {lang === 'tr' ? 'HABERLER & BAŞARI HİKAYELERİ' : 'NEWS & SUCCESS STORIES'}
-        </h2>
-        <p class="text-4xl md:text-7xl font-heading font-black text-[#154360] tracking-tighter leading-[1.05]">
+        <h2 class="text-4xl md:text-6xl lg:text-7xl font-heading font-black text-[#154360] tracking-tighter leading-[1.05] mb-12">
           {lang === 'tr' ? (
             <>Sektörel <span class="text-[#5dade2]">Gündem</span> ve Başarılarımız</>
           ) : (
             <>Sectoral <span class="text-[#5dade2]">Agenda</span> and Achievements</>
           )}
-        </p>
+        </h2>
       </div>
     </div>
 
