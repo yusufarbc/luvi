@@ -33,19 +33,19 @@ const base = import.meta.env.BASE_URL.endsWith('/')
         </p>
       </div>
 
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+      <div class="flex flex-wrap justify-center gap-6 md:gap-8">
         {partners.map((p) => (
           <a 
             href={p.data.url}
             target="_blank"
             rel="noopener noreferrer"
-            class="group flex flex-col items-center justify-center p-8 bg-slate-50 border border-slate-100 rounded-[32px] transition-all duration-500 hover:border-[#154360]/10 hover:shadow-xl opacity-60 hover:opacity-100 grayscale hover:grayscale-0 h-[140px] w-full"
+            class="group flex items-center justify-center px-10 py-8 bg-slate-50/80 border border-slate-100 rounded-[32px] transition-all duration-500 hover:border-[#154360]/10 hover:shadow-xl opacity-70 hover:opacity-100 grayscale hover:grayscale-0 min-w-[200px]"
           >
             {p.data.logo ? (
               <img 
                 src={`${base}${p.data.logo}`} 
                 alt={p.data.name} 
-                class="max-h-12 w-auto object-contain transition-transform duration-500 group-hover:scale-110"
+                class="max-h-14 w-auto object-contain transition-transform duration-500 group-hover:scale-110 drop-shadow-sm"
               />
             ) : (
               <span class="text-[#154360] font-heading font-black text-xl md:text-2xl tracking-tighter text-center uppercase group-hover:scale-110 transition-transform">
@@ -68,19 +68,19 @@ const base = import.meta.env.BASE_URL.endsWith('/')
         </p>
       </div>
 
-      <div class="grid grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8">
+      <div class="flex flex-wrap justify-center gap-4 md:gap-6">
         {references.map((r) => (
           <a 
             href={r.data.url}
             target="_blank"
             rel="noopener noreferrer"
-            class="group flex flex-col items-center justify-center p-8 bg-slate-50 border border-slate-100 rounded-[32px] transition-all duration-500 hover:border-[#154360]/5 hover:shadow-md opacity-50 hover:opacity-100 h-[100px] w-full"
+            class="group flex items-center justify-center px-8 py-6 bg-slate-50/50 border border-slate-100 rounded-[24px] transition-all duration-500 hover:border-[#154360]/5 hover:shadow-md opacity-60 hover:opacity-100 min-w-[160px]"
           >
              {r.data.logo ? (
               <img 
                 src={`${base}${r.data.logo}`} 
                 alt={r.data.name} 
-                class="max-h-8 w-auto object-contain transition-transform duration-500 group-hover:scale-110 grayscale hover:grayscale-0"
+                class="max-h-10 w-auto object-contain transition-transform duration-500 group-hover:scale-110 grayscale hover:grayscale-0 drop-shadow-[0_2px_4px_rgba(0,0,0,0.05)]"
               />
             ) : (
               <span class="text-slate-400 group-hover:text-[#154360] font-heading font-black text-sm md:text-base tracking-tighter text-center uppercase transition-colors">
