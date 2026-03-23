@@ -1,0 +1,58 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+let title = '';
+let subtitle = '';
+try {
+  const section = await getEntry('sections', `partners-${lang}`);
+  title = section.data.title || '';
+  subtitle = section.data.subtitle || '';
+} catch (e) {
+  // missing section entry is fine
+}
+
+const allPartners = await getCollection('partners');
+const partners = allPartners.filter((p) => p.data.lang === lang).sort((a, b) => (a.data.order || 99) - (b.data.order || 99));
+const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
+---
+
+<section id="partners" class="py-24 bg-white border-t border-slate-100">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-12">
+      {subtitle ? (
+        <h2 class="text-[#5dade2] font-sans font-black tracking-[0.4em] uppercase text-[9px] mb-4">{subtitle}</h2>
+      ) : null}
+      {title ? (
+        <p class="text-4xl md:text-6xl font-heading font-black text-[#154360] uppercase tracking-tighter">{title}</p>
+      ) : null}
+    </div>
+
+    {partners.length > 0 ? (
+      <div class="grid grid-cols-2 md:grid-cols-6 gap-6 items-center justify-center">
+        {partners.map((p) => (
+          <a href={p.data.url} class="group flex items-center justify-center p-6 bg-white border border-slate-100 rounded-2xl hover:shadow-sm transition">
+            {p.data.logo ? (
+              <img src={`${base}${p.data.logo}`} alt={p.data.name} class="max-h-20 object-contain" />
+            ) : (
+              <span class="text-[#154360] font-heading font-black">{p.data.name}</span>
+            )}
+          </a>
+        ))}
+      </div>
+    ) : (
+      <div class="text-center text-slate-500">{t('partners.empty') ?? ''}</div>
+    )}
+  </div>
+</section>
+
+<style>
+  @media (min-width: 768px) {
+    .grid {
+      align-items: center;
+    }
+  }
+</style>
