@@ -1,6 +1,6 @@
 ---
 title: "ITIL V4 Hizalanma"
-description: "İş hedefleriyle uyumu ve müşteri odaklı değer yaratmayı merkeze alan modern BT hizmet yönetim çerçevesi."
+description: "ITIL 4, modern işletmelerin ihtiyaçlarına cevap verecek şekilde geliştirilmiş bir versiyon olup, sadece teknik süreçleri değil, aynı zamanda iş hedefleriyle uyumu ve müşteri odaklı değer yaratmayı da merkeze alır."
 category: "strategy"
 order: 20
 icon: "security"

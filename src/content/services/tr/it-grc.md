@@ -1,6 +1,6 @@
 ---
 title: "IT GRC – Yönetişim Risk Uyumluluk"
-description: "Dijital dönüşümle değişen iş ihtiyaçlarını yönetilebilir hale getirerek uyum gerekliliklerini minimize ediyoruz."
+description: "GRC (Yönetişim, Risk ve Uyum), dijital dönüşümle birlikte değişen iş ihtiyaçlarını ve kurumsal süreçleri yönetilebilir hale getiren, uyum gerekliliklerini karşılayan ve riskleri minimize eden bir yaklaşımdır."
 category: "strategy"
 order: 21
 icon: "cert"

@@ -1,6 +1,6 @@
 ---
 title: "Bilgi Güvenliği ve Teknoloji Dönüşümü Eğitimi"
-description: "Çalışanlarınızın siber tehditlere karşı bilinçlenmesini ve teknoloji yönetiminde yetkinleşmesini sağlıyoruz."
+description: "Bu eğitim, hem bilgi güvenliğini sağlama hem de teknolojiyi etkin kullanma konusunda kapsamlı bir rehberlik sunar. Çalışanlarınızın siber tehditlere karşı bilinçlenmesini sağlar."
 category: "training"
 order: 29
 icon: "cert"

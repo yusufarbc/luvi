@@ -1,6 +1,6 @@
 ---
 title: "SAP Danışmanlığı"
-description: "İş süreçlerini entegre ederek verimliliği artıran ve operasyonları optimize eden SAP çözümleriyle yanınızdayız."
+description: "SAP Danışmanlığı, dijital dönüşümün temel taşlarından biridir. İş süreçlerini entegre eden, verimliliği artıran ve operasyonları optimize eden SAP çözümleri, şirketlerin geleceğe güvenle adım atmasını sağlar."
 category: "strategy"
 order: 22
 icon: "data"

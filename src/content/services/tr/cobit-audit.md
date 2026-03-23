@@ -1,6 +1,6 @@
 ---
 title: "COBIT Denetimi"
-description: "BT süreçlerini etkin yönetmek ve kurumsal hedeflere uyumlu kılmak için kapsamlı denetim süreçleri gerçekleştiriyoruz."
+description: "COBIT, işletmelerin IT süreçlerini etkin bir şekilde yönetmelerine ve denetlemelerine yardımcı olan uluslararası bir çerçevedir. COBIT denetimi, IT altyapılarının kurumsal hedeflere uyumlu, güvenilir, ve verimli bir şekilde çalışmasını sağlamayı amaçlar."
 category: "strategy"
 order: 19
 icon: "security"
