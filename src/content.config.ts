@@ -77,8 +77,10 @@ const projects = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
+    pubDate: z.date(),
     image: z.string().optional(),
     lang: z.string(),
+    type: z.string().optional().default('project'),
   }),
 });
 
