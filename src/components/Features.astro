@@ -13,26 +13,26 @@ const features = [
 
 <section class="py-24 bg-white border-y border-slate-100 relative overflow-hidden">
   <!-- Subtle Background Grid -->
-  <div class="absolute inset-0 opacity-[0.05] pointer-events-none" style="background-image: radial-gradient(#0f345a 1px, transparent 1px); background-size: 40px 40px;"></div>
+  <div class="absolute inset-0 opacity-[0.05] pointer-events-none" style="background-image: radial-gradient(#154360 1px, transparent 1px); background-size: 60px 60px;"></div>
 
   <div class="container mx-auto px-4 md:px-8 relative z-10">
     <div class="text-center mb-20">
-      <h2 class="text-blue-600 font-sans font-black tracking-[0.4em] uppercase text-xs mb-4">
+      <h2 class="text-[#5dade2] font-sans font-black tracking-[0.4em] uppercase text-[10px] mb-4">
         {t('features.subtitle')}
       </h2>
-      <h3 class="text-4xl md:text-6xl font-sans font-extrabold text-[#0f345a] mb-6 tracking-tight">
+      <h3 class="text-4xl md:text-7xl font-heading font-black text-[#154360] mb-6 tracking-tighter">
         {t('features.title')}
       </h3>
-      <div class="w-24 h-1.5 bg-blue-600 rounded-full mx-auto"></div>
+      <div class="w-16 h-1 bg-[#154360] rounded-full mx-auto"></div>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-20">
       {features.map((f) => (
         <div class="group flex flex-col items-center text-center">
-          <div class="w-20 h-20 rounded-2xl border border-slate-100 bg-slate-50 flex items-center justify-center text-4xl mb-8 group-hover:bg-blue-50 group-hover:border-blue-200 transition-all duration-500 transform group-hover:scale-110 shadow-sm group-hover:shadow-xl group-hover:shadow-blue-500/10">
+          <div class="w-24 h-24 rounded-[32px] border border-slate-100 bg-white flex items-center justify-center text-4xl mb-10 group-hover:bg-[#154360]/5 group-hover:border-[#154360]/10 transition-all duration-500 transform group-hover:-translate-y-2 shadow-sm group-hover:shadow-xl group-hover:shadow-blue-900/5">
             {f.icon}
           </div>
-          <h4 class="text-[#0f345a] font-sans font-black text-2xl mb-4 tracking-tight group-hover:text-blue-600 transition-colors">
+          <h4 class="text-[#154360] font-heading font-black text-2xl mb-4 tracking-tighter group-hover:text-[#5dade2] transition-colors">
              {t(`feature.${f.id}.title` as any)}
           </h4>
           <p class="text-slate-500 font-sans text-lg leading-relaxed max-w-xs">
