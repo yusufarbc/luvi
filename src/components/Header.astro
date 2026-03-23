@@ -62,30 +62,32 @@ const navItems = [
   </div>
 
   <!-- Mobile Menu Overlay -->
-  <div id="mobile-menu" class="fixed inset-0 bg-white z-[60] flex flex-col items-center justify-center gap-10 translate-x-full transition-transform duration-500 lg:hidden">
-    <button id="menu-close" class="absolute top-6 right-6 text-[#154360] p-2" aria-label="Close Menu">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <div id="mobile-menu" class="fixed inset-0 bg-[#154360] z-[9999] flex flex-col items-center justify-center gap-12 translate-x-full transition-transform duration-500 lg:hidden px-6">
+    <button id="menu-close" class="absolute top-8 right-8 text-white p-2 hover:bg-white/10 rounded-2xl transition-colors" aria-label="Close Menu">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
       </svg>
     </button>
     
-    {navItems.map((item) => (
-      <a 
-        href={item.href} 
-        class="text-4xl text-[#2c3e50] font-sans font-black tracking-widest uppercase hover:text-[#154360] transition-colors mobile-link"
-      >
-        {item.label}
-      </a>
-    ))}
+    <div class="flex flex-col items-center gap-10">
+      {navItems.map((item) => (
+        <a 
+          href={item.href} 
+          class="text-4xl text-white font-heading font-black tracking-widest uppercase hover:text-[#5dade2] transition-colors mobile-link block"
+        >
+          {item.label}
+        </a>
+      ))}
+    </div>
 
-    <div class="mt-8 flex items-center bg-slate-50 border border-slate-100 rounded-full px-2 py-2">
+    <div class="mt-12 flex items-center bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-2 py-2">
       {Object.entries(languages).map(([l, _]) => (
         <a
           href={`${import.meta.env.BASE_URL}${l}/`}
           class={`px-8 py-3 rounded-full text-base font-bold uppercase transition-all ${
             lang === l 
-              ? 'bg-[#154360] text-white shadow-lg' 
-              : 'text-[#2c3e50]/40'
+              ? 'bg-white text-[#154360] shadow-xl' 
+              : 'text-white/60 hover:text-white'
           }`}
         >
           {l}
@@ -101,18 +103,20 @@ const navItems = [
   const mobileMenu = document.getElementById('mobile-menu');
   const mobileLinks = document.querySelectorAll('.mobile-link');
 
-  function toggleMenu() {
-    mobileMenu?.classList.toggle('translate-x-full');
-    document.body.classList.toggle('overflow-hidden');
+  function openMenu() {
+    mobileMenu?.classList.remove('translate-x-full');
+    document.body.style.overflow = 'hidden';
   }
 
-  menuToggle?.addEventListener('click', toggleMenu);
-  menuClose?.addEventListener('click', toggleMenu);
+  function closeMenu() {
+    mobileMenu?.classList.add('translate-x-full');
+    document.body.style.overflow = '';
+  }
+
+  menuToggle?.addEventListener('click', openMenu);
+  menuClose?.addEventListener('click', closeMenu);
   
   mobileLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu?.classList.add('translate-x-full');
-      document.body.classList.remove('overflow-hidden');
-    });
+    link.addEventListener('click', closeMenu);
   });
 </script>
