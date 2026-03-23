@@ -1,6 +1,15 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
+const hero = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/content/hero" }),
+  schema: z.object({
+    title: z.string(),
+    subtitle: z.string(),
+    lang: z.string(),
+  }),
+});
+
 const services = defineCollection({
   loader: glob({ pattern: '**/[^_]*.md', base: "./src/content/services" }),
   schema: z.object({
@@ -77,6 +86,7 @@ const references = defineCollection({
 
 export const collections = {
   'services': services,
+  'hero': hero,
   'blog': blog,
   'projects': projects,
   'corporate': corporate,
