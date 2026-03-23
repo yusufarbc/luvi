@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://luvibilisim.com.tr/sitemap-index.xml

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://luvi.com.tr/tr/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://luvi.com.tr/en/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://luvi.com.tr/tr/services/ai-automation</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://luvi.com.tr/tr/services/compliance-regulation</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://luvi.com.tr/tr/services/cyber-security-consultancy</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://luvi.com.tr/tr/services/strategy-process</loc>
+    <priority>0.8</priority>
+  </url>
+</urlset>
