@@ -14,29 +14,29 @@ const sortedProducts = allProducts.sort((a, b) => (a.data.order || 99) - (b.data
 const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
 ---
 
-<section id="products" class="py-24 bg-[#0a1628] border-t border-[#c9a84c]/10">
+<section id="products" class="py-24 bg-slate-50 border-t border-slate-100">
   <div class="container mx-auto px-4">
     <div class="text-center mb-16">
-      <h2 class="text-[#c9a84c] font-sans font-bold tracking-[0.4em] uppercase text-xs mb-4">
+      <h2 class="text-blue-600 font-sans font-bold tracking-[0.4em] uppercase text-[10px] mb-4">
         {t('products.title')}
       </h2>
-      <p class="text-3xl md:text-4xl font-serif text-white uppercase tracking-wider">
+      <p class="text-3xl md:text-5xl font-sans font-black text-[#0f345a] uppercase tracking-tight">
         {t('products.subtitle')}
       </p>
     </div>
 
     <!-- Product Grid -->
-    <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+    <div class="flex flex-wrap justify-center items-center gap-6 md:gap-10">
       {sortedProducts.map((p) => (
         <a 
           href={`${base}/${lang}/products/${p.id.split('/').pop()?.replace('.md', '')}`}
-          class="group relative py-4 px-8 border border-[#c9a84c]/10 rounded-xl transition-all duration-500 hover:border-[#c9a84c]/40 hover:bg-[#c9a84c]/5 opacity-60 hover:opacity-100"
+          class="group relative py-6 px-12 bg-white border border-slate-200 rounded-2xl transition-all duration-500 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-900/10 opacity-70 hover:opacity-100 transform hover:-translate-y-1"
         >
-          <span class="text-white font-sans font-black text-xl md:text-2xl tracking-[0.2em] group-hover:text-[#c9a84c] transition-colors uppercase">
+          <span class="text-[#0f345a] font-sans font-extrabold text-xl md:text-3xl tracking-tight group-hover:text-blue-700 transition-colors uppercase">
             {p.data.title.split(' ')[0]}
           </span>
           <!-- Glow -->
-          <div class="absolute inset-0 bg-[#c9a84c] blur-2xl opacity-0 group-hover:opacity-10 transition-opacity"></div>
+          <div class="absolute inset-0 bg-blue-500 blur-3xl opacity-0 group-hover:opacity-10 transition-opacity rounded-2xl"></div>
         </a>
       ))}
     </div>

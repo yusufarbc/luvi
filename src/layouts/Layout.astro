@@ -33,11 +33,16 @@ const { title, lang } = Astro.props;
 		--font-sans: 'Inter', sans-serif;
 	}
 	
-	h1, h2, h3, .font-serif {
-		font-family: var(--font-serif);
+	h1, h2, h3 {
+		font-family: var(--font-sans);
+		font-weight: 800;
 	}
 	
 	body, .font-sans {
 		font-family: var(--font-sans);
+	}
+
+	.font-serif {
+		font-family: var(--font-serif);
 	}
 </style>

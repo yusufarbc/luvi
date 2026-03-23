@@ -5,35 +5,35 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<section id="maturity" class="py-32 relative overflow-hidden">
+<section id="maturity" class="py-32 relative overflow-hidden bg-slate-50">
   <!-- Subtle Background Pattern -->
-  <div class="absolute inset-0 bg-[#0a1628] opacity-50"></div>
-  <div class="absolute -top-24 -left-24 w-96 h-96 bg-[#c9a84c]/10 blur-[120px] rounded-full"></div>
-  <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-[#c9a84c]/5 blur-[120px] rounded-full"></div>
+  <div class="absolute inset-0 bg-blue-500/5 opacity-50"></div>
+  <div class="absolute -top-24 -left-24 w-96 h-96 bg-blue-500/10 blur-[120px] rounded-full"></div>
+  <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-[#ac853c]/5 blur-[120px] rounded-full"></div>
 
   <div class="container mx-auto px-4 md:px-8 relative z-10">
-    <div class="max-w-4xl mx-auto bg-gradient-to-br from-[#1a2533] to-[#0a1628] border border-[#c9a84c]/20 p-8 md:p-16 rounded-[40px] text-center shadow-2xl">
-      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#c9a84c]/10 border border-[#c9a84c]/20 mb-8">
-        <span class="w-2 h-2 bg-[#c9a84c] rounded-full animate-pulse"></span>
-        <span class="text-[#c9a84c] text-xs font-bold uppercase tracking-widest">{t('nav.maturity')}</span>
+    <div class="max-w-4xl mx-auto bg-white border border-slate-100 p-8 md:p-16 rounded-[40px] text-center shadow-[0_50px_100px_-20px_rgba(15,52,90,0.1)]">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 mb-8">
+        <span class="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
+        <span class="text-blue-700 text-xs font-bold uppercase tracking-widest">{t('nav.maturity')}</span>
       </div>
       
-      <h2 class="text-4xl md:text-6xl font-serif text-white mb-8 leading-tight">
+      <h2 class="text-4xl md:text-6xl font-sans font-black text-[#0f345a] mb-8 leading-tight tracking-tight">
         {t('maturity.subtitle')}
       </h2>
       
-      <p class="text-white/70 text-lg md:text-xl font-sans leading-relaxed mb-12 max-w-2xl mx-auto">
+      <p class="text-slate-600 text-lg md:text-xl font-sans leading-relaxed mb-12 max-w-2xl mx-auto">
         {t('maturity.desc')}
       </p>
 
       <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
         <a 
           href="#contact" 
-          class="px-10 py-5 bg-[#c9a84c] text-[#0a1628] rounded-2xl font-sans font-black uppercase tracking-widest hover:bg-white hover:scale-105 transition-all duration-300 shadow-[0_10px_30px_rgba(201,168,76,0.3)]"
+          class="px-10 py-5 bg-[#0f345a] text-white rounded-2xl font-sans font-black uppercase tracking-widest hover:bg-blue-600 hover:scale-105 hover:shadow-xl transition-all duration-300 shadow-lg shadow-blue-900/10"
         >
           {t('maturity.cta')}
         </a>
-        <span class="text-white/40 text-sm font-sans tracking-widest uppercase">{t('maturity.soon')}</span>
+        <span class="text-slate-400 text-sm font-sans font-bold tracking-widest uppercase">{t('maturity.soon')}</span>
       </div>
     </div>
   </div>

@@ -6,38 +6,38 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<section class="relative min-h-screen w-full flex flex-col items-center justify-center pt-32 pb-24 overflow-hidden bg-[#050b14]">
+<section class="relative min-h-[90vh] w-full flex flex-col items-center justify-start pt-32 pb-24 overflow-hidden bg-gradient-to-b from-[#0a1628] via-[#0f172a] to-white">
   <!-- Background Layers -->
   <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
     <!-- Mesh Gradients -->
-    <div class="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] bg-[#c9a84c]/10 blur-[120px] rounded-full animate-float opacity-50"></div>
-    <div class="absolute -bottom-[20%] -right-[10%] w-[60%] h-[60%] bg-[#0a1628] blur-[100px] rounded-full opacity-80"></div>
+    <div class="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] bg-[#ac853c]/10 blur-[120px] rounded-full animate-float opacity-50"></div>
+    <div class="absolute -bottom-[20%] -right-[10%] w-[60%] h-[60%] bg-blue-500/5 blur-[100px] rounded-full opacity-30"></div>
     
     <!-- Luvi Symbol Watermark -->
     <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl aspect-square flex items-center justify-center opacity-[0.05]">
       <img 
         src={`${import.meta.env.BASE_URL}images/luvi-symbol.png`} 
         alt="Luvi Symbol" 
-        class="w-[60vw] max-w-none animate-slow-spin"
+        class="w-[60vw] max-w-none animate-slow-spin brightness-0 invert"
       />
     </div>
 
     <!-- Geometric Grid Pattern (CSS) -->
-    <div class="absolute inset-0 bg-[linear-gradient(rgba(201,168,76,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(201,168,76,0.03)_1px,transparent_1px)] bg-[size:100px_100px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
+    <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:80px_80px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]"></div>
   </div>
 
   <!-- Content Layer -->
   <div class="relative z-10 w-full max-w-7xl mx-auto px-4 text-center">
     <!-- Premium Badge -->
-    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#c9a84c]/10 border border-[#c9a84c]/20 mb-10 backdrop-blur-md animate-fade-in">
-      <span class="w-1.5 h-1.5 bg-[#c9a84c] rounded-full shadow-[0_0_8px_#c9a84c]"></span>
-      <span class="text-[#c9a84c] text-[10px] font-sans font-bold uppercase tracking-[0.3em]">{t('hero.h2')}</span>
+    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-10 backdrop-blur-md animate-fade-in shadow-xl">
+      <span class="w-2 h-2 bg-[#ac853c] rounded-full animate-pulse shadow-[0_0_8px_rgba(172,133,60,0.5)]"></span>
+      <span class="text-white/80 text-[11px] font-sans font-bold uppercase tracking-[0.3em]">{t('hero.h2')}</span>
     </div>
 
     <!-- H1 Headline -->
-    <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-8 leading-[1.1] max-w-5xl mx-auto tracking-tight">
-      <span class="block text-gold-gradient drop-shadow-sm">{t('hero.h1').split(' ').slice(0, 3).join(' ')}</span>
-      <span class="block opacity-90">{t('hero.h1').split(' ').slice(3).join(' ')}</span>
+    <h1 class="text-5xl md:text-7xl lg:text-9xl font-sans font-extrabold text-white mb-8 leading-[1] max-w-6xl mx-auto tracking-tighter">
+      <span class="block opacity-60 mix-blend-overlay">{t('hero.h1').split(' ').slice(0, 3).join(' ')}</span>
+      <span class="block bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-[#ac853c]">{t('hero.h1').split(' ').slice(3).join(' ')}</span>
     </h1>
 
     <!-- Action Area -->
@@ -47,8 +47,8 @@ const t = useTranslations(lang);
 
     <!-- Scroll Indicator -->
     <div class="mt-20 animate-bounce opacity-40 flex flex-col items-center gap-3">
-      <span class="text-[#c9a84c] text-[8px] font-sans font-bold tracking-[0.5em] uppercase">{t('hero.scroll')}</span>
-      <div class="w-px h-12 bg-gradient-to-b from-[#c9a84c] to-transparent"></div>
+      <span class="text-[#ac853c] text-[9px] font-sans font-bold tracking-[0.4em] uppercase">{t('hero.scroll')}</span>
+      <div class="w-px h-12 bg-gradient-to-b from-[#ac853c] to-transparent"></div>
     </div>
   </div>
 </section>

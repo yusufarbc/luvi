@@ -15,12 +15,12 @@ const navItems = [
 ];
 ---
 
-<header class="fixed w-full z-50 bg-[#0a1628]/80 backdrop-blur-md border-b border-[#c9a84c]/20">
+<header class="fixed w-full z-50 bg-[#0f172a]/80 backdrop-blur-xl border-b border-white/5 transition-all duration-300">
   <div class="container mx-auto px-4 md:px-8 h-20 flex items-center justify-between">
     <!-- Logo -->
     <a href={`${import.meta.env.BASE_URL}${lang}/`} class="flex items-center gap-3 group relative">
-      <div class="absolute inset-0 bg-[#c9a84c] blur-xl opacity-0 group-hover:opacity-20 transition-opacity duration-700"></div>
-      <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Luvi Bilişim" class="h-12 w-auto object-contain brightness-110 drop-shadow-lg transition-all duration-500 group-hover:scale-110" />
+      <div class="absolute inset-0 bg-[#ac853c] blur-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-700"></div>
+      <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Luvi Bilişim" class="h-10 w-auto object-contain filter brightness-0 invert transition-all duration-500 group-hover:scale-105" />
     </a>
 
     <!-- Desktop Nav -->
@@ -28,24 +28,24 @@ const navItems = [
       {navItems.map((item) => (
         <a 
           href={item.href} 
-          class="text-[#c9a84c] font-sans text-xs tracking-[0.2em] uppercase hover:text-white transition-all duration-300 relative group"
+          class="text-white/70 font-sans text-[11px] font-bold tracking-[0.2em] uppercase hover:text-[#ac853c] transition-all duration-300 relative group"
         >
           {item.label}
-          <span class="absolute -bottom-2 left-0 w-0 h-px bg-gradient-to-r from-transparent via-[#c9a84c] to-transparent transition-all duration-500 group-hover:w-full"></span>
+          <span class="absolute -bottom-2 left-0 w-0 h-0.5 bg-gradient-to-r from-[#ac853c] to-transparent transition-all duration-300 group-hover:w-full"></span>
         </a>
       ))}
     </nav>
 
     <!-- Language Switcher -->
     <div class="flex items-center gap-4">
-      <div class="flex items-center bg-[#0a1628] border border-[#c9a84c]/30 rounded-full px-1 py-1">
+      <div class="flex items-center bg-white/5 border border-white/10 rounded-full px-1 py-1">
         {Object.entries(languages).map(([l, label]) => (
           <a
             href={`${import.meta.env.BASE_URL}${l}/`}
             class={`px-3 py-1 rounded-full text-xs font-bold uppercase transition-all ${
               lang === l 
-                ? 'bg-[#c9a84c] text-[#0a1628]' 
-                : 'text-[#c9a84c] hover:text-white'
+                ? 'bg-[#ac853c] text-[#0f172a] shadow-lg' 
+                : 'text-white/60 hover:text-white'
             }`}
           >
             {l}
@@ -54,7 +54,7 @@ const navItems = [
       </div>
       
       <!-- Mobile Toggle -->
-      <button id="menu-toggle" class="lg:hidden text-[#c9a84c] p-2 hover:bg-[#c9a84c]/10 rounded-lg transition-colors" aria-label="Toggle Menu">
+      <button id="menu-toggle" class="lg:hidden text-white/80 p-2 hover:bg-white/5 rounded-lg transition-colors" aria-label="Toggle Menu">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" id="menu-icon">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
         </svg>
@@ -63,8 +63,8 @@ const navItems = [
   </div>
 
   <!-- Mobile Menu Overlay -->
-  <div id="mobile-menu" class="fixed inset-0 bg-[#0a1628] z-[60] flex flex-col items-center justify-center gap-8 translate-x-full transition-transform duration-500 lg:hidden">
-    <button id="menu-close" class="absolute top-6 right-6 text-[#c9a84c] p-2" aria-label="Close Menu">
+  <div id="mobile-menu" class="fixed inset-0 bg-[#0f172a] z-[60] flex flex-col items-center justify-center gap-10 translate-x-full transition-transform duration-500 lg:hidden">
+    <button id="menu-close" class="absolute top-6 right-6 text-[#ac853c] p-2" aria-label="Close Menu">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
       </svg>
@@ -73,20 +73,20 @@ const navItems = [
     {navItems.map((item) => (
       <a 
         href={item.href} 
-        class="text-2xl text-[#c9a84c] font-sans tracking-[0.2em] uppercase hover:text-white transition-colors mobile-link"
+        class="text-4xl text-white font-sans font-black tracking-widest uppercase hover:text-[#ac853c] transition-colors mobile-link"
       >
         {item.label}
       </a>
     ))}
 
-    <div class="mt-8 flex items-center bg-[#0a1628] border border-[#c9a84c]/30 rounded-full px-2 py-2">
+    <div class="mt-8 flex items-center bg-white/5 border border-white/10 rounded-full px-2 py-2">
       {Object.entries(languages).map(([l, _]) => (
         <a
           href={`${import.meta.env.BASE_URL}${l}/`}
-          class={`px-6 py-2 rounded-full text-sm font-bold uppercase transition-all ${
+          class={`px-8 py-3 rounded-full text-base font-bold uppercase transition-all ${
             lang === l 
-              ? 'bg-[#c9a84c] text-[#0a1628]' 
-              : 'text-[#c9a84c]'
+              ? 'bg-[#ac853c] text-[#0f172a] shadow-2xl' 
+              : 'text-white/40'
           }`}
         >
           {l}
