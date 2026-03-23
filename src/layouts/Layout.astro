@@ -1,5 +1,8 @@
 ---
 import '../styles/global.css';
+import '@fontsource/montserrat/400.css';
+import '@fontsource/montserrat/800.css';
+import '@fontsource/inter';
 
 interface Props {
 	title: string;
@@ -27,8 +30,8 @@ const { title, lang, description = "Yarının olasılıkları, bugünün dijital
 
 <style is:global>
 	:root {
-		--font-heading: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-		--font-body: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+		--font-heading: 'Montserrat', sans-serif;
+		--font-body: 'Montserrat', sans-serif;
 	}
 	
 	h1, h2, h3, h4, h5, h6 {
