@@ -42,7 +42,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
 
 <header id="main-header" class="fixed w-full z-50 transition-all duration-500 py-6">
   <div class="container mx-auto px-4 md:px-8">
-    <div class="bg-white/70 backdrop-blur-2xl border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.05)] rounded-[32px] px-8 h-20 md:h-24 flex items-center justify-between transition-all duration-500" id="header-inner">
+    <div class="bg-white border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.05)] rounded-[32px] px-8 h-20 md:h-24 flex items-center justify-between transition-all duration-500" id="header-inner">
       
       <!-- Logo Section -->
       <a href={`${base}/${lang}/`} class="flex items-center gap-4 group relative overflow-hidden">
@@ -208,13 +208,11 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
     if (window.scrollY > 50) {
       header.classList.remove('py-6');
       header.classList.add('py-2');
-      headerInner.classList.remove('bg-white/70');
-      headerInner.classList.add('bg-white/95', 'shadow-2xl', 'rounded-[20px]');
+      headerInner.classList.add('shadow-2xl', 'rounded-[20px]');
     } else {
       header.classList.add('py-6');
       header.classList.remove('py-2');
-      headerInner.classList.add('bg-white/70');
-      headerInner.classList.remove('bg-white/95', 'shadow-2xl', 'rounded-[20px]');
+      headerInner.classList.remove('shadow-2xl', 'rounded-[20px]');
     }
   });
 
