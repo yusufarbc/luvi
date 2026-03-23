@@ -25,25 +25,66 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
       </p>
     </div>
 
-    <div class="flex flex-wrap justify-center items-center gap-6 md:gap-14">
-      {sortedProducts.map((p) => (
-        <a 
-          href={`${base}/${lang}/products/${p.id.split('/').pop()?.replace('.md', '')}`}
-          class="group relative py-10 px-12 bg-white border border-slate-100 rounded-[32px] transition-all duration-500 hover:border-[#154360]/30 hover:shadow-[0_25px_50px_-12px_rgba(21,67,96,0.1)] opacity-75 hover:opacity-100 transform hover:-translate-y-2 flex items-center justify-center min-w-[260px] md:min-w-[300px]"
-        >
-          {p.data.logo ? (
-            <img 
-              src={`${base}${p.data.logo}`} 
-              alt={p.data.title} 
-              class="max-h-28 w-auto max-w-[85%] object-contain transition-transform duration-500 group-hover:scale-110 drop-shadow-[0_10px_15px_rgba(0,0,0,0.06)]"
-            />
-          ) : (
-            <span class="text-[#154360] font-heading font-black text-2xl md:text-5xl tracking-tighter transition-colors uppercase group-hover:scale-110 transition-transform">
-              {p.data.title.split(' ')[0]}
-            </span>
-          )}
-        </a>
-      ))}
+    <div class="relative overflow-hidden w-full py-10">
+      <div class="flex animate-scroll hover:[animation-play-state:paused] whitespace-nowrap gap-10 md:gap-14 w-max">
+        {/* Original List */}
+        {sortedProducts.map((p) => (
+          <a 
+            href={`${base}/${lang}/products/${p.id.split('/').pop()?.replace('.md', '')}`}
+            class="group relative py-8 px-10 bg-white border border-slate-100 rounded-[32px] transition-all duration-500 hover:border-[#154360]/30 hover:shadow-[0_20px_40px_-10px_rgba(21,67,96,0.08)] opacity-75 hover:opacity-100 flex items-center justify-center min-w-[240px] md:min-w-[280px]"
+          >
+            {p.data.logo ? (
+              <img 
+                src={`${base}${p.data.logo}`} 
+                alt={p.data.title} 
+                class="max-h-20 w-auto max-w-[80%] object-contain transition-transform duration-500 group-hover:scale-110 drop-shadow-[0_4px_10px_rgba(0,0,0,0.04)]"
+              />
+            ) : (
+              <span class="text-[#154360] font-heading font-black text-xl md:text-3xl tracking-tighter uppercase">
+                {p.data.title.split(' ')[0]}
+              </span>
+            )}
+          </a>
+        ))}
+        {/* Duplicate list for seamless loop */}
+        {sortedProducts.map((p) => (
+          <a 
+            href={`${base}/${lang}/products/${p.id.split('/').pop()?.replace('.md', '')}`}
+            class="group relative py-8 px-10 bg-white border border-slate-100 rounded-[32px] transition-all duration-500 hover:border-[#154360]/30 hover:shadow-[0_20px_40px_-10px_rgba(21,67,96,0.08)] opacity-75 hover:opacity-100 flex items-center justify-center min-w-[240px] md:min-w-[280px]"
+          >
+            {p.data.logo ? (
+              <img 
+                src={`${base}${p.data.logo}`} 
+                alt={p.data.title} 
+                class="max-h-20 w-auto max-w-[80%] object-contain transition-transform duration-500 group-hover:scale-110 drop-shadow-[0_4px_10px_rgba(0,0,0,0.04)]"
+              />
+            ) : (
+              <span class="text-[#154360] font-heading font-black text-xl md:text-3xl tracking-tighter uppercase">
+                {p.data.title.split(' ')[0]}
+              </span>
+            )}
+          </a>
+        ))}
+      </div>
     </div>
   </div>
 </section>
+
+<style>
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 28px)); } /* -50% to loop, -28px for half of the gap (14px md gap / 2?) No, gap is between items. */
+  }
+  .animate-scroll {
+    animation: scroll 40s linear infinite;
+  }
+  @media (max-width: 768px) {
+    .animate-scroll {
+      animation: scroll 25s linear infinite;
+    }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(-50% - 20px)); }
+    }
+  }
+</style>
