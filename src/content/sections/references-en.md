@@ -2,7 +2,7 @@
 id: "partners"
 title: "SOLUTION PARTNERS"
 subtitle: "Our Strategic Collaborations"
-ref_title: "OUR REFERENCES"
-ref_subtitle: "Trusted by Leading Institutions"
+ref_title: "TRUSTED BY LEADING INSTITUTIONS"
+ref_subtitle: "Our References"
 lang: "en"
 ---

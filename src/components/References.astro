@@ -5,7 +5,7 @@ import { getLangFromUrl, useTranslations } from '../i18n/utils';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const sectionEntry = await getEntry('sections', `partners-${lang}`);
+const sectionEntry = await getEntry('sections', `references-${lang}`);
 const { ref_title, ref_subtitle } = sectionEntry.data;
 
 const allReferences = await getCollection('references', ({ data }) => {
