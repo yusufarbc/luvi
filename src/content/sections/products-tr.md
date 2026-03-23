@@ -1,6 +1,6 @@
 ---
 id: "products"
-title: "ÜRÜNLERİMİZ"
-subtitle: "Geleceğin Teknolojileri"
+title: "ÇÖZÜM ORTAKLARIMIZ"
+subtitle: "Çözüm Ortaklıklarımız"
 lang: "tr"
 ---
