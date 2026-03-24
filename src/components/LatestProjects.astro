@@ -25,7 +25,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
   <div class="container mx-auto px-4 md:px-8">
     <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-4">
       <div class="max-w-3xl">
-        <h2 class="text-4xl md:text-6xl lg:text-7xl font-heading font-black text-[#154360] tracking-tighter leading-[1.05] mb-12">
+        <h2 class="text-4xl md:text-6xl lg:text-7xl font-heading font-black text-[#154360] tracking-tighter leading-[1.05] mb-12 uppercase">
           {lang === 'tr' ? (
             <>Sektörel <span class="text-[#5dade2]">Gündem</span> ve Başarılarımız</>
           ) : (
@@ -44,7 +44,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
           <div class="h-64 bg-slate-50 flex items-center justify-center relative overflow-hidden">
             <span class="text-[#154360]/5 text-[120px] font-heading font-black select-none transform transition-transform duration-1000 group-hover:scale-125">{item.data.title.charAt(0)}</span>
             <div class="absolute top-8 left-8">
-               <span class={`px-4 py-2 rounded-full text-[9px] font-black tracking-widest border ${
+               <span class={`px-4 py-2 rounded-full text-[9px] font-black tracking-widest uppercase border ${
                  item.type === 'HABER' || item.type === 'NEWS'
                    ? 'bg-[#5dade2]/5 text-[#5dade2] border-[#5dade2]/10' 
                    : 'bg-[#154360]/5 text-[#154360] border-[#154360]/10'
@@ -60,7 +60,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
             <p class="text-slate-500 text-base font-sans line-clamp-3 mb-10 leading-relaxed">
               {item.data.description}
             </p>
-            <div class="flex items-center gap-4 text-[#154360] text-[10px] font-black tracking-[0.2em] group/link">
+            <div class="flex items-center gap-4 text-[#154360] text-[10px] font-black uppercase tracking-[0.2em] group/link">
               {lang === 'tr' ? 'Detayı Görüntüle' : 'View Details'} 
               <div class="w-8 h-px bg-[#154360] transition-all duration-500 group-hover/link:w-16"></div>
               <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover/link:translate-x-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
