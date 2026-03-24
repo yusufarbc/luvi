@@ -1,6 +1,6 @@
 ---
-title: "Adalya Hotels ISO 27001 Implementation"
-description: "We have successfully completed the ISO 27001 Information Security Management System implementation projects with Adalya Hotels."
+title: "Adalya Hotels ISO 27001 Audit Process Successfully Completed"
+description: "We have successfully completed the ISO 27001 Information Security Management System audit and implementation projects with Adalya Hotels."
 pubDate: 2024-03-24
 image: "1.webp"
 gallery:

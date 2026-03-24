@@ -1,5 +1,5 @@
 ---
-title: "Adalya Hotels Grubuna Başarıyla Teslim Edilen ISO 27001 Denetimi"
+title: "Adalya Hotels ISO 27001 Denetim Süreci Başarıyla Tamamlandı"
 description: "Türkiye'nin öncü turizm gruplarından Adalya Hotels için gerçekleştirdiğimiz kapsamlı bilgi güvenliği denetimini başarıyla tamamladık."
 pubDate: 2024-03-24
 image: "1.webp"
