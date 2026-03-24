@@ -81,21 +81,21 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
 
   <!-- Content Layer -->
   <div class="relative z-10 w-full max-w-7xl mx-auto px-4 text-center">
-    <div class="max-w-5xl mx-auto mb-16 animate-fade-in translate-y-8 opacity-0 [animation-delay:200ms]">
-      <h1 class="font-sans font-black text-white leading-[1.05] tracking-tighter drop-shadow-2xl mx-auto" style="font-size: clamp(2.5rem, 7vw, 6rem);">
+    <div class="max-w-5xl mx-auto mb-10 animate-fade-in translate-y-8 opacity-0 [animation-delay:200ms]">
+      <h1 class="font-sans font-black text-white leading-[1.05] tracking-tighter drop-shadow-2xl mx-auto" style="font-size: clamp(2.5rem, 6vw, 5rem);">
         {t('hero.h1').split(',')[0].trim()},
-        <span class="block mt-4 text-[#5dade2] drop-shadow-[0_0_30px_rgba(93,173,226,0.5)]">
+        <span class="block mt-4 text-[#5dade2] drop-shadow-[0_0_30px_rgba(93,173,226,0.6)]">
           {t('hero.h1').split(',')[1].trim()}
         </span>
       </h1>
-      <p class="mt-8 text-white/90 max-w-[800px] mx-auto leading-relaxed font-black tracking-tight drop-shadow-md" style="font-family: var(--font-sans); text-shadow: 0 4px 12px rgba(0,0,0,0.3); font-size: clamp(1rem, 1.8vw, 1.5rem);">
+      <p class="mt-4 text-white/80 max-w-[700px] mx-auto leading-relaxed font-bold tracking-tight drop-shadow-md" style="font-family: var(--font-sans); text-shadow: 0 4px 12px rgba(0,0,0,0.4); font-size: clamp(0.9rem, 1.2vw, 1.25rem);">
         {t('hero.subtitle')}
       </p>
       
-      <div class="mt-16 flex flex-wrap justify-center gap-6">
+      <div class="mt-8 flex flex-wrap justify-center gap-6">
         <a 
           href={`#contact`}
-          class="px-12 py-6 bg-[#5dade2] text-white rounded-2xl font-sans text-xl font-black tracking-widest hover:bg-white hover:text-[#5dade2] hover:shadow-[0_20px_60px_rgba(93,173,226,0.4)] transition-all duration-500 transform hover:-translate-y-2 active:scale-95 border-2 border-[#5dade2]"
+          class="px-10 py-5 bg-[#5dade2] text-white rounded-2xl font-sans text-lg font-black tracking-widest hover:bg-white hover:text-[#5dade2] hover:shadow-[0_20px_60px_rgba(93,173,226,0.4)] transition-all duration-500 transform hover:-translate-y-2 active:scale-95 border-2 border-[#5dade2]"
         >
           {lang === 'tr' ? 'Bizimle iletişime geçin' : 'Contact us now'}
         </a>
@@ -103,7 +103,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
     </div>
 
     <!-- Action Area (Service Cards Only) -->
-    <div class="mt-40 transition-all duration-1000 animate-slide-up opacity-0 [animation-delay:600ms]">
+    <div class="mt-16 transition-all duration-1000 animate-slide-up opacity-0 [animation-delay:600ms]">
       <ServiceCards isHero={true} />
     </div>
 

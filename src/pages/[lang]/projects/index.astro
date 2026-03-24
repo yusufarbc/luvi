@@ -1,0 +1,76 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { getLangFromUrl, useTranslations } from '../../../i18n/utils';
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'tr' } },
+    { params: { lang: 'en' } }
+  ];
+}
+
+const { lang } = Astro.params;
+const t = useTranslations(lang as any);
+
+const allNews = await getCollection('projects', ({ data }) => {
+  return data.lang === lang;
+});
+
+const sortedNews = allNews.sort((a, b) => {
+  return new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime();
+});
+
+const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
+---
+
+<Layout title={`${t('nav.projects')} | Luvi Bilişim`} lang={lang as string}>
+  <Header />
+  
+  <main class="pt-32 pb-20 bg-[#0b1a2b]">
+    <div class="container mx-auto px-4 md:px-8">
+      <h1 class="text-4xl md:text-6xl font-sans font-black text-white mb-16 tracking-tighter">
+        {lang === 'tr' ? 'Bizden Haberler' : 'Latest News'}
+      </h1>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {sortedNews.map((item) => {
+          const id = item.id.includes('/') ? item.id.split('/')[0] : item.id.replace('.md', '');
+          return (
+            <a 
+              href={`${base}/${lang}/projects/${id}`}
+              class="group bg-white/5 border border-white/5 rounded-3xl overflow-hidden hover:border-[#5dade2]/30 transition-all duration-500"
+            >
+              <div class="h-64 bg-slate-800 relative">
+                {item.data.image && (
+                   <img src={item.data.image.src || item.data.image} alt={item.data.title} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                )}
+              </div>
+              <div class="p-8">
+                <span class="text-[#5dade2] text-[10px] font-black tracking-widest uppercase mb-4 block">
+                  {new Date(item.data.pubDate).toLocaleDateString(lang === 'tr' ? 'tr-TR' : 'en-US')}
+                </span>
+                <h2 class="text-white font-sans font-black text-xl mb-4 group-hover:text-[#5dade2] transition-colors line-clamp-2">
+                  {item.data.title}
+                </h2>
+                <p class="text-white/60 text-sm line-clamp-3 mb-6">
+                  {item.data.description}
+                </p>
+                <div class="text-[#5dade2] text-xs font-black flex items-center gap-2">
+                   {lang === 'tr' ? 'Devamını Oku' : 'Read More'}
+                   <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                   </svg>
+                </div>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

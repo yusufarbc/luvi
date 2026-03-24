@@ -5,18 +5,18 @@ import { getLangFromUrl, useTranslations } from '../i18n/utils';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const allProjects = await getCollection('projects', ({ data }) => data.lang === lang);
-const allBlog = await getCollection('blog', ({ data }) => data.lang === lang);
+const allNews = await getCollection('news', ({ data }) => {
+  return data.lang === lang;
+});
 
-// Combine and map type
-const combinedItems = [
-  ...allProjects.map(p => ({ ...p, type: lang === 'tr' ? 'PROJE' : 'PROJECT' })),
-  ...allBlog.map(b => ({ ...b, type: lang === 'tr' ? 'HABER' : 'NEWS' }))
-].sort((a, b) => {
-  const dateA = a.data.pubDate ? new Date(a.data.pubDate).getTime() : 0;
-  const dateB = b.data.pubDate ? new Date(b.data.pubDate).getTime() : 0;
-  return dateB - dateA;
-}).slice(0, 3);
+// Sort and get top 3
+const combinedItems = allNews
+  .sort((a, b) => {
+    const dateA = a.data.pubDate ? new Date(a.data.pubDate).getTime() : 0;
+    const dateB = b.data.pubDate ? new Date(b.data.pubDate).getTime() : 0;
+    return dateB - dateA;
+  })
+  .slice(0, 3);
 
 const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
 ---
@@ -25,54 +25,59 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
   <div class="container mx-auto px-4 md:px-8">
     <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-4">
       <div class="max-w-3xl">
-        <h2 class="text-4xl md:text-6xl lg:text-7xl font-heading font-black text-[#154360] tracking-tighter leading-[1.05] mb-12 ">
+        <h2 class="text-4xl md:text-6xl lg:text-7xl font-sans font-black text-[#154360] tracking-tighter leading-[1.05] mb-4">
           {lang === 'tr' ? (
-            <>Sektörel <span class="text-[#5dade2]">Gündem</span> ve Başarılarımız</>
+            <>Bizden <span class="text-[#5dade2]">Haberler</span></>
           ) : (
-            <>Sectoral <span class="text-[#5dade2]">Agenda</span> and Achievements</>
+            <>Latest <span class="text-[#5dade2]">News</span> From Us</>
           )}
         </h2>
       </div>
+      <a href={`${base}/${lang}/news`} class="mb-6 text-[#5dade2] font-black text-sm border-b-2 border-[#5dade2]/20 hover:border-[#5dade2] transition-all pb-1">
+        {lang === 'tr' ? 'Tüm Haberleri Gör' : 'View All News'}
+      </a>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-      {combinedItems.map((item) => (
-        <a 
-          href={`${base}/${lang}/${item.collection}/${item.id.split('/').pop()?.replace('.md', '')}`}
-          class="group bg-white border border-slate-100 rounded-[40px] overflow-hidden transition-all duration-700 hover:border-[#154360]/10 hover:shadow-[0_40px_80px_-20px_rgba(21,67,96,0.08)] hover:-translate-y-3"
-        >
-          <div class="h-64 bg-slate-50 flex items-center justify-center relative overflow-hidden">
-            <span class="text-[#154360]/5 text-[120px] font-heading font-black select-none transform transition-transform duration-1000 group-hover:scale-125">{item.data.title.charAt(0)}</span>
-            <div class="absolute top-8 left-8">
-               <span class={`px-4 py-2 rounded-full text-[9px] font-black tracking-widest  border ${
-                 item.type === 'HABER' || item.type === 'NEWS'
-                   ? 'bg-[#5dade2]/5 text-[#5dade2] border-[#5dade2]/10' 
-                   : 'bg-[#154360]/5 text-[#154360] border-[#154360]/10'
-               }`}>
-                 {item.type}
-               </span>
+      {combinedItems.map((item) => {
+        // Use folder name for ID
+        const id = item.id.includes('/') ? item.id.split('/')[0] : item.id.replace('.md', '');
+        return (
+          <a 
+            href={`${base}/${lang}/news/${id}`}
+            class="group bg-white border border-slate-100 rounded-[40px] overflow-hidden transition-all duration-700 hover:border-[#154360]/10 hover:shadow-[0_40px_80px_-20px_rgba(21,67,96,0.08)] hover:-translate-y-3"
+          >
+            <div class="h-64 bg-slate-50 flex items-center justify-center relative overflow-hidden">
+              {item.data.image ? (
+                 <img src={item.data.image.src || item.data.image} alt={item.data.title} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+              ) : (
+                <span class="text-[#154360]/5 text-[120px] font-sans font-black select-none transform transition-transform duration-1000 group-hover:scale-125">{item.data.title.charAt(0)}</span>
+              )}
+              <div class="absolute top-8 left-8">
+                 <span class="px-4 py-2 rounded-full text-[9px] font-black tracking-widest bg-[#5dade2]/5 text-[#5dade2] border border-[#5dade2]/10 transition-colors group-hover:bg-[#5dade2] group-hover:text-white">
+                   {lang === 'tr' ? 'HABER' : 'NEWS'}
+                 </span>
+              </div>
             </div>
-          </div>
-          <div class="p-10 relative z-20">
-            <h3 class="text-[#154360] font-heading font-black text-2xl mb-5 group-hover:text-[#5dade2] transition-colors line-clamp-2 leading-tight tracking-tighter">
-              {item.data.title}
-            </h3>
-            <p class="text-slate-500 text-base font-sans line-clamp-3 mb-10 leading-relaxed">
-              {item.data.description}
-            </p>
-            <div class="flex items-center gap-4 text-[#154360] text-[10px] font-black  tracking-[0.2em] group/link">
-              {lang === 'tr' ? 'Detayı Görüntüle' : 'View Details'} 
-              <div class="w-8 h-px bg-[#154360] transition-all duration-500 group-hover/link:w-16"></div>
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover/link:translate-x-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
+            
+            <div class="p-10 relative z-20">
+              <h3 class="text-[#154360] font-sans font-black text-2xl mb-5 group-hover:text-[#5dade2] transition-colors line-clamp-2 leading-tight tracking-tighter">
+                {item.data.title}
+              </h3>
+              <p class="text-slate-500 text-base font-sans line-clamp-3 mb-10 leading-relaxed">
+                {item.data.description}
+              </p>
+              <div class="flex items-center gap-4 text-[#154360] text-[10px] font-black tracking-[0.2em] group/link">
+                {lang === 'tr' ? 'Detayı Görüntüle' : 'View Details'} 
+                <div class="w-8 h-px bg-[#154360] transition-all duration-500 group-hover/link:w-16"></div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover/link:translate-x-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </div>
             </div>
-          </div>
-        </a>
-      ))}
+          </a>
+        );
+      })}
     </div>
-  </div>
-</section>
-iv>
   </div>
 </section>

@@ -1,0 +1,88 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import { getLangFromUrl, useTranslations } from '../../../i18n/utils';
+
+export async function getStaticPaths() {
+  return [
+    { params: { lang: 'tr' } },
+    { params: { lang: 'en' } }
+  ];
+}
+
+const { lang } = Astro.params;
+const t = useTranslations(lang as any);
+
+const allNews = await getCollection('news', ({ data }) => {
+  return data.lang === lang;
+});
+
+const sortedNews = allNews.sort((a, b) => {
+  return new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime();
+});
+
+const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
+---
+
+<Layout title={`${lang === 'tr' ? 'Bizden Haberler' : 'Latest News'} | Luvi Bilişim`} lang={lang as string}>
+  <Header />
+  
+  <main class="pt-40 pb-20 bg-[#0b1a2b]">
+    <div class="container mx-auto px-4 md:px-8">
+      <div class="max-w-4xl">
+        <h1 class="text-4xl md:text-7xl font-sans font-black text-white mb-8 tracking-tighter leading-tight">
+          Bizden <span class="text-[#5dade2]">Haberler</span>
+        </h1>
+        <p class="text-white/60 text-xl font-sans mb-20 max-w-2xl">
+          Luvi Bilişim dünyasındaki son gelişmeler, siber güvenlik eğitimlerimiz ve üniversite buluşmalarımızdan haberdar olun.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        {sortedNews.map((item) => {
+          const id = item.id.includes('/') ? item.id.split('/')[0] : item.id.replace('.md', '');
+          return (
+            <a 
+              href={`${base}/${lang}/news/${id}`}
+              class="group bg-white/5 border border-white/5 rounded-[40px] overflow-hidden hover:border-[#5dade2]/30 transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
+            >
+              <div class="h-64 bg-slate-800 relative overflow-hidden">
+                {item.data.image ? (
+                   <img src={item.data.image.src || item.data.image} alt={item.data.title} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                ) : (
+                   <div class="w-full h-full flex items-center justify-center bg-slate-900 text-white/10 text-8xl font-black">
+                     {item.data.title.charAt(0)}
+                   </div>
+                )}
+                <div class="absolute top-6 left-6">
+                  <span class="px-4 py-2 bg-black/50 backdrop-blur-md rounded-full text-white text-[9px] font-black tracking-widest border border-white/10 uppercase">
+                    {new Date(item.data.pubDate).toLocaleDateString(lang === 'tr' ? 'tr-TR' : 'en-US')}
+                  </span>
+                </div>
+              </div>
+              <div class="p-10">
+                <h2 class="text-white font-sans font-black text-2xl mb-4 group-hover:text-[#5dade2] transition-colors line-clamp-2 leading-tight tracking-tight">
+                  {item.data.title}
+                </h2>
+                <p class="text-white/50 text-base line-clamp-3 mb-8 leading-relaxed">
+                  {item.data.description}
+                </p>
+                <div class="text-[#5dade2] text-xs font-black flex items-center gap-3 group/link">
+                   {lang === 'tr' ? 'Detayları İncele' : 'Read Content'}
+                   <div class="w-8 h-px bg-[#5dade2]/30 transition-all group-hover/link:w-12 group-hover/link:bg-[#5dade2]"></div>
+                   <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transition-transform group-hover/link:translate-x-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                   </svg>
+                </div>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

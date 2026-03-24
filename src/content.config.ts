@@ -73,15 +73,16 @@ const blog = defineCollection({
   }),
 });
 
-const projects = defineCollection({
-  loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/projects" }),
-  schema: z.object({
+const news = defineCollection({
+  loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: "./src/content/news" }),
+  schema: ({ image }) => z.object({
     title: z.string(),
     description: z.string(),
-    pubDate: z.date(),
-    image: z.string().optional(),
+    pubDate: z.coerce.date(),
+    image: image().optional(),
     lang: z.string(),
-    type: z.string().optional().default('project'),
+    type: z.string().optional().default('news'),
+    featured: z.boolean().default(false),
   }),
 });
 
@@ -133,7 +134,7 @@ export const collections = {
   'features': features,
   'sections': sections,
   'blog': blog,
-  'projects': projects,
+  'news': news,
   'corporate': corporate,
   'products': products,
   'partners': partners,

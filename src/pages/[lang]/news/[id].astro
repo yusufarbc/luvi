@@ -1,0 +1,28 @@
+---
+import { getCollection, render } from 'astro:content';
+import ContentDetailLayout from '../../../layouts/ContentDetailLayout.astro';
+
+export async function getStaticPaths() {
+  const allNews = await getCollection('news');
+  return allNews.map((entry) => {
+    // Slug is the parent directory name: marmara-uni/tr.md -> marmara-uni
+    const slug = entry.id.includes('/') ? entry.id.split('/')[0] : entry.id.replace('.md', '');
+    return {
+      params: { 
+        lang: entry.data.lang, 
+        id: slug 
+      },
+      props: { entry },
+    };
+  });
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<ContentDetailLayout frontmatter={entry.data}>
+  <div class="prose prose-invert prose-lg max-w-none prose-headings:text-[#5dade2] prose-p:text-white/80">
+    <Content />
+  </div>
+</ContentDetailLayout>
