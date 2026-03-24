@@ -13,24 +13,28 @@ except ImportError:
         sys.exit(1)
 
 base_path = "public"
-files = [
-    "bg.mp4",
-    "Futuristic_Digital_Network_Animation.mp4",
-    "Cinematic_Tech_Loop_Generation.mp4"
-]
 
 def compress_videos():
+    # Find all mp4 files in the public folder
+    try:
+        files = [f for f in os.listdir(base_path) if f.endswith(".mp4")]
+    except Exception as e:
+        print(f"HATA: {base_path} dizini okunamadı: {e}")
+        return
+    
     for filename in files:
         input_file = os.path.join(base_path, filename)
         output_file = os.path.join(base_path, filename.replace(".mp4", ".webm"))
         
+        # Check if webm already exists to avoid re-processing
+        if os.path.exists(output_file):
+            print(f"---> ATLANITOR (Zaten var): {output_file}")
+            continue
+
         if os.path.exists(input_file):
             print(f"---> Sıkıştırılıyor: {input_file}")
             try:
-                # Arka plan videoları için 1000k-800k bitrate ve 24 fps idealdir.
                 clip = VideoFileClip(input_file)
-                # Sesi kapat (audio=False) çünkü arka planda gerek yok, boyutu düşürür.
-                # '800k' bitrate ile 3.9MB'lık bir MP4'ü ~1MB civarına indirebiliriz.
                 clip = clip.without_audio()
                 clip.write_videofile(output_file, codec="libvpx", bitrate="800k", fps=24)
                 clip.close()
