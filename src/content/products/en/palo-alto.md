@@ -8,7 +8,7 @@ logo: "/products/palo-alto.webp"
 
 
 
-## Introduction: Cybersecurity Without Borders
+## Cybersecurity Without Borders
 Palo Alto Networks takes a "Platform" approach to cybersecurity, closing the gaps created by siloed solutions. Through the **Strata, Prisma, and Cortex** solutions provided by Luvi Bilişim, we redefine your organization's cyber defense with the power of AI and automation.
 
 ---

@@ -1,13 +1,13 @@
 ---
 title: "Proxmox"
-description: "Güçlü, esnek ve açık kaynaklı sunucu sanallaştırma platformu."
 lang: "tr"
 order: 9
 logo: "/products/proxmox.webp"
 ---
 
-
-Modern veri merkezleri yüksek maliyetli ve karmaşık lisanslama modellerine mahkum değildir. **Proxmox VE**, Luvi Bilişim uzmanlığıyla sunulan, kurumsal düzeyde sanallaştırma, yedekleme ve konteyner yönetimini tek bir platformda birleştiren açık kaynaklı bir devrimdir.
+## Esnek ve Güçlü Altyapı
+Modern veri merkezleri yüksek maliyetli ve karmaşık lisanslama modellerine mahkum değildir.
+ **Proxmox VE**, Luvi Bilişim uzmanlığıyla sunulan, kurumsal düzeyde sanallaştırma, yedekleme ve konteyner yönetimini tek bir platformda birleştiren açık kaynaklı bir devrimdir.
 
 ---
 

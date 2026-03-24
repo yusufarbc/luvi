@@ -8,7 +8,7 @@ logo: "/products/kaspersky.webp"
 
 
 
-## Introduction: Multi-Layered Cyber Defense
+## Multi-Layered Cyber Defense
 For modern enterprises, cybersecurity is no longer just about antivirus software. **Kaspersky Corporate Security Solutions**, backed by Luvi Bilişim, offer a multi-layered defense ecosystem designed to protect digital assets against the most complex threats. This ecosystem integrates foundational protection (EPP), advanced detection (EDR), and expert-led response (MDR).
 
 ---

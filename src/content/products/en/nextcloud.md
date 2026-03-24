@@ -6,7 +6,7 @@ order: 10
 logo: "/products/nextcloud.webp"
 ---
 
-## Introduction: Your Data is Under Your Control
+## Your Data is Under Your Control
 In cloud storage solutions, privacy and control are critical priorities. **Nextcloud Hub**, offered with Luvi Bilişim's expertise, is the most powerful content collaboration platform in the open-source world. Your data is not hosted on third-party cloud providers, but entirely on servers under your control (On-premise or Private Cloud).
 
 ---

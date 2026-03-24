@@ -6,7 +6,7 @@ order: 7
 logo: "/products/microsoft.webp"
 ---
 
-## Giriş: KOBİ'ler İçin 360 Derece Koruma
+## KOBİ'ler İçin 360 Derece Koruma
 Modern iş dünyasında sadece Office uygulamalarına sahip olmak yeterli değildir. **Microsoft 365 Business Premium**, Luvi Bilişim'in bulut uzmanlığıyla birleşerek; üretkenlik araçlarını, gelişmiş siber güvenlik ve cihaz yönetimi yetenekleriyle tek bir pakette sunar.
 
 ---

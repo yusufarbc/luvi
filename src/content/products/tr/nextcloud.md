@@ -6,7 +6,7 @@ order: 10
 logo: "/products/nextcloud.webp"
 ---
 
-## Giriş: Veriniz Sizin Kontrolünüzde
+## Veriniz Sizin Kontrolünüzde
 Bulut depolama çözümlerinde gizlilik ve kontrol en kritik önceliklerdir. **Nextcloud Hub**, Luvi Bilişim uzmanlığıyla sunulan, açık kaynak dünyasının en güçlü içerik işbirliği platformudur. Verileriniz üçüncü taraf bulut sağlayıcılarda değil, tamamen sizin kontrolünüzdeki sunucularda (On-premise veya Özel Bulut) barındırılır.
 
 ---

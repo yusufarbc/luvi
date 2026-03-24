@@ -7,7 +7,7 @@ logo: "/products/zecurion.webp"
 ---
 
 
-## Giriş: Veriniz Sadece Sizde Kalsın
+## Veriniz Sadece Sizde Kalsın
 Veri sızıntılarının büyük bir kısmı, dış saldırılardan ziyade içeriden gelen tehditlerden veya hatalardan kaynaklanmaktadır. **Zecurion Yeni Nesil DLP**, Luvi Bilişim uzmanlığıyla, kurumsal verilerinizin her anını izler, sınıflandırır ve yetkisiz dışarı çıkışları (leaks) anında durdurur.
 
 ---

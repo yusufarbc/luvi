@@ -1,51 +1,52 @@
 ---
 title: "Oriana"
-description: "Merkezi log yönetimi, analiz ve raporlama ile siber güvenliği güçlendiren çözüm."
+description: "Merkezi log yönetimi, SIEM ve yapay zeka destekli tehdit analizi ile kurumsal siber güvenlik altyapınızı güçlendirin."
 lang: "tr"
 order: 8
 logo: "/products/oriana.webp"
 ---
 
 
-İş süreçlerinin dijitalleşmesi aylar süren yazılım projelerine mahkum değildir. **Oriana Low-Code Platformu**, Luvi Bilişim'in süreç analizi tecrübesiyle; İK, Finans, Satın Alma ve Operasyon gibi karmaşık iş akışlarını haftalar içinde canlıya almanızı sağlar.
+## Veriden Güvenliğe: Akıllı Log Yönetimi
+Dijital dünyada her olay bir iz bırakır. Ancak bu izleri anlamlandırmak ve siber tehditlere karşı birer kalkana dönüştürmek uzmanlık ister. **Oriana Log**, kurumunuzun tüm ağ trafiğini ve sistem hareketlerini gerçek zamanlı olarak izleyerek, potansiyel saldırıları daha gerçekleşmeden tespit etmenizi sağlar.
 
 ---
 
-## 1. Low-Code ve BPMN 2.0 Gücü
-Yazılım geliştirme süreçlerini basitleştirin ve iş birimleriyle aynı dili konuşun.
+## 1. Gerçek Zamanlı İzleme ve Hızlı Analiz
+Siber güvenlikte saniyelerin bile kritik önemi vardır. Oriana Log, yüksek performanslı mimarisiyle verileri göz açıp kapayıncaya kadar işler.
 
-- **Görsel Tasarım:** Sürükle-bırak bileşenlerle iş akışlarınızı (BPM) görsel olarak tasarlayın.
-- **BPMN 2.0 Standartı:** Uluslararası standartlarda süreç modelleme ile karmaşık onay mekanizmalarını kolayca hayata geçirin.
-- **Hızlı Prototipleme:** Fikirlerinizi günler içinde çalışan bir uygulamaya dönüştürerek iş birimlerinden anında geri bildirim alın.
-
----
-
-## 2. Esnek Veri Modeli ve Entegrasyon
-Oriana, mevcut sistemlerinizle (ERP, CRM, Legacy) kusursuz bir şekilde konuşur.
-
-- **Kurumsal Entegrasyon:** SAP, Microsoft Navision, Oracle ve diğer SQL tabanlı sistemlerle hazır konnektörler üzerinden veri alışverişi yapın.
-- **ODM (Oriana Data Model):** Esnek ve ölçeklenebilir veri yapısı ile kurumunuza özel ihtiyaçlara tam uyum sağlar.
-- **API Desteği:** Modern web servisleri üzerinden dış dünyayla entegre olun.
+- **Düşük Gecikme:** Ortalama 0.95 milisaniye yanıt süresi ile milyonlarca log arasından kritik olanları anında ayıklar.
+- **Canlı Dashboard:** Ağınızdaki tüm hareketliliği, başarısız oturum açma denemelerini ve şüpheli trafik artışlarını görsel paneller üzerinden anlık takip edin.
+- **Merkezi Görünürlük:** Sunucu, firewall, switch ve antivirüs gibi farklı kaynaklardan gelen tüm verileri tek bir merkezde birleştirin.
 
 ---
 
-## 3. Çok Yönlü Kullanım Alanları
-Tek platform, onlarca farklı kurumsal çözüm:
+## 2. Yapay Zeka Destekli Tehdit Tespiti
+Geleneksel yöntemlerin ötesine geçerek, yapay zeka ve gelişmiş korelasyon algoritmalarıyla geleceğin tehditlerine hazırlıklı olun.
 
-- **İnsan Kaynakları:** İşe alım, performans yönetimi, izin süreçleri ve dijital özlük dosyaları.
-- **Satın Alma ve Finans:** İhale yönetimi, masraf onayları, bütçe takibi ve sözleşme yönetimi.
-- **Operasyon ve Servis:** Teknik servis takibi, vaka yönetimi (Case Management) ve kalite kontrol süreçleri.
-- **Mobil Erişim:** Tasarlanan tüm uygulamalar otomatik olarak mobil uyumlu (Responsive) hale gelir.
-
----
-
-## 4. Otonom Süreçler ve RPA Entegrasyonu
-İnsan hatalarını azaltan, tekrarlayan işleri otomatiğe bağlayan akıllı yapılar:
-
-- **Zamanlanmış Görevler:** Periyodik kontrolleri ve raporlamaları insan müdahalesi olmadan gerçekleştirin.
-- **RPA Dostu:** UiPath gibi robotik süreç otomasyonu teknolojileriyle entegre olarak, manuel veri girişlerini robotlara devredin.
+- **Akıllı Korelasyon:** Birbirinden bağımsız görünen küçük olayları ilişkilendirerek, büyük çaplı saldırı girişimlerini önceden fark eder.
+- **Otonom Alarmlar:** Kritik bir güvenlik ihlali veya sistem hatası tespit edildiğinde, tanımlanmış senaryolara göre ilgili ekipleri anında uyarır.
+- **Davranışsal Analiz:** Standart dışı kullanıcı hareketlerini ve şüpheli veri transferlerini yapay zeka ile raporlar.
 
 ---
 
-## Neden Oriana ve Luvi Bilişim?
-Luvi Bilişim, sadece bir platform sağlayıcısı değil, aynı zamanda stratejik bir süreç çözüm ortağıdır. İş süreçlerinizi analiz ediyor, Oriana'nın low-code esnekliğiyle en verimli dijital iş akışlarını sizin için inşa ediyoruz.
+## 3. Veri Optimizasyonu ve Depolama Verimliliği
+Büyük veri kümelerini yönetmek yüksek maliyetli olmak zorunda değil. Oriana Log, gelişmiş algoritmalarıyla depolama maliyetlerinizi düşürür.
+
+- **Gelişmiş Deduplication:** Tekrar eden ve gereksiz kayıtları ayııklayan veri tekilleştirme teknolojisi ile disk kullanımında %70'e varan tasarruf sağlar.
+- **Minimize Algoritması:** Büyük veri sorgularını optimize ederek, aylar öncesine ait kayıtlara bile saniyeler içinde erişim imkanı tanır.
+- **Ölçeklenebilir Mimari:** Kurumunuz büyüdükçe performans kaybı yaşamadan genişleyebilen Docker tabanlı, modüler yapı.
+
+---
+
+## 4. Yasal Uyumluluk ve Sertifikasyon
+Siber güvenlik sadece teknik bir gereklilik değil, aynı zamanda yasal bir sorumluluktur. Oriana Log, mevzuatlara %100 uyum sağlar.
+
+- **Tam Mevzuat Uyumu:** 5651, KVKK, 5070 ve GDPR standartlarına uygun log imzalama ve saklama yetenekleri.
+- **Uluslararası Standartlar:** ISO 27001 ve NATO MIL-STD-498 gibi üst düzey güvenlik protokolleri ile tam entegrasyon.
+- **Detaylı Raporlama:** Denetim ve regülasyon süreçleri için tek tuşla profesyonel, hukuki geçerliliği olan raporlar oluşturun.
+
+---
+
+## Neden Oriana Log ve Luvi Bilişim?
+Luvi Bilişim olarak, Oriana Log'un teknolojik gücünü, siber güvenlik alanındaki derin tecrübemizle birleştiriyoruz. Sadece log tutan bir sistem değil; yaşayan, öğrenen ve kurumunuzu 7/24 koruyan bir siber güvenlik kalkanı inşa ediyoruz.

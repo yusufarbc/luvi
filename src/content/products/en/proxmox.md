@@ -6,7 +6,7 @@ order: 9
 logo: "/products/proxmox.webp"
 ---
 
-## Introduction: Flexible and Powerful Infrastructure
+## Flexible and Powerful Infrastructure
 Modern data centers are not condemned to high-cost and complex licensing models. **Proxmox VE**, offered with Luvi Bilişim's expertise, is an open-source revolution combining enterprise-grade virtualization, backup, and container management in a single platform.
 
 ---

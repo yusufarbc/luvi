@@ -6,6 +6,7 @@ order: 2
 logo: "/products/sentinelone.webp"
 ---
 
+## The New Paradigm of Autonomous Security
 SentinelOne uses artificial intelligence and machine learning to stop threats autonomously.
 
 ### SentinelOne architecture is built on three core principles:
@@ -75,5 +76,5 @@ SentinelOne offers a flexible model based on enterprise needs:
 -   **Enterprise:** Full scale with Purple AI and specialized modules.
 
 ---
-
+## The New Paradigm of Autonomous Security
 The SentinelOne Singularity Platform is not just a security tool, but a strategic partner in digital transformation. It achieves 100% success in MITRE ATT&CK tests while generating 88% fewer alerts than the industry average, pushing SOC efficiency to its peak.

@@ -6,6 +6,7 @@ order: 2
 logo: "/products/sentinelone.webp"
 ---
 
+## Otonom Güvenliğin Yeni Paradigması
 SentinelOne, yapay zeka ve makine öğrenimi kullanarak tehditleri otonom olarak durdurur.
 
 ### SentinelOne mimarisi üç temel prensip üzerine inşa edilmiştir:

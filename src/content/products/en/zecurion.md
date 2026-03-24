@@ -7,7 +7,7 @@ logo: "/products/zecurion.webp"
 ---
 
 
-## Introduction: Keeping Your Data Yours
+## Keeping Your Data Yours
 The majority of data breaches stem from insider threats or human error rather than external attacks. **Zecurion Next-Gen DLP**, backed by Luvi Bilişim's expertise, monitors, classifies, and instantly prevents unauthorized data leaks in real-time.
 
 ---

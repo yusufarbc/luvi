@@ -8,7 +8,7 @@ logo: "/products/fortinet.webp"
 
 
 
-## Introduction: The Vision of Unified Protection
+## The Vision of Unified Protection
 Digital transformation and hybrid work models have expanded the attack surface while making security management more complex. **Fortinet Security Fabric**, backed by Luvi Bilişim’s expertise, offers a unified security architecture that provides visibility at every point of your network (edge, cloud, endpoint) and responds autonomously to threats.
 
 ---

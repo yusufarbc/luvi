@@ -24,8 +24,8 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
   <!-- Progress Bar for long content -->
   <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-[#5dade2] z-[101] transition-all duration-300 w-0"></div>
 
-  <main class="pt-32 pb-32 bg-white min-h-screen">
-    <div class="container mx-auto px-4 md:px-8 max-w-5xl">
+  <main class="pt-32 pb-32 bg-slate-50 min-h-screen">
+    <div class="container mx-auto px-4 md:px-8 max-w-6xl">
       <!-- Breadcrumbs / Back -->
       <nav class="flex items-center gap-4 text-[#154360] font-sans text-[10px] font-black tracking-[0.3em] mb-12 hover:text-[#5dade2] transition-colors group uppercase">
         <a href={`${base}/${lang}/#${frontmatter.icon ? 'services' : (frontmatter.pubDate ? 'news' : 'products')}`} class="inline-flex items-center gap-4">
@@ -49,61 +49,63 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
 
         <!-- Main Content Column -->
         <div class="lg:col-span-9">
-          <!-- Header -->
-          <header class="mb-20">
-            {frontmatter.pubDate && (
-              <span class="inline-block px-4 py-1.5 bg-slate-50 text-[#5dade2] text-[10px] font-black tracking-widest rounded-full mb-8 uppercase">
-                {new Date(frontmatter.pubDate).toLocaleDateString(lang === 'tr' ? 'tr-TR' : 'en-US', { day: 'numeric', month: 'long', year: 'numeric' })}
-              </span>
+          <div class="bg-white rounded-[48px] p-8 md:p-16 lg:p-24 shadow-[0_20px_50px_rgba(21,67,96,0.05)] border border-slate-100">
+            <!-- Header -->
+            <header class="mb-20">
+              {frontmatter.pubDate && (
+                <span class="inline-block px-4 py-1.5 bg-slate-50 text-[#5dade2] text-[10px] font-black tracking-widest rounded-full mb-8 uppercase">
+                  {new Date(frontmatter.pubDate).toLocaleDateString(lang === 'tr' ? 'tr-TR' : 'en-US', { day: 'numeric', month: 'long', year: 'numeric' })}
+                </span>
+              )}
+              
+              <div class="flex flex-col gap-6">
+                <h1 class="text-4xl md:text-6xl font-heading font-black text-[#154360] leading-[1.1] tracking-tighter">
+                  {frontmatter.title}
+                </h1>
+                <div class="h-1.5 w-24 bg-[#5dade2] rounded-full mb-2"></div>
+                <p class="text-slate-400 text-xl md:text-2xl font-sans leading-relaxed font-light max-w-3xl">
+                  {frontmatter.description}
+                </p>
+              </div>
+            </header>
+
+            <!-- Main Cover Image -->
+            {frontmatter.image && (
+              <div class="mb-24 rounded-[64px] overflow-hidden bg-slate-50 aspect-video shadow-[0_45px_120px_-25px_rgba(21,67,96,0.18)] border border-slate-100 cursor-zoom-in lightbox-trigger group">
+                 <Image 
+                   src={frontmatter.image} 
+                   alt={frontmatter.title} 
+                   class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                 />
+              </div>
             )}
-            
-            <div class="flex flex-col gap-6">
-              <h1 class="text-4xl md:text-6xl font-heading font-black text-[#154360] leading-[1.1] tracking-tighter">
-                {frontmatter.title}
-              </h1>
-              <div class="h-1.5 w-24 bg-[#5dade2] rounded-full mb-2"></div>
-              <p class="text-slate-400 text-xl md:text-2xl font-sans leading-relaxed font-light max-w-3xl">
-                {frontmatter.description}
-              </p>
-            </div>
-          </header>
+            <!-- Content -->
+            <article class="prose-container prose prose-slate prose-xl max-w-none 
+              prose-h2:font-heading prose-h2:font-black prose-h2:text-[#154360] prose-h2:text-3xl prose-h2:md:text-4xl prose-h2:mt-32 prose-h2:mb-10 prose-h2:tracking-tight prose-h2:leading-relaxed
+              prose-h3:font-heading prose-h3:font-black prose-h3:text-[#1c5d8e] prose-h3:text-xl prose-h3:md:text-2xl prose-h3:mt-20 prose-h3:mb-8 prose-h3:tracking-tight
+              prose-p:text-slate-600 prose-p:text-lg md:prose-p:text-xl prose-p:leading-[1.8] prose-p:mb-12 prose-p:font-normal
+              prose-li:text-slate-600 prose-li:text-lg md:prose-li:text-lg prose-li:mb-6 prose-li:leading-relaxed
+              prose-strong:text-[#154360] prose-strong:font-bold
+              prose-hr:hidden
+              prose-blockquote:border-l-[8px] prose-blockquote:border-[#5dade2] prose-blockquote:pl-10 prose-blockquote:italic prose-blockquote:text-2xl prose-blockquote:text-[#154360] prose-blockquote:bg-slate-50/50 prose-blockquote:py-10 prose-blockquote:pr-8 prose-blockquote:rounded-r-2xl prose-blockquote:my-16
+            ">
+              <slot />
+            </article>
 
-          <!-- Main Cover Image -->
-          {frontmatter.image && (
-            <div class="mb-24 rounded-[64px] overflow-hidden bg-slate-50 aspect-video shadow-[0_45px_120px_-25px_rgba(21,67,96,0.18)] border border-slate-100 cursor-zoom-in lightbox-trigger group">
-               <Image 
-                 src={frontmatter.image} 
-                 alt={frontmatter.title} 
-                 class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-               />
-            </div>
-          )}
-          <!-- Content -->
-          <article class="prose-container prose prose-slate prose-xl max-w-none 
-            prose-h2:font-heading prose-h2:font-black prose-h2:text-[#154360] prose-h2:text-4xl prose-h2:md:text-5xl prose-h2:mt-32 prose-h2:mb-10 prose-h2:tracking-tight prose-h2:leading-[1.1]
-            prose-h3:font-heading prose-h3:font-black prose-h3:text-[#1c5d8e] prose-h3:text-xl prose-h3:md:text-2xl prose-h3:mt-20 prose-h3:mb-6 prose-h3:tracking-tight prose-h3:flex prose-h3:items-center prose-h3:gap-4
-            prose-p:text-slate-600 prose-p:text-lg md:prose-p:text-xl prose-p:leading-[1.8] prose-p:mb-10 prose-p:font-normal
-            prose-li:text-slate-600 prose-li:text-lg md:prose-li:text-lg prose-li:mb-4 prose-li:leading-relaxed
-            prose-strong:text-[#154360] prose-strong:font-bold
-            prose-hr:border-slate-100 prose-hr:my-24
-            prose-blockquote:border-l-[8px] prose-blockquote:border-[#5dade2] prose-blockquote:pl-10 prose-blockquote:italic prose-blockquote:text-2xl prose-blockquote:text-[#154360] prose-blockquote:bg-slate-50/50 prose-blockquote:py-10 prose-blockquote:pr-8 prose-blockquote:rounded-r-2xl prose-blockquote:my-16
-          ">
-            <slot />
-          </article>
+            <!-- Logo at the bottom -->
+            {frontmatter.logo && (
+              <div class="mt-32 mb-4 flex justify-center border-t border-slate-50 pt-24">
+                <img src={`${base}${frontmatter.logo}`} alt={frontmatter.title} class="h-16 md:h-24 w-auto object-contain hover:scale-105 transition-transform duration-700" />
+              </div>
+            )}
+          </div>
 
-          <!-- Logo at the bottom -->
-          {frontmatter.logo && (
-            <div class="mt-32 mb-12 flex justify-center border-t border-slate-50 pt-24">
-              <img src={`${base}${frontmatter.logo}`} alt={frontmatter.title} class="h-16 md:h-24 w-auto object-contain hover:scale-105 transition-transform duration-700" />
-            </div>
-          )}
-
-          <!-- Gallery (if any) -->
+          <!-- Gallery (if any) - Outside the card for better visual flow -->
           {galleryImages.length > 0 && (
             <div class="mt-40">
               <h2 class="text-3xl font-black text-[#154360] mb-16 tracking-tighter flex items-center gap-6">
                  {lang === 'tr' ? 'Görsel Arşivi' : 'Visual Archive'}
-                 <div class="h-[2px] flex-1 bg-slate-50"></div>
+                 <div class="h-[2px] flex-1 bg-slate-200"></div>
               </h2>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 {galleryImages.map((img: any) => (
@@ -138,42 +140,67 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
 
 <style is:global>
   /* Custom Prose Styling */
-  .prose-container h3 {
+  .prose-container h2 {
+    color: #154360 !important;
     position: relative;
+    padding-left: 2.5rem;
+    display: block;
+    border: none !important;
+    margin-top: 6rem !important;
+    margin-bottom: 2.5rem !important;
   }
   
-  .prose-container h3::after {
+  .prose-container h2::before {
     content: '';
-    display: block;
-    width: 40px;
-    height: 3px;
+    position: absolute;
+    left: 0;
+    top: 0.1em;
+    width: 8px;
+    height: 1.2em;
     background-color: #5dade2;
     border-radius: 99px;
-    margin-top: 0.75rem;
+  }
+
+  .prose-container h3 {
+    color: #1c5d8e !important;
+    font-size: 1.5rem !important;
+    font-weight: 800 !important;
+    margin-top: 3.5rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  /* Remove all generic hr from content to keep it clean */
+  .prose-container hr {
+    display: none !important;
+    visibility: hidden !important;
   }
 
   .prose-container p {
     margin-bottom: 2.5rem !important;
+    text-align: justify;
+    color: #475569 !important; /* text-slate-600 equivalent */
   }
 
   .prose-container ul {
     margin-top: 2rem !important;
-    margin-bottom: 3rem !important;
+    margin-bottom: 3.5rem !important;
   }
 
   .prose-container ul li {
     position: relative;
-    padding-left: 2rem;
+    padding-left: 2.5rem;
     list-style: none !important;
+    margin-bottom: 1.25rem !important;
+    color: #475569 !important;
   }
 
   .prose-container ul li::before {
     content: '';
     position: absolute;
     left: 0;
-    top: 0.85rem;
-    width: 10px;
-    height: 10px;
+    top: 0.5rem;
+    width: 12px;
+    height: 12px;
     background-color: #5dade2;
     border-radius: 3px;
     transform: rotate(45deg);

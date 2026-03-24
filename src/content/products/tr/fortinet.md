@@ -8,7 +8,7 @@ logo: "/products/fortinet.webp"
 
 
 
-## Giriş: Bütünleşik Koruma Vizyonu
+## Bütünleşik Koruma Vizyonu
 Dijital dönüşüm ve hibrit çalışma modelleri, saldırı yüzeyini genişletirken güvenlik yönetimini daha karmaşık hale getirmiştir. **Fortinet Security Fabric**, Luvi Bilişim uzmanlığıyla, ağınızın her noktasında (kenar, bulut, uç nokta) görünürlük sağlayan ve tehditlere otonom yanıt veren birleşik bir güvenlik mimarisi sunar.
 
 ---

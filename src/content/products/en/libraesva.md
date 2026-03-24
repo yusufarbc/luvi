@@ -7,7 +7,7 @@ logo: "/products/libraesva.webp"
 ---
 
 
-## Introduction: Intelligent Defense Against Email Threats
+## Intelligent Defense Against Email Threats
 Email remains the primary entry point for over 90% of cyber attacks. **Libraesva Email Security Gateway (ESG)**, backed by Luvi Bilişim, protects your organization against phishing, ransomware, and Business Email Compromise (BEC) with an AI-powered, multi-layered architecture.
 
 ---

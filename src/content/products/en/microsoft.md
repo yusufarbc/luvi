@@ -8,7 +8,7 @@ logo: "/products/microsoft.webp"
 
 
 
-## Introduction: More Than Just Office Apps
+## More Than Just Office Apps
 In the modern business world, simply having Office applications is not enough. **Microsoft 365 Business Premium**, combined with Luvi Bilişim's cloud expertise, offers productivity tools alongside advanced cybersecurity and device management capabilities in a single package.
 
 ---
