@@ -19,8 +19,8 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
 
 <section id="products" class="py-24 bg-white border-t border-slate-100">
   <div class="container mx-auto px-4">
-    <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-6xl lg:text-7xl font-heading font-black text-[#154360]  tracking-tighter leading-tight">
+    <div class="text-center mb-16 px-4">
+      <h2 class="text-4xl md:text-6xl lg:text-7xl font-sans font-black text-[#154360]  tracking-tighter leading-tight">
         {title}
       </h2>
     </div>
@@ -40,7 +40,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
                 class="max-h-20 w-auto max-w-[85%] object-contain transition-transform duration-500 group-hover:scale-110"
               />
             ) : (
-              <span class="text-[#154360] font-heading font-black text-xl md:text-3xl tracking-tighter ">
+              <span class="text-[#154360] font-sans font-black text-xl md:text-3xl tracking-tighter ">
                 {p.data.title.split(' ')[0]}
               </span>
             )}
@@ -59,7 +59,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
                 class="max-h-20 w-auto max-w-[85%] object-contain transition-transform duration-500 group-hover:scale-110"
               />
             ) : (
-              <span class="text-[#154360] font-heading font-black text-xl md:text-3xl tracking-tighter ">
+              <span class="text-[#154360] font-sans font-black text-xl md:text-3xl tracking-tighter ">
                 {p.data.title.split(' ')[0]}
               </span>
             )}
@@ -73,7 +73,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
 <style>
   @keyframes scroll {
     0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-50% - 28px)); } /* -50% to loop, -28px for half of the gap (14px md gap / 2?) No, gap is between items. */
+    100% { transform: translateX(calc(-50% - 28px)); } 
   }
   .animate-scroll {
     animation: scroll 40s linear infinite;
@@ -81,10 +81,6 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
   @media (max-width: 768px) {
     .animate-scroll {
       animation: scroll 25s linear infinite;
-    }
-    @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(calc(-50% - 20px)); }
     }
   }
 </style>
