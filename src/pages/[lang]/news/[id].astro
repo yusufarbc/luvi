@@ -19,23 +19,31 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await render(entry);
 
-// Dynamic Gallery Discovery using relative paths
-// We need to resolve these images for Astro to process them
+// Filter out the main cover image from the gallery to avoid duplication
 const gallery = entry.data.gallery || [];
-const resolvedGallery = await Promise.all(
-  gallery.map(async (img: any) => {
-    // Attempt to resolve the image from the same directory
-    // In Astro 5 content collections with glob loader, the image already comes as an object if it's in the schema as image()
-    // However, for gallery arrays we might need a different trick
-    return img;
+const coverImage = entry.data.image;
+
+const filteredGallery = gallery
+  .filter((item: any) => {
+    // Each item is { src: Metadata, alt: string }
+    const img = item.src;
+    const imgPath = typeof img === 'string' ? img : (img?.src || img);
+    const coverPath = typeof coverImage === 'string' ? coverImage : (coverImage?.src || coverImage);
+    
+    const getFn = (p: any) => {
+      const s = typeof p === 'string' ? p : p?.src;
+      return s?.split('/').pop()?.split('.')[0] || '';
+    };
+    
+    return getFn(imgPath) !== getFn(coverPath);
   })
-);
+  .map((item: any) => item.src);
 ---
 
 <ContentDetailLayout 
   frontmatter={entry.data} 
   showContactCTA={false}
-  galleryImages={resolvedGallery}
+  galleryImages={filteredGallery}
 >
   <div class="prose prose-slate prose-lg max-w-none prose-headings:text-[#154360] prose-p:text-slate-500">
     <Content />

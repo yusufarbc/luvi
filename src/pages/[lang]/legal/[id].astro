@@ -1,0 +1,37 @@
+---
+import { getCollection, render } from 'astro:content';
+import ContentDetailLayout from '../../../layouts/ContentDetailLayout.astro';
+
+export async function getStaticPaths() {
+  const allLegal = await getCollection('legal');
+  return allLegal.map((entry) => {
+    // ID is 'kvkk/tr' -> 'kvkk'
+    const slug = entry.id.split('/')[0];
+    return {
+      params: { 
+        lang: entry.data.lang, 
+        id: slug 
+      },
+      props: { entry },
+    };
+  });
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+
+<ContentDetailLayout frontmatter={entry.data} showContactCTA={false}>
+  <div class="legal-content">
+    <Content />
+  </div>
+</ContentDetailLayout>
+
+<style is:global>
+  .legal-content h3 {
+    color: #154360;
+    font-weight: 900;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+</style>

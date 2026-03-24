@@ -37,17 +37,17 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
             {new Date(frontmatter.pubDate).toLocaleDateString(lang === 'tr' ? 'tr-TR' : 'en-US', { day: 'numeric', month: 'long', year: 'numeric' })}
           </span>
         )}
-        <h1 class="text-4xl md:text-7xl font-sans font-black text-[#154360] mb-8 leading-[1.05] tracking-tighter">
+        <h1 class="text-4xl md:text-7xl font-heading font-black text-[#154360] mb-8 leading-[1.05] tracking-tighter">
           {frontmatter.title}
         </h1>
-        <p class="text-slate-500 text-xl md:text-2xl font-sans leading-relaxed font-medium">
+        <p class="text-slate-400 text-xl md:text-2xl font-sans leading-relaxed font-medium max-w-2xl">
           {frontmatter.description}
         </p>
       </header>
 
       <!-- Main Cover Image -->
       {frontmatter.image && (
-        <div class="mb-20 rounded-[48px] overflow-hidden bg-slate-100 aspect-video shadow-2xl shadow-blue-900/10 border border-slate-100">
+        <div class="mb-24 rounded-[64px] overflow-hidden bg-slate-50 aspect-video shadow-[0_40px_100px_-20px_rgba(21,67,96,0.15)] border border-slate-100 cursor-zoom-in lightbox-trigger">
            <Image 
              src={frontmatter.image} 
              alt={frontmatter.title} 
@@ -57,30 +57,32 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
       )}
 
       <!-- Content -->
-      <article class="prose prose-slate prose-lg max-w-none 
-        prose-h2:font-sans prose-h2:font-black prose-h2:text-[#154360] prose-h2:text-4xl prose-h2:mt-20 prose-h2:mb-8 prose-h2:tracking-tighter prose-h2:leading-tight
-        prose-p:text-slate-500 prose-p:text-lg prose-p:leading-[1.9] prose-p:mb-10 prose-p:text-justify
-        prose-li:text-slate-500 prose-li:text-lg prose-li:mb-4
+      <article class="prose-container prose prose-slate prose-lg max-w-none 
+        prose-h2:font-heading prose-h2:font-black prose-h2:text-[#154360] prose-h2:text-4xl prose-h2:md:text-5xl prose-h2:mt-24 prose-h2:mb-12 prose-h2:tracking-tighter prose-h2:leading-tight
+        prose-h3:font-heading prose-h3:font-black prose-h3:text-[#154360] prose-h3:text-2xl prose-h3:md:text-3xl prose-h3:mt-20 prose-h3:mb-8 prose-h3:tracking-tight prose-h3:flex prose-h3:items-center prose-h3:gap-4
+        prose-p:text-slate-500 prose-p:text-lg md:prose-p:text-xl prose-p:leading-[1.9] prose-p:mb-12 prose-p:font-light
+        prose-li:text-slate-500 prose-li:text-lg prose-li:mb-6
         prose-strong:text-[#154360] prose-strong:font-black
-        prose-hr:border-slate-100 prose-hr:my-20
+        prose-hr:border-slate-50 prose-hr:my-24
+        prose-blockquote:border-l-4 prose-blockquote:border-[#5dade2] prose-blockquote:pl-8 prose-blockquote:italic prose-blockquote:text-2xl prose-blockquote:text-[#154360]
       ">
         <slot />
       </article>
 
       <!-- Gallery (if any) -->
       {galleryImages.length > 0 && (
-        <div class="mt-24">
+        <div class="mt-32">
           <h2 class="text-2xl font-black text-[#154360] mb-12 tracking-tight flex items-center gap-4">
              {lang === 'tr' ? 'Etkinlik Görselleri' : 'Event Gallery'}
              <div class="h-px flex-1 bg-slate-100"></div>
           </h2>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             {galleryImages.map((img: any) => (
-              <div class="group relative aspect-video rounded-3xl overflow-hidden bg-slate-100 border border-slate-200">
+              <div class="group relative aspect-video rounded-3xl overflow-hidden bg-slate-50 border border-slate-100 flex items-center justify-center cursor-zoom-in lightbox-trigger">
                 <Image 
-                  src={img.src} 
-                  alt={img.alt || "Gallery"} 
-                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  src={img} 
+                  alt={frontmatter.title} 
+                  class="w-full h-full object-cover transition-all duration-1000 group-hover:scale-110"
                 />
               </div>
             ))}
@@ -90,14 +92,17 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
 
       <!-- Footer CTA (Only for Services/Products) -->
       {showContactCTA && (
-        <div class="mt-32 p-10 md:p-20 rounded-[48px] bg-white border border-slate-100 text-center shadow-sm hover:shadow-xl transition-shadow duration-700">
-          <h3 class="text-3xl md:text-5xl font-sans font-black text-[#154360] mb-6 tracking-tighter leading-tight">{t('nav.contact')}</h3>
-          <p class="text-slate-500 mb-12 max-w-md mx-auto text-lg md:text-xl leading-relaxed">
-            {frontmatter.title} {lang === 'tr' ? 'hizmetimiz hakkında detaylı bilgi ve teklif almak için bizimle iletişime geçin.' : 'solutions, contact us for detailed information and a quote.'}
+        <div class="mt-40 p-12 md:p-24 rounded-[64px] bg-[#0b1a2b] relative overflow-hidden text-center shadow-2xl group">
+             <!-- Background Accents -->
+          <div class="absolute top-0 right-0 w-64 h-64 bg-[#5dade2]/10 blur-[100px] rounded-full group-hover:bg-[#5dade2]/20 transition-all duration-1000"></div>
+          
+          <h3 class="text-3xl md:text-5xl font-heading font-black text-white mb-8 tracking-tighter leading-tight relative z-10">{t('nav.contact')}</h3>
+          <p class="text-white/40 mb-12 max-w-md mx-auto text-lg md:text-xl leading-relaxed relative z-10">
+            {frontmatter.title} {lang === 'tr' ? 'hizmetimiz hakkında detaylı bilgi ve stratejik teklif almak için bizimle iletişime geçin.' : 'solutions, contact us for detailed information and a strategic quote.'}
           </p>
           <a 
             href={`${base}/${lang}/#contact`} 
-            class="inline-block px-14 py-6 bg-[#154360] text-white rounded-2xl font-sans font-black  tracking-widest hover:bg-[#5dade2] transition-all duration-300 shadow-xl shadow-blue-900/10 uppercase"
+            class="relative z-10 inline-block px-16 py-6 bg-[#5dade2] text-white rounded-2xl font-heading font-black  tracking-widest hover:bg-white hover:text-[#5dade2] transition-all duration-500 shadow-2xl shadow-blue-500/20 uppercase active:scale-95"
           >
             {t('nav.contact')}
           </a>
@@ -105,4 +110,103 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
       )}
     </div>
   </main>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="fixed inset-0 z-[100] bg-[#0b1a2b]/95 backdrop-blur-2xl hidden items-center justify-center p-4 md:p-12 opacity-0 transition-opacity duration-500 cursor-zoom-out">
+      <button id="close-lightbox" class="absolute top-10 right-10 w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-white/10 transition-all z-[101]">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+      </button>
+      <img id="lightbox-img" src="" alt="Large View" class="max-w-full max-h-full object-contain rounded-2xl shadow-2xl transform scale-95 transition-transform duration-500" />
+  </div>
 </Layout>
+
+<style is:global>
+  /* Custom Prose Styling */
+  .prose-container h3 {
+    position: relative;
+    padding-left: 1.5rem;
+  }
+  
+  .prose-container h3::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 1.5rem;
+    background-color: #5dade2;
+    border-radius: 99px;
+  }
+
+  .prose-container p {
+    margin-bottom: 2rem !important;
+  }
+
+  .prose-container ul li {
+    position: relative;
+    padding-left: 1.5rem;
+    list-style: none !important;
+  }
+
+  .prose-container ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.75rem;
+    width: 8px;
+    height: 8px;
+    background-color: #5dade2;
+    border-radius: 50%;
+  }
+
+  /* Lightbox Logic */
+  #lightbox.active {
+    display: flex;
+    opacity: 1;
+  }
+  #lightbox.active #lightbox-img {
+    scale: 1;
+  }
+</style>
+
+<script is:inline>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const triggers = document.querySelectorAll('.lightbox-trigger');
+  const closeBtn = document.getElementById('close-lightbox');
+
+  triggers.forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const img = trigger.querySelector('img');
+      if (img) {
+        lightboxImg.src = img.src;
+        lightbox.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => lightbox.classList.add('active'), 10);
+      }
+    });
+  });
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    setTimeout(() => {
+      lightbox.classList.add('hidden');
+      document.body.style.overflow = '';
+    }, 500);
+  }
+
+  closeBtn?.addEventListener('click', closeLightbox);
+  lightbox?.addEventListener('click', (e) => {
+    if (e.target === lightbox || e.target === lightboxImg) {
+      closeLightbox();
+    }
+  });
+
+  // Hotkey Esc
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+</script>

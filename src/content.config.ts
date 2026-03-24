@@ -133,6 +133,14 @@ const references = defineCollection({
   }),
 });
 
+const legal = defineCollection({
+  loader: glob({ pattern: '**/[^_]*.md', base: "./src/content/legal" }),
+  schema: z.object({
+    title: z.string(),
+    lang: z.string(),
+  }),
+});
+
 export const collections = {
   'services': services,
   'hero': hero,
@@ -145,4 +153,5 @@ export const collections = {
   'products': products,
   'partners': partners,
   'references': references,
+  'legal': legal,
 };

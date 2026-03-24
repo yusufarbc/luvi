@@ -4,8 +4,8 @@ description: "Türkiye'nin öncü turizm gruplarından Adalya Hotels için gerç
 pubDate: 2024-03-24
 image: "1.webp"
 gallery:
-  - { src: "1.webp", alt: "Adalya News 1" }
-  - { src: "2.webp", alt: "Adalya News 2" }
+  - { src: "1.webp", alt: "Adalya Hotels Denetim" }
+  - { src: "2.webp", alt: "Bilgi Güvenliği Süreci" }
 lang: "tr"
 ---
 Luvi Bilişim ekibi olarak, Adalya Hotels bünyesinde yürüttüğümüz ISO 27001 Bilgi Güvenliği Yönetim Sistemi denetim ve danışmanlık sürecini başarıyla sonuçlandırdık. Turizm sektöründe dijital güvenliğin en üst seviyeye çıkarılmasını hedefleyen bu projemizde, kurumun siber güvenlik mimarisini güçlendirdik.

@@ -55,9 +55,16 @@ const currentYear = new Date().getFullYear();
     </div>
 
     <div class="pt-12 border-t border-slate-50 flex flex-col md:flex-row items-center justify-between gap-6">
-      <p class="text-slate-400 text-[10px] font-sans font-bold tracking-widest capitalize">
-        &copy; {currentYear} Luvi Bilişim. {t('footer.rights')}
-      </p>
+      <div class="flex flex-col md:flex-row items-center gap-6 md:gap-12">
+        <p class="text-slate-400 text-[10px] font-sans font-bold tracking-widest capitalize">
+          &copy; {currentYear} Luvi Bilişim. {t('footer.rights')}
+        </p>
+        <div class="flex gap-8">
+          <a href={`${import.meta.env.BASE_URL}${lang}/legal/kvkk`} class="text-slate-300 hover:text-[#154360] text-[9px] font-black tracking-widest transition-all uppercase">{lang === 'tr' ? 'KVKK' : 'KVKK'}</a>
+          <a href={`${import.meta.env.BASE_URL}${lang}/legal/privacy`} class="text-slate-300 hover:text-[#154360] text-[9px] font-black tracking-widest transition-all uppercase">{lang === 'tr' ? 'Gizlilik' : 'Privacy'}</a>
+          <a href={`${import.meta.env.BASE_URL}${lang}/legal/cookies`} class="text-slate-300 hover:text-[#154360] text-[9px] font-black tracking-widest transition-all uppercase">{lang === 'tr' ? 'Çerezler' : 'Cookies'}</a>
+        </div>
+      </div>
       <p class="text-[#154360] text-[10px] tracking-[0.5em] font-bold opacity-30 flex gap-2">
         <span>Bilişim</span>
         <span>Teknoloji</span>
