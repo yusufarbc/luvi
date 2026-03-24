@@ -1,26 +1,26 @@
 ---
-title: "IT Strategic Consultancy & Process Management"
-description: "Aligning technology with your business goals and redesigning your corporate processes for efficiency. We integrate digital transformation into your corporate culture through IT governance and process optimization."
-image: "bt.webp"
+title: "IT Strategy and Enterprise Process Management"
+description: "We make technology the strongest carrier of your business goals. We aim for operational excellence with ITIL-based process optimization, IT governance, and virtualization architectures."
+image: "./bt.webp"
 category: "strategy"
 order: 1
 icon: "ai"
 lang: "en"
 ---
 
-Information Technology is no longer just a support unit; it is the most important carrier of your business strategy. At Luvi Bilişim, we manage this transformation with a 360-degree approach.
+Now every company is a technology company. As Luvi IT, we transform your IT department from a support center into a "strategic value center" that increases the profitability and speed of your organization.
 
-### IT Strategy & Roadmap
-We create 3 and 5-year technology strategies aligned with your business goals. From budget planning to resource management, we integrate digital transformation into your corporate culture.
+### IT Strategic Roadmap and Governance
+We design 3 and 5-year technology roadmaps that are 100% compatible with your business strategy. Within the framework of IT governance, we optimize the ROI (Return on Investment) of your investments and integrate digital transformation into your corporate culture.
 
-### Virtualization & Business Continuity (Backup)
-While reducing operational costs with server and desktop virtualization technologies, we secure your data with automated backup and disaster recovery (DR) strategies.
+### Infrastructure Modernization & Virtualization
+We lighten your existing hardware burden and re-architect your server and network infrastructures with modern virtualization technologies (VMware, Hyper-V, Cloud). While increasing operational agility, we minimize your hardware costs.
 
-### Digital Maturity Analysis
-We measure your organization's current technological infrastructure, processes, and strategies, and provide a concrete improvement roadmap by identifying growth areas.
+### Business Continuity and Disaster Recovery (Backup & DR)
+Data is your most valuable corporate asset. With autonomous backup systems and "Disaster Recovery" scenarios, we guarantee that your business will be up and running within seconds even in times of crisis.
 
-### Infrastructure & Network Design
-For a strong and scalable foundation, we design and deploy wired/wireless network structures, datacenter architectures, and server systems from end to end.
+### Process Optimization (ITIL/ITSM)
+We bring IT service management up to global ITIL standards. We provide a transparent, measurable, and efficiency-oriented structure to processes such as helpdesk, asset management, and change management.
 
-### 24/7 Technical Support & Helpdesk
-We offer remote and on-site technical support for the continuity of your critical IT infrastructure. We respond instantly to any problem with our support levels from L1 to L2.
+### 24/7 Technical Support and Infrastructure Monitoring
+We offer 24/7 technical support and infrastructure monitoring services, independent of geographical location, for the continuity of your critical IT systems. With our proactive team that intervenes before problems even occur, we make technology interruptions a thing of the past.

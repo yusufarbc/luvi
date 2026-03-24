@@ -4,9 +4,15 @@ import ContentDetailLayout from '../../../layouts/ContentDetailLayout.astro';
 
 export async function getStaticPaths() {
   const allServices = await getCollection('services');
+  
+  // Debug output if we could see it:
+  // console.log("SERVICES IDs:", allServices.map(s => s.id));
+
   return allServices.map((entry) => {
-    // ID is the folder name: ai-automation/tr.md -> ai-automation
-    const slug = entry.id.includes('/') ? entry.id.split('/')[0] : entry.id.replace('.md', '');
+    // Robust slug: ai-automation/tr -> ai-automation
+    const idParts = entry.id.split('/');
+    const slug = idParts.length > 1 ? idParts[0] : entry.id.replace('.md', '').replace(/\/(tr|en)$/, '');
+    
     return {
       params: { 
         lang: entry.data.lang, 

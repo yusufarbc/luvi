@@ -1,26 +1,23 @@
 ---
-title: "Corporate Cyber Security Consultancy"
-description: "Protecting your digital assets with 360-degree defense strategies. From risk analysis to incident response, vulnerability management to cyber awareness training, we offer a complete security shield."
-image: "cyber.webp"
+title: "Strategic Cyber Security Consultancy"
+description: "We protect your digital assets with a 360-degree defense architecture. We build your organization's cyber resilience not just with tools, but with risk-oriented strategy, proactive monitoring, and advanced vulnerability analysis."
+image: "./cyber.webp"
 category: "security"
 order: 2
 icon: "shield"
 lang: "en"
 ---
 
-In today's complex cyber threat environment, just having the technology is not enough; the right strategy and proactive management are vital.
+In today's continuously evolving threat landscape, having only a firewall is not enough. As Luvi IT, we position your organization's cyber security not as a "cost" item, but as a "strategic shield" that ensures your uninterrupted business continuity.
 
-### Cyber Security Strategy & Risk Management
-We identify potential attack vectors and create a sustainable cyber defense roadmap special to your organization. We direct your investments to the right areas with risk scoring.
+### Cyber Defense Strategy & Roadmap
+By analyzing your organization's current security maturity, we create a sustainable cyber defense strategy aligned with your business goals. We draw a proactive roadmap for you to be ready for the threats of the future from today.
 
-### Vulnerability Management & Penetration Testing
-We discover the weak points in your systems before attackers do. We minimize security gaps with regular vulnerability scans and ethical hacking (Pen-test) studies.
+### Advanced Vulnerability Analysis and Penetration Testing (Pentest)
+We conduct ethical hacking (Pen-test) studies and regular vulnerability scans to discover the weak points in your systems before the attackers do. We close the identified gaps with our technical guidance and risk prevention plans.
 
-### Data Security & DLP
-From the classification of your sensitive data to Data Loss Prevention (DLP) solutions, we protect your most valuable asset, data, against both internal and external threats.
+### Threat Intelligence & 7/24 Proactive Monitoring
+We don't just monitor cyber threats; we analyze them. We manage modern defense technologies such as EDR, XDR, and SIEM with our expert staff, and respond instantly and effectively to potential incidents (Incident Response).
 
-### Endpoint & Network Security
-We monitor and protect every entry point of your organization 7/24 with EDR/XDR solutions, SIEM management, and gateway security mechanisms.
-
-### Cyber Security Awareness Training
-We strengthen the human factor, the most important defense line of the organization. We improve your employees' reflexes against cyber threats with simulations and interactive training.
+### Corporate Cyber Awareness & The Human Factor
+We strengthen the most important link of cyber security, the human. With interactive training and phishing simulations, we build the organization's human defense line by developing your employees' threat reflexes.

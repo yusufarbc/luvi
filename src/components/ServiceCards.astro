@@ -37,7 +37,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
           .sort((a, b) => (a.data.order || 99) - (b.data.order || 99))
           .map((s) => (
           <a 
-            href={`${base}/${lang}/services/${s.id.split('/').pop()?.replace('.md', '')}`}
+            href={`${base}/${lang}/services/${s.id.includes('/') ? s.id.split('/')[0] : s.id.replace('.md', '')}`}
             class={`group relative p-10 rounded-[32px] transition-all duration-700 hover:-translate-y-4 flex flex-col items-center text-center overflow-hidden border ${
               isHero 
                 ? 'bg-white/5 backdrop-blur-xl border-white/5 hover:border-[#5dade2]/50 hover:shadow-[0_40px_80px_-20px_rgba(93,173,226,0.3)] hover:bg-white/10' 

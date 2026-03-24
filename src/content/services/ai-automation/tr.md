@@ -1,23 +1,23 @@
 ---
-title: "Yapay Zeka, Otomasyon ve Yazılım"
-description: "İş süreçlerinize yapay zeka dokunuşu ekliyoruz. RPA (Robotik Süreç Otomasyonu) ve özel yazılım çözümlerimizle tekrar eden işleri otomatikleştiriyor ve dijital hızı kuruma entegre ediyoruz."
-image: "ai.webp"
+title: "Yapay Zeka ve Akıllı İş Otomasyonu"
+description: "İş süreçlerinizi yapay zekanın gücüyle geleceğe hazırlıyoruz. RPA (Robotik Süreç Otomasyonu) ve özel yazılım mimarilerimizle operasyonel yükü azaltıyor, dijital hızı kurum kültürünüze entegre ediyoruz."
+image: "./ai.webp"
 category: "professional"
 order: 3
 icon: "bot"
 lang: "tr"
 ---
 
-Gelecek otomasyonla şekilleniyor. Luvi Bilişim olarak, rutin işleri robotlara devretmenizi ve yaratıcı gücünüze odaklanmanızı sağlıyoruz.
+Dijital dönüşümün kalbinde artık sadece yazılım değil, "akıllı" sistemler yer alıyor. Luvi Bilişim olarak, manuel ve tekrarlayan iş süreçlerinizi, hata payını sıfıra indiren ve verimliliği yüzlerce kat artıran akıllı otomasyon çözümlerine dönüştürüyoruz.
 
 ### Robotik Süreç Otomasyonu (RPA)
-Manuel iş kollarını yazılımsal robotlarla (RPA) otomatikleştirerek hata payını sıfıra indiriyor, hızı ve verimliliği yüzlerce kat artırıyoruz.
+İnsan müdahalesi gerektiren rutin ve kurallara bağlı tüm iş kollarını, yazılımsal robotlarla (RPA) dijitalleştiriyoruz. Finanstan İK'ya, operasyondan satışa kadar tüm departmanlarda zaman ve maliyet tasarrufu sağlayan otonom sistemler kuruyoruz.
 
-### Yapay Zeka ve Makine Öğrenmesi
-Veri analitiği ve yapay zeka odaklı karar destek sistemleriyle, verilerinizden anlamlı içgörüler çıkarıyor ve akıllı tahminleme modelleri geliştiriyoruz.
+### Yapay Zeka ve Makine Öğrenmesi Uygulamaları
+Karmaşık verilerinizden anlamlı içgörüler çıkarıyor, veriye dayalı karar destek sistemleri geliştiriyoruz. Tahminleme modelleri ve akıllı algoritmalara dayalı özel çözümlerimizle, şirketinizin geleceğe yönelik stratejilerini "verinin rehberliğiyle" güçlendiriyoruz.
 
-### Özel Yazılım Geliştirme
-Şirketinize özel iş ihtiyaçları için esnek ve ölçeklenebilir yazılımlar tasarlıyoruz. Hazır çözümlere sığmadığınız yerde, size özel dijital araçlar üretiyoruz.
+### Kurumsal Özel Yazılım Çözümleri
+Hazır paketlerin kurumunuza dar geldiği noktalarda, iş ihtiyaçlarınıza tam uyumlu, ölçeklenebilir ve yüksek güvenlikli yazılım mimarileri tasarlıyoruz. Mikroservis tabanlı ve bulut uyumlu (cloud-native) yaklaşımlarımızla esnek bir dijital temel inşa ediyoruz.
 
 ### Veri Analitiği ve İş Zekası (BI)
-Kritik verileri görselleştiriyor, raporluyor ve iş kararlarınızı veriye dayalı (data-driven) hale getirmenize rehberlik ediyoruz.
+Dağınık verilerinizi birer stratejik varlığa dönüştürüyoruz. Gerçek zamanlı raporlama, görselleştirme araçları ve özel dashboard tasarımlarımızla iş kararlarınızı veriye dayalı (data-driven) hale getirmenize rehberlik ediyoruz.
