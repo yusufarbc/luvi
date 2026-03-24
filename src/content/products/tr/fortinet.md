@@ -1,12 +1,12 @@
 ---
-title: "Fortinet Security Fabric"
+title: "Fortinet"
 description: "Geniş, entegre ve otomatik siber güvenlik portföyü."
 lang: "tr"
 order: 4
 logo: "/products/fortinet.webp"
 ---
 
-# Fortinet Security Fabric: Entegre ve Akıllı Siber Güvenlik Mimarisi
+
 
 ## Giriş: Bütünleşik Koruma Vizyonu
 Dijital dönüşüm ve hibrit çalışma modelleri, saldırı yüzeyini genişletirken güvenlik yönetimini daha karmaşık hale getirmiştir. **Fortinet Security Fabric**, Luvi Bilişim uzmanlığıyla, ağınızın her noktasında (kenar, bulut, uç nokta) görünürlük sağlayan ve tehditlere otonom yanıt veren birleşik bir güvenlik mimarisi sunar.

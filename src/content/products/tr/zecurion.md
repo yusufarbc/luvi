@@ -1,11 +1,11 @@
 ---
-title: "Zecurion DLP"
+title: "Zecurion"
 description: "Veri sızıntısı önleme ve içerik denetimi çözümleri."
 lang: "tr"
 order: 6
 logo: "/products/zecurion.webp"
 ---
-# Zecurion: İç Tehditlere Karşı Yeni Nesil DLP ve Veri Güvenliği
+
 
 ## Giriş: Veriniz Sadece Sizde Kalsın
 Veri sızıntılarının büyük bir kısmı, dış saldırılardan ziyade içeriden gelen tehditlerden veya hatalardan kaynaklanmaktadır. **Zecurion Yeni Nesil DLP**, Luvi Bilişim uzmanlığıyla, kurumsal verilerinizin her anını izler, sınıflandırır ve yetkisiz dışarı çıkışları (leaks) anında durdurur.

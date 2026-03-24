@@ -1,11 +1,11 @@
 ---
-title: "Libraesva Email Security"
+title: "Libraesva"
 description: "Gelişmiş e-posta güvenliği ve oltalama koruması gateway'i."
 lang: "tr"
 order: 5
 logo: "/products/libraesva.webp"
 ---
-# Libraesva ESG: Yeni Nesil E-posta Güvenlik Ağ Geçidi
+
 
 ## Giriş: E-posta Tehditlerine Karşı Akıllı Savunma
 E-posta, siber saldırıların %90'ından fazlasının ana giriş noktasıdır. **Libraesva Email Security Gateway (ESG)**, Luvi Bilişim güvencesiyle, kurumunuzu kimlik avı (phishing), fidye yazılımları ve iş e-postası dolandırıcılığına (BEC) karşı yapay zeka destekli katmanlı bir yapıyla korur.

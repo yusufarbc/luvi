@@ -1,12 +1,12 @@
 ---
-title: "Oriana: Düşük Kodlu (Low-Code) Kurumsal Süreç Otomasyonu"
+title: "Oriana"
 description: "Merkezi log yönetimi, analiz ve raporlama ile siber güvenliği güçlendiren çözüm."
 lang: "tr"
 order: 8
 logo: "/products/oriana.webp"
 ---
 
-## Giriş: Dijital Dönüşümü Hızlandırın
+
 İş süreçlerinin dijitalleşmesi aylar süren yazılım projelerine mahkum değildir. **Oriana Low-Code Platformu**, Luvi Bilişim'in süreç analizi tecrübesiyle; İK, Finans, Satın Alma ve Operasyon gibi karmaşık iş akışlarını haftalar içinde canlıya almanızı sağlar.
 
 ---

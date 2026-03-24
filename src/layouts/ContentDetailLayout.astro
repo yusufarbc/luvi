@@ -57,22 +57,14 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
               </span>
             )}
             
-            <div class="flex flex-col gap-12">
-              {frontmatter.logo && (
-                <div class="inline-block">
-                  <img src={`${base}${frontmatter.logo}`} alt={frontmatter.title} class="h-16 md:h-24 w-auto object-contain transition-all" />
-                </div>
-              )}
-              
-              <div class="flex flex-col gap-6">
-                <h1 class="text-4xl md:text-6xl font-heading font-black text-[#154360] leading-[1.1] tracking-tighter">
-                  {frontmatter.title}
-                </h1>
-                <div class="h-1.5 w-24 bg-[#5dade2] rounded-full mb-2"></div>
-                <p class="text-slate-400 text-xl md:text-2xl font-sans leading-relaxed font-light max-w-3xl">
-                  {frontmatter.description}
-                </p>
-              </div>
+            <div class="flex flex-col gap-6">
+              <h1 class="text-4xl md:text-6xl font-heading font-black text-[#154360] leading-[1.1] tracking-tighter">
+                {frontmatter.title}
+              </h1>
+              <div class="h-1.5 w-24 bg-[#5dade2] rounded-full mb-2"></div>
+              <p class="text-slate-400 text-xl md:text-2xl font-sans leading-relaxed font-light max-w-3xl">
+                {frontmatter.description}
+              </p>
             </div>
           </header>
 
@@ -86,19 +78,26 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
                />
             </div>
           )}
-
           <!-- Content -->
           <article class="prose-container prose prose-slate prose-xl max-w-none 
-            prose-h2:font-heading prose-h2:font-black prose-h2:text-[#154360] prose-h2:text-4xl prose-h2:md:text-6xl prose-h2:mt-32 prose-h2:mb-12 prose-h2:tracking-tighter prose-h2:leading-[1]
-            prose-h3:font-heading prose-h3:font-black prose-h3:text-[#154360] prose-h3:text-2xl prose-h3:md:text-4xl prose-h3:mt-24 prose-h3:mb-8 prose-h3:tracking-tighter prose-h3:flex prose-h3:items-center prose-h3:gap-4
-            prose-p:text-slate-500 prose-p:text-lg md:prose-p:text-2xl prose-p:leading-[1.7] prose-p:mb-12 prose-p:font-normal prose-p:opacity-90
-            prose-li:text-slate-500 prose-li:text-lg md:prose-li:text-xl prose-li:mb-6 prose-li:leading-relaxed
-            prose-strong:text-[#154360] prose-strong:font-black
-            prose-hr:border-slate-100 prose-hr:my-32
-            prose-blockquote:border-l-[12px] prose-blockquote:border-[#5dade2] prose-blockquote:pl-10 prose-blockquote:italic prose-blockquote:text-3xl prose-blockquote:text-[#154360] prose-blockquote:bg-slate-50 prose-blockquote:py-12 prose-blockquote:pr-8 prose-blockquote:rounded-r-3xl prose-blockquote:my-20
+            prose-h2:font-heading prose-h2:font-black prose-h2:text-[#154360] prose-h2:text-4xl prose-h2:md:text-5xl prose-h2:mt-32 prose-h2:mb-10 prose-h2:tracking-tight prose-h2:leading-[1.1]
+            prose-h3:font-heading prose-h3:font-black prose-h3:text-[#1c5d8e] prose-h3:text-xl prose-h3:md:text-2xl prose-h3:mt-20 prose-h3:mb-6 prose-h3:tracking-tight prose-h3:flex prose-h3:items-center prose-h3:gap-4
+            prose-p:text-slate-600 prose-p:text-lg md:prose-p:text-xl prose-p:leading-[1.8] prose-p:mb-10 prose-p:font-normal
+            prose-li:text-slate-600 prose-li:text-lg md:prose-li:text-lg prose-li:mb-4 prose-li:leading-relaxed
+            prose-strong:text-[#154360] prose-strong:font-bold
+            prose-hr:border-slate-100 prose-hr:my-24
+            prose-blockquote:border-l-[8px] prose-blockquote:border-[#5dade2] prose-blockquote:pl-10 prose-blockquote:italic prose-blockquote:text-2xl prose-blockquote:text-[#154360] prose-blockquote:bg-slate-50/50 prose-blockquote:py-10 prose-blockquote:pr-8 prose-blockquote:rounded-r-2xl prose-blockquote:my-16
           ">
             <slot />
           </article>
+
+          <!-- Logo at the bottom -->
+          {frontmatter.logo && (
+            <div class="mt-32 mb-12 flex justify-center border-t border-slate-50 pt-24">
+              <img src={`${base}${frontmatter.logo}`} alt={frontmatter.title} class="h-16 md:h-24 w-auto object-contain hover:scale-105 transition-transform duration-700" />
+            </div>
+          )}
+
           <!-- Gallery (if any) -->
           {galleryImages.length > 0 && (
             <div class="mt-40">
@@ -146,11 +145,11 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
   .prose-container h3::after {
     content: '';
     display: block;
-    width: 60px;
-    height: 4px;
+    width: 40px;
+    height: 3px;
     background-color: #5dade2;
     border-radius: 99px;
-    margin-top: 1rem;
+    margin-top: 0.75rem;
   }
 
   .prose-container p {

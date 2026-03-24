@@ -6,8 +6,6 @@ order: 3
 logo: "/products/palo-alto.webp"
 ---
 
-# Palo Alto Networks: Geleceğin Siber Güvenliği İçin Tam Kapsamlı Platform
-
 ## Giriş: Sınır Tanımayan Siber Güvenlik
 Palo Alto Networks, siber güvenliğe "Platform" yaklaşımıyla yaklaşarak silolanmış çözümlerin yarattığı açıkları kapatır. Luvi Bilişim olarak sunduğumuz **Strata, Prisma ve Cortex** çözümleriyle, kurumunuzun siber savunmasını yapay zeka ve otomasyonun gücüyle yeniden tanımlıyoruz.
 

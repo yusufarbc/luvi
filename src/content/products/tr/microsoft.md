@@ -1,5 +1,5 @@
 ---
-title: "Microsoft 365 Business Premium: Kurumsal Düzeyde Güvenlik ve Modern Çalışma"
+title: "Microsoft"
 description: "Bulut çözümleri ve kurumsal yazılım alanında dünya lideri."
 lang: "tr"
 order: 7

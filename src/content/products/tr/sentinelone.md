@@ -1,5 +1,5 @@
 ---
-title: "SentinelOne Singularity"
+title: "SentinelOne"
 description: "Yapay zeka tabanlı otonom siber güvenlik platformu."
 lang: "tr"
 order: 2

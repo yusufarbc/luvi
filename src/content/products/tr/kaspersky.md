@@ -6,7 +6,7 @@ order: 1
 logo: "/products/kaspersky.webp"
 ---
 
-# Kaspersky Kurumsal Güvenlik: Uç Nokta Korumasından Otonom Algılamaya
+
 
 ## Giriş: Çok Katmanlı Siber Savunma
 Modern işletmeler için siber güvenlik, artık sadece bir antivirüs yazılımından ibaret değildir. **Kaspersky Kurumsal Güvenlik Çözümleri**, Luvi Bilişim güvencesiyle, şirketlerin dijital varlıklarını en karmaşık tehditlere karşı korumak için tasarlanmış çok katmanlı bir savunma ekosistemi sunar. Bu ekosistem; temel koruma (EPP), gelişmiş tespit (EDR) ve uzman destekli müdahale (MDR) katmanlarını birleştirir.
