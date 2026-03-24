@@ -1,6 +1,6 @@
 ---
 id: "products"
-title: "Featured Solutions"
+title: "Our Solution Partners"
 subtitle: "World-Class Technology Portfolio"
 lang: "en"
 ---

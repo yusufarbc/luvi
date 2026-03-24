@@ -1,5 +1,7 @@
 ---
 import Layout from './Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 import { Image } from 'astro:assets';
 
@@ -17,6 +19,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
 ---
 
 <Layout title={`${frontmatter.title} | Luvi Bilişim`} lang={lang}>
+  <Header />
   <main class="pt-32 pb-24 bg-white min-h-screen">
     <div class="container mx-auto px-4 md:px-8 max-w-4xl">
       <!-- Navigation / Back -->
@@ -32,6 +35,11 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
 
       <!-- Header -->
       <header class="mb-16">
+        {frontmatter.logo && (
+          <div class="mb-12">
+            <img src={`${base}${frontmatter.logo}`} alt={frontmatter.title} class="h-20 w-auto object-contain" />
+          </div>
+        )}
         {frontmatter.pubDate && (
           <span class="text-[#5dade2] text-xs font-black tracking-widest block mb-4 uppercase">
             {new Date(frontmatter.pubDate).toLocaleDateString(lang === 'tr' ? 'tr-TR' : 'en-US', { day: 'numeric', month: 'long', year: 'numeric' })}
@@ -90,26 +98,9 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
         </div>
       )}
 
-      <!-- Footer CTA (Only for Services/Products) -->
-      {showContactCTA && (
-        <div class="mt-40 p-12 md:p-24 rounded-[64px] bg-[#0b1a2b] relative overflow-hidden text-center shadow-2xl group">
-             <!-- Background Accents -->
-          <div class="absolute top-0 right-0 w-64 h-64 bg-[#5dade2]/10 blur-[100px] rounded-full group-hover:bg-[#5dade2]/20 transition-all duration-1000"></div>
-          
-          <h3 class="text-3xl md:text-5xl font-heading font-black text-white mb-8 tracking-tighter leading-tight relative z-10">{t('nav.contact')}</h3>
-          <p class="text-white/40 mb-12 max-w-md mx-auto text-lg md:text-xl leading-relaxed relative z-10">
-            {frontmatter.title} {lang === 'tr' ? 'hizmetimiz hakkında detaylı bilgi ve stratejik teklif almak için bizimle iletişime geçin.' : 'solutions, contact us for detailed information and a strategic quote.'}
-          </p>
-          <a 
-            href={`${base}/${lang}/#contact`} 
-            class="relative z-10 inline-block px-16 py-6 bg-[#5dade2] text-white rounded-2xl font-heading font-black  tracking-widest hover:bg-white hover:text-[#5dade2] transition-all duration-500 shadow-2xl shadow-blue-500/20 uppercase active:scale-95"
-          >
-            {t('nav.contact')}
-          </a>
-        </div>
-      )}
     </div>
   </main>
+  <Footer />
 
   <!-- Lightbox Modal -->
   <div id="lightbox" class="fixed inset-0 z-[100] bg-[#0b1a2b]/95 backdrop-blur-2xl hidden items-center justify-center p-4 md:p-12 opacity-0 transition-opacity duration-500 cursor-zoom-out">

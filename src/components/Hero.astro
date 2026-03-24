@@ -7,8 +7,8 @@ const t = useTranslations(lang);
 const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
 ---
 
-<section id="hero" class="relative h-[100dvh] w-full flex flex-col items-center justify-center pt-32 pb-4 overflow-hidden bg-[#0b1a2b]">
-  <!-- Background Layers (Video) -->
+<section id="hero" class="relative min-h-[100dvh] w-full flex flex-col items-center justify-center pt-24 pb-12 overflow-hidden bg-[#0b1a2b]">
+  <!-- ... existing video code ... -->
   <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
     <video 
       id="hero-video"
@@ -32,9 +32,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
     const playlist = [
       'banner/1.webm',
       'banner/2.webm',
-      'banner/3.webm',
-      'banner/4.webm',
-      'banner/5.webm'
+      'banner/3.webm'
     ];
     
     let currentIndex = 0;
@@ -75,29 +73,31 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
   </script>
 
   <!-- Content Layer -->
-  <div class="relative z-10 w-full max-w-7xl mx-auto px-4 text-center">
-    <!-- Main Headline with fluid typography -->
-    <div class="max-w-5xl mx-auto mb-6 animate-fade-in translate-y-4 opacity-0 [animation-delay:200ms]">
-      <h1 class="font-sans font-black text-white leading-[1.05] tracking-tighter drop-shadow-2xl mx-auto" style="font-size: clamp(2.3rem, 5.5vw, 4.8rem);">
-        {t('hero.h1').split(',')[0].trim()},
-        <span class="block mt-2 text-[#5dade2] drop-shadow-[0_0_30px_rgba(93,173,226,0.6)]">
-          {t('hero.h1').split(',')[1].trim()}
-        </span>
-      </h1>
-      
-      <!-- Subtitle/Motto with professional secondary color -->
-      <p class="mt-4 text-white/80 max-w-[700px] mx-auto leading-relaxed font-bold tracking-tight drop-shadow-md" style="font-family: var(--font-sans); text-shadow: 0 4px 12px rgba(0,0,0,0.4); font-size: clamp(0.9rem, 1.3vw, 1.25rem);">
-        {t('hero.subtitle')}
-      </p>
-      
-      <!-- Action Buttons -->
-      <div class="mt-8 flex flex-wrap justify-center gap-6">
-        <a 
-          href={`#contact`}
-          class="px-10 py-4 bg-[#5dade2] text-white rounded-2xl font-sans text-lg font-black tracking-widest hover:bg-white hover:text-[#5dade2] hover:shadow-[0_20px_60px_rgba(93,173,226,0.4)] transition-all duration-500 transform hover:-translate-y-2 active:scale-95 border-2 border-[#5dade2]"
-        >
-          {lang === 'tr' ? 'Bizimle iletişime geçin' : 'Contact us now'}
-        </a>
+  <div class="relative z-10 w-full max-w-7xl mx-auto px-4 text-center my-auto">
+    <div class="transform scale-90 sm:scale-100 transition-transform duration-700">
+      <!-- Main Headline with fluid typography -->
+      <div class="max-w-5xl mx-auto mb-6 animate-fade-in translate-y-4 opacity-0 [animation-delay:200ms]">
+        <h1 class="font-sans font-black text-white leading-[1.05] tracking-tighter drop-shadow-2xl mx-auto" style="font-size: clamp(1.6rem, 5vw, 3.5rem);">
+          {t('hero.h1').split(',')[0].trim()},
+          <span class="block mt-2 text-[#5dade2] drop-shadow-[0_0_30px_rgba(93,173,226,0.6)]">
+            {t('hero.h1').split(',')[1].trim()}
+          </span>
+        </h1>
+        
+        <!-- Subtitle/Motto with professional secondary color -->
+        <p class="mt-4 text-white/80 max-w-[700px] mx-auto leading-relaxed font-bold tracking-tight drop-shadow-md" style="font-family: var(--font-sans); text-shadow: 0 4px 12px rgba(0,0,0,0.4); font-size: clamp(0.75rem, 1.3vw, 1rem);">
+          {t('hero.subtitle')}
+        </p>
+        
+        <!-- Action Buttons -->
+        <div class="mt-8 flex flex-wrap justify-center gap-6">
+          <a 
+            href={`#contact`}
+            class="px-10 py-4 bg-[#5dade2] text-white rounded-2xl font-sans text-lg font-black tracking-widest hover:bg-white hover:text-[#5dade2] hover:shadow-[0_20px_60px_rgba(93,173,226,0.4)] transition-all duration-500 transform hover:-translate-y-2 active:scale-95 border-2 border-[#5dade2]"
+          >
+            {lang === 'tr' ? 'Bizimle iletişime geçin' : 'Contact us now'}
+          </a>
+        </div>
       </div>
     </div>
 
@@ -105,6 +105,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
     <div class="mt-8 transition-all duration-1000 animate-slide-up opacity-0 [animation-delay:600ms]">
       <ServiceCards isHero={true} />
     </div>
+  </div>
 
     <!-- Minimal Scroll Indicator -->
     <div class="mt-8 animate-bounce opacity-40 flex flex-col items-center gap-3">
