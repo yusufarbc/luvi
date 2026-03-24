@@ -24,10 +24,10 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
   <div class="container mx-auto px-4">
     <div class="text-center mb-12">
       {subtitle ? (
-        <h2 class="text-[#5dade2] font-sans font-black tracking-[0.4em] text-[9px] mb-4">{subtitle}</h2>
+        <h2 class="text-[#5dade2] font-sans font-black tracking-[0.4em] uppercase text-[9px] mb-4">{subtitle}</h2>
       ) : null}
       {title ? (
-        <p class="text-4xl md:text-6xl font-heading font-black text-[#154360] tracking-tighter">{title}</p>
+        <p class="text-4xl md:text-6xl font-heading font-black text-[#154360] uppercase tracking-tighter">{title}</p>
       ) : null}
     </div>
 
