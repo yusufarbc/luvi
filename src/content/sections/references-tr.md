@@ -1,8 +1,6 @@
 ---
-id: "partners"
-title: "ÇÖZÜM ORTAKLARIMIZ"
-subtitle: "Güçlü İş Birliklerimiz"
-ref_title: "BİZE GÜVENEN KURULUŞLAR"
-ref_subtitle: "Referanslarımız"
+id: "references"
+ref_title: "Bize Güvenen Kuruluşlar"
+ref_subtitle: "İzmir ve Ege Bölgesi'nin öncü kurumlarıyla teknolojik iş birliği"
 lang: "tr"
 ---

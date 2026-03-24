@@ -1,6 +1,6 @@
 ---
 title: "How Prepared Are You for Your Business's Digital Future?"
-subtitle: "Luvi Digital Maturity Analysis"
+subtitle: "Digital Maturity Analysis"
 description: "We measure your organization's technological architecture, cyber security strengths, and digital transformation capacity using professional methodologies. We provide not just an analysis, but a strategic technology roadmap for your business. By identifying weak links in your infrastructure, we prepare you today for the digital reflexes of tomorrow."
 cta: "Contact us now"
 status: "Active"

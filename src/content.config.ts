@@ -80,7 +80,12 @@ const news = defineCollection({
     description: z.string(),
     pubDate: z.coerce.date(),
     image: image().optional(),
+    gallery: z.array(z.object({
+      src: image(),
+      alt: z.string().optional(),
+    })).optional().default([]),
     lang: z.string(),
+    order: z.number().optional().default(99),
     type: z.string().optional().default('news'),
     featured: z.boolean().default(false),
   }),

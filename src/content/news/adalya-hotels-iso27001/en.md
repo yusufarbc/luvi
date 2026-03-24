@@ -1,8 +1,11 @@
 ---
 title: "Adalya Hotels ISO 27001 Implementation"
 description: "We have successfully completed the ISO 27001 Information Security Management System implementation projects with Adalya Hotels."
-pubDate: 2026-03-24
-image: "./1.jpeg"
+pubDate: 2024-03-24
+image: "1.webp"
+gallery:
+  - { src: "1.webp", alt: "Adalya News 1" }
+  - { src: "2.webp", alt: "Adalya News 2" }
 lang: "en"
 type: "news"
 featured: true

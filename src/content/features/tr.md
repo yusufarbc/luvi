@@ -1,5 +1,5 @@
 ---
-title: "NEDEN LUVI BİLİŞİM?"
+title: "Neden Luvi Bilişim?"
 subtitle: "Bilişim, Teknoloji, İnovasyon"
 lang: "tr"
 items:

@@ -1,15 +1,15 @@
 ---
-title: "İstanbul Ticaret Üniversitesi'nde Siber Güvenlik Öğrencileriyle Buluştuk"
-description: "İstanbul Ticaret Üniversitesi bünyesindeki siber güvenlik kulübü öğrencileriyle bir araya gelerek sektörel tecrübelerimizi aktardık."
-pubDate: 2026-03-20
-image: "./2.png"
+title: "İstanbul Ticaret Üniversitesi Girişimcilik Zirvesi"
+description: "Geleceğin girişimcileriyle buluştuğumuz zirvede teknoloji startup'ları ve dijital dönüşüm stratejilerimizi paylaştık."
+pubDate: 2024-01-01
+image: "1.webp"
+gallery:
+  - { src: "1.webp", alt: "Istanbul Commerce 1" }
+  - { src: "2.webp", alt: "Istanbul Commerce 2" }
+  - { src: "3.webp", alt: "Istanbul Commerce 3" }
+  - { src: "4.webp", alt: "Istanbul Commerce 4" }
 lang: "tr"
-type: "news"
-featured: true
 ---
-Geleceğin siber güvenlik uzmanlarıyla buluşmak, sektörün ihtiyaçlarını ve kariyer fırsatlarını konuşmak adına verimli bir etkinlik oldu. Teknolojik dönüşümün kalbinde yetişen gençlerin enerjisi bizlere de güç kattı. İstanbul Ticaret Üniversitesi akademik kadrosuna ve öğrencilerine misafirperverlikleri için teşekkür ederiz.
+İstanbul Ticaret Üniversitesi'nin düzenlediği teknoloji ve girişimcilik zirvesinde Luvi Bilişim olarak yerimizi aldık. Üniversitenin vizyoner öğrencileriyle gerçekleştirdiğimiz sohbette, İzmir Teknopark'tan dünyaya uzanan başarı hikayemizi ve geliştirdiğimiz yeni nesil siber güvenlik çözümlerini aktardık.
 
-![Etkinlik Görseli 1](./1.png)
-![Etkinlik Görseli 2](./2.png)
-![Etkinlik Görseli 3](./3.png)
-![Etkinlik Görseli 4](./4.png)
+Genç yeteneklerin teknolojiye olan tutkusu ve girişimci ruhu bizleri oldukça motive etti. Geleceğin teknoloji liderleriyle kurduğumuz bu köprü, Luvi Bilişim'in akademik iş birliklerine verdiği önemin en büyük göstergelerinden biridir.

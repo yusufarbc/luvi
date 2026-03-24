@@ -1,8 +1,15 @@
 ---
 import Layout from './Layout.astro';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { Image } from 'astro:assets';
 
-const { frontmatter } = Astro.props;
+interface Props {
+  frontmatter: any;
+  showContactCTA?: boolean;
+  galleryImages?: any[];
+}
+
+const { frontmatter, showContactCTA = true, galleryImages = [] } = Astro.props;
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
@@ -14,8 +21,8 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
     <div class="container mx-auto px-4 md:px-8 max-w-4xl">
       <!-- Navigation / Back -->
       <a 
-        href={`${base}/${lang}/#${frontmatter.icon ? 'services' : 'products'}`} 
-        class="inline-flex items-center gap-4 text-[#154360] font-sans text-[10px] font-black  tracking-[0.3em] mb-16 hover:text-[#5dade2] transition-colors group"
+        href={`${base}/${lang}/#${frontmatter.icon ? 'services' : (frontmatter.pubDate ? 'news' : 'products')}`} 
+        class="inline-flex items-center gap-4 text-[#154360] font-sans text-[10px] font-black  tracking-[0.3em] mb-16 hover:text-[#5dade2] transition-colors group uppercase"
       >
         <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transform group-hover:-translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
@@ -25,17 +32,22 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
 
       <!-- Header -->
       <header class="mb-20">
-        <h1 class="text-4xl md:text-8xl font-heading font-black text-[#154360] mb-8 leading-[1.05] tracking-tighter">
+        {frontmatter.pubDate && (
+          <span class="text-[#5dade2] text-xs font-black tracking-widest block mb-4 uppercase">
+            {new Date(frontmatter.pubDate).toLocaleDateString(lang === 'tr' ? 'tr-TR' : 'en-US', { day: 'numeric', month: 'long', year: 'numeric' })}
+          </span>
+        )}
+        <h1 class="text-4xl md:text-7xl font-sans font-black text-[#154360] mb-8 leading-[1.05] tracking-tighter">
           {frontmatter.title}
         </h1>
-        <p class="text-slate-500 text-xl md:text-2xl font-sans leading-relaxed">
+        <p class="text-slate-500 text-xl md:text-2xl font-sans leading-relaxed font-medium">
           {frontmatter.description}
         </p>
       </header>
 
       <!-- Content -->
       <article class="prose prose-slate prose-lg max-w-none 
-        prose-h2:font-heading prose-h2:font-black prose-h2:text-[#154360] prose-h2:text-4xl prose-h2:mt-20 prose-h2:mb-8 prose-h2:tracking-tighter prose-h2:leading-tight
+        prose-h2:font-sans prose-h2:font-black prose-h2:text-[#154360] prose-h2:text-4xl prose-h2:mt-20 prose-h2:mb-8 prose-h2:tracking-tighter prose-h2:leading-tight
         prose-p:text-slate-500 prose-p:text-lg prose-p:leading-[1.9] prose-p:mb-10 prose-p:text-justify
         prose-li:text-slate-500 prose-li:text-lg prose-li:mb-4
         prose-strong:text-[#154360] prose-strong:font-black
@@ -44,30 +56,42 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
         <slot />
       </article>
 
-      <!-- Footer CTA -->
-      <div class="mt-32 p-10 md:p-20 rounded-[48px] bg-white border border-slate-100 text-center shadow-sm hover:shadow-xl transition-shadow duration-700">
-        <h3 class="text-3xl md:text-5xl font-heading font-black text-[#154360] mb-6 tracking-tighter leading-tight">{t('nav.contact')}</h3>
-        <p class="text-slate-500 mb-12 max-w-md mx-auto text-lg md:text-xl leading-relaxed">
-          {frontmatter.title} {lang === 'tr' ? 'hizmetimiz hakkında detaylı bilgi ve teklif almak için bizimle iletişime geçin.' : 'solutions, contact us for detailed information and a quote.'}
-        </p>
-        <a 
-          href={`${base}/${lang}/#contact`} 
-          class="inline-block px-14 py-6 bg-[#154360] text-white rounded-2xl font-heading font-black  tracking-widest hover:bg-[#5dade2] transition-all duration-300 shadow-xl shadow-blue-900/10"
-        >
-          {t('nav.contact')}
-        </a>
-      </div>
+      <!-- Gallery (if any) -->
+      {galleryImages.length > 0 && (
+        <div class="mt-24">
+          <h2 class="text-2xl font-black text-[#154360] mb-12 tracking-tight flex items-center gap-4">
+             {lang === 'tr' ? 'Etkinlik Görselleri' : 'Event Gallery'}
+             <div class="h-px flex-1 bg-slate-100"></div>
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {galleryImages.map((img: any) => (
+              <div class="group relative aspect-video rounded-3xl overflow-hidden bg-slate-100 border border-slate-200">
+                <Image 
+                  src={img.src} 
+                  alt={img.alt || "Gallery"} 
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <!-- Footer CTA (Only for Services/Products) -->
+      {showContactCTA && (
+        <div class="mt-32 p-10 md:p-20 rounded-[48px] bg-white border border-slate-100 text-center shadow-sm hover:shadow-xl transition-shadow duration-700">
+          <h3 class="text-3xl md:text-5xl font-sans font-black text-[#154360] mb-6 tracking-tighter leading-tight">{t('nav.contact')}</h3>
+          <p class="text-slate-500 mb-12 max-w-md mx-auto text-lg md:text-xl leading-relaxed">
+            {frontmatter.title} {lang === 'tr' ? 'hizmetimiz hakkında detaylı bilgi ve teklif almak için bizimle iletişime geçin.' : 'solutions, contact us for detailed information and a quote.'}
+          </p>
+          <a 
+            href={`${base}/${lang}/#contact`} 
+            class="inline-block px-14 py-6 bg-[#154360] text-white rounded-2xl font-sans font-black  tracking-widest hover:bg-[#5dade2] transition-all duration-300 shadow-xl shadow-blue-900/10 uppercase"
+          >
+            {t('nav.contact')}
+          </a>
+        </div>
+      )}
     </div>
   </main>
 </Layout>
-
-<style is:global>
-  /* Custom prose styling to match the premium theme */
-  .prose-gold :where(h2):not(:where([class~="not-prose"] *)) {
-    border-bottom: 1px solid rgba(201, 168, 76, 0.1);
-    padding-bottom: 0.5rem;
-  }
-</style>
-;
-  }
-</style>

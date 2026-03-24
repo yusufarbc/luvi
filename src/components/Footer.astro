@@ -16,18 +16,18 @@ const currentYear = new Date().getFullYear();
         <p class="text-slate-500 font-sans text-base leading-relaxed max-w-sm">
           {t('hero.h1')}
         </p>
-        <p class="text-[#5dade2] font-heading font-black text-sm tracking-tight  leading-tight opacity-80 mt-[-20px]">
+        <p class="text-[#5dade2] font-sans font-bold text-sm tracking-tight  leading-tight opacity-80 mt-[-20px]">
           {t('hero.motto2')}
         </p>
       </div>
 
       <!-- Quick Links (Simplified) -->
       <div class="flex flex-col gap-10">
-        <h4 class="text-[#154360] font-heading font-black tracking-[0.3em] text-[10px] mb-2 ">{t('footer.contact')}</h4>
+        <h4 class="text-[#154360] font-sans font-bold tracking-[0.3em] text-[10px] mb-2 ">{t('footer.contact')}</h4>
         <div class="flex flex-col gap-10">
           <div class="flex flex-col">
             <span class="text-slate-400 text-[9px] font-black tracking-widest mb-4 ">{t('footer.email')}</span>
-            <a href={`mailto:${t('footer.contact_email')}`} class="text-[#154360] hover:text-[#5dade2] transition-colors font-heading text-xl font-black underline underline-offset-8 decoration-slate-100 hover:decoration-[#5dade2]">{t('footer.contact_email')}</a>
+            <a href={`mailto:${t('footer.contact_email')}`} class="text-[#154360] hover:text-[#5dade2] transition-colors font-sans text-xl font-bold underline underline-offset-8 decoration-slate-100 hover:decoration-[#5dade2]">{t('footer.contact_email')}</a>
           </div>
           <div class="flex flex-col">
             <span class="text-slate-400 text-[9px] font-black tracking-widest mb-4 ">{t('footer.address')}</span>
@@ -40,7 +40,7 @@ const currentYear = new Date().getFullYear();
 
       <!-- Social Links -->
       <div class="flex flex-col gap-10">
-        <h4 class="text-[#154360] font-heading font-black tracking-[0.3em] text-[10px] mb-2 ">Sosyal Medya</h4>
+        <h4 class="text-[#154360] font-sans font-bold tracking-[0.3em] text-[10px] mb-2 ">Sosyal Medya</h4>
         <div class="flex flex-wrap gap-4">
           <!-- LinkedIn -->
           <a href="https://www.linkedin.com/company/luvibilisim" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-2xl border border-slate-100 flex items-center justify-center text-slate-400 hover:bg-[#154360] hover:text-white hover:border-[#154360] transition-all duration-500 cursor-pointer shadow-sm hover:shadow-xl">
@@ -55,16 +55,13 @@ const currentYear = new Date().getFullYear();
     </div>
 
     <div class="pt-12 border-t border-slate-50 flex flex-col md:flex-row items-center justify-between gap-6">
-      <p class="text-slate-400 text-[10px] font-sans font-black tracking-widest">
-        &copy; {currentYear} LUVI BİLİŞİM. {t('footer.rights')}
+      <p class="text-slate-400 text-[10px] font-sans font-bold tracking-widest capitalize">
+        &copy; {currentYear} Luvi Bilişim. {t('footer.rights')}
       </p>
-      <p class="text-[#154360] text-[10px] tracking-[0.5em] font-black  opacity-20">
-        BİLİŞİM TEKNOLOJİ İNOVASYON
-      </p>
-    </div>
-  </div>
-</footer>
-OVASYON
+      <p class="text-[#154360] text-[10px] tracking-[0.5em] font-bold opacity-30 flex gap-2">
+        <span>Bilişim</span>
+        <span>Teknoloji</span>
+        <span>İnovasyon</span>
       </p>
     </div>
   </div>

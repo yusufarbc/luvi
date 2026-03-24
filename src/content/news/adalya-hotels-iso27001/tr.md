@@ -1,10 +1,13 @@
 ---
-title: "Adalya Hotels ISO 27001 Çalışmaları"
-description: "Adalya Hotels ile yürüttüğümüz ISO 27001 Bilgi Güvenliği Yönetim Sistemi kurulum çalışmalarını başarıyla tamamladık."
-pubDate: 2026-03-24
-image: "./1.jpeg"
+title: "Adalya Hotels Grubuna Başarıyla Teslim Edilen ISO 27001 Denetimi"
+description: "Türkiye'nin öncü turizm gruplarından Adalya Hotels için gerçekleştirdiğimiz kapsamlı bilgi güvenliği denetimini başarıyla tamamladık."
+pubDate: 2024-03-24
+image: "1.webp"
+gallery:
+  - { src: "1.webp", alt: "Adalya News 1" }
+  - { src: "2.webp", alt: "Adalya News 2" }
 lang: "tr"
-type: "news"
-featured: true
 ---
-ISO 27001 standartlarına uyum sürecinde Adalya Hotels ekibiyle titiz bir çalışma yürüttük. Bilgi güvenliği süreçlerinin kurumsallaştırılması ve verilerin güvenliğinin en üst seviyeye çıkarılması hedeflendi. Turizm sektöründeki dijital güvenliğin artırılmasına katkı sunmaktan mutluluk duyuyoruz.
+Luvi Bilişim ekibi olarak, Adalya Hotels bünyesinde yürüttüğümüz ISO 27001 Bilgi Güvenliği Yönetim Sistemi denetim ve danışmanlık sürecini başarıyla sonuçlandırdık. Turizm sektöründe dijital güvenliğin en üst seviyeye çıkarılmasını hedefleyen bu projemizde, kurumun siber güvenlik mimarisini güçlendirdik.
+
+Süreç boyunca veri gizliliği, operasyonel süreklilik ve risk yönetimi başlıklarında uluslararası standartlara tam uyum sağlandı. Adalya Hotels'in teknolojik altyapısını geleceğin tehditlerine karşı daha dirençli hale getirmenin gururunu yaşıyoruz.
