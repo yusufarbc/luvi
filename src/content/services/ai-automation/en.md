@@ -1,6 +1,7 @@
 ---
 title: "AI, Automation & Software"
 description: "Adding an AI touch to your business processes. With our RPA (Robotic Process Automation) and custom software solutions, we automate repetitive tasks and integrate digital speed into your organization."
+image: "ai.webp"
 category: "professional"
 order: 3
 icon: "bot"

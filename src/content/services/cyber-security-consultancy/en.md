@@ -1,6 +1,7 @@
 ---
 title: "Corporate Cyber Security Consultancy"
 description: "Protecting your digital assets with 360-degree defense strategies. From risk analysis to incident response, vulnerability management to cyber awareness training, we offer a complete security shield."
+image: "cyber.webp"
 category: "security"
 order: 2
 icon: "shield"

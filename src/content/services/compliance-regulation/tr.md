@@ -1,6 +1,7 @@
 ---
 title: "Uyum ve Regülasyon Danışmanlığı"
 description: "KVKK, ISO standartları ve sektörel düzenlemelere tam uyum sağlıyoruz. Yasal riskleri minimize ederek kurumsal itibarınızı ve verilerinizi yasal güvence altına alıyoruz."
+image: "regulation.webp"
 category: "compliance"
 order: 4
 icon: "cert"

@@ -1,6 +1,7 @@
 ---
 title: "Kurumsal Siber Güvenlik Danışmanlığı"
 description: "Dijital varlıklarınızı 360 derece savunma stratejileriyle koruyoruz. Risk analizinden olay müdahalesine, zafiyet yönetiminden siber farkındalık eğitimlerine kadar eksiksiz bir güvenlik kalkanı sunuyoruz."
+image: "cyber.webp"
 category: "security"
 order: 2
 icon: "shield"

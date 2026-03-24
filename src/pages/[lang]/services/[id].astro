@@ -4,13 +4,17 @@ import ContentDetailLayout from '../../../layouts/ContentDetailLayout.astro';
 
 export async function getStaticPaths() {
   const allServices = await getCollection('services');
-  return allServices.map((entry) => ({
-    params: { 
-      lang: entry.data.lang, 
-      id: entry.id.split('/').pop()?.replace('.md', '') 
-    },
-    props: { entry },
-  }));
+  return allServices.map((entry) => {
+    // ID is the folder name: ai-automation/tr.md -> ai-automation
+    const slug = entry.id.includes('/') ? entry.id.split('/')[0] : entry.id.replace('.md', '');
+    return {
+      params: { 
+        lang: entry.data.lang, 
+        id: slug 
+      },
+      props: { entry },
+    };
+  });
 }
 
 const { entry } = Astro.props;

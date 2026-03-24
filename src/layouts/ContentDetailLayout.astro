@@ -31,7 +31,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
       </a>
 
       <!-- Header -->
-      <header class="mb-20">
+      <header class="mb-16">
         {frontmatter.pubDate && (
           <span class="text-[#5dade2] text-xs font-black tracking-widest block mb-4 uppercase">
             {new Date(frontmatter.pubDate).toLocaleDateString(lang === 'tr' ? 'tr-TR' : 'en-US', { day: 'numeric', month: 'long', year: 'numeric' })}
@@ -44,6 +44,17 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
           {frontmatter.description}
         </p>
       </header>
+
+      <!-- Main Cover Image -->
+      {frontmatter.image && (
+        <div class="mb-20 rounded-[48px] overflow-hidden bg-slate-100 aspect-video shadow-2xl shadow-blue-900/10 border border-slate-100">
+           <Image 
+             src={frontmatter.image} 
+             alt={frontmatter.title} 
+             class="w-full h-full object-cover"
+           />
+        </div>
+      )}
 
       <!-- Content -->
       <article class="prose prose-slate prose-lg max-w-none 

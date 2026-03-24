@@ -2,7 +2,7 @@
 title: "İstanbul Ticaret Üniversitesi Girişimcilik Zirvesi"
 description: "Geleceğin girişimcileriyle buluştuğumuz zirvede teknoloji startup'ları ve dijital dönüşüm stratejilerimizi paylaştık."
 pubDate: 2024-01-01
-image: "1.webp"
+image: "2.webp"
 gallery:
   - { src: "1.webp", alt: "Istanbul Commerce 1" }
   - { src: "2.webp", alt: "Istanbul Commerce 2" }

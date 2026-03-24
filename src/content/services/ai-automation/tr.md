@@ -1,6 +1,7 @@
 ---
 title: "Yapay Zeka, Otomasyon ve Yazılım"
 description: "İş süreçlerinize yapay zeka dokunuşu ekliyoruz. RPA (Robotik Süreç Otomasyonu) ve özel yazılım çözümlerimizle tekrar eden işleri otomatikleştiriyor ve dijital hızı kuruma entegre ediyoruz."
+image: "ai.webp"
 category: "professional"
 order: 3
 icon: "bot"

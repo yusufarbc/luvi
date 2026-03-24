@@ -2,7 +2,7 @@
 title: "Met with Cyber Security Students at Istanbul Commerce University"
 description: "We came together with the cyber security club students within Istanbul Commerce University and shared our sectoral experiences."
 pubDate: 2024-01-01
-image: "1.webp"
+image: "2.webp"
 gallery:
   - { src: "1.webp", alt: "Istanbul Commerce 1" }
   - { src: "2.webp", alt: "Istanbul Commerce 2" }

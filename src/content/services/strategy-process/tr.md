@@ -1,6 +1,7 @@
 ---
 title: "BT Stratejik Danışmanlık ve Süreç Yönetimi"
 description: "Teknolojiyi iş hedeflerinizle hizalıyor, kurumsal süreçlerinizi verimlilik odaklı yeniden kurguluyoruz. BT yönetişimi ve süreç optimizasyonu ile dijital dönüşümü kurum kültürünüze entegre ediyoruz."
+image: "bt.webp"
 category: "strategy"
 order: 1
 icon: "ai"

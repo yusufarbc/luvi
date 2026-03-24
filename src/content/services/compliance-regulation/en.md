@@ -1,6 +1,7 @@
 ---
 title: "Compliance & Regulation Consultancy"
 description: "Ensuring full compliance with KVKK (TR-GDPR), ISO standards, and sectoral regulations. We minimize legal risks to protect your corporate reputation and data under legal guarantee."
+image: "regulation.webp"
 category: "compliance"
 order: 4
 icon: "cert"

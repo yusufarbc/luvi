@@ -1,6 +1,7 @@
 ---
 title: "IT Strategic Consultancy & Process Management"
 description: "Aligning technology with your business goals and redesigning your corporate processes for efficiency. We integrate digital transformation into your corporate culture through IT governance and process optimization."
+image: "bt.webp"
 category: "strategy"
 order: 1
 icon: "ai"
