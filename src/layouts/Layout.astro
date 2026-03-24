@@ -3,6 +3,7 @@ import '../styles/global.css';
 import '@fontsource/montserrat/400.css';
 import '@fontsource/montserrat/800.css';
 import '@fontsource/inter';
+import BaseHead from '../components/BaseHead.astro';
 
 interface Props {
 	title: string;
@@ -16,12 +17,7 @@ const { title, lang, description = "Yarının olasılıkları, bugünün dijital
 <!doctype html>
 <html lang={lang}>
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content={description} />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/x-icon" href={`${import.meta.env.BASE_URL}favicon.ico`} />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+		<BaseHead {title} {description} {lang} />
 	</head>
 	<body>
 		<slot />
@@ -32,6 +28,7 @@ const { title, lang, description = "Yarının olasılıkları, bugünün dijital
 	:root {
 		--font-heading: 'Montserrat', sans-serif;
 		--font-body: 'Montserrat', sans-serif;
+		scroll-behavior: smooth;
 	}
 	
 	h1, h2, h3, h4, h5, h6 {
