@@ -5,6 +5,9 @@ import '@fontsource/inter';
 import '@fontsource/outfit';
 import BaseHead from '../components/BaseHead.astro';
 
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
 interface Props {
 	title: string;
 	lang: string;
@@ -20,7 +23,9 @@ const { title, lang, description = "Yarının olasılıkları, bugünün dijital
 		<BaseHead {title} {description} {lang} />
 	</head>
 	<body>
+		<Header />
 		<slot />
+		<Footer />
 	</body>
 </html>
 

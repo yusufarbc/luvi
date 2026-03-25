@@ -1,9 +1,6 @@
 ---
 import { getCollection, getEntry } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
-import Header from '../../../components/Header.astro';
-import Footer from '../../../components/Footer.astro';
-
 import { render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -19,7 +16,6 @@ const { Content } = await render(entry);
 ---
 
 <Layout title={`${entry.data.title} | Luvi Bilişim`} lang="tr">
-  <Header />
   <main class="pt-32 pb-24 min-h-screen bg-slate-50">
     <div class="max-w-4xl mx-auto px-4">
       <div class="bg-white rounded-[48px] p-12 md:p-20 shadow-sm border border-slate-100">
@@ -45,6 +41,4 @@ const { Content } = await render(entry);
       </div>
     </div>
   </main>
-  <Footer />
 </Layout>
-Layout>

@@ -1,5 +1,5 @@
 ---
-title: "Cybercyte Threat Management"
+title: "Cybercyte"
 description: "AI-driven threat exposure management, GRC, and risk analysis platform."
 lang: "en"
 order: 12

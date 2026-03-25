@@ -53,7 +53,7 @@ const motto = t('hero.h1');
       <div class="w-full lg:w-3/5 flex flex-col justify-center items-start text-left mb-16 lg:mb-0">
         <div class="max-w-2xl">
           <!-- Fixed Motto -->
-          <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-sans font-black text-white leading-[1.1] mb-8 tracking-tighter">
+          <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-sans font-extrabold text-white leading-[1.1] mb-8 tracking-tighter">
             "{motto}"
           </h1>
           
@@ -69,7 +69,7 @@ const motto = t('hero.h1');
 
           <a 
             id="hero-cta"
-            href={`${base}/${lang}/blog/${initialItem?.slug}`}
+            href={`${base}/${lang}/news/${initialItem?.slug}`}
             class="inline-block px-10 py-4 bg-[#e74c3c] text-white font-black text-sm uppercase tracking-widest hover:bg-white hover:text-[#e74c3c] transition-all duration-500 shadow-xl"
           >
             {lang === 'tr' ? 'Detaylı Bilgi' : 'Detailed Info'}
@@ -103,7 +103,7 @@ const motto = t('hero.h1');
               <div id="active-progress-bar" class="absolute inset-y-0 left-0 bg-[#e74c3c] transition-all linear w-0"></div>
             </div>
             
-            <a href={`${base}/${lang}/blog`} class="px-8 py-3 border border-white/30 text-white rounded-lg text-xs font-black uppercase tracking-widest hover:bg-white hover:text-[#0b1a2b] transition-all">
+            <a href={`${base}/${lang}/news`} class="px-8 py-3 border border-white/30 text-white rounded-lg text-xs font-black uppercase tracking-widest hover:bg-white hover:text-[#0b1a2b] transition-all">
               {lang === 'tr' ? 'Haberler & Duyurular' : 'All News'}
             </a>
           </div>
@@ -140,7 +140,7 @@ const motto = t('hero.h1');
       newsTitleEl.style.transform = 'translateY(10px)';
       setTimeout(() => {
         newsTitleEl.innerText = item.data.title;
-        ctaEl.href = `${base}/${lang}/blog/${item.slug}`;
+        ctaEl.href = `${base}/${lang}/news/${item.slug}`;
         newsTitleEl.style.opacity = '1';
         newsTitleEl.style.transform = 'translateY(0)';
       }, 400);

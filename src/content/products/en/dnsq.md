@@ -1,5 +1,5 @@
 ---
-title: "DNSQ Secure DNS"
+title: "DNSQ"
 description: "A secure DNS solution providing content filtering, URL blocking, and malware protection for corporate networks."
 lang: "en"
 order: 11

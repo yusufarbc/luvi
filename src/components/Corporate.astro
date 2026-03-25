@@ -24,22 +24,35 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
   </div>
 
   <script is:inline>
+    // Robust video playlist logic
     const corpVideo = document.getElementById('corp-video');
     const corpPlaylist = ['banner/1.webm', 'banner/2.webm', 'banner/3.webm'];
     let corpCurrentIndex = 0;
 
+    // Use a helper to resolve the base path
+    const getBaseUrl = () => {
+      const b = document.documentElement.getAttribute('data-base') || '';
+      return b.endsWith('/') ? b : b + '/';
+    };
+
     function playNextCorpVideo() {
       if (!corpVideo) return;
+      
       corpVideo.style.opacity = '0';
+      
       setTimeout(() => {
         corpCurrentIndex = (corpCurrentIndex + 1) % corpPlaylist.length;
-        corpVideo.src = `${window.location.origin}${import.meta.env.BASE_URL}${corpPlaylist[corpCurrentIndex]}`;
+        const newSrc = '/' + corpPlaylist[corpCurrentIndex];
+        // For development, we want to ensure it works relatively
+        // If it's on a base path, we need to prefix it.
+        // We can just use the absolute path from root if it's served from root.
+        corpVideo.src = newSrc;
+        
         corpVideo.load();
         corpVideo.play().then(() => { 
           corpVideo.style.opacity = '0.5'; 
         }).catch(err => {
-          console.log("Video play failed:", err);
-          // Retry playback if needed
+          console.log("Video transition failed, trying again...", err);
           corpVideo.muted = true;
           corpVideo.play();
         });
@@ -47,22 +60,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
     }
 
     if (corpVideo) {
-        // Force first play
-        corpVideo.muted = true;
-        const startPlay = () => {
-          corpVideo.play().catch(e => {
-            console.log("Initial play failed, retrying on interaction...", e);
-            document.addEventListener('click', () => corpVideo.play(), { once: true });
-          });
-        };
-        
-        if (corpVideo.readyState >= 3) {
-          startPlay();
-        } else {
-          corpVideo.addEventListener('canplay', startPlay, { once: true });
-        }
-
-        corpVideo.addEventListener('ended', playNextCorpVideo);
+      corpVideo.addEventListener('ended', playNextCorpVideo);
     }
   </script>
 
@@ -74,7 +72,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
       
       <div class="flex items-center gap-12 group">
         <a 
-          href={`#why-luvi`}
+          href={`#about-us`}
           class="px-12 py-5 border-2 border-white/30 text-white rounded-full font-heading font-black text-lg tracking-widest hover:bg-white hover:text-black hover:border-white transition-all duration-500 transform hover:translate-x-2"
         >
           {t('corporate.button')}

@@ -1,5 +1,5 @@
 ---
-title: "DNSQ Güvenli DNS"
+title: "DNSQ"
 description: "Kurumsal ağlar için içerik filtreleme, URL engelleme ve zararlı yazılım koruması sağlayan yerli güvenli DNS çözümü."
 lang: "tr"
 order: 11

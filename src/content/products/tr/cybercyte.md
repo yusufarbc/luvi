@@ -1,5 +1,5 @@
 ---
-title: "Cybercyte Tehdit Yönetimi"
+title: "Cybercyte"
 description: "Yapay zeka odaklı tehdit pozlama yönetimi, GRC ve risk analizi platformu."
 lang: "tr"
 order: 12

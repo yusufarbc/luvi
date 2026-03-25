@@ -1,8 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
-import Header from '../../../components/Header.astro';
-import Footer from '../../../components/Footer.astro';
 import { getLangFromUrl, useTranslations } from '../../../i18n/utils';
 
 export async function getStaticPaths() {
@@ -27,7 +25,6 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
 ---
 
 <Layout title={`${t('nav.projects')} | Luvi Bilişim`} lang={lang as string}>
-  <Header />
   
   <main class="pt-32 pb-20 bg-[#0b1a2b]">
     <div class="container mx-auto px-4 md:px-8">
@@ -71,6 +68,4 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
       </div>
     </div>
   </main>
-
-  <Footer />
 </Layout>

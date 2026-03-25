@@ -1,7 +1,5 @@
 ---
 import Layout from './Layout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 import { Image } from 'astro:assets';
 
@@ -19,7 +17,6 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
 ---
 
 <Layout title={`${frontmatter.title} | Luvi Bilişim`} lang={lang}>
-  <Header />
   
   <!-- Progress Bar for long content -->
   <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-[#5dade2] z-[101] transition-all duration-300 w-0"></div>
@@ -125,7 +122,6 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
       </div>
     </div>
   </main>
-  <Footer />
 
   <!-- Lightbox Modal -->
   <div id="lightbox" class="fixed inset-0 z-[200] bg-[#0b1a2b]/95 backdrop-blur-3xl hidden items-center justify-center p-4 md:p-12 opacity-0 transition-opacity duration-500 cursor-zoom-out">
