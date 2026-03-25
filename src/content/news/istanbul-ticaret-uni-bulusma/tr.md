@@ -1,5 +1,5 @@
 ---
-title: "İstanbul Ticaret Üniversitesi Girişimcilik Zirvesi"
+title: "İstanbul Ticaret Üniversitesi Siber Güvenlik Öğrencileriyle bir araya geldik"
 description: "Geleceğin girişimcileriyle buluştuğumuz zirvede teknoloji startup'ları ve dijital dönüşüm stratejilerimizi paylaştık."
 pubDate: 2024-01-01
 image: "2.webp"
