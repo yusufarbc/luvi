@@ -48,20 +48,20 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
 
 <header id="main-header" class="fixed w-full z-50 transition-all duration-500 py-6">
   <div class="container mx-auto px-4 md:px-8">
-    <div class="bg-white border-b border-slate-100 shadow-[0_4px_24px_rgba(0,0,0,0.04)] rounded-[24px] px-8 h-20 md:h-24 flex items-center justify-between transition-all duration-500" id="header-inner">
+      <div class="bg-transparent border-b border-white/10 rounded-[24px] px-8 h-20 md:h-24 flex items-center justify-between transition-all duration-500" id="header-inner">
       
       <!-- Logo Section -->
       <a href={`${base}/${lang}/`} class="flex items-center gap-4 group relative overflow-hidden">
         <div class="absolute inset-0 bg-[#5dade2]/10 blur-xl rounded-full scale-0 group-hover:scale-150 transition-transform duration-700"></div>
-        <img src={`${base}/logo.png`} alt="Luvi Bilişim" class="h-14 md:h-16 w-auto object-contain relative z-10 transition-transform duration-500 group-hover:scale-105" />
+        <img src={`${base}/logo.png`} alt="Luvi Bilişim" class="h-14 md:h-16 w-auto object-contain relative z-10 transition-transform duration-500 group-hover:scale-105 brightness-0 invert" />
       </a>
 
       <!-- Desktop Navigation -->
-      <nav class="hidden lg:flex items-center gap-8 xl:gap-12">
+      <nav class="hidden lg:flex items-center gap-8 xl:gap-12 text-white">
         {navItems.map((item) => (
           <div class="relative group h-full flex items-center">
             {item.hasDropdown ? (
-               <span class="text-[#154360]/70 font-motto text-[13px] font-black tracking-[0.2em]  cursor-default transition-all duration-300 relative py-4 flex items-center gap-1 group-hover:text-[#5dade2]">
+               <span class="font-sans text-[13px] font-black tracking-[0.2em] uppercase cursor-default transition-all duration-300 relative py-4 flex items-center gap-1 group-hover:text-[#5dade2]">
                 {item.label}
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7" />
@@ -71,12 +71,13 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
             ) : (
               <a 
                 href={item.href} 
-                class="text-[#154360]/70 font-motto text-[13px] font-black tracking-[0.2em]  hover:text-[#5dade2] transition-all duration-300 relative py-4"
+                class="font-sans text-[13px] font-black tracking-[0.2em] uppercase hover:text-[#5dade2] transition-all duration-300 relative py-4"
               >
                 {item.label}
                 <span class="absolute bottom-2 left-0 w-0 h-[2px] bg-[#5dade2] transition-all duration-500 group-hover:w-full rounded-full"></span>
               </a>
             )}
+
 
             {item.hasDropdown && (
               <div class="absolute top-[calc(100%-8px)] left-1/2 -translate-x-1/2 w-64 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 z-50">
@@ -214,13 +215,23 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
     if (window.scrollY > 50) {
       header.classList.remove('py-6');
       header.classList.add('py-2');
-      headerInner.classList.add('shadow-xl', 'rounded-[16px]');
-      headerInner.classList.remove('rounded-[24px]');
+      headerInner.classList.add('bg-white', 'shadow-xl', 'border-slate-100');
+      headerInner.classList.remove('bg-transparent', 'border-white/10');
+      headerInner.querySelectorAll('nav a, nav span').forEach(el => {
+        el.classList.remove('text-white');
+        el.classList.add('text-[#154360]/70');
+      });
+      headerInner.querySelector('img').classList.remove('brightness-0', 'invert');
     } else {
       header.classList.add('py-6');
       header.classList.remove('py-2');
-      headerInner.classList.remove('shadow-xl', 'rounded-[16px]');
-      headerInner.classList.add('rounded-[24px]');
+      headerInner.classList.remove('bg-white', 'shadow-xl', 'border-slate-100');
+      headerInner.classList.add('bg-transparent', 'border-white/10');
+      headerInner.querySelectorAll('nav a, nav span').forEach(el => {
+        el.classList.add('text-white');
+        el.classList.remove('text-[#154360]/70');
+      });
+      headerInner.querySelector('img').classList.add('brightness-0', 'invert');
     }
   });
 
