@@ -5,127 +5,201 @@ import { getLangFromUrl, useTranslations } from '../i18n/utils';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const latestNews = await getCollection('projects', ({ data }) => data.lang === lang);
-const newsItems = latestNews.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()).slice(0, 3);
+const allNews = await getCollection('news');
+const filteredNews = allNews.filter(n => n.data.lang === lang);
+
+const sortedNews = filteredNews.sort((a, b) => {
+  const dateA = a.data.pubDate ? new Date(a.data.pubDate).getTime() : 0;
+  const dateB = b.data.pubDate ? new Date(b.data.pubDate).getTime() : 0;
+  return dateB - dateA;
+}).slice(0, 4);
+
+const newsItems = sortedNews.map(n => ({
+  slug: n.id.split('/')[0],
+  data: {
+    title: n.data.title,
+    description: n.data.description,
+    image: n.data.image?.src || n.data.image || '/building.webp'
+  }
+}));
 
 const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
+const initialItem = newsItems[0];
+const motto = t('hero.h1');
 ---
 
-<section class="relative min-h-screen w-full flex flex-col items-center justify-center pt-32 pb-24 overflow-hidden bg-[#0b1a2b]">
-  <!-- Background Layers (Video) -->
-  <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-    <video 
-      id="hero-video"
-      autoplay 
-      muted 
-      playsinline 
-      webkit-playsinline
-      poster={`${base}/building.webp`}
-      class="absolute inset-0 w-full h-full object-cover opacity-40 transition-opacity duration-1000"
-    >
-      <source src={`${base}/banner/1.webm`} type="video/webm" />
-    </video>
-    <!-- Dark Gradient Overlay (Refined for better readability) -->
-    <div class="absolute inset-0 bg-gradient-to-br from-[#0b1a2b]/95 via-[#0b1a2b]/60 to-transparent"></div>
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_20%_50%,rgba(93,173,226,0.15)_0%,transparent_50%)]"></div>
+<section id="hero-slider" class="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#0b1a2b]">
+  <!-- Background Transitions -->
+  <div class="absolute inset-0 z-0">
+    {newsItems.map((item, index) => (
+      <div 
+        id={`bg-slide-${index}`}
+        class={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === 0 ? 'opacity-30' : 'opacity-0'}`}
+      >
+        <img 
+          src={item.data.image} 
+          alt="" 
+          class="w-full h-full object-cover mix-blend-overlay"
+        />
+        <div class="absolute inset-0 bg-gradient-to-r from-[#0b1a2b] via-[#0b1a2b]/20 to-transparent"></div>
+      </div>
+    ))}
   </div>
 
-  <script is:inline>
-    const video = document.getElementById('hero-video');
-    const playlist = ['banner/1.webm', 'banner/2.webm', 'banner/3.webm'];
-    let currentIndex = 0;
-    function playNextVideo() {
-      if (!video) return;
-      video.style.opacity = '0';
-      setTimeout(() => {
-        currentIndex = (currentIndex + 1) % playlist.length;
-        video.src = `${window.location.origin}${import.meta.env.BASE_URL}${playlist[currentIndex]}`;
-        video.load();
-        video.play().then(() => { video.style.opacity = '0.4'; }).catch(err => console.log(err));
-      }, 1000);
-    }
-    if (video) {
-        video.addEventListener('ended', playNextVideo);
-        document.addEventListener('touchstart', () => video.play(), { once: true });
-        document.addEventListener('click', () => video.play(), { once: true });
-    }
-  </script>
+  <div class="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8 py-20 lg:py-32 flex flex-col justify-center min-h-[min(100vh,800px)]">
+    <div class="flex flex-col lg:flex-row h-full gap-12 lg:gap-20">
+      
+      <!-- Left side: Fixed Motto & Dynamic News Brief -->
+      <div class="w-full lg:w-3/5 flex flex-col justify-center items-start text-left mb-16 lg:mb-0">
+        <div class="max-w-2xl">
+          <!-- Fixed Motto -->
+          <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-sans font-black text-white leading-[1.1] mb-8 tracking-tighter">
+            "{motto}"
+          </h1>
+          
+          <!-- Dynamic News Brief -->
+          <div class="mb-10">
+            <span class="text-[#e74c3c] font-black uppercase text-xs tracking-widest mb-4 block">
+              {lang === 'tr' ? 'GÜNCEL HABERLER' : 'LATEST NEWS'}
+            </span>
+            <p id="hero-news-title" class="text-xl md:text-2xl text-white/70 font-medium leading-relaxed transition-all duration-700">
+              {initialItem?.data.title}
+            </p>
+          </div>
 
-  <div class="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8 h-full flex flex-col justify-center">
-    <div class="flex flex-col lg:flex-row items-center gap-20">
-      <!-- Left Side: Motto & CTA -->
-      <div class="w-full lg:w-3/5 text-left animate-fade-in translate-y-8 opacity-0 [animation-delay:200ms]">
-        <h1 class="text-5xl md:text-7xl lg:text-7xl font-heading font-black text-white leading-[1.1] tracking-tighter drop-shadow-2xl mb-8">
-          "{t('hero.h1')}"
-        </h1>
-        <p class="text-xl md:text-2xl text-white/60 mb-12 max-w-2xl font-black tracking-tight" style="font-family: var(--font-motto);">
-          {t('hero.subtitle')}
-        </p>
-        
-        <div class="flex flex-wrap gap-6">
           <a 
-            href={`#contact`}
-            class="px-12 py-6 bg-[#e74c3c] text-white rounded-xl font-heading font-black text-lg uppercase tracking-widest hover:bg-white hover:text-[#e74c3c] hover:shadow-[0_20px_40px_rgba(231,76,60,0.4)] transition-all duration-500 transform hover:-translate-y-1 active:scale-95"
+            id="hero-cta"
+            href={`${base}/${lang}/blog/${initialItem?.slug}`}
+            class="inline-block px-10 py-4 bg-[#e74c3c] text-white font-black text-sm uppercase tracking-widest hover:bg-white hover:text-[#e74c3c] transition-all duration-500 shadow-xl"
           >
-            {t('hero.contact')}
+            {lang === 'tr' ? 'Detaylı Bilgi' : 'Detailed Info'}
           </a>
         </div>
-
-        <!-- Slider Indicators (Visual Only) -->
-        <div class="mt-20 flex gap-3 h-1">
-          <div class="w-16 h-full bg-[#e74c3c]"></div>
-          <div class="w-8 h-full bg-white/20"></div>
-          <div class="w-8 h-full bg-white/20"></div>
-          <div class="w-8 h-full bg-white/20"></div>
-        </div>
       </div>
 
-      <!-- Right Side: News Cards -->
-      <div class="w-full lg:w-2/5 flex flex-col items-end gap-6 mt-12 lg:mt-64 transition-all duration-1000 animate-slide-up opacity-0 [animation-delay:600ms]">
-         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-4 w-full">
-            {newsItems.map((news) => (
-              <a href={`${base}/${lang}/projects/${news.id.split('/').pop()?.replace('.md', '')}`} class="group relative aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl transition-all duration-500 hover:scale-105 hover:border-[#e74c3c]/50">
-                <img src={`${base}${news.data.image}`} alt={news.data.title} class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-700" />
-                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
-                <div class="absolute bottom-4 left-4 right-4">
-                  <h3 class="text-white font-black text-[10px] md:text-[11px] uppercase tracking-wider mb-1 line-clamp-2">
-                    {news.data.title}
+      <!-- Right/Bottom Side: Horizontal News Slider -->
+      <div class="w-full lg:w-1/2 flex flex-col justify-end items-end">
+        <div class="w-full lg:max-w-2xl">
+           <div class="flex gap-4 overflow-x-auto pb-6 no-scrollbar snap-x">
+            {newsItems.map((item, index) => (
+              <button 
+                data-slide-index={index}
+                class={`flex-shrink-0 w-64 md:w-72 aspect-video relative rounded-2xl overflow-hidden snap-start transition-all duration-500 border-2 ${index === 0 ? 'border-[#e74c3c]' : 'border-white/10 opacity-60 hover:opacity-100'}`}
+              >
+                <img src={item.data.image} alt={item.data.title} class="absolute inset-0 w-full h-full object-cover" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent"></div>
+                <div class="absolute bottom-3 left-4 right-4 text-left">
+                  <h3 class="text-white font-black text-xs leading-tight line-clamp-2">
+                    {item.data.title}
                   </h3>
                 </div>
-              </a>
+              </button>
             ))}
-            <a href={`${base}/${lang}/#projects`} class="flex flex-col items-center justify-center p-6 border-2 border-white/20 rounded-2xl text-white font-black uppercase tracking-widest text-xs hover:bg-white hover:text-[#0b1a2b] transition-all group">
-              <span class="mb-2 transition-transform group-hover:translate-x-2">Tümünü Gör</span>
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+          </div>
+          
+          <!-- Progress Bar & View All -->
+          <div class="flex flex-col items-start mt-4">
+            <div class="w-full h-1 bg-white/10 relative overflow-hidden rounded-full mb-6">
+              <div id="active-progress-bar" class="absolute inset-y-0 left-0 bg-[#e74c3c] transition-all linear w-0"></div>
+            </div>
+            
+            <a href={`${base}/${lang}/blog`} class="px-8 py-3 border border-white/30 text-white rounded-lg text-xs font-black uppercase tracking-widest hover:bg-white hover:text-[#0b1a2b] transition-all">
+              {lang === 'tr' ? 'Haberler & Duyurular' : 'All News'}
             </a>
-         </div>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
+  
+  <!-- Motto / Custom Index Indicator -->
+  <div class="absolute bottom-12 left-8 md:left-16 z-20 flex gap-4">
+    {newsItems.map((_, index) => (
+      <div class={`w-12 h-1 bg-white/20 transition-all duration-500 ${index === 0 ? 'bg-[#e74c3c] w-16' : ''}`} id={`dot-${index}`}></div>
+    ))}
+  </div>
+</section>
 
-    <!-- Scroll Indicator -->
-    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-40">
-      <div class="w-px h-12 bg-gradient-to-b from-[#e74c3c] to-transparent"></div>
-    </div>
-  </div>
-</section>
-    </div>
-  </div>
-</section>
+<script is:inline define:vars={{ newsItems, base, lang }}>
+  let currentIndex = 0;
+  let slideInterval;
+  const intervalTime = 6000;
+  
+  const newsTitleEl = document.getElementById('hero-news-title');
+  const ctaEl = document.getElementById('hero-cta');
+  const buttons = document.querySelectorAll('[data-slide-index]');
+  const progressBar = document.getElementById('active-progress-bar');
+
+  function updateSlide(index) {
+    currentIndex = index;
+    const item = newsItems[index];
+
+    // Brief transition
+    if (newsTitleEl) {
+      newsTitleEl.style.opacity = '0';
+      newsTitleEl.style.transform = 'translateY(10px)';
+      setTimeout(() => {
+        newsTitleEl.innerText = item.data.title;
+        ctaEl.href = `${base}/${lang}/blog/${item.slug}`;
+        newsTitleEl.style.opacity = '1';
+        newsTitleEl.style.transform = 'translateY(0)';
+      }, 400);
+    }
+
+    // Background & Progress & Dots
+    newsItems.forEach((_, i) => {
+      const bg = document.getElementById(`bg-slide-${i}`);
+      const dot = document.getElementById(`dot-${i}`);
+      if (bg) bg.style.opacity = i === index ? '0.3' : '0';
+      if (dot) {
+        dot.style.background = i === index ? '#e74c3c' : 'rgba(255,255,255,0.2)';
+        dot.style.width = i === index ? '4rem' : '3rem';
+      }
+      if (buttons[i]) {
+        buttons[i].classList.toggle('border-[#e74c3c]', i === index);
+        buttons[i].classList.toggle('opacity-100', i === index);
+        buttons[i].classList.toggle('border-white/10', i !== index);
+        buttons[i].classList.toggle('opacity-60', i !== index);
+      }
+    });
+
+    // Reset progress bar
+    progressBar.style.transition = 'none';
+    progressBar.style.width = '0%';
+    setTimeout(() => {
+      progressBar.style.transition = `width ${intervalTime}ms linear`;
+      progressBar.style.width = '100%';
+    }, 50);
+  }
+
+  function startInterval() {
+    clearInterval(slideInterval);
+    slideInterval = setInterval(() => {
+      let next = (currentIndex + 1) % newsItems.length;
+      updateSlide(next);
+    }, intervalTime);
+  }
+
+  buttons.forEach((btn, i) => {
+    btn.addEventListener('click', () => {
+      updateSlide(i);
+      startInterval();
+    });
+  });
+
+  // Initial play
+  if (newsItems.length > 0) {
+    updateSlide(0);
+    startInterval();
+  }
+</script>
 
 <style>
-  .animate-fade-in {
-    animation: fadeIn 1s ease-out forwards;
-  }
-  .animate-slide-up {
-    animation: slideUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes slideUp {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  
+  #hero-title {
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   }
 </style>
 

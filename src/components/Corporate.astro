@@ -9,36 +9,73 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
 
 <section id="about" class="relative h-[80vh] w-full flex items-center justify-center overflow-hidden bg-black">
   <!-- Video Background -->
-  <div class="absolute inset-0 z-0">
+  <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
     <video 
+      id="corp-video"
       autoplay 
       muted 
-      loop 
       playsinline 
-      class="w-full h-full object-cover opacity-50"
+      webkit-playsinline
+      class="absolute inset-0 w-full h-full object-cover opacity-50 transition-opacity duration-1000"
     >
-      <source src={`${base}/Futuristic_Digital_Network_Animation.webm`} type="video/webm" />
+      <source src={`${base}/banner/1.webm`} type="video/webm" />
     </video>
-    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black opacity-60"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black opacity-80"></div>
   </div>
+
+  <script is:inline>
+    const corpVideo = document.getElementById('corp-video');
+    const corpPlaylist = ['banner/1.webm', 'banner/2.webm', 'banner/3.webm'];
+    let corpCurrentIndex = 0;
+
+    function playNextCorpVideo() {
+      if (!corpVideo) return;
+      corpVideo.style.opacity = '0';
+      setTimeout(() => {
+        corpCurrentIndex = (corpCurrentIndex + 1) % corpPlaylist.length;
+        corpVideo.src = `${window.location.origin}${import.meta.env.BASE_URL}${corpPlaylist[corpCurrentIndex]}`;
+        corpVideo.load();
+        corpVideo.play().then(() => { 
+          corpVideo.style.opacity = '0.5'; 
+        }).catch(err => {
+          console.log("Video play failed:", err);
+          // Retry playback if needed
+          corpVideo.muted = true;
+          corpVideo.play();
+        });
+      }, 1000);
+    }
+
+    if (corpVideo) {
+        // Force first play
+        corpVideo.muted = true;
+        const startPlay = () => {
+          corpVideo.play().catch(e => {
+            console.log("Initial play failed, retrying on interaction...", e);
+            document.addEventListener('click', () => corpVideo.play(), { once: true });
+          });
+        };
+        
+        if (corpVideo.readyState >= 3) {
+          startPlay();
+        } else {
+          corpVideo.addEventListener('canplay', startPlay, { once: true });
+        }
+
+        corpVideo.addEventListener('ended', playNextCorpVideo);
+    }
+  </script>
 
   <div class="container mx-auto px-4 md:px-8 relative z-10 flex flex-col items-start text-left">
     <div class="max-w-4xl">
-      <h2 class="text-white text-5xl md:text-8xl font-heading font-black tracking-tighter mb-12 drop-shadow-2xl animate-fade-in uppercase">
+      <h2 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-heading font-black tracking-tighter mb-12 drop-shadow-2xl animate-fade-in text-white">
         {t('corporate.glance')}
       </h2>
       
       <div class="flex items-center gap-12 group">
-        <div class="relative">
-          <div class="absolute inset-0 bg-[#e74c3c] blur-2xl opacity-40 group-hover:opacity-70 transition-opacity"></div>
-          <button class="relative w-24 h-24 bg-[#e74c3c] rounded-full flex items-center justify-center text-white transition-transform duration-500 group-hover:scale-110 shadow-[0_0_40px_rgba(231,76,60,0.5)]">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 ml-1 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-          </button>
-        </div>
-        
         <a 
-          href={`#about`}
-          class="px-12 py-5 border-2 border-white/30 text-white rounded-full font-heading font-black text-lg uppercase tracking-widest hover:bg-white hover:text-black hover:border-white transition-all duration-500 transform hover:translate-x-2"
+          href={`#why-luvi`}
+          class="px-12 py-5 border-2 border-white/30 text-white rounded-full font-heading font-black text-lg tracking-widest hover:bg-white hover:text-black hover:border-white transition-all duration-500 transform hover:translate-x-2"
         >
           {t('corporate.button')}
         </a>

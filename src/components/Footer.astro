@@ -5,94 +5,127 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const currentYear = new Date().getFullYear();
+
+const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
+
+const services = [
+  { label: lang === 'tr' ? 'Siber Güvenlik' : 'Cyber Security', href: `${base}/${lang}/services/cyber-security-consultancy` },
+  { label: lang === 'tr' ? 'Yapay Zeka' : 'AI & Automation', href: `${base}/${lang}/services/ai-automation` },
+  { label: lang === 'tr' ? 'Strateji ve Süreç' : 'Strategy & Process', href: `${base}/${lang}/services/strategy-process` },
+  { label: lang === 'tr' ? 'Mevzuat Uyum' : 'Compliance', href: `${base}/${lang}/services/compliance-regulation` },
+];
+
+const quickLinks = [
+  { label: t('nav.about'), href: `${base}/${lang}/#about` },
+  { label: t('nav.products'), href: `${base}/${lang}/#products` },
+  { label: t('nav.projects'), href: `${base}/${lang}/#projects` },
+  { label: lang === 'tr' ? 'KVKK' : 'Privacy Policy', href: `${base}/${lang}/legal/kvkk` },
+];
 ---
 
-<footer id="contact" class="bg-white border-t border-slate-100 pt-24 pb-12">
+<footer id="contact" class="bg-white border-t border-slate-100 pt-24 pb-12 relative">
   <div class="container mx-auto px-4 md:px-8">
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-24 items-start">
-      <!-- Brand & Social Section -->
-      <div class="md:col-span-3 flex flex-col gap-8">
-        <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Luvi Bilişim" class="h-12 w-auto object-contain self-start opacity-90" />
-        
-        <p class="text-[#5dade2] font-sans font-bold text-sm tracking-tight leading-tight opacity-80">
-          {t('hero.motto2')}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
+      
+      <!-- Column 1: Identity & Socials -->
+      <div class="flex flex-col gap-8">
+        <img src={`${base}/logo.png`} alt="Luvi Bilişim" class="h-14 w-auto object-contain self-start" />
+        <p class="text-slate-500 text-sm leading-relaxed max-w-xs font-medium">
+          {t('hero.subtitle')}
         </p>
-
-        <div class="flex flex-wrap gap-4">
+        <div class="flex flex-wrap gap-3">
           <!-- LinkedIn -->
-          <a href="https://www.linkedin.com/company/luvi-bilisim/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-2xl border border-slate-100 flex items-center justify-center text-slate-400 hover:bg-[#154360] hover:text-white hover:border-[#154360] transition-all duration-500 cursor-pointer shadow-sm hover:shadow-xl">
-            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          <a href={t('social.linkedin')} target="_blank" class="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center text-[#154360] hover:bg-[#154360] hover:text-white transition-all duration-300">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
           </a>
           <!-- YouTube -->
-          <a href="https://www.youtube.com/@luvibilisim" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-2xl border border-slate-100 flex items-center justify-center text-slate-400 hover:bg-[#ff0000] hover:text-white hover:border-[#ff0000] transition-all duration-500 cursor-pointer shadow-sm hover:shadow-xl">
+          <a href={t('social.youtube')} target="_blank" class="w-10 h-10 rounded-xl bg-slate-50 flex items-center justify-center text-[#154360] hover:bg-[#ff0000] hover:text-white transition-all duration-300">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
           </a>
-          <!-- WhatsApp -->
-          <a href={`https://wa.me/${t('footer.phone_val').replace(/[^0-9]/g, '')}`} target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-2xl border border-slate-100 flex items-center justify-center text-slate-400 hover:bg-[#25D366] hover:text-white hover:border-[#25D366] transition-all duration-500 cursor-pointer shadow-sm hover:shadow-xl">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </div>
+      </div>
+
+      <!-- Column 2: Bize Ulaşın -->
+      <div class="flex flex-col gap-6">
+        <h4 class="text-[#154360] font-sans font-black tracking-widest text-xs">
+          {t('nav.contact')}
+        </h4>
+        <div class="flex flex-col gap-4 text-sm text-slate-500 font-medium">
+          <p class="leading-relaxed">
+             {t('footer.address_val')}
+          </p>
+          <a href={`tel:${t('footer.phone_val')}`} class="hover:text-[#5dade2] transition-colors flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+            {t('footer.phone_val')}
+          </a>
+          <a href={`mailto:${t('footer.contact_email')}`} class="hover:text-[#5dade2] transition-colors flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            {t('footer.contact_email')}
           </a>
         </div>
       </div>
 
-      <!-- Contact Info Section -->
-      <div class="md:col-span-4 flex flex-col gap-10">
-        <h4 class="text-[#154360] font-sans font-bold tracking-[0.3em] text-[10px] ">{t('footer.contact')}</h4>
-        <div class="flex flex-col gap-8">
-          <div class="flex flex-col">
-            <span class="text-slate-400 text-[9px] font-black tracking-widest mb-2 ">{t('footer.phone')}</span>
-            <div class="flex flex-col gap-4">
-              <a href={`tel:${t('footer.phone_val').replace(/\s/g, '')}`} class="text-[#154360] hover:text-[#5dade2] transition-colors font-sans text-lg font-bold underline underline-offset-8 decoration-slate-100 hover:decoration-[#5dade2]">{t('footer.phone_val')}</a>
-              <a href={`https://wa.me/${t('footer.phone_val').replace(/[^0-9]/g, '')}`} target="_blank" rel="noopener noreferrer" class="text-[#25D366] hover:opacity-80 transition-opacity font-sans text-sm font-bold flex items-center gap-2">
-                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.025 3.012l-.539 1.956 2.016-.528c.703.385 1.543.591 2.441.591l.001-.001c3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.588-5.766-5.768-5.766zM15.42 15.659c-.19.55-.89.894-1.32.99-.34.07-.71.12-1.72-.3-1.01-.42-1.92-1.28-2.53-1.89s-1.15-1.52-1.31-2.07c-.16-.55-.02-.85.12-.99.14-.14.3-.32.44-.48s.19-.28.28-.46c.09-.18.05-.34-.02-.48s-.63-1.53-.87-2.1c-.23-.56-.47-.48-.63-.49-.16-.01-.34-.01-.52-.01s-.48.07-.74.34c-.26.27-.99.97-.99 2.37s1.02 2.74 1.16 2.94c.14.2 2 3.05 4.84 4.28.68.29 1.21.46 1.62.59.68.22 1.3.19 1.78.11.54-.08 1.66-.68 1.89-1.34s.23-1.23.16-1.35c-.07-.12-.25-.21-.52-.35zM12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zM12 22.13c-1.871 0-3.702-.456-5.336-1.326l-.427-.225-3.957 1.038 1.057-3.832-.247-.414c-1.023-1.716-1.565-3.69-1.565-5.371 0-5.751 4.678-10.429 10.43-10.429s10.43 4.678 10.43 10.429-4.678 10.43-10.43 10.43z"/></svg>
-                WhatsApp İle Yazın
-              </a>
-            </div>
-          </div>
-          <div class="flex flex-col">
-            <span class="text-slate-400 text-[9px] font-black tracking-widest mb-2 ">{t('footer.email')}</span>
-            <a href={`mailto:${t('footer.contact_email')}`} class="text-[#154360] hover:text-[#5dade2] transition-colors font-sans text-lg font-bold underline underline-offset-8 decoration-slate-100 hover:decoration-[#5dade2]">{t('footer.contact_email')}</a>
-          </div>
-          <div class="flex flex-col">
-            <span class="text-slate-400 text-[9px] font-black tracking-widest mb-2 ">{t('footer.address')}</span>
-            <p class="text-slate-500 text-sm font-sans leading-relaxed">
-              {t('footer.address_val')}
-            </p>
-          </div>
-        </div>
+      <!-- Column 3: Çözümler -->
+      <div class="flex flex-col gap-6">
+        <h4 class="text-[#154360] font-sans font-black tracking-widest text-xs">
+          {t('footer.solutions')}
+        </h4>
+        <nav class="flex flex-col gap-4 text-sm text-slate-500 font-medium">
+          {services.map(s => (
+            <a href={s.href} class="hover:text-[#5dade2] transition-colors">{s.label}</a>
+          ))}
+        </nav>
       </div>
 
-      <!-- Map Section -->
-      <div class="md:col-span-5 w-full h-full min-h-[250px]">
-        <div class="w-full h-full rounded-3xl overflow-hidden border border-slate-100 shadow-sm">
-          <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1564.1252176067078!2d27.205192052831794!3d38.36632763327863!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b9618fb082a33f%3A0xb863aae743ff19ec!2sDEPARK%20Alfa-Beta%20Binalar%C4%B1%20(Dokuz%20Eyl%C3%BCl%20%C3%9Cniversitesi%20Teknopark%C4%B1)!5e0!3m2!1str!2str!4v1774358175639!5m2!1str!2str" 
-            width="100%" 
-            height="100%" 
-            style="border:0; min-height: 250px;" 
-            allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade"
-          ></iframe>
-        </div>
+      <!-- Column 4: Hızlı Erişim -->
+      <div class="flex flex-col gap-6">
+        <h4 class="text-[#154360] font-sans font-black tracking-widest text-xs">
+          {t('footer.quick')}
+        </h4>
+        <nav class="flex flex-col gap-4 text-sm text-slate-500 font-medium">
+          {quickLinks.map(l => (
+            <a href={l.href} class="hover:text-[#5dade2] transition-colors">{l.label}</a>
+          ))}
+        </nav>
       </div>
+
     </div>
 
-    <div class="pt-12 border-t border-slate-50 flex flex-col md:flex-row items-center justify-between gap-6">
-      <div class="flex flex-col md:flex-row items-center gap-6 md:gap-12">
-        <p class="text-slate-400 text-[10px] font-sans font-bold tracking-widest capitalize">
-          &copy; {currentYear} Luvi Bilişim. {t('footer.rights')}
-        </p>
-        <div class="flex gap-8">
-          <a href={`${import.meta.env.BASE_URL}${lang}/legal/kvkk`} class="text-slate-300 hover:text-[#154360] text-[9px] font-black tracking-widest transition-all uppercase">{lang === 'tr' ? 'KVKK' : 'KVKK'}</a>
-          <a href={`${import.meta.env.BASE_URL}${lang}/legal/privacy`} class="text-slate-300 hover:text-[#154360] text-[9px] font-black tracking-widest transition-all uppercase">{lang === 'tr' ? 'Gizlilik' : 'Privacy'}</a>
-          <a href={`${import.meta.env.BASE_URL}${lang}/legal/cookies`} class="text-slate-300 hover:text-[#154360] text-[9px] font-black tracking-widest transition-all uppercase">{lang === 'tr' ? 'Çerezler' : 'Cookies'}</a>
-        </div>
+    <!-- Map Section -->
+    <div class="mb-20 rounded-[48px] overflow-hidden border border-slate-100 shadow-sm h-[400px] w-full">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3128.2502592144638!2d27.20173769283049!3d38.366331705270035!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b9618fb082a33f%3A0xb863aae743ff19ec!2sDEPARK%20Alfa-Beta%20Binalar%C4%B1%20(Dokuz%20Eyl%C3%BCl%20%C3%9Cniversitesi%20Teknopark%C4%B1)!5e0!3m2!1str!2str!4v1774456524879!5m2!1str!2str" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="pt-12 border-t border-slate-100 flex flex-col md:flex-row items-center justify-between gap-6 text-[10px] font-black tracking-widest text-slate-400">
+      <p>&copy; {currentYear} Luvi Bilişim. {t('footer.rights')}</p>
+      <div class="flex gap-8">
+        <a href="#" class="hover:text-[#154360] transition-colors">KVKK</a>
+        <a href="#" class="hover:text-[#154360] transition-colors">Gizlilik</a>
+        <a href="#" class="hover:text-[#154360] transition-colors">Çerezler</a>
       </div>
-      <p class="text-[#154360] text-[10px] tracking-[0.5em] font-bold opacity-30 flex gap-2">
-        <span>Bilişim</span>
-        <span>Teknoloji</span>
-        <span>İnovasyon</span>
-      </p>
     </div>
   </div>
+
+  <!-- Floating WhatsApp Button -->
+  <a 
+    href={`https://wa.me/${t('footer.phone_val').replace(/[^0-9]/g, '')}`}
+    target="_blank"
+    class="fixed bottom-8 right-8 z-[60] w-16 h-16 bg-[#25D366] text-white rounded-full flex items-center justify-center shadow-[0_10px_30px_rgba(37,211,102,0.4)] transition-all duration-500 hover:scale-110 active:scale-95 group animate-pulse-slow"
+  >
+    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <div class="absolute -top-12 right-0 bg-white px-3 py-1 rounded-lg shadow-xl text-[10px] font-black text-[#154360] uppercase whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 duration-300">
+      Bize Yazın
+    </div>
+  </a>
 </footer>
+
+<style>
+  @keyframes pulse-slow {
+    0%, 100% { transform: scale(1); box-shadow: 0 10px 30px rgba(37,211,102,0.4); }
+    50% { transform: scale(1.05); box-shadow: 0 15px 45px rgba(37,211,102,0.6); }
+  }
+  .animate-pulse-slow {
+    animation: pulse-slow 3s infinite ease-in-out;
+  }
+</style>

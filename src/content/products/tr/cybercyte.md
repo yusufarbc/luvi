@@ -3,7 +3,7 @@ title: "Cybercyte Tehdit Yönetimi"
 description: "Yapay zeka odaklı tehdit pozlama yönetimi, GRC ve risk analizi platformu."
 lang: "tr"
 order: 12
-logo: "/products/cyberctye.webp"
+logo: "/products/cybercyte.webp"
 ---
 
 # Cybercyte Tehdit Pozlama Yönetimi

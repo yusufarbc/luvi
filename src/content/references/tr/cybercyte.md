@@ -1,7 +1,7 @@
 ---
 name: "Cybercyte"
 url: "https://cybercyte.com"
-logo: "/partners/cyberctye.jpg"
+logo: "/products/cybercyte.webp"
 lang: "tr"
 order: 11
 ---

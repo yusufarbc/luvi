@@ -3,7 +3,7 @@ title: "Cybercyte Threat Management"
 description: "AI-driven threat exposure management, GRC, and risk analysis platform."
 lang: "en"
 order: 12
-logo: "/products/cyberctye.webp"
+logo: "/products/cybercyte.webp"
 ---
 
 # Cybercyte Threat Exposure Management

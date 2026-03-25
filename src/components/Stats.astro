@@ -39,11 +39,10 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
     <!-- Left Side: Image -->
     <div class="w-full lg:w-1/2 relative min-h-[400px] lg:min-h-0">
       <img 
-        src={`${base}/building.webp`} 
+        src={`${base}/images/building.webp`} 
         alt="Luvi Bilişim Stats" 
         class="absolute inset-0 w-full h-full object-cover"
       />
-      <div class="absolute inset-0 bg-black/20"></div>
     </div>
 
     <!-- Right Side: Stats Grid -->
@@ -51,14 +50,14 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
       {stats.map((stat) => (
         <div class="p-12 md:p-16 flex flex-col items-start justify-center border-b border-r border-slate-100 last:border-b-0 last:border-r-0 md:even:border-r-0 bg-white hover:bg-slate-50 transition-colors duration-500">
           <div class="text-[#e74c3c] mb-8" set:html={stat.icon} />
-          <p class="text-sm text-[#154360]/60 font-black uppercase tracking-[0.2em] mb-4 text-left leading-relaxed max-w-[200px]">
+          <p class="text-sm text-[#154360]/60 font-black tracking-widest mb-4 text-left leading-relaxed max-w-[200px]">
             {stat.desc}
           </p>
           <div class="flex flex-col items-start">
-            <span class="text-6xl md:text-7xl font-heading font-black text-[#154360] tracking-tighter mb-2">
+            <span class="text-5xl md:text-6xl lg:text-7xl font-heading font-black text-[#154360] tracking-tighter mb-2">
               {stat.number}
             </span>
-            <span class="text-xs font-black text-[#154360]/40 uppercase tracking-widest">
+            <span class="text-xs font-black text-[#154360]/40 tracking-widest">
               {stat.label}
             </span>
           </div>
