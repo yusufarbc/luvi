@@ -9,28 +9,74 @@ const maturityEntry = await getEntry('maturity', lang);
 const { subtitle, description, cta } = maturityEntry.data;
 ---
 
-<section id="maturity" class="py-32 relative overflow-hidden bg-white">
-  <!-- Subtle Background Pattern -->
-  <div class="absolute inset-0 bg-slate-50/50 opacity-30"></div>
+<section id="maturity" class="py-40 relative overflow-hidden bg-[#0b1a2b]">
+  <!-- Technical Background Elements -->
+  <div class="absolute inset-0 opacity-20 pointer-events-none">
+    <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-[#5dade2]/10 blur-[150px] rounded-full -translate-y-1/2 translate-x-1/2"></div>
+    <div class="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#e74c3c]/5 blur-[120px] rounded-full translate-y-1/2 -translate-x-1/2"></div>
+  </div>
 
   <div class="container mx-auto px-4 md:px-8 relative z-10">
-    <div class="max-w-4xl mx-auto bg-white border border-slate-100 p-8 md:p-20 rounded-[48px] text-center shadow-sm hover:shadow-xl transition-shadow duration-700">
-      <h2 class="text-4xl md:text-6xl lg:text-7xl font-sans font-black text-[#154360] mb-12 leading-tight tracking-tighter ">
-        {subtitle}
-      </h2>
+    <div class="max-w-4xl mx-auto">
+      <div class="flex flex-col gap-6 mb-12 text-center items-center">
+        <span class="inline-flex items-center gap-3 text-[#5dade2] font-sans font-black text-xs tracking-[0.4em] uppercase">
+           <div class="w-12 h-px bg-[#5dade2]/30"></div>
+           {lang === 'tr' ? 'STRATEJİK ANALİZ' : 'STRATEGIC ANALYSIS'}
+           <div class="w-12 h-px bg-[#5dade2]/30"></div>
+        </span>
+        <h2 class="text-4xl md:text-6xl xl:text-7xl font-sans font-black text-white leading-[1.1] tracking-tighter">
+          {subtitle}
+        </h2>
+        <div class="h-1.5 w-24 bg-[#e74c3c] rounded-full"></div>
+      </div>
       
-      <p class="text-slate-500 text-xl md:text-2xl font-sans leading-relaxed mb-14 max-w-2xl mx-auto">
+      <p class="text-white/60 text-xl md:text-2xl font-sans leading-relaxed mb-16 max-w-2xl mx-auto font-light text-center">
         {description}
       </p>
 
+      <div class="flex flex-wrap items-center justify-center gap-12 md:gap-20 mb-20 p-12 bg-white/5 border border-white/10 rounded-[48px] backdrop-blur-xl">
+         {/* Step Indicators */}
+         <div class="flex flex-col gap-4">
+            <div class="flex items-center gap-3">
+               <div class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[#5dade2] font-black text-sm">01</div>
+               <span class="text-white/80 font-black text-xs tracking-widest uppercase">{lang === 'tr' ? 'Ölçümleme' : 'Measuring'}</span>
+            </div>
+            <div class="h-1.5 w-32 bg-white/5 rounded-full overflow-hidden">
+              <div class="h-full w-full bg-[#5dade2] animate-pulse"></div>
+            </div>
+         </div>
+         
+         <div class="flex flex-col gap-4">
+            <div class="flex items-center gap-3">
+               <div class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[#e74c3c] font-black text-sm">02</div>
+               <span class="text-white/80 font-black text-xs tracking-widest uppercase">{lang === 'tr' ? 'Strateji' : 'Strategy'}</span>
+            </div>
+            <div class="h-1.5 w-32 bg-white/5 rounded-full overflow-hidden">
+              <div class="h-full w-2/3 bg-[#e74c3c]"></div>
+            </div>
+         </div>
+
+         <div class="flex flex-col gap-4">
+            <div class="flex items-center gap-3">
+               <div class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/40 font-black text-sm">03</div>
+               <span class="text-white/40 font-black text-xs tracking-widest uppercase">{lang === 'tr' ? 'Yol Haritası' : 'Roadmap'}</span>
+            </div>
+            <div class="h-1.5 w-32 bg-white/5 rounded-full overflow-hidden">
+              <div class="h-full w-0 bg-white/40"></div>
+            </div>
+         </div>
+      </div>
+
       <div class="flex flex-col sm:flex-row items-center justify-center gap-8">
         <a 
-          href="#contact" 
-          class="px-14 py-6 bg-[#154360] text-white rounded-2xl font-sans text-lg font-black  tracking-widest hover:bg-[#5dade2] transition-all duration-300 shadow-xl shadow-blue-900/10"
+          href="#contact-form" 
+          class="group px-14 py-6 bg-white text-[#0b1a2b] rounded-2xl font-sans text-lg font-black tracking-widest hover:bg-[#5dade2] hover:text-white transition-all duration-500 shadow-2xl relative overflow-hidden"
         >
-          {cta}
+          <span class="relative z-10">{cta}</span>
+          <div class="absolute inset-0 bg-gradient-to-r from-white to-slate-100 group-hover:from-[#5dade2] group-hover:to-[#2c81ba] transition-all"></div>
         </a>
       </div>
+
     </div>
   </div>
 </section>

@@ -1,6 +1,6 @@
 ---
 title: "Manisa Barosu Siber Güvenlik Farkındalık Eğitimi"
-description: "Hukuk dünyasında dijital güvenliğin önemini vurguladığımız eğitimde Manisa Barosu üyesi avukatlarla bir araya geldik."
+description: "Hukuk dünyasında dijital güvenliğin önemini vurguladığımız eğitimde Manisa Barosu'nda Metyx Global'in Eğitim Şöleni için bir araya geldik."
 pubDate: 2024-03-24
 image: "2.webp"
 gallery:

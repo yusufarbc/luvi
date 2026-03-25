@@ -14,6 +14,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
       id="corp-video"
       autoplay 
       muted 
+      loop
       playsinline 
       webkit-playsinline
       class="absolute inset-0 w-full h-full object-cover opacity-50 transition-opacity duration-1000"
@@ -24,43 +25,12 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
   </div>
 
   <script is:inline>
-    // Robust video playlist logic
+    // Just ensuring the video plays if heavy browser restrictions apply
     const corpVideo = document.getElementById('corp-video');
-    const corpPlaylist = ['banner/1.webm', 'banner/2.webm', 'banner/3.webm'];
-    let corpCurrentIndex = 0;
-
-    // Use a helper to resolve the base path
-    const getBaseUrl = () => {
-      const b = document.documentElement.getAttribute('data-base') || '';
-      return b.endsWith('/') ? b : b + '/';
-    };
-
-    function playNextCorpVideo() {
-      if (!corpVideo) return;
-      
-      corpVideo.style.opacity = '0';
-      
-      setTimeout(() => {
-        corpCurrentIndex = (corpCurrentIndex + 1) % corpPlaylist.length;
-        const newSrc = '/' + corpPlaylist[corpCurrentIndex];
-        // For development, we want to ensure it works relatively
-        // If it's on a base path, we need to prefix it.
-        // We can just use the absolute path from root if it's served from root.
-        corpVideo.src = newSrc;
-        
-        corpVideo.load();
-        corpVideo.play().then(() => { 
-          corpVideo.style.opacity = '0.5'; 
-        }).catch(err => {
-          console.log("Video transition failed, trying again...", err);
-          corpVideo.muted = true;
-          corpVideo.play();
-        });
-      }, 1000);
-    }
-
     if (corpVideo) {
-      corpVideo.addEventListener('ended', playNextCorpVideo);
+      corpVideo.play().catch(() => {
+        document.addEventListener('click', () => corpVideo.play(), { once: true });
+      });
     }
   </script>
 
