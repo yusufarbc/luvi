@@ -10,14 +10,27 @@ lang: "tr"
 
 Hızla değişen yerel ve küresel regülasyon dünyasında, uyumluluğu bir zorunluluk değil, rekabet avantajı olarak görüyoruz. Luvi Bilişim olarak, yasal ve teknik gereklilikleri kurum kültürünüzle harmanlayarak sürdürülebilir bir "uyum ekosistemi" kurguluyoruz.
 
-### Bilgi Güvenliği Standartları (ISO Danışmanlığı)
-ISO 27001 (Bilgi Güvenliği), ISO 22301 (İş Sürekliliği) ve ISO 27701 (Kişisel Veri Yönetimi) başta olmak üzere, uluslararası standartlara hazırlık, sertifikasyon ve denetim süreçlerini uçtan uca yönetiyoruz.
+### ISO/IEC 27001 Bilgi Güvenliği Yönetim Sistemi (BGYS) Danışmanlığı
+Bilgi güvenliği alanında 10 yılı aşkın tecrübe ile ISO 27001 Bilgi Güvenliği Yönetim Sistemi (BGYS) belgesine sahip olurken risklerinizi azaltabilir, iş faydalarınızı artırabilir ve işinizin sürekliliğini sağlayabilirsiniz. ISO 27001, kurumun hassas bilgilerini yönetebilmek amacıyla benimsenen sistematik bir yaklaşımdır. Bu sistem çalışanları, iş süreçlerini ve bilgi teknolojileri (BT) sistemlerini kapsar.
+
+### ISO 27001 Uygulama Metodolojimiz
+Sistem kurulumunda PUKÖ (Planla – Uygula – Kontrol et – Önlem al) modelini temel alıyoruz:
+* **Planla:** Kapsamın belirlenmesi, risk analizi ve politikaların oluşturulması.
+* **Uygula:** Kontrollerin hayata geçirilmesi ve süreçlerin devreye alınması.
+* **Kontrol Et:** İç denetim ve yönetimin gözden geçirmesi faaliyetleri.
+* **Önlem Al:** Sürekli iyileştirme ve düzeltici faaliyetler.
+
+### Risk Yönetimi ve Boşluk Analizi
+Veri odaklı kapsamlı analiz metodolojileri ile güvenlik altyapınız bütüncül olarak değerlendirilir. Mevcut durum ile ISO 27001 standartları arasındaki farklılıklar (boşluk analizi) üzerinden riskler önceliklendirilir. Bilgi varlık envanterinizin oluşturulması ve risk işleme planlarınızın hazırlanması süreçlerinde uzman desteği sağlıyoruz.
+
+### Eğitim ve Belgelendirme Desteği
+ISO 27001 süreçlerinin tamamını sizinle birlikte hayata geçirerek firmanızı belgelendirme denetimine hazırlıyoruz:
+* **Farkındalık Eğitimleri:** Üst yönetim ve çalışanlar için özelleştirilmiş eğitim ve çalıştaylar.
+* **Dokümantasyon:** Prosedürler, Uygulanabilirlik Bildirgesi (SoA) ve yönetim sistemi dokümanlarının hazırlanması.
+* **Denetim Desteği:** Belgelendirme kuruluşu denetimi sırasında teknik rehberlik ve uygunsuzlukların giderilmesi.
 
 ### KVKK ve Veri Gizliliği Uyumu
-6694 sayılı Kişisel Verilerin Korunması Kanunu'na tam uyum sağlamak için hem hukuki hem de teknik analizler (Envanter, VERBİS, Teknik Tedbirler) yapıyoruz. Veri gizliliğini kurumsal süreçlerinize entegre ederek yasal güvencenizi tescilliyoruz.
+6698 sayılı Kişisel Verilerin Korunması Kanunu'na tam uyum sağlamak için hem hukuki hem de teknik analizler (Envanter, VERBİS, Teknik Tedbirler) yapıyoruz. Veri gizliliğini ISO 27001 süreçleri ile entegre ederek sürdürülebilir bir yasal uyum ekosistemi kuruyoruz.
 
-### BT Yönetişimi, Risk ve Uyum (GRC)
-Sistemlerinizi COBIT ve ITIL gibi global yönetim çerçeveleri ışığında denetliyor, teknolojik yatırımlarınızın yasal risklerini minimize ediyoruz. Üst yönetimin karar alma süreçlerini destekleyen risk analiz raporlarıyla şeffaflık sağlıyoruz.
-
-### Kritik Altyapılar ve Sektörel Düzenlemeler
-EPDK, BDDK ve Cumhurbaşkanlığı BİG Rehberi gibi kritik düzenlemelere uyum sağlayarak; endüstriyel sistemlerinizin (OT) ve finansal altyapılarınızın güvenliğini en üst seviyede tescilliyoruz.
+### BT Yönetişimi ve Sektörel Regülasyonlar
+EPDK, BDDK ve Cumhurbaşkanlığı BİG Rehberi gibi kritik düzenlemelerle uyumlu; COBIT ve ITIL gibi global yönetim çerçeveleri ışığında denetlenen yapısal GRC (Yönetişim, Risk ve Uyum) çözümleri sunuyoruz.

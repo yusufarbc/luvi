@@ -14,51 +14,91 @@ const allServices = await getCollection('services', ({ data }) => {
   return data.lang === lang;
 });
 
-// Map icon names to SVG strings (matching previous design)
-const iconMap: Record<string, string> = {
-  cloud: `<svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" /></svg>`,
-  data: `<svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" /></svg>`,
-  security: `<svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>`,
-  ai: `<svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>`,
-  shield: `<svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.618 5.984A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016zM12 9v2m0 4h.01" /></svg>`,
-  cert: `<svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" /></svg>`,
-  mobile: `<svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" /></svg>`,
-  bot: `<svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" /></svg>`,
-  code: `<svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>`,
-  hook: `<svg xmlns="http://www.w3.org/2000/svg" class="w-14 h-14" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" /></svg>`,
+const imageMap: Record<string, string> = {
+  strategy: '/services/strategy.png',
+  security: '/services/security.png',
+  professional: '/services/ai.png',
+  compliance: '/services/compliance.png',
 };
+
 const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
 ---
 
-<section id="services" class="w-full">
-    {allServices.length > 0 ? (
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full max-w-7xl mx-auto px-4">
-        {allServices
-          .sort((a, b) => (a.data.order || 99) - (b.data.order || 99))
-          .map((s) => (
-          <a 
-            href={`${base}/${lang}/services/${s.id.includes('/') ? s.id.split('/')[0] : s.id.replace('.md', '')}`}
-            class={`group relative p-10 rounded-[32px] transition-all duration-700 hover:-translate-y-4 flex flex-col items-center text-center overflow-hidden border ${
-              isHero 
-                ? 'bg-white/5 backdrop-blur-xl border-white/5 hover:border-[#5dade2]/50 hover:shadow-[0_40px_80px_-20px_rgba(93,173,226,0.3)] hover:bg-white/10' 
-                : 'bg-white border-slate-100 hover:border-[#5dade2]/30 hover:shadow-[0_40px_80px_-20px_rgba(21,67,96,0.1)]'
-            }`}
-          >
-            <!-- Icon Wrapper -->
-            <div class={`relative z-10 mb-8 transition-all duration-700 transform group-hover:scale-110 ${
-              isHero ? 'text-[#5dade2] group-hover:text-white' : 'text-[#154360] group-hover:text-[#5dade2]'
-            }`}>
-              <Fragment set:html={iconMap[s.data.icon]} />
-            </div>
+<section id="services" class="py-40 bg-white relative overflow-hidden scroll-mt-32">
+    <!-- Subtle Background Pattern -->
+    <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#154360 1px, transparent 1px); background-size: 40px 40px;"></div>
 
-            <!-- Title -->
-            <h3 class={`relative z-10 px-4 font-heading font-black text-xl leading-snug tracking-tight transition-colors duration-500 ${
-              isHero ? 'text-white group-hover:text-[#5dade2]' : 'text-[#154360] group-hover:text-[#2c3e50]'
-            }`}>
-              {s.data.title}
-            </h3>
-          </a>
-        ))}
-      </div>
-    ) : null}
+    <div class="container mx-auto px-4 md:px-8 relative z-10">
+        <!-- Section Header: Corporate Left-Aligned -->
+        <div class="flex flex-col lg:flex-row items-end justify-between mb-32 gap-12">
+            <div class="max-w-3xl">
+                <span class="inline-flex items-center gap-3 text-[#5dade2] font-sans font-black text-xs tracking-[0.4em] uppercase mb-8">
+                    <div class="w-12 h-px bg-[#5dade2]/30"></div>
+                    {lang === 'tr' ? 'STRATEJİK ÇÖZÜMLERİMİZ' : 'STRATEGIC SOLUTIONS'}
+                </span>
+                <h2 class="text-4xl md:text-7xl font-sans font-black text-[#154360] tracking-tighter leading-[1] mb-8">
+                    {lang === 'tr' ? (
+                        <>Stratejik Çözümler <br/> ve <span class="text-slate-400">Dijital Yetkinlikler</span></>
+                    ) : (
+                        <>Strategic Solutions <br/> and <span class="text-slate-400">Digital Competencies</span></>
+                    )}
+                </h2>
+                <p class="text-slate-500 text-xl font-medium leading-relaxed max-w-2xl border-l-[6px] border-[#e74c3c] pl-8 py-2">
+                    {lang === 'tr' 
+                        ? 'İşletmenizin dijital dayanıklılığını ve operasyonel verimliliğini global standartlarda, uçtan uca yönetilen profesyonel hizmetlerle güçlendiriyoruz.' 
+                        : 'We empower your digital resilience and operational efficiency with end-to-end managed professional services at global standards.'}
+                </p>
+            </div>
+        </div>
+
+        {allServices.length > 0 ? (
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+            {allServices
+              .sort((a, b) => (a.data.order || 99) - (b.data.order || 99))
+              .map((s) => (
+              <a 
+                href={`${base}/${lang}/services/${s.id.includes('/') ? s.id.split('/')[0] : s.id.replace('.md', '')}`}
+                class="group relative flex flex-col bg-white border border-slate-100 p-10 rounded-[40px] transition-all duration-1000 hover:border-[#5dade2]/30 hover:shadow-[0_60px_100px_-30px_rgba(21,67,160,0.12)]"
+              >
+                <!-- Numbering Overlay -->
+                <div class="absolute top-10 right-10 text-slate-100 font-sans font-black text-6xl select-none group-hover:text-[#5dade2]/10 transition-colors duration-700">
+                    {s.data.order < 10 ? `0${s.data.order}` : s.data.order}
+                </div>
+
+                <!-- 3D Image Focal Point -->
+                <div class="relative w-full aspect-square mb-12 rounded-[32px] overflow-hidden bg-slate-50 transition-all duration-1000 group-hover:scale-[1.05] group-hover:rotate-1">
+                  <img 
+                    src={imageMap[s.data.category] || '/services/strategy.png'} 
+                    alt={s.data.title}
+                    class="w-full h-full object-cover transform transition-transform duration-[2000ms] group-hover:scale-125"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-[#154360]/20 to-transparent"></div>
+                </div>
+    
+                <!-- Title & Description -->
+                <div class="flex flex-col flex-grow relative z-10">
+                    <h3 class="font-sans font-black text-2xl leading-tight tracking-tight text-[#154360] mb-6 group-hover:text-[#5dade2] transition-colors duration-500">
+                        {s.data.title}
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-10 line-clamp-3 group-hover:text-slate-600 transition-colors duration-500">
+                        {s.data.description}
+                    </p>
+
+                    <!-- Professional Footer -->
+                    <div class="mt-auto flex items-center justify-between border-t border-slate-50 pt-8">
+                        <span class="text-[10px] font-sans font-black tracking-[0.3em] uppercase text-[#154360]/40 group-hover:text-[#e74c3c] transition-colors duration-500">
+                           {lang === 'tr' ? 'DETAYLI ANALİZ' : 'DETAILED ANALYSIS'}
+                        </span>
+                        <div class="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center text-[#154360] group-hover:bg-[#154360] group-hover:text-white transition-all duration-500 group-hover:translate-x-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        ) : null}
+    </div>
 </section>

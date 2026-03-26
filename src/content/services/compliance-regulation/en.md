@@ -10,14 +10,27 @@ lang: "en"
 
 In the rapidly changing world of local and global regulations, we see compliance not as a necessity but as a competitive advantage. As Luvi IT, we create a sustainable "compliance ecosystem" by blending legal and technical requirements with your corporate culture.
 
-### Information Security Standards (ISO Consultancy)
-We manage the preparation, certification, and audit processes for international standards, primarily ISO 27001 (Information Security), ISO 22301 (Business Continuity), and ISO 27701 (Privacy Information Management), from end to end.
+### ISO/IEC 27001 Information Security Management System (ISMS) Consulting
+With over 10 years of experience in information security, we help you obtain ISO 27001 certification while reducing risks, increasing business benefits, and ensuring continuity. ISO 27001 is a systematic approach to managing sensitive information, covering people, processes, and IT systems.
+
+### Our ISO 27001 Implementation Methodology
+We follow the PDCA (Plan-Do-Check-Act) model for system establishment:
+* **Plan:** Scope definition, risk analysis, and policy creation.
+* **Do:** Implementation of controls and process activation.
+* **Check:** Internal audit and management review activities.
+* **Act:** Continuous improvement and corrective actions.
+
+### Risk Management and Gap Analysis
+Your security infrastructure is holistically evaluated using data-driven analysis methodologies. Risks are prioritized based on the gap analysis between the current state and ISO 27001 standards. We provide expert support in creating your asset inventory and risk treatment plans.
+
+### Training and Certification Support
+We implement the entire ISO 27001 process with you to prepare your company for the certification audit:
+* **Awareness Trainings:** Customized training and workshops for management and employees.
+* **Documentation:** Preparation of procedures, Statement of Applicability (SoA), and system documents.
+* **Audit Support:** Technical guidance during the certification audit and resolution of non-conformities.
 
 ### KVKK and Data Privacy Compliance
-We perform both legal and technical analyses (Inventory, VERBIS, Technical Measures) to ensure full compliance with the Personal Data Protection Law (KVKK) in Turkey. We certify your legal security by integrating data privacy into your corporate processes.
+We perform both legal and technical analyses (Inventory, Technical Measures) for compliance with Data Protection Laws. We build a sustainable legal compliance ecosystem by integrating privacy into ISO 27001 processes.
 
-### IT Governance, Risk & Compliance (GRC)
-We audit your systems in light of global management frameworks such as COBIT and ITIL, minimizing the legal risks of your technological investments. We provide transparency with risk analysis reports that support the decision-making processes of senior management.
-
-### Critical Infrastructures and Sectoral Regulations
-By ensuring compliance with critical regulations such as the Presidential Information and Communication Security Guide (BIG Guide) and official sectoral directives, we certify the security of your industrial systems (OT) and financial infrastructures at the highest level.
+### IT Governance and Sectoral Regulations
+We provide structural GRC (Governance, Risk, and Compliance) solutions aligned with critical regulations and global frameworks like COBIT and ITIL, such as the Presidential Information and Communication Security Guide (BIG Guide) and official sectoral directives, we certify the security of your industrial systems (OT) and financial infrastructures at the highest level.

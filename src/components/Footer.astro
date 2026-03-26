@@ -18,7 +18,7 @@ const services = [
 const quickLinks = [
   { label: t('nav.about'), href: `${base}/${lang}/#about` },
   { label: t('nav.products'), href: `${base}/${lang}/#products` },
-  { label: t('nav.projects'), href: `${base}/${lang}/#projects` },
+  { label: lang === 'tr' ? 'Hizmetlerimiz' : 'Our Services', href: `${base}/${lang}/#services` },
   { label: lang === 'tr' ? 'KVKK' : 'Privacy Policy', href: `${base}/${lang}/legal/kvkk` },
 ];
 ---

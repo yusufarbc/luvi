@@ -1,7 +1,7 @@
 ---
 title: "How Prepared Are You for Your Business's Digital Future?"
-subtitle: "Digital Maturity Analysis"
-description: "We measure your organization's technological architecture, cyber security strengths, and digital transformation capacity using professional methodologies. We provide not just an analysis, but a strategic technology roadmap for your business. By identifying weak links in your infrastructure, we prepare you today for the digital reflexes of tomorrow."
+subtitle: "Don't Just Predict Digital Transformation, Measure It!"
+description: "We measure your institution's technological architecture, cybersecurity muscles, and digital transformation capacity with professional methodologies. Not just an analysis, we offer a strategic technology roadmap for your business. We prepare you for tomorrow's digital reflexes from today."
 cta: "Contact us now"
 status: "Active"
 lang: "en"

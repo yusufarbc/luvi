@@ -9,7 +9,7 @@ const maturityEntry = await getEntry('maturity', lang);
 const { subtitle, description, cta } = maturityEntry.data;
 ---
 
-<section id="maturity" class="py-40 relative overflow-hidden bg-[#0b1a2b]">
+<section id="maturity" class="py-40 relative overflow-hidden bg-[#0b1a2b] scroll-mt-24">
   <!-- Technical Background Elements -->
   <div class="absolute inset-0 opacity-20 pointer-events-none">
     <div class="absolute top-0 right-0 w-[800px] h-[800px] bg-[#5dade2]/10 blur-[150px] rounded-full -translate-y-1/2 translate-x-1/2"></div>
@@ -17,66 +17,127 @@ const { subtitle, description, cta } = maturityEntry.data;
   </div>
 
   <div class="container mx-auto px-4 md:px-8 relative z-10">
-    <div class="max-w-4xl mx-auto">
-      <div class="flex flex-col gap-6 mb-12 text-center items-center">
-        <span class="inline-flex items-center gap-3 text-[#5dade2] font-sans font-black text-xs tracking-[0.4em] uppercase">
-           <div class="w-12 h-px bg-[#5dade2]/30"></div>
-           {lang === 'tr' ? 'STRATEJİK ANALİZ' : 'STRATEGIC ANALYSIS'}
-           <div class="w-12 h-px bg-[#5dade2]/30"></div>
-        </span>
-        <h2 class="text-4xl md:text-6xl xl:text-7xl font-sans font-black text-white leading-[1.1] tracking-tighter">
-          {subtitle}
-        </h2>
-        <div class="h-1.5 w-24 bg-[#e74c3c] rounded-full"></div>
+    <div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+      <!-- Left: Content -->
+      <div class="w-full lg:w-1/2">
+        <div class="flex flex-col gap-6 mb-12 text-left items-start">
+          <span class="inline-flex items-center gap-3 text-[#5dade2] font-sans font-black text-xs tracking-[0.4em] uppercase">
+             <div class="w-12 h-px bg-[#5dade2]/30"></div>
+             {lang === 'tr' ? 'STRATEJİK ANALİZ' : 'STRATEGIC ANALYSIS'}
+          </span>
+          <h2 class="text-4xl md:text-5xl xl:text-6xl font-sans font-black text-white leading-[1.1] tracking-tighter">
+            {lang === 'tr' ? 'Dijital Dönüşümde Tahmin Etmeyin, Ölçün!' : 'Don\'t Guess in Digital Transformation, Measure It!'}
+          </h2>
+          <div class="h-1.5 w-24 bg-[#e74c3c] rounded-full"></div>
+        </div>
+        
+        <p class="text-white/80 text-lg md:text-xl font-sans leading-relaxed mb-12 font-medium text-left italic border-l-4 border-[#5dade2] pl-6 py-2">
+          {lang === 'tr' 
+            ? 'Kurumunuzun teknolojik mimarisini, siber güvenlik kaslarını ve dijital dönüşüm kapasitesini profesyonel metodolojilerle ölçümlüyoruz. Sadece bir analiz değil, işletmeniz için stratejik bir teknoloji yol haritası sunuyoruz. Sizi yarının dijital reflekslerine bugünden hazırlıyoruz.' 
+            : 'We measure your institution\'s technological architecture, cybersecurity muscles, and digital transformation capacity with professional methodologies. Not just an analysis, we offer a strategic technology roadmap.'}
+        </p>
+
+        <!-- Dynamic Analysis Cards -->
+        <div class="flex flex-col gap-8 mb-16 px-4">
+           {/* Card 1: Digital Maturity */}
+           <div class="p-10 bg-white/5 border border-white/10 rounded-[40px] backdrop-blur-xl transition-all duration-500 hover:bg-white/10 hover:border-[#5dade2]/30 group/card relative overflow-hidden">
+              <div class="absolute -right-20 -top-20 w-40 h-40 bg-[#5dade2]/5 rounded-full blur-3xl"></div>
+              <div class="flex flex-col md:flex-row gap-8 items-start">
+                <div class="w-16 h-16 shrink-0 rounded-2xl bg-[#5dade2]/20 flex items-center justify-center text-[#5dade2] transition-transform duration-500 group-hover/card:scale-110 shadow-xl">
+                   <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                   </svg>
+                </div>
+                <div>
+                  <h4 class="text-[#5dade2] font-black text-2xl mb-4 tracking-tighter">
+                    {lang === 'tr' ? 'Dijital Olgunluk Analizi' : 'Digital Maturity Analysis'}
+                  </h4>
+                  <p class="text-white/60 text-base leading-relaxed font-medium">
+                    {lang === 'tr' 
+                       ? 'Türkiye’nin iş dinamikleri ve bilimsel verilerle harmanlanan Dijital Olgunluk Analizi ile şirketinizin teknolojik kaslarını test edin. Sektörünüz ne olursa olsun, dijital röntgeninizi çekerek güçlü yönlerinizi stratejiye, eksiklerinizi rekabet avantajına dönüştürün.' 
+                       : 'Test your company\'s technological muscles with Digital Maturity Analysis integrated with business dynamics. Turn your strengths into strategy and weaknesses into competitive advantage.'}
+                  </p>
+                </div>
+              </div>
+           </div>
+
+           {/* Card 2: Gap Analysis */}
+           <div class="p-10 bg-white/5 border border-white/10 rounded-[40px] backdrop-blur-xl transition-all duration-500 hover:bg-white/10 hover:border-[#e74c3c]/30 group/card relative overflow-hidden">
+              <div class="absolute -right-20 -top-20 w-40 h-40 bg-[#e74c3c]/5 rounded-full blur-3xl"></div>
+              <div class="flex flex-col md:flex-row gap-8 items-start">
+                <div class="w-16 h-16 shrink-0 rounded-2xl bg-[#e74c3c]/20 flex items-center justify-center text-[#e74c3c] transition-transform duration-500 group-hover/card:scale-110 shadow-xl">
+                   <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                   </svg>
+                </div>
+                <div>
+                  <h4 class="text-[#e74c3c] font-black text-2xl mb-4 tracking-tighter">
+                    {lang === 'tr' ? 'Siber Risklerinizi Kontrol Altına Alın' : 'Take Control of Your Cyber Risks'}
+                  </h4>
+                  <p class="text-white/60 text-base leading-relaxed font-medium">
+                    {lang === 'tr' 
+                       ? 'Veri odaklı kapsamlı analiz metodolojileri ile güvenlik altyapınız bütüncül olarak değerlendirilir. Mevcut durum ile güvenlik standartları arasındaki farklılıklar üzerinden riskler önceliklendirilir ve iş süreçlerine olan etkileri değerlendirilir.' 
+                       : 'Your security infrastructure is holistically evaluated with data-driven analysis. Risks are prioritized based on differences between current state and standards, evaluating business impacts.'}
+                  </p>
+                </div>
+              </div>
+           </div>
+        </div>
+
+        <div class="mb-12">
+            <p class="text-white/60 text-lg md:text-xl font-sans leading-relaxed text-left font-light border-l-2 border-[#5dade2]/30 pl-8 italic">
+                {lang === 'tr' 
+                   ? 'Kurumunuzun teknolojik mimarisini, siber güvenlik kaslarını ve dijital dönüşüm kapasitesini profesyonel metodolojilerle ölçümlüyoruz. Sadece bir analiz değil, işletmeniz için stratejik bir teknoloji yol haritası sunuyoruz.' 
+                   : "We measure your institution's technological architecture, cybersecurity muscles, and digital transformation capacity with professional methodologies. Not just an analysis, we offer a strategic technology roadmap."}
+            </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-start justify-start gap-8">
+          <a 
+            href="#contact-form" 
+            class="group px-14 py-6 bg-white text-[#0b1a2b] rounded-2xl font-sans text-lg font-black tracking-widest hover:bg-[#5dade2] hover:text-white transition-all duration-500 shadow-2xl relative overflow-hidden"
+          >
+            <span class="relative z-10">{cta}</span>
+            <div class="absolute inset-0 bg-gradient-to-r from-white to-slate-100 group-hover:from-[#5dade2] group-hover:to-[#2c81ba] transition-all"></div>
+          </a>
+        </div>
       </div>
-      
-      <p class="text-white/60 text-xl md:text-2xl font-sans leading-relaxed mb-16 max-w-2xl mx-auto font-light text-center">
-        {description}
-      </p>
 
-      <div class="flex flex-wrap items-center justify-center gap-12 md:gap-20 mb-20 p-12 bg-white/5 border border-white/10 rounded-[48px] backdrop-blur-xl">
-         {/* Step Indicators */}
-         <div class="flex flex-col gap-4">
-            <div class="flex items-center gap-3">
-               <div class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[#5dade2] font-black text-sm">01</div>
-               <span class="text-white/80 font-black text-xs tracking-widest uppercase">{lang === 'tr' ? 'Ölçümleme' : 'Measuring'}</span>
-            </div>
-            <div class="h-1.5 w-32 bg-white/5 rounded-full overflow-hidden">
-              <div class="h-full w-full bg-[#5dade2] animate-pulse"></div>
-            </div>
-         </div>
-         
-         <div class="flex flex-col gap-4">
-            <div class="flex items-center gap-3">
-               <div class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-[#e74c3c] font-black text-sm">02</div>
-               <span class="text-white/80 font-black text-xs tracking-widest uppercase">{lang === 'tr' ? 'Strateji' : 'Strategy'}</span>
-            </div>
-            <div class="h-1.5 w-32 bg-white/5 rounded-full overflow-hidden">
-              <div class="h-full w-2/3 bg-[#e74c3c]"></div>
-            </div>
-         </div>
+      <!-- Right: Responsive Video/Interactive Element -->
+      <div class="w-full lg:w-1/2 relative group">
+        <div class="relative rounded-[64px] overflow-hidden shadow-2xl border border-white/10 aspect-square lg:aspect-[4/5] bg-[#154360]/20">
+          <video 
+            src="/banner/2.webm" 
+            autoplay 
+            muted 
+            loop 
+            playsinline 
+            class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-1000"
+          ></video>
+          
+          <!-- Overlay Gradient -->
+          <div class="absolute inset-0 bg-gradient-to-t from-[#0b1a2b] via-transparent to-[#0b1a2b]/20"></div>
 
-         <div class="flex flex-col gap-4">
-            <div class="flex items-center gap-3">
-               <div class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/40 font-black text-sm">03</div>
-               <span class="text-white/40 font-black text-xs tracking-widest uppercase">{lang === 'tr' ? 'Yol Haritası' : 'Roadmap'}</span>
-            </div>
-            <div class="h-1.5 w-32 bg-white/5 rounded-full overflow-hidden">
-              <div class="h-full w-0 bg-white/40"></div>
-            </div>
-         </div>
+          {/* Floating Info Overlay */}
+          <div class="absolute bottom-10 left-10 right-10 p-8 bg-white/5 backdrop-blur-2xl rounded-3xl border border-white/10 transform transition-all duration-700 group-hover:-translate-y-2">
+             <div class="flex items-center gap-6">
+                <div class="w-16 h-16 rounded-2xl bg-[#e74c3c] flex items-center justify-center text-white shadow-xl animate-pulse">
+                   <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2" />
+                   </svg>
+                </div>
+                <div>
+                   <p class="text-white font-black text-xl tracking-tighter mb-1">{lang === 'tr' ? 'Veri Odaklı' : 'Data Driven'}</p>
+                   <p class="text-white/40 text-sm font-medium">{lang === 'tr' ? 'Geleceği analiz edin' : 'Analyze the future'}</p>
+                </div>
+             </div>
+          </div>
+        </div>
+
+        <!-- Decorative Glow -->
+        <div class="absolute -top-10 -right-10 w-40 h-40 bg-[#5dade2]/20 blur-[80px] rounded-full animate-pulse-slow"></div>
+        <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-[#e74c3c]/10 blur-[80px] rounded-full animate-pulse-slow" style="animation-delay: 2s;"></div>
       </div>
-
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-8">
-        <a 
-          href="#contact-form" 
-          class="group px-14 py-6 bg-white text-[#0b1a2b] rounded-2xl font-sans text-lg font-black tracking-widest hover:bg-[#5dade2] hover:text-white transition-all duration-500 shadow-2xl relative overflow-hidden"
-        >
-          <span class="relative z-10">{cta}</span>
-          <div class="absolute inset-0 bg-gradient-to-r from-white to-slate-100 group-hover:from-[#5dade2] group-hover:to-[#2c81ba] transition-all"></div>
-        </a>
-      </div>
-
     </div>
   </div>
 </section>
