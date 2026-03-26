@@ -12,7 +12,7 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
-const rendered = await entry.render();
+const rendered = await render(entry);
 const { Content, headings } = rendered;
 ---
 
@@ -32,17 +32,18 @@ const { Content, headings } = rendered;
             <h4 class="text-[#154360]/30 font-sans font-black text-[10px] tracking-[0.5em] uppercase mb-10 border-b border-slate-100 pb-4">
               SECTIONS
             </h4>
-            <nav class="flex flex-col gap-4">
-              {headings.filter(h => h.depth === 3).map(h => (
-                <a 
-                  href={`#${h.slug}`} 
-                  class="text-slate-400 hover:text-[#5dade2] font-sans font-bold text-sm tracking-tight transition-all duration-300 hover:translate-x-2 flex items-center gap-3 group"
-                >
-                  <div class="w-1.5 h-1.5 rounded-full bg-[#5dade2] opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                  {h.text}
-                </a>
-              ))}
-            </nav>
+                <nav id="sections-nav" class="flex flex-col gap-2 border-l border-slate-100">
+                  {headings && headings.length > 0 && headings.filter(h => h.depth >= 2 && h.depth <= 3).map(h => (
+                    <a 
+                      href={`#${h.slug}`} 
+                      class={`pl-6 py-3 text-sm font-sans font-bold tracking-tight transition-all duration-300 hover:text-[#154360] border-l-2 border-transparent hover:border-[#5dade2] -ml-[1px]
+                        ${h.depth === 3 ? 'text-slate-400 font-bold' : 'text-[#154360] font-black uppercase text-xs tracking-widest mt-4'}
+                      `}
+                    >
+                      {h.text}
+                    </a>
+                  ))}
+                </nav>
 
             <div class="mt-20 p-8 rounded-[32px] bg-slate-50 border border-slate-100">
                 <h5 class="text-[#154360] font-black text-lg mb-4">Quick Contact</h5>
@@ -55,7 +56,7 @@ const { Content, headings } = rendered;
         </aside>
 
         <!-- Main Content Area -->
-        <article class="lg:w-3/4">
+        <article id="service-content" class="lg:w-3/4">
           <div class="max-w-5xl">
             <h1 class="text-5xl md:text-8xl font-sans font-black text-[#154360] mb-12 leading-[1.05] tracking-tighter">
               {entry.data.title}
@@ -90,6 +91,33 @@ const { Content, headings } = rendered;
     </div>
   </main>
 </Layout>
+
+<script is:inline>
+  function populateSections() {
+    const nav = document.getElementById('sections-nav');
+    const content = document.getElementById('service-content');
+    if (!nav || !content) return;
+
+    if (nav.children.length > 0) return;
+
+    const headings = content.querySelectorAll('h2, h3');
+    headings.forEach((h, index) => {
+      if (!h.id) h.id = 'section-' + index;
+      const a = document.createElement('a');
+      a.href = '#' + h.id;
+      a.textContent = h.textContent;
+      a.className = 'pl-6 py-3 text-sm font-sans font-bold tracking-tight transition-all duration-300 hover:text-[#154360] border-l-2 border-transparent hover:border-[#5dade2] -ml-[1px]';
+      if (h.tagName === 'H3') {
+        a.classList.add('text-slate-400');
+      } else {
+        a.classList.add('text-[#154360]', 'font-black', 'uppercase', 'text-xs', 'tracking-widest', 'mt-4');
+      }
+      nav.appendChild(a);
+    });
+  }
+  window.addEventListener('DOMContentLoaded', populateSections);
+  populateSections();
+</script>
 
 <style is:global>
   html {
