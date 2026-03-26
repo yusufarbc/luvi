@@ -44,46 +44,61 @@ const navItems = [
 ];
 
 const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
+
+// Detect if we are on the home page (where we want transparent to solid scroll)
+const pathname = Astro.url.pathname.replace(/\/$/, "");
+const homePathTr = `${base}/tr`.replace(/\/$/, "");
+const homePathEn = `${base}/en`.replace(/\/$/, "");
+const homePathRoot = `${base}`.replace(/\/$/, "") || "/";
+const isHome = pathname === homePathRoot || pathname === homePathTr || pathname === homePathEn;
 ---
 
-<header id="main-header" class="fixed top-0 w-full z-50 transition-all duration-300">
-  <div class="w-full flex items-center justify-between h-20 md:h-24 px-4 md:px-12 border-b border-white/10 transition-all duration-300" id="header-inner">
+<header id="main-header" class={`top-0 w-full z-50 transition-all duration-300 ${isHome ? 'fixed' : 'sticky'}`} data-is-home={isHome ? "true" : "false"}>
+  <div 
+    class={`w-full flex items-center justify-between h-20 md:h-24 px-4 md:px-12 border-b transition-all duration-300 ${isHome ? 'bg-transparent border-white/10' : 'bg-white shadow-sm border-slate-100'}`} 
+    id="header-inner"
+  >
       
       <!-- Logo Section -->
       <a href={`${base}/${lang}/`} class="flex items-center gap-4 group">
-        <img src={`${base}/logo.png`} alt="Luvi Bilişim" class="h-14 md:h-18 w-auto object-contain transition-transform duration-500 group-hover:scale-105 brightness-0 invert" id="header-logo" />
+        <img 
+          src={`${base}/logo.png`} 
+          alt="Luvi Bilişim" 
+          class={`h-14 md:h-18 w-auto object-contain transition-transform duration-500 group-hover:scale-105 ${isHome ? 'brightness-0 invert' : ''}`} 
+          id="header-logo" 
+        />
       </a>
 
       <!-- Desktop Navigation -->
-      <nav class="hidden lg:flex items-center gap-8 xl:gap-12 text-white">
+      <nav class={`hidden lg:flex items-center gap-8 xl:gap-12 transition-colors duration-300 ${isHome ? 'text-white' : 'text-[#154360]'}`} id="desktop-nav">
         {navItems.map((item) => (
           <div class="relative group flex items-center">
             {item.hasDropdown ? (
-               <span class="font-sans text-[13px] font-semibold tracking-widest cursor-default transition-all duration-300 relative flex items-center gap-1 group-hover:text-white">
+               <span class={`font-sans text-[13px] font-semibold tracking-widest cursor-default transition-all duration-300 relative flex items-center gap-1 ${isHome ? 'group-hover:text-white' : 'group-hover:text-navy'} `}>
                 {item.label}
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7" />
                 </svg>
-                <span class="absolute -bottom-2 left-0 w-0 h-[2px] bg-white transition-all duration-500 group-hover:w-full rounded-full"></span>
+                <span class={`absolute -bottom-2 left-0 w-0 h-[2px] transition-all duration-500 group-hover:w-full rounded-full ${isHome ? 'bg-white' : 'bg-navy'}`}></span>
               </span>
             ) : (
               <a 
                 href={item.href} 
-                class="font-sans text-[13px] font-semibold tracking-widest hover:text-white transition-all duration-300 relative"
+                class={`font-sans text-[13px] font-semibold tracking-widest transition-all duration-300 relative ${isHome ? 'hover:text-white' : 'hover:text-navy'}`}
               >
                 {item.label}
-                <span class="absolute -bottom-2 left-0 w-0 h-[2px] bg-white transition-all duration-500 group-hover:w-full rounded-full"></span>
+                <span class={`absolute -bottom-2 left-0 w-0 h-[2px] transition-all duration-500 group-hover:w-full rounded-full ${isHome ? 'bg-white' : 'bg-navy'}`}></span>
               </a>
             )}
 
 
             {item.hasDropdown && (
               <div class="absolute top-[calc(100%-8px)] left-1/2 -translate-x-1/2 w-64 pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 z-50">
-                <div class="bg-[#0b1a2b]/95 backdrop-blur-2xl border border-white/10 p-4 rounded-3xl shadow-2xl shadow-black/40">
+                <div class={`${isHome ? 'bg-[#0b1a2b]/95' : 'bg-white shadow-2xl'} backdrop-blur-2xl border border-white/10 p-4 rounded-3xl shadow-2xl shadow-black/40`}>
                   {item.items?.map(subItem => (
                     <a 
                       href={subItem.href}
-                      class="block px-6 py-3 text-white text-[11px] font-black  tracking-wider hover:bg-white/10 hover:text-[#5dade2] rounded-xl transition-all"
+                      class={`block px-6 py-3 text-[11px] font-black tracking-wider rounded-xl transition-all ${isHome ? 'text-white hover:bg-white/10 hover:text-[#5dade2]' : 'text-navy hover:bg-black/5 hover:text-[#5dade2]'}`}
                     >
                       {subItem.label}
                     </a>
@@ -97,15 +112,14 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
 
       <!-- Action Area -->
       <div class="flex items-center gap-4 md:gap-8">
-        <!-- Language Switcher -->
-        <div class="hidden md:flex items-center bg-white/5 border border-white/10 rounded-2xl p-1 shadow-inner">
+        <div class="hidden md:flex items-center bg-black/5 border border-black/10 rounded-2xl p-1 shadow-inner">
           {Object.entries(languages).map(([l, _]) => (
             <a
               href={`${base}/${l}/`}
-              class={`px-3 py-1.5 rounded-xl text-[10px] font-black  transition-all duration-500 ${
+              class={`px-3 py-1.5 rounded-xl text-[10px] font-black transition-all duration-500 lang-switcher-item ${
                 lang === l 
-                  ? 'bg-white/10 text-white shadow-lg scale-105' 
-                  : 'text-white/40 hover:text-white hover:bg-white/5'
+                  ? (isHome ? 'bg-white/10 text-white shadow-lg' : 'bg-navy text-white shadow-lg') 
+                  : (isHome ? 'text-white/40 hover:text-white hover:bg-white/5' : 'text-navy/40 hover:text-navy hover:bg-black/5')
               }`}
             >
               {l}
@@ -122,11 +136,11 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
         </a>
 
         <!-- Mobile Toggle -->
-        <button id="menu-toggle" class="lg:hidden p-3 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-colors group" aria-label="Toggle Menu">
+        <button id="menu-toggle" class={`lg:hidden p-3 border rounded-2xl transition-colors group ${isHome ? 'bg-white/5 border-white/10 hover:bg-white/10' : 'bg-black/5 border-black/10 hover:bg-black/10'}`} aria-label="Toggle Menu">
           <div class="w-6 h-5 relative flex flex-col justify-between">
-            <span class="w-full h-0.5 bg-white rounded-full transition-all group-hover:w-1/2"></span>
-            <span class="w-full h-0.5 bg-white rounded-full transition-all"></span>
-            <span class="w-full h-0.5 bg-white rounded-full transition-all group-hover:w-3/4"></span>
+            <span class={`w-full h-0.5 rounded-full transition-all group-hover:w-1/2 ${isHome ? 'bg-white' : 'bg-navy'}`}></span>
+            <span class={`w-full h-0.5 rounded-full transition-all ${isHome ? 'bg-white' : 'bg-navy'}`}></span>
+            <span class={`w-full h-0.5 rounded-full transition-all group-hover:w-3/4 ${isHome ? 'bg-white' : 'bg-navy'}`}></span>
           </div>
         </button>
       </div>
@@ -209,21 +223,33 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
   const mobileLinks = document.querySelectorAll('.mobile-link');
   const dropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
 
+  const isHome = header.getAttribute('data-is-home') === 'true';
+  const desktopNav = document.getElementById('desktop-nav');
+  const langSwitcherItems = document.querySelectorAll('.lang-switcher-item');
+
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 20) {
-      headerInner.classList.add('bg-[#0b1a2b]', 'shadow-sm', 'border-white/10');
-      headerInner.classList.remove('bg-transparent', 'border-white/10');
-      headerInner.querySelectorAll('nav a, nav span').forEach(el => {
-        el.classList.add('text-white');
-      });
-      document.getElementById('header-logo').classList.add('brightness-0', 'invert');
+    if (isHome) {
+      if (window.scrollY > 20) {
+        headerInner.classList.add('bg-[#0b1a2b]', 'shadow-sm', 'border-white/10');
+        headerInner.classList.remove('bg-transparent', 'border-white/10');
+        desktopNav.classList.add('text-white');
+        desktopNav.classList.remove('text-[#154360]');
+        document.getElementById('header-logo').classList.add('brightness-0', 'invert');
+      } else {
+        headerInner.classList.remove('bg-[#0b1a2b]', 'shadow-sm', 'border-white/10');
+        headerInner.classList.add('bg-transparent', 'border-white/10');
+        desktopNav.classList.add('text-white');
+        document.getElementById('header-logo').classList.add('brightness-0', 'invert');
+      }
     } else {
-      headerInner.classList.remove('bg-[#0b1a2b]', 'shadow-sm', 'border-white/10');
-      headerInner.classList.add('bg-transparent', 'border-white/10');
-      headerInner.querySelectorAll('nav a, nav span').forEach(el => {
-        el.classList.add('text-white');
-      });
-      document.getElementById('header-logo').classList.add('brightness-0', 'invert');
+      // In Detail Pages, it should stay solid but maybe add more shadow on scroll
+      if (window.scrollY > 20) {
+        headerInner.classList.add('shadow-xl', 'bg-white/95', 'backdrop-blur-md');
+        headerInner.classList.remove('shadow-sm');
+      } else {
+        headerInner.classList.add('shadow-sm');
+        headerInner.classList.remove('shadow-xl', 'bg-white/95', 'backdrop-blur-md');
+      }
     }
   });
 
