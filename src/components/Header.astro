@@ -59,20 +59,20 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
         {navItems.map((item) => (
           <div class="relative group flex items-center">
             {item.hasDropdown ? (
-               <span class="font-sans text-[13px] font-semibold tracking-widest cursor-default transition-all duration-300 relative flex items-center gap-1 group-hover:text-[#5dade2]">
+               <span class="font-sans text-[13px] font-semibold tracking-widest cursor-default transition-all duration-300 relative flex items-center gap-1 group-hover:text-white">
                 {item.label}
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 transition-transform group-hover:rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M19 9l-7 7-7-7" />
                 </svg>
-                <span class="absolute -bottom-2 left-0 w-0 h-[2px] bg-[#5dade2] transition-all duration-500 group-hover:w-full rounded-full"></span>
+                <span class="absolute -bottom-2 left-0 w-0 h-[2px] bg-white transition-all duration-500 group-hover:w-full rounded-full"></span>
               </span>
             ) : (
               <a 
                 href={item.href} 
-                class="font-sans text-[13px] font-semibold tracking-widest hover:text-[#5dade2] transition-all duration-300 relative"
+                class="font-sans text-[13px] font-semibold tracking-widest hover:text-white transition-all duration-300 relative"
               >
                 {item.label}
-                <span class="absolute -bottom-2 left-0 w-0 h-[2px] bg-[#5dade2] transition-all duration-500 group-hover:w-full rounded-full"></span>
+                <span class="absolute -bottom-2 left-0 w-0 h-[2px] bg-white transition-all duration-500 group-hover:w-full rounded-full"></span>
               </a>
             )}
 
@@ -83,7 +83,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
                   {item.items?.map(subItem => (
                     <a 
                       href={subItem.href}
-                      class="block px-6 py-3 text-white/60 text-[11px] font-black  tracking-wider hover:bg-[#5dade2]/10 hover:text-[#5dade2] rounded-xl transition-all"
+                      class="block px-6 py-3 text-white text-[11px] font-black  tracking-wider hover:bg-white/10 hover:text-[#5dade2] rounded-xl transition-all"
                     >
                       {subItem.label}
                     </a>
@@ -104,8 +104,8 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
               href={`${base}/${l}/`}
               class={`px-3 py-1.5 rounded-xl text-[10px] font-black  transition-all duration-500 ${
                 lang === l 
-                  ? 'bg-[#154360] text-white shadow-lg scale-105' 
-                  : 'text-[#154360]/40 hover:text-[#154360] hover:bg-slate-50'
+                  ? 'bg-white/10 text-white shadow-lg scale-105' 
+                  : 'text-white/40 hover:text-white hover:bg-white/5'
               }`}
             >
               {l}
@@ -122,11 +122,11 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
         </a>
 
         <!-- Mobile Toggle -->
-        <button id="menu-toggle" class="lg:hidden p-3 bg-slate-50 rounded-2xl hover:bg-slate-100 transition-colors group" aria-label="Toggle Menu">
+        <button id="menu-toggle" class="lg:hidden p-3 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-colors group" aria-label="Toggle Menu">
           <div class="w-6 h-5 relative flex flex-col justify-between">
-            <span class="w-full h-0.5 bg-[#154360] rounded-full transition-all group-hover:w-1/2"></span>
-            <span class="w-full h-0.5 bg-[#154360] rounded-full transition-all"></span>
-            <span class="w-full h-0.5 bg-[#154360] rounded-full transition-all group-hover:w-3/4"></span>
+            <span class="w-full h-0.5 bg-white rounded-full transition-all group-hover:w-1/2"></span>
+            <span class="w-full h-0.5 bg-white rounded-full transition-all"></span>
+            <span class="w-full h-0.5 bg-white rounded-full transition-all group-hover:w-3/4"></span>
           </div>
         </button>
       </div>
@@ -159,7 +159,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
               </button>
               <div id={`dropdown-${index}`} class="hidden flex flex-col items-center gap-4 mt-4 py-4 w-full bg-white/5 rounded-3xl animate-fadeIn">
                  {item.items?.map(subItem => (
-                  <a href={subItem.href} class="text-[#5dade2] font-black text-base  tracking-widest hover:text-white transition-colors">{subItem.label}</a>
+                  <a href={subItem.href} class="text-white font-black text-base  tracking-widest hover:text-white/80 transition-colors">{subItem.label}</a>
                  ))}
               </div>
             </div>
@@ -211,19 +211,17 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
 
   window.addEventListener('scroll', () => {
     if (window.scrollY > 20) {
-      headerInner.classList.add('bg-white', 'shadow-sm', 'border-slate-100');
+      headerInner.classList.add('bg-[#0b1a2b]', 'shadow-sm', 'border-white/10');
       headerInner.classList.remove('bg-transparent', 'border-white/10');
       headerInner.querySelectorAll('nav a, nav span').forEach(el => {
-        el.classList.remove('text-white');
-        el.classList.add('text-[#154360]');
+        el.classList.add('text-white');
       });
-      document.getElementById('header-logo').classList.remove('brightness-0', 'invert');
+      document.getElementById('header-logo').classList.add('brightness-0', 'invert');
     } else {
-      headerInner.classList.remove('bg-white', 'shadow-sm', 'border-slate-100');
+      headerInner.classList.remove('bg-[#0b1a2b]', 'shadow-sm', 'border-white/10');
       headerInner.classList.add('bg-transparent', 'border-white/10');
       headerInner.querySelectorAll('nav a, nav span').forEach(el => {
         el.classList.add('text-white');
-        el.classList.remove('text-[#154360]');
       });
       document.getElementById('header-logo').classList.add('brightness-0', 'invert');
     }

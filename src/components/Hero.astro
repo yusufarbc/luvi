@@ -51,10 +51,17 @@ const motto = t('hero.h1');
       
       <!-- Left side: Fixed Motto & Dynamic News Brief -->
       <div class="w-full lg:w-3/5 flex flex-col justify-center items-start text-left mb-16 lg:mb-0">
-        <div class="max-w-2xl">
+        <div class="max-w-4xl">
           <!-- Fixed Motto -->
           <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-sans font-extrabold text-white leading-[1.1] mb-8 tracking-tighter">
-            "{motto}"
+            {motto.includes(',') ? (
+              <>
+                <span class="block whitespace-nowrap">"{motto.split(',')[0]},</span>
+                <span class="block whitespace-nowrap">{motto.split(',')[1].trim()}"</span>
+              </>
+            ) : (
+              `"${motto}"`
+            )}
           </h1>
           
           <!-- Dynamic News Brief -->

@@ -54,8 +54,8 @@ const { subtitle, description, cta } = maturityEntry.data;
                   </h4>
                   <p class="text-white/60 text-base leading-relaxed font-medium">
                     {lang === 'tr' 
-                       ? 'Türkiye’nin iş dinamikleri ve bilimsel verilerle harmanlanan Dijital Olgunluk Analizi ile şirketinizin teknolojik kaslarını test edin. Sektörünüz ne olursa olsun, dijital röntgeninizi çekerek güçlü yönlerinizi stratejiye, eksiklerinizi rekabet avantajına dönüştürün.' 
-                       : 'Test your company\'s technological muscles with Digital Maturity Analysis integrated with business dynamics. Turn your strengths into strategy and weaknesses into competitive advantage.'}
+                       ? 'Türkiye’nin iş dinamikleri ve bilimsel verilerle harmanlanan Dijital Olgunluk Analizi ile şirketinizin teknolojik kaslarını test edin. Sektörünüz ne olursa olsun, dijital röntgeninizi çekerek güçlü yönlerinizi stratejiye, eksiklerinizi ise rekabet avantajına dönüştürün. Dijital geleceğinizi bir pusula ile yönetin.' 
+                       : 'Test your company\'s technological muscles with Digital Maturity Analysis integrated with business dynamics. Turn your strengths into strategy and weaknesses into competitive advantage. Manage your digital future with a compass.'}
                   </p>
                 </div>
               </div>
@@ -72,25 +72,19 @@ const { subtitle, description, cta } = maturityEntry.data;
                 </div>
                 <div>
                   <h4 class="text-[#e74c3c] font-black text-2xl mb-4 tracking-tighter">
-                    {lang === 'tr' ? 'Siber Risklerinizi Kontrol Altına Alın' : 'Take Control of Your Cyber Risks'}
+                    {lang === 'tr' ? 'Siber Güvenlik Boşluk Analizi' : 'Cyber Security Gap Analysis'}
                   </h4>
                   <p class="text-white/60 text-base leading-relaxed font-medium">
                     {lang === 'tr' 
-                       ? 'Veri odaklı kapsamlı analiz metodolojileri ile güvenlik altyapınız bütüncül olarak değerlendirilir. Mevcut durum ile güvenlik standartları arasındaki farklılıklar üzerinden riskler önceliklendirilir ve iş süreçlerine olan etkileri değerlendirilir.' 
-                       : 'Your security infrastructure is holistically evaluated with data-driven analysis. Risks are prioritized based on differences between current state and standards, evaluating business impacts.'}
+                       ? 'Veri odaklı kapsamlı analiz metodolojileri ile güvenlik altyapınız bütüncül olarak değerlendirilir; mevcut riskler ve potansiyel zafiyetler tespit edilir. Mevcut durum ile kabul görmüş güvenlik standartları arasındaki farklılıklar üzerinden riskler önceliklendirilir ve iş süreçlerine olan etkileri değerlendirilir.' 
+                       : 'Your security infrastructure is holistically evaluated with data-driven comprehensive analysis methodologies; existing risks and potential vulnerabilities are identified. Risks are prioritized based on the differences between the current status and accepted security standards.'}
                   </p>
                 </div>
               </div>
            </div>
         </div>
 
-        <div class="mb-12">
-            <p class="text-white/60 text-lg md:text-xl font-sans leading-relaxed text-left font-light border-l-2 border-[#5dade2]/30 pl-8 italic">
-                {lang === 'tr' 
-                   ? 'Kurumunuzun teknolojik mimarisini, siber güvenlik kaslarını ve dijital dönüşüm kapasitesini profesyonel metodolojilerle ölçümlüyoruz. Sadece bir analiz değil, işletmeniz için stratejik bir teknoloji yol haritası sunuyoruz.' 
-                   : "We measure your institution's technological architecture, cybersecurity muscles, and digital transformation capacity with professional methodologies. Not just an analysis, we offer a strategic technology roadmap."}
-            </p>
-        </div>
+
 
         <div class="flex flex-col sm:flex-row items-start justify-start gap-8">
           <a 
@@ -107,7 +101,7 @@ const { subtitle, description, cta } = maturityEntry.data;
       <div class="w-full lg:w-1/2 relative group">
         <div class="relative rounded-[64px] overflow-hidden shadow-2xl border border-white/10 aspect-square lg:aspect-[4/5] bg-[#154360]/20">
           <video 
-            src="/banner/2.webm" 
+            src="/banner/3.webm" 
             autoplay 
             muted 
             loop 
@@ -118,20 +112,7 @@ const { subtitle, description, cta } = maturityEntry.data;
           <!-- Overlay Gradient -->
           <div class="absolute inset-0 bg-gradient-to-t from-[#0b1a2b] via-transparent to-[#0b1a2b]/20"></div>
 
-          {/* Floating Info Overlay */}
-          <div class="absolute bottom-10 left-10 right-10 p-8 bg-white/5 backdrop-blur-2xl rounded-3xl border border-white/10 transform transition-all duration-700 group-hover:-translate-y-2">
-             <div class="flex items-center gap-6">
-                <div class="w-16 h-16 rounded-2xl bg-[#e74c3c] flex items-center justify-center text-white shadow-xl animate-pulse">
-                   <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2" />
-                   </svg>
-                </div>
-                <div>
-                   <p class="text-white font-black text-xl tracking-tighter mb-1">{lang === 'tr' ? 'Veri Odaklı' : 'Data Driven'}</p>
-                   <p class="text-white/40 text-sm font-medium">{lang === 'tr' ? 'Geleceği analiz edin' : 'Analyze the future'}</p>
-                </div>
-             </div>
-          </div>
+
         </div>
 
         <!-- Decorative Glow -->
