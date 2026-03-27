@@ -61,8 +61,8 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
               <input type="email" id="email" name="email" required class="w-full bg-slate-50 border-none rounded-2xl px-6 py-4 focus:ring-2 focus:ring-[#e74c3c] transition-all" />
             </div>
             
-            <!-- Bot Trap (Honeypot) -->
-            <input type="text" name="bot_trap" tabindex="-1" autocomplete="off" style="display:none;" />
+            <!-- Bot Trap (Honeypot for Formspree) -->
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none;" />
           </div>
           
           <div class="flex flex-col gap-3 mb-10">
@@ -93,9 +93,8 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
   const form = document.querySelector('#contact-form-element');
   const status = document.querySelector('#form-status');
   
-  // Google Apps Script Configuration
-  const deployID = 'AKfycbxHPRumWTyESIIo2ruLqUOXCDxd1nFep28fRw4J5qQpithnTkX5Rs7AkFjdJx6jr0fA';
-  const scriptURL = `https://script.google.com/a/macros/luvibilisim.com/s/${deployID}/exec`;
+  // Formspree Endpoint Configuration
+  const formspreeURL = 'https://formspree.io/f/mykbzldw';
 
   const translations = {
     tr: {
@@ -124,9 +123,12 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
       const formData = new FormData(form as HTMLFormElement);
 
       try {
-        const response = await fetch(scriptURL, { 
+        const response = await fetch(formspreeURL, { 
           method: 'POST', 
-          body: formData 
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
         });
 
         if (response.ok) {
