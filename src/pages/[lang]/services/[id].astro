@@ -24,9 +24,17 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props;
+const allServices = await getCollection('services');
+
+// Filter out the current service and only show same-language services
+const currentId = entry.id;
+const otherServices = allServices
+  .filter((s: any) => s.id !== currentId && s.data.lang === entry.data.lang)
+  .sort((a: any, b: any) => (a.data.order || 99) - (b.data.order || 99));
+
 const { Content } = await render(entry);
 ---
 
-<ContentDetailLayout frontmatter={entry.data}>
+<ContentDetailLayout frontmatter={entry.data} otherServices={otherServices}>
   <Content />
 </ContentDetailLayout>
