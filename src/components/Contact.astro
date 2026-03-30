@@ -60,6 +60,9 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
               <label for="email" class="text-[10px] font-black uppercase tracking-widest text-[#154360]/40 ml-1">{lang === 'tr' ? 'E-posta' : 'Email'}</label>
               <input type="email" id="email" name="email" required class="w-full bg-slate-50 border-none rounded-2xl px-6 py-4 focus:ring-2 focus:ring-[#e74c3c] transition-all" />
             </div>
+            
+            <!-- Bot Trap (Honeypot for Formspree) -->
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none;" />
           </div>
           
           <div class="flex flex-col gap-3 mb-10">
@@ -86,27 +89,66 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
   </div>
 </section>
 
-<script is:inline>
-  const form = document.getElementById('contact-form-element');
-  const status = document.getElementById('form-status');
+<script>
+  const form = document.querySelector('#contact-form-element');
+  const status = document.querySelector('#form-status');
   
-  if (form) {
+  // Formspree Endpoint Configuration
+  const formspreeURL = 'https://formspree.io/f/mykbzldw';
+
+  const translations = {
+    tr: {
+      sending: 'Gönderiliyor...',
+      success: 'Mesajınız başarıyla gönderildi. En kısa sürede size dönüş yapacağız.',
+      error: 'Bir hata oluştu. Lütfen tekrar deneyin veya doğrudan e-posta ile ulaşın.'
+    },
+    en: {
+      sending: 'Sending...',
+      success: 'Your message has been sent successfully. We will get back to you soon.',
+      error: 'An error occurred. Please try again or contact us directly via email.'
+    }
+  };
+
+  // Determine language from URL path
+  const currentLang = window.location.pathname.startsWith('/en') ? 'en' : 'tr';
+  const t = translations[currentLang];
+
+  if (form && status) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      status.innerText = 'Gönderiliyor...';
+      
+      status.innerText = t.sending;
       status.className = 'mt-6 text-center text-xs font-bold opacity-100 text-[#154360]';
       
-      // Since it's SSG, we just simulate success or redirect to a thank you page
-      // In a real app, you'd use fetch() to an API or a serverless function
+      const formData = new FormData(form as HTMLFormElement);
+
+      try {
+        const response = await fetch(formspreeURL, { 
+          method: 'POST', 
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          status.innerText = t.success;
+          status.className = 'mt-6 text-center text-xs font-bold opacity-100 text-green-600';
+          (form as HTMLFormElement).reset();
+        } else {
+          throw new Error('Form submission failed');
+        }
+      } catch (error) {
+        console.error('Error!', (error as Error).message);
+        status.innerText = t.error;
+        status.className = 'mt-6 text-center text-xs font-bold opacity-100 text-red-600';
+      }
+
       setTimeout(() => {
-        status.innerText = 'Mesajınız başarıyla gönderildi. En kısa sürede size dönüş yapacağız.';
-        status.className = 'mt-6 text-center text-xs font-bold opacity-100 text-green-600';
-        form.reset();
-        
-        setTimeout(() => {
-          status.style.opacity = '0';
-        }, 5000);
-      }, 1500);
+        if (status) {
+          (status as HTMLElement).style.opacity = '0';
+        }
+      }, 5000);
     });
   }
 </script>

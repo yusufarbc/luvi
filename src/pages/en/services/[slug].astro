@@ -5,7 +5,8 @@ import Layout from '../../../layouts/Layout.astro';
 export async function getStaticPaths() {
   const services = await getCollection('services', ({ data }) => data.lang === 'en');
   return services.map(s => {
-    const slug = s.id.includes('/') ? s.id.split('/')[0] : s.id.replace('.md', '');
+    const normalizedId = s.id.replace(/\\/g, '/');
+    const slug = normalizedId.includes('/') ? normalizedId.split('/')[0] : normalizedId.replace('.md', '');
     return {
       params: { slug },
       props: { entry: s, allServices: services },
@@ -18,10 +19,13 @@ const rendered = await render(entry);
 const { Content } = rendered;
 const headings = rendered.headings || [];
 
-const currentSlug = entry.id.includes('/') ? entry.id.split('/')[0] : entry.id.replace('.md', '');
+const currentNormalizedId = entry.id.replace(/\\/g, '/');
+const currentSlug = currentNormalizedId.includes('/') ? currentNormalizedId.split('/')[0] : currentNormalizedId.replace('.md', '');
+
 const otherServices = allServices
   .filter(s => {
-    const sSlug = s.id.includes('/') ? s.id.split('/')[0] : s.id.replace('.md', '');
+    const sNormalizedId = s.id.replace(/\\/g, '/');
+    const sSlug = sNormalizedId.includes('/') ? sNormalizedId.split('/')[0] : sNormalizedId.replace('.md', '');
     return sSlug !== currentSlug;
   })
   .sort((a, b) => (a.data.order || 99) - (b.data.order || 99));
@@ -150,7 +154,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {otherServices.map((service) => (
                     <a 
-                        href={`${base}/en/services/${service.id.includes('/') ? service.id.split('/')[0] : service.id.replace('.md', '')}`}
+                        href={`${base}/en/services/${service.id.replace(/\\/g, '/').includes('/') ? service.id.replace(/\\/g, '/').split('/')[0] : service.id.replace(/\\/g, '/').replace('.md', '')}`}
                         class="group p-10 bg-white rounded-[40px] border border-slate-100 hover:border-[#5dade2]/30 hover:shadow-2xl hover:shadow-[#5dade2]/5 transition-all duration-700 flex flex-col gap-6"
                     >
                         <div class="w-16 h-16 rounded-2xl bg-slate-50 group-hover:bg-[#5dade2]/10 flex items-center justify-center text-[#154360] group-hover:text-[#5dade2] transition-colors duration-500 border border-slate-100 group-hover:border-[#5dade2]/20">
