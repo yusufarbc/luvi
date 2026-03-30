@@ -1,63 +1,82 @@
 ---
-import { getCollection, getEntry } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import Layout from '../../../layouts/Layout.astro';
-import { render } from 'astro:content';
 
 export async function getStaticPaths() {
   const services = await getCollection('services', ({ data }) => data.lang === 'tr');
-  return services.map(s => ({
-    params: { slug: s.id.split('/').pop().replace('.md', '') },
-    props: { entry: s },
-  }));
+  return services.map(s => {
+    const slug = s.id.includes('/') ? s.id.split('/')[0] : s.id.replace('.md', '');
+    return {
+      params: { slug },
+      props: { entry: s, allServices: services },
+    };
+  });
 }
 
-const { entry } = Astro.props;
+const { entry, allServices } = Astro.props;
 const rendered = await render(entry);
 const { Content } = rendered;
 const headings = rendered.headings || [];
+
+const currentSlug = entry.id.includes('/') ? entry.id.split('/')[0] : entry.id.replace('.md', '');
+const otherServices = allServices
+  .filter(s => {
+    const sSlug = s.id.includes('/') ? s.id.split('/')[0] : s.id.replace('.md', '');
+    return sSlug !== currentSlug;
+  })
+  .sort((a, b) => (a.data.order || 99) - (b.data.order || 99));
+
+const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
 ---
 
 <Layout title={`${entry.data.title} | Luvi Bilişim`} lang="tr">
   <main class="bg-white min-h-screen relative">
     
-    <!-- Hero Header with Brand Color Accent -->
-    <div class="pt-24 pb-24 bg-gradient-to-b from-slate-50 to-white relative overflow-hidden">
-        <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#154360 1px, transparent 1px); background-size: 30px 30px;"></div>
+    <!-- Header Strategy -->
+    <div class="pt-32 pb-20 bg-slate-50 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-[0.02] pointer-events-none" style="background-image: radial-gradient(#154360 1px, transparent 1px); background-size: 40px 40px;"></div>
         <div class="container mx-auto px-4 md:px-8 relative z-10">
              <!-- Breadcrumbs -->
-             <div class="flex items-center gap-4 mb-12">
-                <a href="/tr" class="text-slate-400 hover:text-[#5dade2] font-sans font-black text-[10px] tracking-[0.3em] uppercase transition-colors">ANA SAYFA</a>
-                <div class="w-1 h-1 rounded-full bg-slate-300"></div>
-                <a href="/tr#services" class="text-slate-400 hover:text-[#5dade2] font-sans font-black text-[10px] tracking-[0.3em] uppercase transition-colors">HİZMETLER</a>
-                <div class="w-1 h-1 rounded-full bg-slate-300"></div>
-                <span class="text-[#5dade2] font-sans font-black text-[10px] tracking-[0.3em] uppercase">{entry.data.category}</span>
-             </div>
+             <nav class="flex items-center gap-4 mb-16 px-1">
+                <a href={`${base}/tr`} class="text-slate-400 hover:text-[#5dade2] font-sans font-black text-[10px] tracking-[0.4em] uppercase transition-all">ANA SAYFA</a>
+                <div class="w-1.5 h-1.5 rounded-full bg-[#5dade2]/30"></div>
+                <a href={`${base}/tr#services`} class="text-slate-400 hover:text-[#5dade2] font-sans font-black text-[10px] tracking-[0.4em] uppercase transition-all">HİZMETLER</a>
+                <div class="w-1.5 h-1.5 rounded-full bg-[#5dade2]/30"></div>
+                <span class="text-[#154360] font-sans font-black text-[10px] tracking-[0.4em] uppercase opacity-40">{entry.data.category}</span>
+             </nav>
 
-             <h1 class="text-5xl md:text-8xl font-sans font-black text-[#154360] tracking-tighter leading-[0.95] mb-8 max-w-5xl">
-                {entry.data.title}
-             </h1>
-             <div class="h-2 w-32 bg-[#e74c3c] rounded-full"></div>
+             <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-12 max-w-7xl mx-auto">
+                <div class="max-w-4xl">
+                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-sans font-black text-[#154360] tracking-tighter leading-[0.9] mb-10">
+                        {entry.data.title}
+                    </h1>
+                    <div class="h-2 w-32 bg-[#5dade2] rounded-full"></div>
+                </div>
+                <div class="lg:w-1/3 pb-2">
+                    <p class="text-slate-400 text-lg md:text-xl font-sans leading-relaxed font-light">
+                        {entry.data.description}
+                    </p>
+                </div>
+             </div>
         </div>
     </div>
 
-    <div class="container mx-auto px-4 md:px-8 py-20">
-      <div class="flex flex-col lg:flex-row gap-24">
+    <div class="container mx-auto px-4 md:px-8 py-24 max-w-7xl">
+      <div class="flex flex-col lg:flex-row gap-20">
         
-        <!-- Sidebar: Elite Navigation -->
+        <!-- Sidebar Navigation -->
         <aside class="lg:w-1/4">
-          <div class="sticky top-40">
-            <div class="mb-12">
-                <h4 class="text-[#154360] font-sans font-black text-xs tracking-[0.5em] uppercase mb-8 flex items-center gap-3">
-                    <div class="w-2 h-2 rounded-full bg-[#e74c3c]"></div>
+          <div class="sticky top-40 space-y-12">
+            <div>
+                <h4 class="text-[#154360] font-sans font-black text-[11px] tracking-[0.5em] uppercase mb-10 flex items-center gap-3 opacity-40">
                     BÖLÜMLER
                 </h4>
-                <nav id="sections-nav" class="flex flex-col gap-2 border-l border-slate-100">
-                  {/* Dynamic Headings will be injected here by script if SSR fails */}
+                <nav id="sections-nav" class="flex flex-col gap-1 border-l-2 border-slate-50 ml-1">
                   {headings.length > 0 && headings.filter(h => h.depth >= 2 && h.depth <= 3).map(h => (
                     <a 
                       href={`#${h.slug}`} 
-                      class={`pl-6 py-3 text-sm font-sans font-bold tracking-tight transition-all duration-300 hover:text-[#154360] border-l-2 border-transparent hover:border-[#5dade2] -ml-[1px]
-                        ${h.depth === 3 ? 'text-slate-400 font-bold' : 'text-[#154360] font-black uppercase text-xs tracking-widest mt-4'}
+                      class={`pl-6 py-3 text-sm font-sans font-bold tracking-tight transition-all duration-300 hover:text-[#154360] border-l-2 border-transparent hover:border-[#5dade2] -ml-[2px]
+                        ${h.depth === 3 ? 'text-slate-400' : 'text-[#154360] font-black uppercase text-[11px] tracking-widest mt-4 first:mt-0'}
                       `}
                     >
                       {h.text}
@@ -66,52 +85,97 @@ const headings = rendered.headings || [];
                 </nav>
             </div>
 
-            <!-- Pro Card -->
-            <div class="p-10 rounded-[40px] bg-[#154360] text-white relative overflow-hidden group">
-                <div class="absolute -right-10 -top-10 w-40 h-40 bg-white/5 rounded-full blur-3xl"></div>
-                <h5 class="text-xl font-sans font-black mb-4 relative z-10 leading-tight">Profesyonel <br/> Analiz İsteyin</h5>
-                <p class="text-white/40 text-xs mb-8 relative z-10 leading-relaxed font-medium">Stratejik yol haritanızı uzman ekibimizle birlikte planlayalım.</p>
-                <a href="/tr#contact-form" class="relative z-10 inline-flex items-center justify-center w-full bg-[#5dade2] text-[#154360] py-4 rounded-full font-heading font-black text-xs hover:bg-white transition-all shadow-xl">
+            <!-- Contact Card -->
+            <div class="p-10 rounded-[48px] bg-[#154360] text-white relative overflow-hidden group shadow-2xl">
+                <div class="absolute -right-10 -top-10 w-40 h-40 bg-white/5 rounded-full blur-3xl transition-transform duration-1000 group-hover:scale-150"></div>
+                <h5 class="text-2xl font-sans font-black mb-4 relative z-10 leading-tight">Uzman <br/> Analizi</h5>
+                <p class="text-white/40 text-sm mb-10 relative z-10 leading-relaxed font-medium">Kurumunuza özel çözümler için bizimle iletişime geçin.</p>
+                <a href={`${base}/tr#contact-form`} class="relative z-10 inline-flex items-center justify-center w-full bg-[#5dade2] text-[#154360] py-5 rounded-full font-heading font-black text-xs hover:bg-white transition-all shadow-xl hover:-translate-y-1">
                   TEKLİF ALIN
                 </a>
             </div>
           </div>
         </aside>
 
-        <!-- Main Content: Authority Layout -->
+        <!-- Main Content Area -->
         <article id="service-content" class="lg:w-3/4">
           <div class="max-w-4xl">
-            <!-- Strategic Summary -->
-            <div class="mb-24 p-12 bg-slate-50 rounded-[40px] border border-slate-100 italic">
-                <p class="text-slate-600 text-xl font-medium leading-relaxed">
-                   "{entry.data.description}"
-                </p>
-            </div>
+            <!-- Strategic Header Image (if exists) -->
+            {entry.data.image && (
+              <div class="mb-24 rounded-[64px] overflow-hidden bg-slate-50 aspect-[16/9] shadow-[0_40px_100px_-20px_rgba(21,67,96,0.15)] border border-slate-100 ring-1 ring-black/5">
+                <img 
+                  src={entry.data.image.src || entry.data.image} 
+                  alt={entry.data.title} 
+                  class="w-full h-full object-cover"
+                />
+              </div>
+            )}
 
-            <!-- Content Rendering -->
             <div class="prose prose-slate prose-xl max-w-none 
               prose-headings:font-sans prose-headings:font-black prose-headings:tracking-tighter prose-headings:text-[#154360]
-              prose-h3:text-4xl prose-h3:mt-32 prose-h3:mb-12 prose-h3:pt-32 prose-h3:border-t prose-h3:border-slate-50
-              prose-p:text-slate-500 prose-p:leading-relaxed prose-p:font-medium prose-p:text-lg
-              prose-li:text-slate-500 prose-li:font-medium prose-strong:text-[#154360]
+              prose-h3:text-4xl prose-h3:mt-32 prose-h3:mb-12 prose-h3:pt-32 prose-h3:border-t prose-h3:border-slate-100
+              prose-p:text-slate-500 prose-p:leading-[1.8] prose-p:font-normal prose-p:text-lg md:prose-p:text-xl prose-p:text-justify
+              prose-li:text-slate-500 prose-li:font-normal prose-li:text-lg md:prose-li:text-xl
+              prose-strong:text-[#154360] prose-strong:font-bold
+              prose-blockquote:border-l-[8px] prose-blockquote:border-[#5dade2] prose-blockquote:pl-10 prose-blockquote:italic prose-blockquote:text-2xl prose-blockquote:text-[#154360] prose-blockquote:bg-slate-50/50 prose-blockquote:py-12 prose-blockquote:pr-8 prose-blockquote:rounded-r-3xl prose-blockquote:my-20
             ">
               <Content />
             </div>
 
-            <!-- Footer CTA -->
-            <div class="mt-40 p-16 rounded-[48px] bg-slate-900 border border-slate-800 flex flex-col items-center text-center">
-                <div class="w-16 h-16 rounded-2xl bg-[#e74c3c]/20 flex items-center justify-center text-[#e74c3c] mb-8">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+            <!-- Footer Section -->
+            <div class="mt-40 p-16 rounded-[64px] bg-[#0f172a] border border-white/5 flex flex-col items-center text-center relative overflow-hidden shadow-3xl">
+                <div class="absolute inset-0 bg-gradient-to-tr from-[#154360]/20 to-transparent"></div>
+                <div class="w-20 h-20 rounded-3xl bg-[#5dade2]/10 flex items-center justify-center text-[#5dade2] mb-10 relative z-10 border border-[#5dade2]/20">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                 </div>
-                <h3 class="text-3xl md:text-5xl font-sans font-black text-white mb-6 tracking-tighter">Dijital Geleceğinizi <br/> <span class="text-[#5dade2]">Bugünden</span> Kurgulayın</h3>
-                <p class="text-slate-500 text-lg mb-12 max-w-2xl font-medium">Bütünsel teknoloji yönetimi ve siber güvenlik stratejileri ile kurumunuzun rekabet avantajını koruyoruz.</p>
-                <a href="/tr/#contact-form" class="bg-white text-[#154360] px-14 py-6 rounded-full font-heading font-black text-lg hover:bg-[#5dade2] transition-all shadow-2xl hover:-translate-y-2">
+                <h3 class="text-4xl md:text-6xl font-sans font-black text-white mb-8 tracking-tighter relative z-10 leading-[1.1]">Dijital Geleceğinizi <br/> <span class="text-[#5dade2]">Bugünden</span> Kurgulayın</h3>
+                <p class="text-slate-400 text-lg md:text-xl mb-14 max-w-2xl font-medium relative z-10">Stratejik teknoloji yönetimi ile kurumunuzun dijital reflekslerini güçlendiriyoruz.</p>
+                <a href={`${base}/tr/#contact-form`} class="relative z-10 bg-white text-[#154360] px-16 py-7 rounded-full font-heading font-black text-xl hover:bg-[#5dade2] hover:text-[#154360] transition-all shadow-2xl hover:-translate-y-2">
                     Bize Ulaşın
                 </a>
             </div>
           </div>
         </article>
       </div>
+
+      <!-- Quick Links Section: Other Services -->
+      {otherServices.length > 0 && (
+        <div class="mt-40 pt-24 border-t border-slate-100">
+            <div class="flex items-center gap-8 mb-20">
+                <h2 class="text-[#154360] font-sans font-black text-3xl md:text-4xl tracking-tighter whitespace-nowrap uppercase">
+                    TÜM HİZMETLERİMİZ
+                </h2>
+                <div class="h-[2px] flex-1 bg-slate-100"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {otherServices.map((service) => (
+                    <a 
+                        href={`${base}/tr/services/${service.id.includes('/') ? service.id.split('/')[0] : service.id.replace('.md', '')}`}
+                        class="group p-10 bg-white rounded-[40px] border border-slate-100 hover:border-[#5dade2]/30 hover:shadow-2xl hover:shadow-[#5dade2]/5 transition-all duration-700 flex flex-col gap-6"
+                    >
+                        <div class="w-16 h-16 rounded-2xl bg-slate-50 group-hover:bg-[#5dade2]/10 flex items-center justify-center text-[#154360] group-hover:text-[#5dade2] transition-colors duration-500 border border-slate-100 group-hover:border-[#5dade2]/20">
+                            {service.data.icon === 'shield' && <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>}
+                            {service.data.icon === 'bot' && <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" /></svg>}
+                            {service.data.icon === 'ai' && <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>}
+                            {service.data.icon === 'cert' && <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>}
+                        </div>
+                        <div>
+                            <h4 class="text-[#154360] font-sans font-black text-xl mb-3 tracking-tight group-hover:text-[#5dade2] transition-colors duration-500 uppercase">
+                                {service.data.title}
+                            </h4>
+                            <p class="text-slate-400 text-sm leading-relaxed font-medium line-clamp-2">
+                                {service.data.description}
+                            </p>
+                        </div>
+                        <div class="mt-auto pt-6 flex items-center gap-3 text-[#5dade2] font-sans font-black text-[10px] tracking-[0.3em] uppercase opacity-0 group-hover:opacity-100 transition-all duration-700 translate-y-4 group-hover:translate-y-0">
+                            DETAYLI İNCELE
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transition-transform group-hover:translate-x-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                        </div>
+                    </a>
+                ))}
+            </div>
+        </div>
+      )}
     </div>
   </main>
 </Layout>
@@ -122,39 +186,27 @@ const headings = rendered.headings || [];
     const content = document.getElementById('service-content');
     if (!nav || !content) return;
 
-    // If SSR already populated, do nothing unless it's empty
     if (nav.children.length > 0) return;
 
-    const headings = content.querySelectorAll('h1, h2, h3, h4');
-    console.log('[Sidebar Debug] Headings found in DOM:', headings.length);
-    
+    const headings = content.querySelectorAll('h2, h3');
     headings.forEach((h, index) => {
       if (!h.id) {
         h.id = 'section-' + index;
       }
-      console.log(`[Sidebar Debug] Adding: ${h.textContent} (${h.tagName}) -> #${h.id}`);
-
       const a = document.createElement('a');
       a.href = '#' + h.id;
       a.textContent = h.textContent;
+      a.className = 'pl-6 py-3 text-sm font-sans font-bold tracking-tight transition-all duration-300 hover:text-[#154360] border-l-2 border-transparent hover:border-[#5dade2] -ml-[2px]';
       
-      // Base styles
-      a.className = 'pl-6 py-3 text-sm font-sans font-bold tracking-tight transition-all duration-300 hover:text-[#154360] border-l-2 border-transparent hover:border-[#5dade2] -ml-[1px]';
-      
-      // Depth specific styles
       if (h.tagName === 'H3') {
         a.classList.add('text-slate-400');
       } else {
-        a.classList.add('text-[#154360]', 'font-black', 'uppercase', 'text-xs', 'tracking-widest', 'mt-4');
+        a.classList.add('text-[#154360]', 'font-black', 'uppercase', 'text-[11px]', 'tracking-widest', 'mt-4', 'first:mt-0');
       }
-
       nav.appendChild(a);
     });
   }
-
-  // Run on load
   window.addEventListener('DOMContentLoaded', populateSections);
-  // Also run immediately in case DOM is already ready
   populateSections();
 </script>
 
@@ -163,3 +215,4 @@ const headings = rendered.headings || [];
     scroll-behavior: smooth;
   }
 </style>
+

@@ -9,14 +9,20 @@ export async function getStaticPaths() {
       lang: entry.data.lang, 
       id: entry.id.split('/').pop()?.replace('.md', '') 
     },
-    props: { entry },
+    props: { entry, allProducts },
   }));
 }
 
-const { entry } = Astro.props;
+const { entry, allProducts } = Astro.props;
 const { Content } = await render(entry);
+
+// Filter out the current product and only show same-language products
+const currentId = entry.id;
+const otherProducts = allProducts
+  .filter((p: any) => p.id !== currentId && p.data.lang === entry.data.lang)
+  .sort((a: any, b: any) => (a.data.order || 99) - (b.data.order || 99));
 ---
 
-<ContentDetailLayout frontmatter={entry.data}>
+<ContentDetailLayout frontmatter={entry.data} otherProducts={otherProducts}>
   <Content />
 </ContentDetailLayout>
