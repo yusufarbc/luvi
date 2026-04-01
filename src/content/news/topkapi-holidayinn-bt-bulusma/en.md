@@ -4,7 +4,6 @@ description: "We discussed the opportunities and risks in the fields of cyber se
 pubDate: 2024-04-01
 image: "1.webp"
 gallery:
-  - { src: "1.webp", alt: "HolidayInn IT Meeting 1" }
   - { src: "2.webp", alt: "HolidayInn IT Meeting 2" }
   - { src: "3.webp", alt: "HolidayInn IT Meeting 3" }
   - { src: "4.webp", alt: "HolidayInn IT Meeting 4" }

@@ -4,7 +4,6 @@ description: "BT liderleriyle bir araya gelerek siber güvenlik ve yapay zeka al
 pubDate: 2024-04-01
 image: "1.webp"
 gallery:
-  - { src: "1.webp", alt: "HolidayInn BT Buluşması 1" }
   - { src: "2.webp", alt: "HolidayInn BT Buluşması 2" }
   - { src: "3.webp", alt: "HolidayInn BT Buluşması 3" }
   - { src: "4.webp", alt: "HolidayInn BT Buluşması 4" }
