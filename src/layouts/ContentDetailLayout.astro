@@ -99,7 +99,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
             )}
             <!-- Content -->
             <!-- Content area with manual styling for premium feel -->
-            <article class="content-detail-prose prose-container max-w-none">
+            <article class="premium-luvi-article prose-container max-w-none">
               <slot />
             </article>
 
@@ -189,163 +189,14 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
   </div>
 </Layout>
 
-<style is:global>
-  /* Custom Content Styling - Manual "Prose" replacement for consistent elite corporate look */
-  .content-detail-prose {
-    --text-primary: #154360;
-    --text-body: #475569;
-    --accent: #5dade2;
-    --h2-spacing: 6rem;
-    --h3-spacing: 3rem;
-  }
-
-  .content-detail-prose h2 {
-    color: var(--text-primary) !important;
-    font-family: 'Montserrat', sans-serif !important;
-    font-size: 2.5rem !important;
-    font-weight: 900 !important;
-    line-height: 1.2 !important;
-    margin-top: 5rem !important;
-    margin-bottom: 2rem !important;
-    letter-spacing: -0.03em !important;
-    position: relative;
-    padding-left: 2.5rem;
-    display: block !important;
-  }
-  
-  @media (max-width: 768px) {
-    .content-detail-prose h2 {
-      font-size: 1.85rem !important;
-      padding-left: 2rem;
-      margin-top: 4rem !important;
-    }
-  }
-
-  .content-detail-prose h2::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0.2em;
-    bottom: 0.2em;
-    width: 8px;
-    background: linear-gradient(to bottom, #5dade2, #154360);
-    border-radius: 99px;
-    box-shadow: 0 4px 12px rgba(93, 173, 226, 0.3);
-  }
-
-  .content-detail-prose h3 {
-    color: #1c5d8e !important;
-    font-family: 'Montserrat', sans-serif !important;
-    font-size: 1.85rem !important;
-    font-weight: 800 !important;
-    margin-top: 3.5rem !important;
-    margin-bottom: 1.25rem !important;
-    letter-spacing: -0.02em !important;
-    padding-left: 1.5rem;
-    border-left: 5px solid #e2e8f0;
-    line-height: 1.3 !important;
-    display: block !important;
-  }
-
-  .content-detail-prose p {
-    color: var(--text-body) !important;
-    font-size: 1.15rem !important;
-    line-height: 1.75 !important;
-    margin-bottom: 1.75rem !important;
-    text-align: left;
-    font-weight: 400;
-  }
-
-  /* First paragraph after h2/h3 special treatment */
-  .content-detail-prose h2 + p,
-  .content-detail-prose h3 + p {
-    font-size: 1.25rem !important;
-    color: #334155 !important;
-    font-weight: 500;
-  }
-
-  .content-detail-prose strong {
-    color: var(--text-primary);
-    font-weight: 800;
-  }
-
-  .content-detail-prose ul {
-    margin-top: 2rem !important;
-    margin-bottom: 3rem !important;
-    padding-left: 0.5rem;
-  }
-
-  .content-detail-prose ul li {
-    position: relative;
-    padding-left: 2.5rem;
-    list-style: none !important;
-    margin-bottom: 1.25rem !important;
-    color: var(--text-body) !important;
-    font-size: 1.2rem !important;
-    line-height: 1.6 !important;
-  }
-
-  .content-detail-prose ul li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0.75rem;
-    width: 14px;
-    height: 4px;
-    background-color: var(--accent);
-    border-radius: 99px;
-  }
-
-  .content-detail-prose blockquote {
-    border-left: 8px solid var(--accent);
-    padding: 3rem 2rem 3rem 4rem;
-    margin: 4rem 0;
-    background: #f8fafc;
-    border-radius: 0 40px 40px 0;
-    font-style: italic;
-    font-size: 1.75rem;
-    color: var(--text-primary);
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    line-height: 1.4;
-    position: relative;
-  }
-  
-  .content-detail-prose blockquote::after {
-    content: '"';
-    position: absolute;
-    top: 1rem;
-    left: 1.5rem;
-    font-size: 5rem;
-    opacity: 0.1;
-    color: var(--text-primary);
-  }
-
-  /* Restore and style HR */
-  .content-detail-prose hr {
-    border: none;
-    height: 1px;
-    background: linear-gradient(to right, transparent, #e2e8f0, transparent);
-    margin: 4rem 0 !important;
-    display: block !important;
-    visibility: visible !important;
-  }
-
-  /* List of items that look like checklist */
-  .content-detail-prose li > strong:only-child {
-    display: block;
-    border-bottom: 1px solid #f1f5f9;
-    padding-bottom: 0.5rem;
-    margin-bottom: 0.5rem;
-  }
-
+<style>
   /* TOC Active Link Highlight */
   #toc a.active {
     color: var(--accent);
     border-left-color: var(--accent);
     padding-left: 1.5rem;
     font-weight: 800;
-    background: linear-gradient(to right, rgba(93, 173, 226, 0.05), transparent);
+    background: linear-gradient(to right, rgba(93, 173, 226, 0.08), transparent);
   }
 </style>
 
