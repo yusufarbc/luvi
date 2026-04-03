@@ -10,7 +10,9 @@ lang: "tr"
 
 ## ISO/IEC 27001 Bilgi Güvenliği Yönetim Sistemi
 “Bilgiyi Korumak, Geleceği Güvenceye Almak.”
- 
+
+![ISO/IEC 27001](./1.jpeg)
+
 Dijital dünyada güven, en değerli sermayedir. Luvi Bilişim, ISO 27001 Bilgi Güvenliği Yönetim Sistemi(BGYS) danışmanlığı ile kurumunuzu sadece bir belgeye değil, her türlü siber tehdide karşı anında tepki veren "yaşayan bir güvenlik mimarisine" kavuşturur.
 
 ### ISO 27001 Bilgi Güvenliği Yönetim Sistemi Uygulama Metodolojimiz
@@ -39,7 +41,9 @@ Luvi Bilişim, PUKÖ döngüsünün her aşamasında profesyonel danışmanlık 
 
 ## ISO/IEC 27701 Kişisel Veri Yönetim Sistemi
 " Kişisel Veriyi Kurumsal Güvenle Mühürleyin."
- 
+
+![ISO/IEC 27701](./2.jpeg)
+
 Kişisel verilerin korunması, günümüz iş dünyasında yalnızca yasal bir yükümlülük değil; kurumların itibarını, güvenilirliğini ve sürdürülebilirliğini doğrudan etkileyen stratejik bir gerekliliktir. ISO/IEC 27701 standardı, veri gizliliği yönetimini kurumsal düzeye taşıyarak kişisel veri işleme süreçlerinin güvenli, şeffaf ve kontrol edilebilir şekilde yönetilmesini sağlar. ISO/IEC 27001 altyapısı üzerine inşa edilen bu yapı sayesinde kuruluşlar, gizlilik risklerini etkin biçimde azaltırken KVKK ve GDPR gibi regülasyonlara uyumlu bir sistem oluşturabilir. Artan veri ihlalleri ve regülasyon baskısı karşısında güçlü bir gizlilik yönetimi artık bir tercih değil, rekabet avantajı sağlayan kritik bir zorunluluk haline gelmiştir; bu noktada Luvi Bilişim, kurumların veri gizliliği süreçlerini uçtan uca yapılandırarak güvenilir, sürdürülebilir ve uluslararası standartlara uyumlu bir yönetim altyapısı oluşturmasına katkı sağlar.
 
 ### ISO/IEC 27701 belgelendirmesi ile:
@@ -61,7 +65,9 @@ Sertifikasyon süreci aşağıdaki adımlardan oluşur:
 
 ## ISO/IEC 22301 İş Sürekliliği Yönetim Sistemi
 “İşinizi Her Şartta Ayakta Tutun.”
- 
+
+![ISO/IEC 22301](./3.jpeg)
+
 Kuruluşların operasyonel dayanıklılığı ve risk yönetimi, günümüz iş dünyasında kritik bir rekabet unsuru haline gelmiştir. ISO 22301 standardı, kritik iş süreçlerini kesinti durumlarında dahi sürdürebilmeyi ve kabul edilebilir süreler içinde yeniden devreye almayı sağlayan kapsamlı bir yönetim çerçevesi sunar. Mevcut durum analizleri, risk değerlendirmeleri ve iş etki analizleri ile süreçler önceliklendirilir ve aksiyon alınabilir çözümler geliştirilir. Luvi Bilişim, uluslararası deneyime sahip uzman kadrosu ile İş Sürekliliği Yönetim Sistemi kurulumu ve ISO 22301 belgelendirme sürecinde kurumlara uçtan uca destek sağlayarak sürdürülebilir, güvenilir ve standartlara uyumlu bir yapı oluşturur.
 
 ### ISO 22301 İş Sürekliliği Yönetim Sistemi Uygulama Metodolojimiz
@@ -84,7 +90,9 @@ Luvi Bilişim, İSYS projelerinde PUKÖ (Planla–Uygula–Kontrol Et–Önlem A
 
 ## ISO/IEC 42001 Yapay Zekâ Yönetim Sistemi
 “Yapay Zekâyı Güvenle Yönetin, Değeri Sürdürülebilir Kılın.”
- 
+
+![ISO/IEC 42001](./4.jpeg)
+
 Kuruluşların yapay zekâ uygulamalarını güvenilir, etik ve sorumlu şekilde yönetmesi, günümüz dijital ekonomisinde kritik bir gereklilik haline gelmiştir. ISO/IEC 42001 standardı; yapay zekâ sistemlerinin geliştirilmesi, uygulanması ve sürekli iyileştirilmesi süreçlerinde risklerin kontrol altına alınmasını, şeffaflığın sağlanmasını ve kurumsal değerin sürdürülebilir biçimde artırılmasını hedefleyen kapsamlı bir yönetim çerçevesi sunar.
 
 ### Uygulama Metodolojimiz
@@ -104,7 +112,8 @@ Luvi Bilişim, projelerinde PUKÖ modelini temel alarak aşağıdaki adımları 
 - İç Denetim ve Sürekli İyileştirme Süreçleri
 
 ## Kişisel Verilerin Korunması
- 
+
+![Kişisel Verilerin Korunması](./5.jpeg)
 ### Kişisel Verilerin Korunması Kanunu Hakkında Bilgilendirme ve Tanıtım
 Kişisel Verilerin Korunması Kanun Tasarısı 24 Mart 2014’te TBMM’de görüşülüp yasalaşmasının ardından 7 Nisan 2016’da Cumhurbaşkanı’nın onayıyla 6698 sayılı kanun olarak Resmi Gazetede yayınlanmasıyla yürürlüğe girdi. Bu kanunun çıkmasından önce kişisel verilerin korunması başta Anayasa olmak üzere Türk Medeni Kanunu, Türk Ceza Kanunu, Elektronik Haberleşme Kanunu, Elektronik Ticaret Kanunu, Türk Ticaret Kanunu, Bankacılık Kanununun ilgili maddelerinde de yer almaktaydı.
 

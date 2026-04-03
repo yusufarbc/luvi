@@ -75,17 +75,43 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
                 <h4 class="text-[#154360] font-sans font-black text-[11px] tracking-[0.5em] uppercase mb-10 flex items-center gap-3 opacity-40">
                     SECTIONS
                 </h4>
-                <nav id="sections-nav" class="flex flex-col gap-1 border-l-2 border-slate-50 ml-1">
-                  {headings.length > 0 && headings.filter(h => h.depth >= 2 && h.depth <= 3).map(h => (
-                    <a 
-                      href={`#${h.slug}`} 
-                      class={`pl-6 py-3 text-sm font-sans font-bold tracking-tight transition-all duration-300 hover:text-[#154360] border-l-2 border-transparent hover:border-[#5dade2] -ml-[2px]
-                        ${h.depth === 3 ? 'text-slate-400' : 'text-[#154360] font-black uppercase text-[11px] tracking-widest mt-4 first:mt-0'}
-                      `}
-                    >
-                      {h.text}
-                    </a>
-                  ))}
+                <nav id="sections-nav" class="flex flex-col gap-1 border-l-2 border-slate-100 ml-1">
+                  {/* Grouping headings into accordion items */}
+                  {(() => {
+                    const h2s = headings.filter(h => h.depth === 2);
+                    return h2s.map((h2, index) => {
+                      const h2Id = h2.slug;
+                      const subheadings = headings.filter((h, i) => {
+                        const h2Idx = headings.indexOf(h2);
+                        const nextH2 = h2s[index + 1];
+                        const nextH2Idx = nextH2 ? headings.indexOf(nextH2) : headings.length;
+                        return i > h2Idx && i < nextH2Idx && h.depth === 3;
+                      });
+
+                      return (
+                        <div class="toc-item">
+                          <a 
+                            href={`#${h2Id}`} 
+                            class="toc-h2-link"
+                          >
+                            <span>{h2.text}</span>
+                            {subheadings.length > 0 && (
+                              <div class="chevron">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                              </div>
+                            )}
+                          </a>
+                          {subheadings.length > 0 && (
+                            <div class="toc-subheadings">
+                              {subheadings.map(h3 => (
+                                <a href={`#${h3.slug}`} class="toc-h3-link">{h3.text}</a>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    });
+                  })()}
                 </nav>
             </div>
 
@@ -199,37 +225,160 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
 </Layout>
 
 <script is:inline>
-  function populateSections() {
+  function initTOC() {
     const nav = document.getElementById('sections-nav');
-    const content = document.getElementById('service-content');
-    if (!nav || !content) return;
+    const tocItems = document.querySelectorAll('.toc-item');
+    const h2Links = document.querySelectorAll('.toc-h2-link');
+    const h3Links = document.querySelectorAll('.toc-h3-link');
+    const contentHeadings = document.querySelectorAll('#service-content h2, #service-content h3');
 
-    if (nav.children.length > 0) return;
-
-    const headings = content.querySelectorAll('h2, h3');
-    headings.forEach((h, index) => {
-      if (!h.id) {
-        h.id = 'section-' + index;
-      }
-      const a = document.createElement('a');
-      a.href = '#' + h.id;
-      a.textContent = h.textContent;
-      a.className = 'pl-6 py-3 text-sm font-sans font-bold tracking-tight transition-all duration-300 hover:text-[#154360] border-l-2 border-transparent hover:border-[#5dade2] -ml-[2px]';
-      
-      if (h.tagName === 'H3') {
-        a.classList.add('text-slate-400');
-      } else {
-        a.classList.add('text-[#154360]', 'font-black', 'uppercase', 'text-[11px]', 'tracking-widest', 'mt-4', 'first:mt-0');
-      }
-      nav.appendChild(a);
+    // Click handler for accordion
+    h2Links.forEach(link => {
+      link.addEventListener('click', (e) => {
+        const item = link.closest('.toc-item');
+        const isExpanded = item.classList.contains('is-expanded');
+        
+        if (!isExpanded) {
+          tocItems.forEach(el => el.classList.remove('is-expanded'));
+          item.classList.add('is-expanded');
+        }
+      });
     });
+
+    // Intersection Observer for highlight and auto-expand
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -70% 0px',
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          const activeLink = Array.from(document.querySelectorAll('#sections-nav a')).find(link => link.getAttribute('href') === `#${id}`);
+          
+          if (activeLink) {
+            tocItems.forEach(item => item.classList.remove('is-active'));
+            h3Links.forEach(link => link.classList.remove('active'));
+
+            const parentItem = activeLink.closest('.toc-item');
+            if (parentItem) {
+              parentItem.classList.add('is-active');
+              
+              if (!parentItem.classList.contains('is-expanded')) {
+                tocItems.forEach(item => item.classList.remove('is-expanded'));
+                parentItem.classList.add('is-expanded');
+              }
+            }
+            
+            if (activeLink.classList.contains('toc-h3-link')) {
+              activeLink.classList.add('active');
+            }
+          }
+        }
+      });
+    }, observerOptions);
+
+    contentHeadings.forEach(h => observer.observe(h));
   }
-  window.addEventListener('DOMContentLoaded', populateSections);
-  populateSections();
+
+  window.addEventListener('DOMContentLoaded', initTOC);
+  initTOC();
 </script>
 
 <style is:global>
   html {
     scroll-behavior: smooth;
+  }
+
+  h2, h3 {
+    scroll-margin-top: 140px; /* Offset for fixed navbar */
+  }
+
+  /* TOC Accordion Styles */
+  #sections-nav .toc-item {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  #sections-nav .toc-h2-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 1rem;
+    font-size: 11px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #94a3b8; /* slate-400 */
+    border-left: 3px solid transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    line-height: 1.2;
+    text-decoration: none;
+    margin-left: -2px;
+  }
+
+  #sections-nav .toc-h2-link:hover {
+    color: #154360;
+    background: rgba(241, 245, 249, 0.5); /* slate-100 */
+  }
+
+  #sections-nav .toc-item.is-active .toc-h2-link {
+    color: #154360;
+    border-left-color: #5dade2;
+    background: linear-gradient(to right, rgba(93, 173, 226, 0.08), transparent);
+  }
+
+  #sections-nav .toc-subheadings {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    padding-left: 0.5rem;
+    border-left: 1px solid #f1f5f9;
+    margin-left: 1rem;
+  }
+
+  #sections-nav .toc-item.is-expanded .toc-subheadings {
+    max-height: 1000px; /* Large enough for sub-items */
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+  }
+
+  #sections-nav .toc-h3-link {
+    padding: 0.6rem 1rem;
+    font-size: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    color: #64748b; /* slate-500 */
+    transition: all 0.2s ease;
+    text-decoration: none;
+    border-radius: 8px;
+    line-height: 1.4;
+  }
+
+  #sections-nav .toc-h3-link:hover {
+    color: #5dade2;
+    padding-left: 1.25rem;
+  }
+
+  #sections-nav .toc-h3-link.active {
+    color: #5dade2;
+    background: rgba(93, 173, 226, 0.04);
+    font-weight: 900;
+  }
+
+  #sections-nav .chevron {
+    width: 12px;
+    height: 12px;
+    transition: transform 0.4s ease;
+    opacity: 0.5;
+  }
+
+  #sections-nav .toc-item.is-expanded .chevron {
+    transform: rotate(180deg);
   }
 </style>

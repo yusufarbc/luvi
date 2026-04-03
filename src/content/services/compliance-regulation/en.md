@@ -13,6 +13,8 @@ In the rapidly changing world of local and global regulations, we see compliance
 ## ISO/IEC 27001 Information Security Management System
 **“Protecting Information, Securing the Future.”**
 
+![ISO/IEC 27001](./1.jpeg)
+
 In the digital world, trust is the most valuable capital. Luvi IT, with ISO 27001 Information Security Management System (ISMS) consultancy, provides your organization not just a certificate but a "living security architecture" that responds instantly to all types of cyber threats.
 
 ### Our ISO 27001 ISMS Implementation Methodology
@@ -45,6 +47,8 @@ In addition to 100% preparation for the certification audit, we provide the foll
 ## ISO/IEC 27701 Privacy Information Management System
 **"Seal Personal Data with Corporate Trust."**
 
+![ISO/IEC 27701](./2.jpeg)
+
 The protection of personal data is not only a legal obligation in today's business world; it is a strategic necessity that directly affects organizations' reputation, reliability, and sustainability. The ISO/IEC 27701 standard takes privacy management to the corporate level, ensuring that personal data processing is managed securely, transparently, and controllably.
 
 Built upon the ISO/IEC 27001 infrastructure, this framework allows organizations to effectively reduce privacy risks while creating a system compliant with regulations such as KVKK and GDPR. Luvi IT contributes to organizations by structuring data privacy processes from end-to-end to create a reliable, sustainable management infrastructure compliant with international standards.
@@ -70,6 +74,8 @@ Built upon the ISO/IEC 27001 infrastructure, this framework allows organizations
 ## ISO/IEC 22301 Business Continuity Management System
 **“Keep Your Business Standing in All Conditions.”**
 
+![ISO/IEC 22301](./3.jpeg)
+
 Operational resilience and risk management have become critical competitive elements in today's business world. The ISO 22301 standard provides a comprehensive management framework that ensures critical business processes can continue even during disruptions and be redeployed within acceptable timeframes.
 
 ### Our Implementation Methodology
@@ -89,7 +95,30 @@ Luvi IT manages the following steps from end-to-end based on the PDCA model:
 
 ---
 
+## ISO/IEC 42001 Artificial Intelligence Management System
+**“Manage AI Safely, Make Value Sustainable.”**
+
+![ISO/IEC 42001](./4.jpeg)
+
+Managing artificial intelligence applications in a reliable, ethical, and responsible manner has become a critical requirement in today's digital economy. The ISO/IEC 42001 standard provides a comprehensive management framework aimed at controlling risks, ensuring transparency, and sustainably increasing corporate value.
+
+### Our Implementation Methodology
+Luvi IT manages the following steps from end-to-end based on the PDCA model:
+- Ensuring Executive Management Awareness
+- Identification of AIMS Scope
+- Establishment of AI Policy and Principles
+- Establishment of AI Governance Structure
+- AI Risk and Impact Assessment
+- Data Governance and Quality Processes
+- Ethics, Transparency, and Explainability Criteria
+- Training and Awareness Programs
+- Internal Audit and Continuous Improvement
+
+---
+
 ## Protection of Personal Data (KVKK and GDPR)
+
+![Protection of Personal Data](./5.jpeg)
 
 The Law on the Protection of Personal Data (KVKK) came into force on April 7, 2016. This law is one of the most critical steps taken by the Republic of Turkey within the scope of alignment with the European Union acquis.
 
