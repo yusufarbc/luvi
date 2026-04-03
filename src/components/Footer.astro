@@ -6,7 +6,7 @@ const t = useTranslations(lang);
 
 const currentYear = new Date().getFullYear();
 
-const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 const services = [
   { label: lang === 'tr' ? 'Siber Güvenlik' : 'Cyber Security', href: `${base}/${lang}/services/cyber-security-consultancy` },

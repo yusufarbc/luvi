@@ -4,7 +4,7 @@ import { getLangFromUrl, useTranslations } from "../i18n/utils";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
 <section id="about" class="relative min-h-[80vh] w-full flex items-center justify-center overflow-hidden bg-black scroll-mt-24">

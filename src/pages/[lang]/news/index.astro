@@ -22,7 +22,7 @@ const sortedNews = allNews.sort((a, b) => {
   return new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime();
 });
 
-const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
 <Layout title={`${lang === 'tr' ? 'Bizden Haberler' : 'Latest News'} | Luvi Bilişim`} lang={lang as string}>

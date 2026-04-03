@@ -7,7 +7,7 @@ const t = useTranslations(lang);
 
 const featuresEntry = await getEntry('features', lang);
 const { title, subtitle, items } = featuresEntry.data;
-const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
 <section id="why-luvi" class="py-32 bg-[#0b1a2b] relative overflow-hidden">
