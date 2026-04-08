@@ -19,6 +19,9 @@ Sağlam bir BT altyapısının temeli, doğru kurgulanmış ve geleceğe hazır 
 * Yerinde (on-premise), bulut ve hibrit mimari seçenekleri değerlendirilerek en uygun yapı kurgulanır.
 * Standartlaşmış, modüler ve ölçeklenebilir altyapı yapıları oluşturularak uzun vadeli sürdürülebilirlik sağlanır.
 
+![Ağ ve Sistem Mimarisi](./1.jpeg)
+
+
 ## Kapasite Planlama ve Performans Yönetimi
 Ağ ve sistem altyapılarının verimli çalışması için kaynakların doğru planlanması ve yönetilmesi kritik öneme sahiptir. Bu doğrultuda:
 * Mevcut kaynak kullanım analizleri yapılarak CPU, bellek, depolama ve ağ kapasitesi değerlendirilir.
@@ -26,12 +29,16 @@ Ağ ve sistem altyapılarının verimli çalışması için kaynakların doğru 
 * Performans darboğazları tespit edilerek iyileştirme aksiyonları tanımlanır.
 * Yük dengeleme, sanallaştırma ve kaynak optimizasyonu ile sistem verimliliği artırılır.
 
+![Kapasite Planlama](./2.jpeg)
+
 ## Altyapı Standardizasyonu ve Entegrasyon
 Farklı sistemlerin uyumlu ve verimli çalışması, operasyonel etkinliğin temelini oluşturur. Bu kapsamda:
 * Ağ cihazları, sunucular ve işletim sistemleri için standart yapılandırmalar oluşturulur.
 * Sistemler arası entegrasyonlar planlanarak veri ve iş akışlarının kesintisiz ilerlemesi sağlanır.
 * Merkezi yönetim ve izleme kabiliyeti artırılarak operasyonel karmaşıklık azaltılır.
 * Versiyon yönetimi ve yapılandırma standartları ile altyapı yönetimi disipline edilir.
+
+![Altyapı Standardizasyonu](./3.jpeg)
 
 ## BT Operasyonlarının Yapılandırılması
 Kesintisiz hizmet sunumu için BT operasyonlarının sistematik ve ölçülebilir şekilde yönetilmesi gereklidir. Bu doğrultuda:

@@ -19,6 +19,9 @@ The foundation of a solid IT infrastructure rests on a well-constructed and futu
 * On-premise, cloud, and hybrid architecture options are evaluated to establish the most suitable structure.
 * Standardized, modular, and scalable infrastructure structures are created to ensure long-term sustainability.
 
+![Network and System Architecture Design](./1.jpeg)
+
+
 ## Capacity Planning and Performance Management
 Correct planning and management of resources are critically important for the efficient operation of network and system infrastructures. Accordingly:
 * CPU, memory, storage, and network capacity are evaluated by performing current resource usage analyses.
@@ -26,12 +29,18 @@ Correct planning and management of resources are critically important for the ef
 * Performance bottlenecks are identified, and improvement actions are defined.
 * System efficiency is increased through load balancing, virtualization, and resource optimization.
 
+![Capacity Planning and Performance Management](./2.jpeg)
+
+
 ## Infrastructure Standardization and Integration
 Harmonious and efficient operation of different systems forms the basis of operational effectiveness. In this context:
 * Standard configurations are created for network devices, servers, and operating systems.
 * Integrations between systems are planned to ensure uninterrupted flow of data and business workflows.
 * Operational complexity is reduced by increasing central management and monitoring capability.
 * Infrastructure management is disciplined with version management and configuration standards.
+
+![Infrastructure Standardization and Integration](./3.jpeg)
+
 
 ## Structuring IT Operations
 IT operations must be managed systematically and measurably for uninterrupted service delivery. Accordingly:
