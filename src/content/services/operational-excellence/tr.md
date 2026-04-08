@@ -21,9 +21,8 @@ Kurumların uzun vadeli başarısının temelinde, çalışanların problem çö
 
 Bu yaklaşım sayesinde, sürekli iyileştirme yalnızca bir proje değil, kurumun günlük iş yapış biçiminin ayrılmaz bir parçası haline gelir.
 
-![Continuous Improvement Culture](./1.webp)
-
 ## Süreç İyileştirme ve Maliyet Optimizasyonu
+
 Operasyonel verimliliğin artırılması için süreçlerin uçtan uca ele alınması ve katma değer yaratmayan unsurların sistematik olarak ortadan kaldırılması gereklidir. Bu kapsamda:
 * Şirket genelinde veya belirlenen iş birimlerinde detaylı mevcut durum analizleri gerçekleştirilir; süreç akışları incelenerek darboğazlar, verimsizlikler ve gelişim fırsatları tespit edilir.
 * Kurum çalışanlarıyla birlikte yürütülen çalışmalarla süreçler yeniden tasarlanır, yalın ve etkin iş akışları oluşturulur.

@@ -21,9 +21,8 @@ At the heart of the long-term success of institutions lies the systematic develo
 
 Thanks to this approach, continuous improvement becomes not just a project, but an integral part of the institution's daily way of doing business.
 
-![Continuous Improvement Culture](./1.webp)
-
 ## Process Improvement and Cost Optimization
+
 To increase operational efficiency, processes must be handled end-to-end and non-value-adding elements must be systematically eliminated. In this context:
 * Detailed current situation analyses are performed throughout the company or in specific business units; process flows are examined to identify bottlenecks, inefficiencies, and development opportunities.
 * Processes are redesigned with work carried out alongside institution employees, creating lean and effective workflows.
