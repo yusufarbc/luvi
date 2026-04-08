@@ -22,13 +22,29 @@ const headings = rendered.headings || [];
 const currentNormalizedId = entry.id.replace(/\\/g, '/');
 const currentSlug = currentNormalizedId.includes('/') ? currentNormalizedId.split('/')[0] : currentNormalizedId.replace('.md', '');
 
-const otherServices = allServices
-  .filter(s => {
-    const sNormalizedId = s.id.replace(/\\/g, '/');
-    const sSlug = sNormalizedId.includes('/') ? sNormalizedId.split('/')[0] : sNormalizedId.replace('.md', '');
-    return sSlug !== currentSlug;
-  })
-  .sort((a, b) => (a.data.order || 99) - (b.data.order || 99));
+const imageMap: Record<string, string> = {
+  strategy: '/services/strategy.webp',
+  security: '/services/security.webp',
+  professional: '/services/ai.webp',
+  compliance: '/services/compliance.webp',
+  transformation: '/services/transformation.webp',
+  excellence: '/services/excellence.webp',
+};
+
+const sortedServices = allServices.sort((a, b) => (a.data.order || 99) - (b.data.order || 99));
+const currentIndex = sortedServices.findIndex(s => {
+  const sNormalizedId = s.id.replace(/\\/g, '/');
+  const sSlug = sNormalizedId.includes('/') ? sNormalizedId.split('/')[0] : sNormalizedId.replace('.md', '');
+  return sSlug === currentSlug;
+});
+
+const otherServices = [];
+for (let i = 1; i <= 3; i++) {
+  const index = (currentIndex + i) % sortedServices.length;
+  if (index !== currentIndex) {
+    otherServices.push(sortedServices[index]);
+  }
+}
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
@@ -193,7 +209,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
                   >
                     <div class="relative w-full aspect-[16/10] mb-8 rounded-[24px] overflow-hidden bg-slate-50 transition-all duration-1000 group-hover:scale-[1.03]">
                       <img 
-                        src={service.data.image?.src || service.data.image || (service.data.category === 'security' ? '/services/security.webp' : service.data.category === 'strategy' ? '/services/strategy.webp' : service.data.category === 'compliance' ? '/services/compliance.webp' : '/services/ai.webp')} 
+                        src={imageMap[service.data.category] || '/services/strategy.webp'} 
                         alt={service.data.title}
                         class="w-full h-full object-cover transform transition-transform duration-[2000ms] group-hover:scale-110"
                       />
