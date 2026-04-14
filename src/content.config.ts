@@ -89,6 +89,7 @@ const news = defineCollection({
     order: z.number().optional().default(99),
     type: z.string().optional().default('news'),
     featured: z.boolean().default(false),
+    youtubeId: z.string().optional(),
   }),
 });
 
