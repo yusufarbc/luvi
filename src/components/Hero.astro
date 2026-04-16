@@ -15,7 +15,15 @@ const sortedNews = filteredNews.sort((a, b) => {
 }).slice(0, 4);
 
 const newsItems = sortedNews.map(n => ({
-  slug: n.id.split('/')[0],
+  slug: n.slug || (() => {
+    // Fallback robust slug extraction if n.slug isn't available
+    let id = (n.id || '').toString();
+    if (id.endsWith('.md')) id = id.replace(/\.md$/, '');
+    const parts = id.split('/').filter(Boolean);
+    let s = parts.length ? parts[parts.length - 1] : '';
+    if (s === 'tr' || s === 'en') s = parts.length >= 2 ? parts[parts.length - 2] : s;
+    return s;
+  })(),
   data: {
     title: n.data.title,
     description: n.data.description,

@@ -21,8 +21,14 @@ const navItems = [
     href: '#', 
     hasDropdown: true, 
     items: sortedServices.map(s => {
-      // Robust slug: extract folder from 'folder/lang' or 'folder/lang.md' etc.
-      const slug = s.id.includes('/') ? s.id.split('/')[0] : s.id.replace('.md', '');
+      const slug = s.slug || (() => {
+        let id = (s.id || '').toString();
+        if (id.endsWith('.md')) id = id.replace(/\.md$/, '');
+        const parts = id.split('/').filter(Boolean);
+        let ss = parts.length ? parts[parts.length - 1] : '';
+        if (ss === 'tr' || ss === 'en') ss = parts.length >= 2 ? parts[parts.length - 2] : ss;
+        return ss;
+      })();
       return {
         label: s.data.title,
         href: `${import.meta.env.BASE_URL}${lang}/services/${slug}`
@@ -34,7 +40,14 @@ const navItems = [
     href: '#', 
     hasDropdown: true,
     items: sortedProducts.map(p => {
-      const slug = p.id.split('/').pop()?.replace('.md', '');
+      const slug = p.slug || (() => {
+        let id = (p.id || '').toString();
+        if (id.endsWith('.md')) id = id.replace(/\.md$/, '');
+        const parts = id.split('/').filter(Boolean);
+        let ss = parts.length ? parts[parts.length - 1] : '';
+        if (ss === 'tr' || ss === 'en') ss = parts.length >= 2 ? parts[parts.length - 2] : ss;
+        return ss;
+      })();
       return {
         label: p.data.title,
         href: `${import.meta.env.BASE_URL}${lang}/products/${slug}`

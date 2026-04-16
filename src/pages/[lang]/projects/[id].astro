@@ -5,8 +5,14 @@ import ContentDetailLayout from '../../../layouts/ContentDetailLayout.astro';
 export async function getStaticPaths() {
   const allProjects = await getCollection('projects');
   return allProjects.map((entry) => {
-    // Handling folder-based slugs: marmara-uni/index.md -> marmara-uni
-    const slug = entry.id.includes('/') ? entry.id.split('/')[0] : entry.id.replace('.md', '');
+    const slug = entry.slug || (() => {
+      let id = (entry.id || '').toString();
+      if (id.endsWith('.md')) id = id.replace(/\.md$/, '');
+      const parts = id.split('/').filter(Boolean);
+      let s = parts.length ? parts[parts.length - 1] : '';
+      if (s === 'tr' || s === 'en') s = parts.length >= 2 ? parts[parts.length - 2] : s;
+      return s;
+    })();
     return {
       params: { 
         lang: entry.data.lang, 

@@ -40,12 +40,24 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {sortedNews.map((item) => {
-          const parts = item.id.split('/');
-          let id = parts.length >= 2 ? parts[1] : parts[0];
-          id = id.replace(/\.md$/, '').replace(/\/(tr|en)$/, '');
+          // Robust slug extraction: handle ids like
+          // 'news/slug/tr', 'news/slug/tr.md', 'news/slug', or 'news/slug.md'
+          let itemId = (item.id || '').toString();
+          if (itemId.endsWith('.md')) itemId = itemId.replace(/\.md$/, '');
+          const parts = itemId.split('/').filter(Boolean);
+          let slug = parts.length ? parts[parts.length - 1] : '';
+          if (slug === 'tr' || slug === 'en') {
+            slug = parts.length >= 2 ? parts[parts.length - 2] : slug;
+          }
+
+          // Fallback to title-based slug if something unexpected
+          if (!slug) {
+            slug = (item.data && item.data.title) ? String(item.data.title).toLowerCase().replace(/[^a-z0-9ğüşöçıİĞÜŞÖÇ\s-]/g, '').trim().replace(/\s+/g, '-') : '';
+          }
+
           return (
             <a 
-              href={`${base}/${lang}/news/${id}`}
+              href={`${base}/${lang}/news/${slug}`}
               class="group bg-white/5 border border-white/5 rounded-[40px] overflow-hidden hover:border-[#5dade2]/30 transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,0,0,0.3)]"
             >
               <div class="h-64 bg-slate-800 relative overflow-hidden">

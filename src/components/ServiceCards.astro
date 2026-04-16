@@ -59,7 +59,14 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
               .sort((a, b) => (a.data.order || 99) - (b.data.order || 99))
               .map((s) => (
               <a 
-                href={`${base}/${lang}/services/${s.id.includes('/') ? s.id.split('/')[0] : s.id.replace('.md', '')}`}
+                href={`${base}/${lang}/services/${s.slug || (() => {
+                  let id = (s.id || '').toString();
+                  if (id.endsWith('.md')) id = id.replace(/\.md$/, '');
+                  const parts = id.split('/').filter(Boolean);
+                  let ss = parts.length ? parts[parts.length - 1] : '';
+                  if (ss === 'tr' || ss === 'en') ss = parts.length >= 2 ? parts[parts.length - 2] : ss;
+                  return ss;
+                })()}`}
                 class="group relative flex flex-col bg-white border border-slate-100 p-10 rounded-[40px] transition-all duration-1000 hover:border-[#5dade2]/30 hover:shadow-[0_60px_100px_-30px_rgba(21,67,160,0.12)]"
               >
                 <!-- Numbering Overlay -->
