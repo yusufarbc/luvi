@@ -1,7 +1,7 @@
 ---
 title: "Our Founder Emre EŞ was a Guest on Nesrin İçli's Perspektif Program on Business Channel TV."
 description: "From Algorithmic Empathy to Digital Consciousness: We discussed the future of AI emotions on Business Channel TV."
-pubDate: 2026-04-14
+pubDate: 2024-04-14
 image: "./cover.jpg"
 youtubeId: "IqFQssOHIcc"
 lang: "en"

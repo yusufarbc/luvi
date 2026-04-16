@@ -16,6 +16,10 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+// Determine current section from URL (e.g. /tr/news/... -> 'news')
+const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
+const section = pathSegments[1] || pathSegments[0] || '';
+const showSidebar = ['products', 'services'].includes(section);
 ---
 
 <Layout title={`${frontmatter.title} | Luvi Bilişim`} lang={lang}>
@@ -28,15 +32,49 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
-        <!-- Sidebar (Hidden on Mobile) -->
-        <aside class="hidden lg:flex lg:col-span-3 flex-col gap-12 sticky top-40">
-           <div class="flex flex-col gap-6">
-              <h4 class="text-[#154360] font-sans font-black text-[11px] tracking-[0.4em] uppercase opacity-40">{lang === 'tr' ? 'BÖLÜMLER' : 'SECTIONS'}</h4>
-              <nav id="toc" class="flex flex-col gap-1 border-l-2 border-slate-100 ml-1">
-                <!-- TOC items will be injected as accordions -->
-              </nav>
-           </div>
-        </aside>
+        {showSidebar && (
+          <!-- Sidebar (Hidden on Mobile) -->
+          <aside class="hidden lg:flex lg:col-span-3 flex-col gap-12 sticky top-40">
+             <div class="flex flex-col gap-6">
+                <h4 class="text-[#154360] font-sans font-black text-[11px] tracking-[0.4em] uppercase opacity-40">{lang === 'tr' ? 'BÖLÜMLER' : 'SECTIONS'}</h4>
+                <nav id="toc" class="flex flex-col gap-1 border-l-2 border-slate-100 ml-1">
+                  <!-- TOC items will be injected as accordions -->
+                </nav>
+             </div>
+
+             <!-- Sidebar Visual Links (Öne Çıkanlar) -->
+             {(otherProducts.length > 0 || otherServices.length > 0) && (
+               <div class="flex flex-col gap-6">
+                 <h4 class="text-[#154360] font-sans font-black text-[11px] tracking-[0.4em] uppercase opacity-40">{lang === 'tr' ? 'ÖNE ÇIKANLAR' : 'FEATURED'}</h4>
+                 <div class="flex flex-col gap-3">
+                   {((otherProducts.length > 0 ? otherProducts : otherServices).slice(0,4)).map((item: any) => {
+                     const itemSlug = item.id.split('/').pop()?.replace('.md', '').replace(/\/(tr|en)$/, '').split('/').shift();
+                     const section = otherProducts.length > 0 ? 'products' : 'services';
+
+                     return (
+                       <a
+                         href={`${base}/${item.data.lang}/${section}/${itemSlug}`}
+                         class="group flex items-center gap-4 p-3 bg-white rounded-xl border border-slate-100 hover:shadow-md transition-all duration-300"
+                         title={item.data.title}
+                       >
+                         {item.data.logo ? (
+                           <img
+                             src={`${base}${item.data.logo}`}
+                             alt={item.data.title}
+                             class="h-12 w-12 object-contain rounded-md"
+                           />
+                         ) : (
+                           <div class="h-12 w-12 rounded-md bg-slate-50 flex items-center justify-center text-[#5dade2] font-black">{item.data.title.split(' ').slice(0,1).join('')}</div>
+                         )}
+                         <div class="text-sm text-slate-600 font-medium">{item.data.title}</div>
+                       </a>
+                     );
+                   })}
+                 </div>
+               </div>
+             )}
+          </aside>
+        )}
 
         <!-- Main Content Column -->
         <div class="lg:col-span-9">
