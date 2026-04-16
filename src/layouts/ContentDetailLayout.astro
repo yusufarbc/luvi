@@ -2,6 +2,7 @@
 import Layout from './Layout.astro';
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
 import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
 
 interface Props {
   frontmatter: any;
@@ -20,6 +21,21 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 const pathSegments = Astro.url.pathname.split('/').filter(Boolean);
 const section = pathSegments[1] || pathSegments[0] || '';
 const showSidebar = ['products', 'services'].includes(section);
+const alignContentToHeader = section === 'news';
+const pageSlug = pathSegments[2] || '';
+
+// If we're on a news detail page, fetch other news for "Related/Diğer Haberler"
+let relatedNews = [];
+if (section === 'news') {
+  const allNews = await getCollection('news');
+  relatedNews = allNews
+    .filter(n => n.data?.lang === lang)
+    .map(n => {
+      const s = n.id.split('/').pop()?.replace('.md', '').replace(/\/(tr|en)$/, '').split('/').shift();
+      return { ...n, slug: s };
+    })
+    .filter(n => n.slug !== pageSlug);
+}
 ---
 
 <Layout title={`${frontmatter.title} | Luvi Bilişim`} lang={lang}>
@@ -28,7 +44,7 @@ const showSidebar = ['products', 'services'].includes(section);
   <div id="progress-bar" class="fixed top-0 left-0 h-1 bg-[#5dade2] z-[101] transition-all duration-300 w-0"></div>
 
   <main class="pt-14 pb-32 bg-slate-50 min-h-screen">
-    <div class="container mx-auto px-4 md:px-8 max-w-6xl">
+    <div class={alignContentToHeader ? 'w-full px-4 md:px-12' : 'container mx-auto px-4 md:px-8 max-w-6xl'}>
 
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
@@ -178,6 +194,40 @@ const showSidebar = ['products', 'services'].includes(section);
           )}
         </div>
       </div>
+
+      {section === 'news' && relatedNews.length > 0 && (
+        <div class="mt-24">
+          <div class="border-t border-slate-200 pt-16">
+            <div class="flex items-center gap-6 mb-12">
+              <h2 class="text-[#154360] font-heading font-black text-2xl md:text-3xl tracking-tight whitespace-nowrap">
+                {lang === 'tr' ? 'Diğer Haberler' : 'Related News'}
+              </h2>
+              <div class="h-[2px] flex-1 bg-slate-200"></div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+              {relatedNews.slice(0,6).map((item: any) => {
+                const itemSlug = item.id.split('/').pop()?.replace('.md', '').replace(/\/(tr|en)$/, '').split('/').shift();
+                return (
+                  <a href={`${base}/${item.data.lang}/news/${itemSlug}`} class="group block bg-white rounded-2xl overflow-hidden border border-slate-100 hover:shadow-lg transition-all duration-300">
+                    <div class="h-44 bg-slate-50 overflow-hidden">
+                      {item.data.image ? (
+                        <Image src={item.data.image} alt={item.data.title} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                      ) : <div class="w-full h-full bg-slate-100"></div>}
+                    </div>
+                    <div class="p-4">
+                      {item.data.pubDate && (
+                        <div class="text-xs text-slate-400 mb-2">{new Date(item.data.pubDate).toLocaleDateString(lang === 'tr' ? 'tr-TR' : 'en-US', { day: 'numeric', month: 'long', year: 'numeric' })}</div>
+                      )}
+                      <div class="text-[#154360] font-heading font-black text-lg leading-tight">{item.data.title}</div>
+                      {item.data.description && <p class="text-slate-500 mt-2 text-sm line-clamp-3">{item.data.description}</p>}
+                    </div>
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      )}
 
       <!-- Other Products/Services Quick Links (outside grid to prevent overlap) -->
       {(otherProducts.length > 0 || otherServices.length > 0) && (
@@ -475,6 +525,52 @@ const showSidebar = ['products', 'services'].includes(section);
     border: none !important;
     background: linear-gradient(to right, transparent, rgba(93, 173, 226, 0.4), transparent) !important;
     margin: 6rem 0 !important;
+  }
+
+  /* Ensure images inside article fill the text width and align with content */
+  .premium-luvi-article img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    object-fit: cover !important;
+    border-radius: 16px !important;
+    margin: 2rem 0 !important;
+  }
+
+  .premium-luvi-article a img {
+    display: block !important;
+  }
+
+  .premium-luvi-article figure {
+    margin: 0 !important;
+  }
+
+  .premium-luvi-article figcaption {
+    color: var(--text-body) !important;
+    font-size: 0.95rem !important;
+    text-align: center !important;
+    margin-top: 0.75rem !important;
+  }
+
+  /* Full-bleed images (authors can add `full-bleed` class to figure or img) */
+  .premium-luvi-article figure.full-bleed,
+  .premium-luvi-article img.full-bleed,
+  .premium-luvi-article p > img.full-bleed {
+    position: relative !important;
+    left: 50% !important;
+    right: 50% !important;
+    margin-left: calc(-50vw + 50%) !important;
+    margin-right: calc(-50vw + 50%) !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    border-radius: 0 !important;
+  }
+
+  .premium-luvi-article figure.full-bleed img,
+  .premium-luvi-article img.full-bleed {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: cover !important;
   }
 
   /* Offset for fixed navbar */

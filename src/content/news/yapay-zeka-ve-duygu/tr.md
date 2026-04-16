@@ -1,7 +1,7 @@
 ---
 title: "Kurucumuz Emre EŞ Business Channel TV’de Nesrin İçli’nin Perspektif programına konuk oldu."
 description: "Algoritmik Empatiden Dijital Bilince: Yapay Zekanın Duygusu Olacak mı? sorusunu Business Channel TV'de yanıtladık."
-pubDate: 2024-04-14
+pubDate: 2023-04-14
 image: "./cover.jpg"
 youtubeId: "IqFQssOHIcc"
 lang: "tr"
