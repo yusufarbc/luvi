@@ -17,32 +17,32 @@ const sortedReferences = allReferences.sort((a, b) => (a.data.order || 99) - (b.
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
-<section id="references" class="py-24 bg-white border-t border-slate-100">
+<section id="references" class="py-16 md:py-24 bg-white border-t border-slate-100">
   <div class="container mx-auto px-4">
-    <div class="text-center mb-16">
+    <div class="text-center mb-10 md:mb-16">
       <h2 class="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-sans font-black text-[#154360] tracking-tighter leading-tight">
         {ref_title}
       </h2>
     </div>
 
-    <div class="relative overflow-hidden w-full py-10">
-      <div class="flex animate-scroll hover:[animation-play-state:paused] whitespace-nowrap gap-10 md:gap-14 w-max">
+    <div class="relative overflow-hidden w-full py-6 md:py-10 before:absolute before:left-0 before:top-0 before:z-10 before:h-full before:w-12 before:sm:w-24 before:bg-gradient-to-r before:from-white before:to-transparent after:absolute after:right-0 after:top-0 after:z-10 after:h-full after:w-12 after:sm:w-24 after:bg-gradient-to-l after:from-white after:to-transparent">
+      <div class="flex animate-scroll hover:[animation-play-state:paused] whitespace-nowrap gap-8 md:gap-14 w-max items-center">
         {/* Original List */}
         {sortedReferences.map((r) => (
           <a 
             href={r.data.url}
             target="_blank"
             rel="noopener noreferrer"
-            class="group relative py-8 px-12 transition-all duration-500 flex items-center justify-center min-w-[200px] md:min-w-[260px]"
+            class="shrink-0 group relative py-4 px-4 sm:px-6 md:py-8 md:px-10 transition-all duration-500 flex items-center justify-center min-w-[150px] sm:min-w-[200px] md:min-w-[260px] h-20 md:h-28"
           >
             {r.data.logo ? (
               <img 
                 src={`${base}${r.data.logo}`} 
                 alt={r.data.name} 
-                class="max-h-20 w-auto max-w-[85%] object-contain transition-transform duration-500 group-hover:scale-110"
+                class="max-h-12 sm:max-h-16 md:max-h-20 w-auto max-w-full object-contain transition-transform duration-500 group-hover:scale-110"
               />
             ) : (
-              <span class="text-[#154360] font-sans font-black text-xl md:text-3xl tracking-tighter ">
+              <span class="text-[#154360] font-sans font-black text-base sm:text-xl md:text-3xl tracking-tighter">
                 {r.data.name}
               </span>
             )}
@@ -54,16 +54,16 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
             href={r.data.url}
             target="_blank"
             rel="noopener noreferrer"
-            class="group relative py-8 px-12 transition-all duration-500 flex items-center justify-center min-w-[200px] md:min-w-[260px]"
+            class="shrink-0 group relative py-4 px-4 sm:px-6 md:py-8 md:px-10 transition-all duration-500 flex items-center justify-center min-w-[150px] sm:min-w-[200px] md:min-w-[260px] h-20 md:h-28"
           >
             {r.data.logo ? (
               <img 
                 src={`${base}${r.data.logo}`} 
                 alt={r.data.name} 
-                class="max-h-20 w-auto max-w-[85%] object-contain transition-transform duration-500 group-hover:scale-110"
+                class="max-h-12 sm:max-h-16 md:max-h-20 w-auto max-w-full object-contain transition-transform duration-500 group-hover:scale-110"
               />
             ) : (
-              <span class="text-[#154360] font-sans font-black text-xl md:text-3xl tracking-tighter">
+              <span class="text-[#154360] font-sans font-black text-base sm:text-xl md:text-3xl tracking-tighter">
                 {r.data.name}
               </span>
             )}
@@ -88,7 +88,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     }
     @keyframes scroll {
       0% { transform: translateX(0); }
-      100% { transform: translateX(calc(-50% - 20px)); }
+      100% { transform: translateX(calc(-50% - 16px)); }
     }
   }
 </style>
