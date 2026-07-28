@@ -5,31 +5,31 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<section id="about-us" class="py-32 bg-white relative overflow-hidden scroll-mt-24">
+<section id="about-us" class="py-16 md:py-28 lg:py-32 bg-white relative overflow-hidden scroll-mt-24">
   <div class="container mx-auto px-4 md:px-8 relative z-10">
-    <div class="flex flex-col lg:flex-row items-center gap-20">
+    <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-20">
       <div class="w-full lg:w-1/2">
-        <h2 class="text-4xl md:text-6xl font-heading font-black text-[#154360] mb-12 tracking-tighter leading-tight animate-fade-in group">
+        <h2 class="text-2xl sm:text-4xl md:text-6xl font-heading font-black text-[#154360] mb-6 md:mb-12 tracking-tighter leading-tight animate-fade-in group">
           <span class="inline-block border-b-4 border-[#e74c3c] pb-2">{t('about.title')}</span>
         </h2>
         
-        <div class="prose prose-xl prose-slate max-w-none text-slate-600 font-sans font-medium leading-relaxed space-y-8 animate-slide-up">
+        <div class="prose prose-base sm:prose-lg md:prose-xl prose-slate max-w-none text-slate-600 font-sans font-medium leading-relaxed text-sm sm:text-base md:text-lg space-y-4 sm:space-y-6 md:space-y-8 animate-slide-up">
           {t('about.text').split('\n\n').map(paragraph => (
             <p>{paragraph}</p>
           ))}
         </div>
       </div>
       
-      <div class="w-full lg:w-1/2 relative">
-        <div class="relative rounded-[64px] overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-transform duration-700">
+      <div class="w-full lg:w-1/2 relative mt-8 lg:mt-0">
+        <div class="relative rounded-3xl sm:rounded-[48px] md:rounded-[64px] overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-transform duration-700">
           <img src="/images/meeting.jpg" alt="Luvi Bilişim Office" class="w-full h-auto object-cover" />
           <div class="absolute inset-0 bg-gradient-to-t from-[#154360]/40 to-transparent"></div>
         </div>
         
         <!-- Stats Decorative -->
-        <div class="absolute -bottom-10 -left-10 bg-[#e74c3c] p-10 rounded-[48px] text-white shadow-2xl animate-bounce-slow">
-          <p class="text-4xl font-heading font-black">20+</p>
-          <p class="text-sm font-black uppercase tracking-widest opacity-80 decoration-none">Yıl Tecrübe</p>
+        <div class="absolute -bottom-6 left-4 sm:-bottom-10 sm:-left-10 bg-[#e74c3c] p-5 sm:p-8 md:p-10 rounded-2xl sm:rounded-[48px] text-white shadow-2xl animate-bounce-slow">
+          <p class="text-2xl sm:text-4xl font-heading font-black">20+</p>
+          <p class="text-[10px] sm:text-sm font-black uppercase tracking-widest opacity-80 decoration-none">{lang === 'tr' ? 'Yıl Tecrübe' : 'Years Experience'}</p>
         </div>
       </div>
     </div>

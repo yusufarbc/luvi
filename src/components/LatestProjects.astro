@@ -21,11 +21,11 @@ const combinedItems = allNews
 const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
 ---
 
-<section id="projects" class="py-32 bg-white relative">
+<section id="projects" class="py-16 md:py-32 bg-white relative">
   <div class="container mx-auto px-4 md:px-8">
-    <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-4">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-20 gap-4">
       <div class="max-w-3xl">
-        <h2 class="text-4xl md:text-6xl lg:text-7xl font-sans font-black text-[#154360] tracking-tighter leading-[1.05] mb-4">
+        <h2 class="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-sans font-black text-[#154360] tracking-tighter leading-[1.05] mb-2 sm:mb-4">
           {lang === 'tr' ? (
             <>Bizden <span class="text-[#5dade2]">Haberler</span></>
           ) : (
@@ -33,12 +33,12 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
           )}
         </h2>
       </div>
-      <a href={`${base}/${lang}/news`} class="mb-6 text-[#5dade2] font-black text-sm border-b-2 border-[#5dade2]/20 hover:border-[#5dade2] transition-all pb-1">
+      <a href={`${base}/${lang}/news`} class="mb-2 md:mb-6 text-[#5dade2] font-black text-xs sm:text-sm border-b-2 border-[#5dade2]/20 hover:border-[#5dade2] transition-all pb-1">
         {lang === 'tr' ? 'Tüm Haberleri Gör' : 'View All News'}
       </a>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-12">
       {combinedItems.map((item) => {
         // Use folder name for ID
         const parts = item.id.split('/');
@@ -47,9 +47,9 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
         return (
           <a 
             href={`${base}/${lang}/news/${id}`}
-            class="group bg-white border border-slate-100 rounded-[40px] overflow-hidden transition-all duration-700 hover:border-[#154360]/10 hover:shadow-[0_40px_80px_-20px_rgba(21,67,96,0.08)] hover:-translate-y-3"
+            class="group bg-white border border-slate-100 rounded-2xl sm:rounded-3xl md:rounded-[40px] overflow-hidden transition-all duration-700 hover:border-[#154360]/10 hover:shadow-[0_40px_80px_-20px_rgba(21,67,96,0.08)] hover:-translate-y-3"
           >
-            <div class="h-64 bg-slate-50 flex items-center justify-center relative overflow-hidden">
+            <div class="h-48 sm:h-64 bg-slate-50 flex items-center justify-center relative overflow-hidden">
               {item.data.image ? (
                  <img src={item.data.image.src || item.data.image} alt={item.data.title} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
               ) : (
@@ -57,11 +57,11 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL;
               )}
             </div>
             
-            <div class="p-10 relative z-20">
-              <h3 class="text-[#154360] font-sans font-black text-2xl mb-5 group-hover:text-[#5dade2] transition-colors line-clamp-2 leading-tight tracking-tighter">
+            <div class="p-6 sm:p-8 md:p-10 relative z-20">
+              <h3 class="text-[#154360] font-sans font-black text-xl sm:text-2xl mb-3 sm:mb-5 group-hover:text-[#5dade2] transition-colors line-clamp-2 leading-tight tracking-tighter">
                 {item.data.title}
               </h3>
-              <p class="text-slate-500 text-base font-sans line-clamp-3 mb-10 leading-relaxed">
+              <p class="text-slate-500 text-sm sm:text-base font-sans line-clamp-3 mb-6 sm:mb-10 leading-relaxed">
                 {item.data.description}
               </p>
               <div class="flex items-center gap-4 text-[#154360] text-[10px] font-black tracking-[0.2em] group/link">

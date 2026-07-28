@@ -53,21 +53,21 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
         const prefix = stat.number.includes('%') ? '%' : '';
         
         return (
-          <div class="p-12 md:p-16 flex flex-col items-start justify-center border-b border-r border-slate-100 last:border-b-0 last:border-r-0 md:even:border-r-0 bg-white hover:bg-slate-50 transition-colors duration-500">
-            <div class="text-[#e74c3c] mb-8" set:html={stat.icon} />
-            <p class="text-sm text-[#154360]/60 font-black tracking-widest mb-4 text-left leading-relaxed max-w-[200px]">
+          <div class="p-6 sm:p-10 md:p-16 flex flex-col items-start justify-center border-b border-r border-slate-100 last:border-b-0 last:border-r-0 md:even:border-r-0 bg-white hover:bg-slate-50 transition-colors duration-500">
+            <div class="text-[#e74c3c] mb-6 md:mb-8 [&_svg]:w-8 [&_svg]:h-8 sm:[&_svg]:w-12 sm:[&_svg]:h-12" set:html={stat.icon} />
+            <p class="text-xs sm:text-sm text-[#154360]/60 font-black tracking-widest mb-3 sm:mb-4 text-left leading-relaxed max-w-[200px]">
               {stat.desc}
             </p>
             <div class="flex flex-col items-start">
               <span 
-                class="stat-number text-5xl md:text-6xl lg:text-7xl font-heading font-black text-[#154360] tracking-tighter mb-2"
+                class="stat-number text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-black text-[#154360] tracking-tighter mb-1 sm:mb-2"
                 data-target={targetValue}
                 data-prefix={prefix}
                 data-suffix={suffix}
               >
                 {stat.number}
               </span>
-              <span class="text-xs font-black text-[#154360]/40 tracking-widest">
+              <span class="text-[10px] sm:text-xs font-black text-[#154360]/40 tracking-widest">
                 {stat.label}
               </span>
             </div>

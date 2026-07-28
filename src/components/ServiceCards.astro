@@ -26,26 +26,26 @@ const imageMap: Record<string, string> = {
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 ---
 
-<section id="services" class="py-40 bg-white relative overflow-hidden scroll-mt-32">
+<section id="services" class="py-16 md:py-32 lg:py-40 bg-white relative overflow-hidden scroll-mt-32">
     <!-- Subtle Background Pattern -->
     <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(#154360 1px, transparent 1px); background-size: 40px 40px;"></div>
 
     <div class="container mx-auto px-4 md:px-8 relative z-10">
         <!-- Section Header: Corporate Left-Aligned -->
-        <div class="flex flex-col lg:flex-row items-end justify-between mb-32 gap-12">
+        <div class="flex flex-col lg:flex-row items-end justify-between mb-16 md:mb-24 lg:mb-32 gap-8 lg:gap-12">
             <div class="max-w-3xl">
-                <span class="inline-flex items-center gap-3 text-[#5dade2] font-sans font-black text-xs tracking-[0.4em] mb-8">
+                <span class="inline-flex items-center gap-3 text-[#5dade2] font-sans font-black text-xs tracking-[0.4em] mb-4 sm:mb-8">
                     <div class="w-12 h-px bg-[#5dade2]/30"></div>
                     {lang === 'tr' ? 'STRATEJİK ÇÖZÜMLERİMİZ' : 'STRATEGIC SOLUTIONS'}
                 </span>
-                <h2 class="text-4xl md:text-7xl font-sans font-black text-[#154360] tracking-tighter leading-[1] mb-8">
+                <h2 class="text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-sans font-black text-[#154360] tracking-tighter leading-[1.05] mb-6 sm:mb-8">
                     {lang === 'tr' ? (
                         <>Stratejik Çözümler <br/> ve <span class="text-slate-400">Dijital Yetkinlikler</span></>
                     ) : (
                         <>Strategic Solutions <br/> and <span class="text-slate-400">Digital Competencies</span></>
                     )}
                 </h2>
-                <p class="text-slate-500 text-xl font-medium leading-relaxed max-w-2xl border-l-[6px] border-[#e74c3c] pl-8 py-2">
+                <p class="text-slate-500 text-sm sm:text-base md:text-xl font-medium leading-relaxed max-w-2xl border-l-4 sm:border-l-[6px] border-[#e74c3c] pl-4 sm:pl-8 py-2">
                     {lang === 'tr' 
                         ? 'İşletmenizin dijital dayanıklılığını ve operasyonel verimliliğini global standartlarda, uçtan uca yönetilen profesyonel hizmetlerle güçlendiriyoruz.' 
                         : 'We empower your digital resilience and operational efficiency with end-to-end managed professional services at global standards.'}
@@ -54,7 +54,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
         </div>
 
         {allServices.length > 0 ? (
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
             {allServices
               .sort((a, b) => (a.data.order || 99) - (b.data.order || 99))
               .map((s) => (
@@ -67,7 +67,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
                   if (ss === 'tr' || ss === 'en') ss = parts.length >= 2 ? parts[parts.length - 2] : ss;
                   return ss;
                 })()}`}
-                class="group relative flex flex-col bg-white border border-slate-100 p-10 rounded-[40px] transition-all duration-1000 hover:border-[#5dade2]/30 hover:shadow-[0_60px_100px_-30px_rgba(21,67,160,0.12)]"
+                class="group relative flex flex-col bg-white border border-slate-100 p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-3xl md:rounded-[40px] transition-all duration-1000 hover:border-[#5dade2]/30 hover:shadow-[0_60px_100px_-30px_rgba(21,67,160,0.12)]"
               >
                 <!-- Numbering Overlay -->
                 <div class="absolute top-10 right-10 text-slate-100 font-sans font-black text-6xl select-none group-hover:text-[#5dade2]/10 transition-colors duration-700">
